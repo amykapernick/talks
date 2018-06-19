@@ -9,8 +9,12 @@
 }
 
 /* HTML Tags */
-.xml .hljs-tag, .xml .hljs-name {
+.html .hljs-tag, .html .hljs-name {
   color: #fff;
+}
+
+.html .hljs-tag .hljs-attr {
+
 }
 
 /* Atelier-Cave Red */

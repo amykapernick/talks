@@ -44,6 +44,10 @@ ul {
         text-align: left;
     }
 }
+
+dt {
+    font-weight: bold;
+}
   
 i {
     color: $grey_dark;
@@ -95,10 +99,67 @@ ul {
     }
 }
 
+blockquote {
+    border-left: 10px solid $grey_light;
+    font-weight: bold;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+
+    &:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+}
+
+mark {
+    background-color: $cyan;
+}
+
+table {
+    text-align: left;
+
+    tr {
+
+    }
+
+    td, th {
+        border: 1px solid #000;
+        padding: 20px;
+    }
+
+    th {
+        font-size: 1.4em;
+    }
+}
+
 pre {
     padding: 5vw;
     text-align: left;
     white-space: normal;
+}
+
+form {
+    display: flex;
+        flex-direction: column;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 1000px;
+}
+
+legend {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+input, button {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 20px 0;
 }
 
 header {
@@ -120,9 +181,25 @@ section {
     width: 100vw;
     z-index: 0;
 
+    img {
+        height: 100vh;
+        object-fit: contain;
+        width: 100vw;
+    }
+
+    &.blank {
+        background: #000;
+    }
+
     &.code {
         background: $grey_dark;
         color: #fff;
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
 
         &.split {
             color: $grey_dark;
@@ -131,30 +208,63 @@ section {
                 color: #fff;
             }
 
-            > * {
+            > div {
                 padding: 5vw;
             }
         }
 
         &.vertical {
             background: linear-gradient(to right, $grey_dark 50%, $background 50%);
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
+            grid-template-columns: 50vw 50vw;
+            grid-template-rows: 100vw;
+
+            &.compare {
+                background: $grey_dark;
+            }
+
+            &.example {
+                text-align: left;
+            }
+
+            img {
+                width: 45vw;
+            }
         }
 
         &.horizontal {
             background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 100vw;
+            grid-template-rows: 50vh 50vh;
+
+            img {
+                height: 40vh;
+            }
         }
     }
 
     &.image {
         img {
-            height: 100vh;
             object-fit: cover;
-            width: 100vw;
         }
+    }
+
+    &#slide-6 {
+        grid-template-columns: 3fr 2fr;
+        // font-size: 30px;
+        padding: 4vw;
+        grid-gap: 2vw;
+
+        > pre {
+            padding: 0;
+        }
+    }
+
+    &#slide-7 {
+        font-size: 30px;
+    }
+
+    &#slide-8 {
+        font-size: 40px;
     }
 }
 
