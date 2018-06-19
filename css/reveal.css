@@ -1575,6 +1575,11 @@ section {
       background: linear-gradient(to bottom, #242323 50%, #faf8ef 50%);
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr; }
+  section.image img {
+    height: 100vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100vw; }
 
 footer {
   color: #5b5b5b;
