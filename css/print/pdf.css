@@ -9,12 +9,16 @@
 	-webkit-print-color-adjust: exact;
 }
 
+::-webkit-scrollbar {
+	width: 0px;
+}
+
 body {
 	margin: 0 auto !important;
 	border: 0;
 	padding: 0;
 	float: none !important;
-	overflow: visible;
+	overflow-y: visible;
 }
 
 html {
@@ -91,9 +95,13 @@ ul, ol, div, p {
 	page-break-after: always;
 }
 
+.reveal .slides .pdf-page, .reveal .slides section {
+	height: 210mm;
+	width: 297mm;
+}
+
 .reveal .slides section {
 	visibility: visible !important;
-	display: block !important;
 	position: absolute !important;
 
 	margin: 0 !important;
