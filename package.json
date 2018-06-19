@@ -1,7 +1,7 @@
 {
-  "name": "presentation-template",
-  "version": "1.0.1",
-  "description": "HTML Presentation Template",
+  "name": "so-you-think-you-know-html",
+  "version": "2.0.0",
+  "description": "Presentation for Fenders",
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:amykapernick/presentation-template.git"
+    "url": "git@github.com:amykapernick/so-you-think-you-know-html.git"
   },
   "engines": {
     "node": ">=4.0.0"
