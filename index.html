@@ -29,9 +29,9 @@
 					<img src="./img/title.png" />
 
 					<aside class="notes">
-						HTML has been around for over 25 years, and forms the building blocks of the web.
-
 						Recently I was asked what programming language I recommended for those wanting to get started with the web, and very quickly I got in trouble for suggesting HTML, because it's "not real programming" or "just a markup language".
+
+						HTML has been around for over 25 years, and forms the building blocks of the web.
 
 						While I accept that HTML is a markup language, you're intending to work with the web, it's a great place to start, as knowledge of how the language works is required to use other languages like CSS, JavaScript and even PHP. 
 
@@ -72,30 +72,42 @@
 					</aside>
 				</section>
 
-				<section id="slide-4" class="blank">
+				<section id="slide-4">
+					<p>Google cares about your HTML too!</p>
 					<aside class="notes">
 						Semantic HTML isn't just about accessibility though, how you structure your site affects how it's used by an increasing range of technology other than screen readers, such as voice recognition software and your smartwatch. Even your SEO is affected by whether you've written your HTML properly.
-
-						If you want to change the way something looks on your website, that's when you should be using CSS. Don't use a h6 because it's the size you want it, just make the h2 smaller!
-
-						How often have you simply used a div and styled it to look like a button or a link? That's still the same thing right?
 					</aside>
+				</section>
+
+				<section id="slide-17" class="question">
+					<button>Download Catalogue</button>
+					<ul class="code">
+						<li><pre><code class="hljs html"><a>Link</a></code></pre></li>
+						<li><pre><code class="hljs html"><div>Clickable Div</div></code></pre></li>
+						<li><pre><code class="hljs html"><button>Download Button</button></code></pre></li>
+						<li><pre><code class="hljs html"><span>Clickable Span</span></code></pre></li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
 				</section>
 
 				<section id="slide-5" class="code">
 					<pre><code data-trim class="hljs html">
-						<div class="link-disguise">Click here to do something really important</div>
+						<div class="link-disguise">Download Catalogue</div>
 
 
-						<a href="#somewhere-else">Click here to go somewhere else</a>
+						<button onClick="downloadCatalogue()">Download Catalogue</button>
 
 
-						<button onClick="thisThing()">Click here to do this thing</button>
+						<a href="/catalogue.pdf">Download Catalogue</a>
 					</code></pre>
 					<aside class="notes">
 						The issue with using a div, is that it's a layout element, and therefore won't get focus when someone navigates to it with their keyboard. While you can hack to make a div clickable, why bother going to all that trouble when there's already an element to suit your purpose?
 
-						While they're often used interchangeably, the anchor tag should be used to link somewhere else, whether that be another part of the page, another page, a file, email address or phone number. A button on the other hand, should be used to trigger an action, or for a toggle.
+						While they're often used interchangeably, a button should be used to trigger an action, or for a toggle. The anchor tag on the other hand should be used to link somewhere else, whether that be another part of the page, another page, a file, email address or phone number.
+
+						If you want to change the way something looks on your website, that's when you should be using CSS. Don't use a h6 because it's the size you want it, just make the h2 smaller!
 					</aside>
 				</section>
 
@@ -141,6 +153,19 @@
 					</aside>
 				</section>
 
+				<section id="slide-18" class="question">
+					<pre><code class="hljs html"><dt></dt></code></pre>
+					<ul>
+						<li>Down Town</li>
+						<li>Definition Term</li>
+						<li>Description Term</li>
+						<li>David Thomas</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
 				<section id="slide-7" class="code split vertical example">
 					<pre><code data-trim class="hljs html">
 						<dl>
@@ -151,7 +176,7 @@
 						</dl>
 											
 						<dl>
-					  	  <dt>Name</dt>
+						  <dt>Name</dt>
 						  <dd>Amy</dd>
 						  <dt>Birthplace</dt>
 						  <dd>Wondai, Queensland</dd>
@@ -188,6 +213,19 @@
 					</aside>
 				</section>
 
+				<section id="slide-19" class="question">
+					<pre><code class="hljs html"><table></table></code></pre>
+					<ul>
+						<li>Layouts</li>
+						<li>Data</li>
+						<li>Email Templates</li>
+						<li>Nightmares</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
 				<section id="slide-8" class="code split vertical">
 					<pre><code data-trim class="hljs html">
 						<table>
@@ -197,24 +235,19 @@
 						      <th>Favourite Colour</th>
 						    </tr>
 						    <tr>
-						      <td>Amy</td>
-						      <td>Purple</td>
+						      <td>Amy</td><td>Purple</td>
 						    </tr>
 						    <tr>
-						      <td>Ben</td>
-						      <td>Black</td>
+						      <td>Ben</td><td>Black</td>
 						    </tr>
 						    <tr>
-						      <td>DT</td>
-						      <td>Green</td>
+						      <td>DT</td><td>Green</td>
 						    </tr>
 						    <tr>
-						      <td>Jess</td>
-						      <td>Blue</td>
+						      <td>Jess</td><td>Blue</td>
 						    </tr>
 						    <tr>
-						      <td>Mandy</td>
-						      <td>Purple</td>
+						      <td>Mandy</td><td>Purple</td>
 						    </tr>
 						  </tbody>
 						</table>
@@ -256,6 +289,56 @@
 					</aside>
 				</section>
 
+				<section id="slide-20" class="question">
+					<input type="text" placeholder="Form Field" />
+					<ul class="code">
+						<li><pre><code class="hljs html"><h3>Email</h3></code></pre></li>
+						<li><pre><code class="hljs html"><label>Email:</label></code></pre></li>
+						<li><pre><code class="hljs html">placeholder="Email"</code></pre></li>
+						<li><pre><code class="hljs html"><legend>Email</legend></code></pre></li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-10" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						<form>
+						  <legend>Subscribe to the Newsletter</legend>
+						  <label for="email">Email:</label>
+						  <input id="email" type="email" name="email" />
+						  <button type="submit">Submit</button>
+						</form>
+					</code></pre>
+					<div>
+						<form>
+							<legend>Subscribe to the Newsletter</legend>
+							<label for="email">Email</label>
+							<input id="email" type="email" name="email" />
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+					<aside class="notes">
+						Although most forms end up with the field names as placeholders (it looks so much nicer that way), someone using a screen reader can't read the text in the field, and the screen reader doesn't know what the field is for so it can tell them. Even if your designer doesn't want to use a label, they can be hidden so that only screen readers pick them up on the page.
+
+						Legends also allow us to dictate the title of a form, similar to how a heading is often used, but specific to that particular form. As an input field gets a label, a form should have a legend.
+					</aside>
+				</section>
+
+				<section id="slide-21" class="question">
+					<pre><code class="hljs html"><datalist></datalist></code></pre>
+					<ul>
+						<li>Tables</li>
+						<li>Lists</li>
+						<li>Forms</li>
+						<li>Meta Info</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
 				<section id="slide-9" class="code split vertical">
 					<pre><code data-trim class="hljs html">
 						<input list="rainbow" />
@@ -280,28 +363,17 @@
 					</aside>
 				</section>
 
-				<section id="slide-10" class="code split horizontal">
-					<pre><code data-trim class="hljs html">
-						<form>
-						  <legend>Subscribe to the Newsletter</legend>
-						  <label for="email">Email</label>
-						  <input id="email" type="email" name="email" />
-						  <button type="submit">Submit</button>
-						</form>
-					</code></pre>
-					<div>
-						<form>
-							<legend>Subscribe to the Newsletter</legend>
-							<label for="email">Email</label>
-							<input id="email" type="email" name="email" />
-							<button type="submit">Submit</button>
-						</form>
+				<section id="slide-22" class="question">
+					<pre><code class="hljs html"><mark></mark></code></pre>
+					<ul>
+						<li>Strikethrough</li>
+						<li>Highlight</li>
+						<li>Signature</li>
+						<li>Markdown</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
 					</div>
-					<aside class="notes">
-						Although most forms end up with the field names as placeholders (it looks so much nicer that way), someone using a screen reader can't read the text in the field, and the screen reader doesn't know what the field is for so it can tell them. Even if your designer doesn't want to use a label, they can be hidden so that only screen readers pick them up on the page.
-
-						Legends also allow us to dictate the title of a form, similar to how a heading is often used, but specific to that particular form. As an input field gets a label, a form should have a legend.
-					</aside>
 				</section>
 
 				<section id="slide-11" class="code split horizontal">
@@ -314,6 +386,19 @@
 					<aside class="notes">
 						While we don't often see highlighted text on the web, it's an  tool that can be used to highlight something that's important other than using bold or italic styling. This works better than just assigning a background, keeping with the text itself (especially if it's multi-line).
 					</aside>
+				</section>
+
+				<section id="slide-23" class="question">
+					<pre><code class="hljs html"><source></source></code></pre>
+					<ul>
+						<li>Videos</li>
+						<li>Pictures</li>
+						<li>Code</li>
+						<li>Audio</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
 				</section>
 
 				<section id="slide-12" class="code split horizontal">
@@ -332,6 +417,19 @@
 
 						Similar to CSS media queries, the `source` elements dictate different screen sizes and the image to use, with a fallback image at the end.
 					</aside>
+				</section>
+
+				<section id="slide-24" class="question">
+					<pre><code class="hljs html"><q></q></code></pre>
+					<ul>
+						<li>The Queen</li>
+						<li>Quiz</li>
+						<li>Quote</li>
+						<li>Quota</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
 				</section>
 
 				<section id="slide-13" class="code split horizontal">
@@ -370,7 +468,46 @@
 					</aside>
 				</section>
 
-				<section id="slide-15" class="blank">
+				<section id="slide-15">
+					<p>HTML5 Support</p>
+					<table>
+						<thead>
+							<tr>
+								<th colspan="6"><svg><use xlink:href="/img/fa-light.svg#desktop"></use></svg></th>
+								<th colspan="6"><svg><use xlink:href="/img/fa-light.svg#mobile"></use></svg></th>
+							</tr>
+							<tr>
+								<th><svg><use xlink:href="/img/fa-brands.svg#chrome"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#edge"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#firefox"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#internet-explorer"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#opera"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#safari"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#chrome"></use></svg><svg><use xlink:href="/img/fa-brands.svg#android"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#edge"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#firefox"></use></svg><svg><use xlink:href="/img/fa-brands.svg#android"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#opera"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#safari"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-light.svg#globe"></use></svg></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="good">95%</td>
+								<td class="good">88%</td>
+								<td class="good">88%</td>
+								<td class="poor">56%</td>
+								<td class="good">93%</td>
+								<td class="good">85%</td>
+								<td class="good">88%</td>
+								<td class="average">80%</td>
+								<td class="average">84%</td>
+								<td class="good">87%</td>
+								<td class="average">75%</td>
+								<td class="good">93%</td>
+							</tr>
+						</tbody>
+					</table>
 					<aside class="notes">
 						The advantage of using new HTML specs, is that you don't have the same disadvantages to using an element that doesn't yet have great support. When using something new in CSS or JavaScript, it's often difficult to implement a less supported technology into a production environment and you need to take into account any fallbacks needed. But HTML is forwards compatible, so if the browser doesn't recognise a tag it's been given, the content inside the tag will render just the same. 
 
