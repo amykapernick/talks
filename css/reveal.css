@@ -1758,6 +1758,12 @@ section {
       section#slide-14 div cite {
         font-size: 0.8em; }
 
+.title {
+  line-height: 1.2;
+  text-transform: uppercase; }
+  .title mark {
+    background: rgba(0, 255, 255, 0.3); }
+
 footer {
   color: #5b5b5b;
   display: -ms-flexbox;

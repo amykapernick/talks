@@ -143,7 +143,7 @@ module.exports = function(grunt) {
 				files: root.map(path => path + '/*.md')
 			},
 			options: {
-				livereload: true
+				livereload: false
 			}
 		},
 
@@ -186,7 +186,6 @@ module.exports = function(grunt) {
 
 	// Serve presentation locally
 	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
-
 	// Run tests
 	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
 

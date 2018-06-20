@@ -428,6 +428,15 @@ section {
     }
 }
 
+.title {
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    mark {
+        background: rgba($cyan, 0.3);
+    }
+}
+
 footer {
     color: $grey;
     display: flex;
