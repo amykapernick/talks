@@ -303,6 +303,11 @@ section {
             padding: 30px;
             margin: 0;
             text-align: center;
+
+            &.correct {
+                border: 10px solid #21b621;
+                padding: 23px;
+            }
         }
     
         pre {

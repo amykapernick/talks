@@ -29,15 +29,24 @@
 					<img src="./img/title.png" />
 
 					<aside class="notes">
-						Recently I was asked what programming language I recommended for those wanting to get started with the web, and very quickly I got in trouble for suggesting HTML, because it's "not real programming" or "just a markup language".
-
-						HTML has been around for over 25 years, and forms the building blocks of the web.
-
-						While I accept that HTML is a markup language, you're intending to work with the web, it's a great place to start, as knowledge of how the language works is required to use other languages like CSS, JavaScript and even PHP. 
-
-						Just because HTML is a markup language, doesn't mean it shouldn't get attention like the "more fun" CSS and JavaScript.
-
-						But when was the last time you looked at a new HTML standard? Do you know the right element to use for  an audio file? For a definition? How about for an address or a status bar?
+						- Asked about programming<br />
+						- HTML "not real programming" or "just markup"<br />
+						<br />
+						- HTML over 25 years old<br />
+						- Forms building blocks<br />
+						<br />
+						- HTML IS a markup language<br />
+						- Great place to start for web<br />
+						- Knowledge of how it works essential for others<br />
+						<br />
+						- HTML is markup, but should still get <br />
+						- Like more fun languages<br />
+						<br />
+						- When did you last look at a new standard?<br />
+						- Do you know the right element for an audio file?<br />
+						<br />
+						- definition?<br />
+						- Do you know when you should use a button?<br />
 					</aside>
 				</section>
 			
@@ -45,9 +54,14 @@
 					<p>Good HTML is key for Accessibility</p>
 
 					<aside class="notes">
-						HTML elements aren't just for us to put content in, or a way to target something in our CSS and JavaScript. Semantically correct HTML is essential for your website to be read by a screen reader. The reader knows what kind of content to expect from certain elements and interprets them for the user.
-
-						And remember, screen readers aren't the only type of assistive technology being used. Have you considered how you site might be consumed by an assistive technology, like a Braille reader?
+						- Not just for content<br />
+						- Or to target with CSS and js<br />
+						- Semantically correct HTML essential for screen readers<br />
+						- Reader knows what content to expect<br />
+						- Interprets for user<br />
+						<br />
+						- Screen readers aren't the only assistive tech<br />
+						- How would someone use a Braille reader?
 					</aside>
 				</section>
 			
@@ -64,18 +78,27 @@
 					</code></pre>
 
 					<aside class="notes">
-						For example, you normally use bold or italic text for emphasis, but if someone is using a screen reader, how will they know this?
-
-						`b` and `i` only dictate how the content will look, but screen readers will ignore these tags and read the content as usual. But if you use `strong` or `em` instead, they're semantic tags that the screen reader will interpret and read the content differently (sometimes in a different voice).
-
-						So next time you think Accessibility is too hard or too much work, take little step and make sure that you're using the right element.
+						- Use bold or italic to emphasise<br />
+						- How will someone with a screen reader know?<br />
+						<br />
+						- `b` and `i` apply formatting only<br />
+						- Screen readers ignore<br />
+						<br />
+						- `strong` and `em` are semantic tags<br />
+						- Screen readers interpret and read content differently<br />
+						<br />
+						- A11y not hard<br />
+						- Use the right element
 					</aside>
 				</section>
 
 				<section id="slide-4">
 					<p>Google cares about your HTML too!</p>
 					<aside class="notes">
-						Semantic HTML isn't just about accessibility though, how you structure your site affects how it's used by an increasing range of technology other than screen readers, such as voice recognition software and your smartwatch. Even your SEO is affected by whether you've written your HTML properly.
+						- Semantic HTML not just for a11y<br />
+						- Structure of site affects how it's used<br />
+						- eg. voice recognition and smartwatch<br />
+						- SEO affected by HTML structure
 					</aside>
 				</section>
 
@@ -92,6 +115,16 @@
 					</div>
 				</section>
 
+				<section id="slide-25" class="question">
+					<button>Download Catalogue</button>
+					<ul class="code">
+						<li class="correct"><pre><code class="hljs html"><a>Link</a></code></pre></li>
+						<li><pre><code class="hljs html"><div>Clickable Div</div></code></pre></li>
+						<li><pre><code class="hljs html"><button>Download Button</button></code></pre></li>
+						<li><pre><code class="hljs html"><span>Clickable Span</span></code></pre></li>
+					</ul>
+				</section>
+
 				<section id="slide-5" class="code">
 					<pre><code data-trim class="hljs html">
 						<div class="link-disguise">Download Catalogue</div>
@@ -103,11 +136,18 @@
 						<a href="/catalogue.pdf">Download Catalogue</a>
 					</code></pre>
 					<aside class="notes">
-						The issue with using a div, is that it's a layout element, and therefore won't get focus when someone navigates to it with their keyboard. While you can hack to make a div clickable, why bother going to all that trouble when there's already an element to suit your purpose?
-
-						While they're often used interchangeably, a button should be used to trigger an action, or for a toggle. The anchor tag on the other hand should be used to link somewhere else, whether that be another part of the page, another page, a file, email address or phone number.
-
-						If you want to change the way something looks on your website, that's when you should be using CSS. Don't use a h6 because it's the size you want it, just make the h2 smaller!
+						- div is a layout element<br />
+						- Won't get keyboard focus<br />
+						- Can hack to make it clickable<br />
+						- Don't go to the effort<br />
+						<br />
+						- Often used interchangeably<br />
+						- Button for triggering actions, eg toggle<br />
+						- Link should go elsewhere<br />
+						- Other part of page, another page, email, phone number, document<br />
+						<br />
+						- Use CSS for appearance<br />
+						- Don't use a h6 because it's the right size
 					</aside>
 				</section>
 
@@ -143,13 +183,20 @@
 						</ul>
 					</code></pre>
 					<aside class="notes">
-							The only thing that divs and spans do is apply display block or inline to the element, once again, they're for layout only.
-
-							Screen readers don't just read through a page, they take into account everything available, give you lists of headings, controls for table and let you know about the list they're about to read.
-							
-							When you use a div or span for things that require interaction, like buttons, headings or tables, they can't be translated into a more usable format and are relying on formatting only.
-							
-							When the screen reader approaches a list, it lets the user know what kind of list they're about to read, and how many items are in it. Imagine what it's like to get stuck in the middle of an unsemantec list, with no way to get out because the screen reader just sees a heap of divs and doesn't know where the end is?
+						- divs and spans only change display property<br />
+						- layout only<br />
+						<br />
+						- Screen readers take into account everything on the page<br />
+						- lists of headings, controls for tables, and information about lists<br />
+						<br />
+						- When divs used for things that need interaction<br />
+						- Eg headings, buttons, tables<br />
+						- Can't be translated into usable format<br />
+						- You rely on visual formatting only<br />
+						<br />
+						- Screen reader gives info about list<br />
+						- Stuck in unsemantic list<br />
+						- Screen reader just sees divs
 					</aside>
 				</section>
 
@@ -164,6 +211,16 @@
 					<div class="fragment">
 						<audio data-autoplay src="./thinking_music.mp3" />
 					</div>
+				</section>
+
+				<section id="slide-26" class="question">
+					<pre><code class="hljs html"><dt></dt></code></pre>
+					<ul>
+						<li>Down Town</li>
+						<li class="correct">Definition Term</li>
+						<li class="correct">Description Term</li>
+						<li>David Thomas</li>
+					</ul>
 				</section>
 
 				<section id="slide-7" class="code split vertical example">
@@ -207,9 +264,16 @@
 						</dl>
 					</div>
 					<aside class="notes">
-						One of the lesser known list siblings, definition (or description) list comprises of the `dl`, `dt` and `dd` elements are used to define the term and the definition or description being used.
-
-						These elements are used to define a group of terms, like in a glossary or to show meta data (where you have a list of key-value pairs).
+						- Lesser know lists<br />
+						- Definition or description list<br />
+						- `dl` `dt` and `dd` elements<br />
+						- Term and description or definition<br />
+						<br />
+						- Used to define group of terms<br />
+						- Eg glossary<br />
+						- Show meta data<br />
+						- key-value pairs<br />
+						- spec information
 					</aside>
 				</section>
 
@@ -224,6 +288,16 @@
 					<div class="fragment">
 						<audio data-autoplay src="./thinking_music.mp3" />
 					</div>
+				</section>
+
+				<section id="slide-27" class="question">
+					<pre><code class="hljs html"><table></table></code></pre>
+					<ul>
+						<li>Layouts</li>
+						<li class="correct">Data</li>
+						<li>Email Templates</li>
+						<li>Nightmares</li>
+					</ul>
 				</section>
 
 				<section id="slide-8" class="code split vertical">
@@ -281,11 +355,16 @@
 						</table>
 					</div>
 					<aside class="notes">
-						Tables have developed a bad rap because of their overuse in layouts (and the nightmare they create in email templates), but they still have a secret superpower that most of us don't know about. 
-
-						DATA!
-						
-						If something should look like a table, and you would expect to see it in a table, put it in a table! You won't be mocked for using a table element exactly as it was intended.
+						- Tables have bad rap<br />
+						- Overuse in layouts<br />
+						- Nightmare to deal with<br />
+						- Secret superpower<br />
+						<br />
+						Data<br />
+						<br />
+						- Should be in a table<br />
+						- Use a table<br />
+						- Can use for intended use
 					</aside>
 				</section>
 
@@ -300,6 +379,16 @@
 					<div class="fragment">
 						<audio data-autoplay src="./thinking_music.mp3" />
 					</div>
+				</section>
+
+				<section id="slide-28" class="question">
+					<input type="text" placeholder="Form Field" />
+					<ul class="code">
+						<li><pre><code class="hljs html"><h3>Email</h3></code></pre></li>
+						<li class="correct"><pre><code class="hljs html"><label>Email:</label></code></pre></li>
+						<li><pre><code class="hljs html">placeholder="Email"</code></pre></li>
+						<li><pre><code class="hljs html"><legend>Email</legend></code></pre></li>
+					</ul>
 				</section>
 
 				<section id="slide-10" class="code split horizontal">
@@ -320,9 +409,15 @@
 						</form>
 					</div>
 					<aside class="notes">
-						Although most forms end up with the field names as placeholders (it looks so much nicer that way), someone using a screen reader can't read the text in the field, and the screen reader doesn't know what the field is for so it can tell them. Even if your designer doesn't want to use a label, they can be hidden so that only screen readers pick them up on the page.
-
-						Legends also allow us to dictate the title of a form, similar to how a heading is often used, but specific to that particular form. As an input field gets a label, a form should have a legend.
+						- Most forms use placeholders<br />
+						- Screen reader can't read<br />
+						- Can't interpret and tell user<br />
+						- Always use labels<br />
+						- Visually hide<br />
+						<br />
+						- Legends show title of form<br />
+						- Specific to forms<br />
+						- Input gets label, form gets legend
 					</aside>
 				</section>
 
@@ -337,6 +432,16 @@
 					<div class="fragment">
 						<audio data-autoplay src="./thinking_music.mp3" />
 					</div>
+				</section>
+
+				<section id="slide-29" class="question">
+					<pre><code class="hljs html"><datalist></datalist></code></pre>
+					<ul>
+						<li>Tables</li>
+						<li>Lists</li>
+						<li class="correct">Forms</li>
+						<li>Meta Info</li>
+					</ul>
 				</section>
 
 				<section id="slide-9" class="code split vertical">
@@ -357,9 +462,12 @@
 						<img src="./img/datalist.jpg" />
 					</div>
 					<aside class="notes">
-						Datalist works with input fields to help make forms easier to fill in, and reduce error. If you use a select field, you can dictate the options that are available to you and remove the chance of human error, but as the number of items in a list increases, so does the user's difficulty in finding the option they're after (how much trouble do you have you had difficulty selection your birth year from an option field?).
-
-						Datalists allow you to dictate a set list of options, that are then searched for in an input field.
+						- Datalist works with inputs<br />
+						- Reduce human error<br />
+						- Increase UX<br />
+						- Dictate list of options like select<br />
+						- Allow user to type to narrow down<br />
+						- Some select fields get this <br />
 					</aside>
 				</section>
 
@@ -376,6 +484,16 @@
 					</div>
 				</section>
 
+				<section id="slide-30" class="question">
+					<pre><code class="hljs html"><mark></mark></code></pre>
+					<ul>
+						<li>Strikethrough</li>
+						<li class="correct">Highlight</li>
+						<li>Signature</li>
+						<li>Markdown</li>
+					</ul>
+				</section>
+
 				<section id="slide-11" class="code split horizontal">
 					<pre><code data-trim class="hljs html">
 						This is useful to make <mark>this text highlighted</mark> to stand out
@@ -384,7 +502,10 @@
 						<p>This is useful to make <mark>this text highlighted</mark> to stand out</p>
 					</div>
 					<aside class="notes">
-						While we don't often see highlighted text on the web, it's an  tool that can be used to highlight something that's important other than using bold or italic styling. This works better than just assigning a background, keeping with the text itself (especially if it's multi-line).
+						- Don't often use highlight<br />
+						- Medium bringing it back<br />
+						- Useful for creating emphasis<br />
+						- Works well mutliline<br />
 					</aside>
 				</section>
 
@@ -395,6 +516,19 @@
 						<li>Pictures</li>
 						<li>Code</li>
 						<li>Audio</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-31" class="question">
+					<pre><code class="hljs html"><source></source></code></pre>
+					<ul>
+						<li class="correct">Videos</li>
+						<li class="correct">Pictures</li>
+						<li>Code</li>
+						<li class="correct">Audio</li>
 					</ul>
 					<div class="fragment">
 						<audio data-autoplay src="./thinking_music.mp3" />
@@ -413,9 +547,11 @@
 						<img src="./img/background.jpg" />
 					</div>
 					<aside class="notes">
-						In the world of responsive design and infinite device sizes, the picture element helps us to serve up different image sizes depending on the size of the device.
-
-						Similar to CSS media queries, the `source` elements dictate different screen sizes and the image to use, with a fallback image at the end.
+						- Trick question<br />
+						- Used in `audio`, `video` and `picture` elements<br />
+						- In picture element, used to serve responsive images<br />
+						- Similar to CSS media queries<br />
+						- Define sizes and image to use
 					</aside>
 				</section>
 
@@ -432,6 +568,16 @@
 					</div>
 				</section>
 
+				<section id="slide-32" class="question">
+					<pre><code class="hljs html"><q></q></code></pre>
+					<ul>
+						<li>The Queen</li>
+						<li>Quiz</li>
+						<li class="correct">Quote</li>
+						<li>Quota</li>
+					</ul>
+				</section>
+
 				<section id="slide-13" class="code split horizontal">
 					<pre><code data-trim class="hljs html">
 						When doing research, I read a great quote <q cite="http://simplyaccessible.com/article/pitfalls-info-relationships/">HTML is the backbone of the web. Or rather, the forgotten backbone</q> by our own Julie Grundy.
@@ -444,11 +590,17 @@
 						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
 					</div>
 					<aside class="notes">
-						Depending on the types of sites you're working on, you may not use quotes very often, but if my time at uni taught me anything, it's to make sure you're always referencing them properly.
-
-						In inline quotation element is useful for quotes that don't need to be separated (as you'd use the blockquote element). Often browsers will enclose the element in quotation marks as well.
-						
-						This element should go hand in hand with the cite element to show where you got it from. Depending on which specification you follow, you may or may not use the author's name (W3C says you can, WHATWG says absolutely no).
+						- May not use quotes<br />
+						- Uni taught to reference properly<br />
+						<br />
+						- `q` is inline quote<br />
+						- Doesn't need separating<br />
+						- Often enclose with quote marks<br />
+						<br />
+						- Goes with `cite`<br />
+						- Depends on spec if you use author name<br />
+						- W3C says yes<br />
+						- WHATWG says HELL NO
 					</aside>
 				</section>
 
@@ -464,7 +616,7 @@
 						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
 					</div>
 					<aside class="notes">
-						The cite element works the same way when using a blockquote to show a longer quote.
+						- Works the same with blockquote
 					</aside>
 				</section>
 
@@ -509,28 +661,48 @@
 						</tbody>
 					</table>
 					<aside class="notes">
-						The advantage of using new HTML specs, is that you don't have the same disadvantages to using an element that doesn't yet have great support. When using something new in CSS or JavaScript, it's often difficult to implement a less supported technology into a production environment and you need to take into account any fallbacks needed. But HTML is forwards compatible, so if the browser doesn't recognise a tag it's been given, the content inside the tag will render just the same. 
-
-						Unfortunately, once again IE is being difficult with this requirement, and will refuse to apply styles to unrecognised tags or allow them to be used as a CSS selector.
+						- Don't have the same disadvantages with new specs<br />
+						- When using new CSS and JS, need fallback for prod<br />
+						- Difficult to implement something new<br />
+						- HTML forwards compatible<br />
+						- If unrecognise, renders content anyway<br />
+						<br />
+						- IE is difficult<br />
+						- Won't apply styles to unknown elements<br />
+						- Won't use them as CSS selectors
 					</aside>
 				</section>
 
 				<section id="slide-16" class="blank">
 					<aside class="notes">
-						Technology doesn't actually care what an element looks like, so make sure you give it the right element to interpret, and then use the tools at your disposal to make it look the way you want it to. Remember, there are people using your site differently to how you do, and in ways you won't expect.
-
-						Even if you think the recommended element doesn't work for you, remember that you need to think about things other than how it looks, or what cool trick it does.
-						
-						- Can someone access it with a mouse?
-						- What about a keyboard?
-						- Is it obvious if the focus changes?
-						- Does it give feedback to the user on what's happening?
-						
-						We don't know how people are going to use our website, but no matter what they use it will be consuming our HTML. To allow this, we need to make sure that our HTML is semantic and logical from the very beginning, otherwise you're just building a site on dodgy foundations.
-						
-						So don't be afraid to check out the latest HTML spec, read up on something new or stay up to date with changes in the HTML standards. It's changing with the times (although not quite as fast as JavaScript is), and we need to keep up otherwise we might be making things harder for ourselves (and those trying to use our site).
+						- Technology doesn't care how it looks<br />
+						- Give it the right element to interpret<br />
+						- Use your tools to make it look how you want<br />
+						- People use your site differently to you<br />
+						- In ways you won't expect<br />
+						<br />
+						- If you think recommended element won't work<br />
+						- Remember how it looks isn't the only thing<br />
+						- Can someone access it with a mouse?<br />
+						- Keyboard<br />
+						- Does it show focus<br />
+						- Does it give user feedback<br />
+						<br />
+						- We dont know how they use the site<br />
+						- Always consume HTML<br />
+						- Make sure it's semantic and logical from the start<br />
+						- Just building site on dodgy foundations<br />
+						<br />
+						- Don't be afraid to check HTML spec<br />
+						- Read up on something new<br />
+						- Stay up to date with standard changes<br />
+						- Changing with the times<br />
+						- Not as fast as JS<br />
+						- Need to keep up<br />
+						- Making things harder for ourselves<br />
+						- and others
 					</aside>
-					</section>
+				</section>
 			</div>
 		</div>
 
