@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt test",
     "start": "grunt serve",
-    "build": "grunt"
+    "build": "grunt css-core"
   },
   "repository": {
     "type": "git",
