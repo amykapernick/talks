@@ -189,6 +189,6 @@ module.exports = function(grunt) {
 	// Run tests
 	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
 
-	grunt.registerTask( 'build', [ 'connect'] );
+	grunt.registerTask( 'build', [ 'css'] );
 
 };
