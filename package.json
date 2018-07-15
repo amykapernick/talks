@@ -1,7 +1,7 @@
 {
-  "name": "so-you-think-you-know-html",
+  "name": "amy-kapernick-talks",
   "version": "2.0.0",
-  "description": "Presentation for Fenders",
+  "description": "Presentation Slides",
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:amykapernick/so-you-think-you-know-html.git"
+    "url": "git@github.com:amykapernick/talks.git"
   },
   "engines": {
     "node": ">=4.0.0"
