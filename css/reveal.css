@@ -1679,6 +1679,13 @@ section {
     grid-template-rows: 1fr 2fr;
     padding: 5vw;
     text-align: center; }
+    section.question.long ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      grid-auto-rows: 1fr; }
+      section.question.long ul pre {
+        padding: 0; }
     section.question ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1689,6 +1696,9 @@ section {
       section.question ul.code li {
         background: #242323;
         padding: 0; }
+    section.question p {
+      font-size: 0.5em;
+      margin: 0; }
     section.question li {
       display: grid;
       -ms-flex-align: center;
@@ -1697,8 +1707,27 @@ section {
       font-size: 80px;
       list-style-type: none;
       padding: 30px;
+      position: relative;
       margin: 0;
       text-align: center; }
+      section.question li:before {
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        font-size: 30px;
+        height: 40px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 40px; }
+      section.question li:nth-child(1):before {
+        content: 'A'; }
+      section.question li:nth-child(2):before {
+        content: 'B'; }
+      section.question li:nth-child(3):before {
+        content: 'C'; }
+      section.question li:nth-child(4):before {
+        content: 'D'; }
       section.question li.correct {
         border: 10px solid #21b621;
         padding: 23px; }
