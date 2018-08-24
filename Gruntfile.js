@@ -143,7 +143,7 @@ module.exports = function(grunt) {
 				files: root.map(path => path + '/*.md')
 			},
 			options: {
-				livereload: false
+				livereload: true
 			}
 		},
 
