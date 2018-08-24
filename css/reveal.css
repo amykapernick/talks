@@ -1529,6 +1529,8 @@ button, .btn {
   right: 0;
   bottom: 0;
   left: 0; }
+  .slides.border section {
+    border-left: 20px solid lightseagreen; }
 
 p {
   font-size: 1em;
@@ -1759,8 +1761,7 @@ section {
         font-size: 0.8em; }
 
 .title {
-  line-height: 1.2;
-  text-transform: uppercase; }
+  line-height: 1.2; }
   .title mark {
     background: rgba(0, 255, 255, 0.3); }
 
