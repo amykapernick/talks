@@ -202,6 +202,19 @@ section {
         width: 100vw;
     }
 
+    &.index {
+        align-content: start;
+        font-size: 0.2em;
+        justify-items: start;
+        padding: 50px;
+        text-align: left;
+
+        a {
+            color: $blue;
+            display: block;
+        }
+    }
+
     &.blank {
         background: #000;
     }

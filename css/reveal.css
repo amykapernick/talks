@@ -1622,6 +1622,16 @@ section {
     -o-object-fit: contain;
        object-fit: contain;
     width: 100vw; }
+  section.index {
+    -ms-flex-line-pack: start;
+        align-content: start;
+    font-size: 0.2em;
+    justify-items: start;
+    padding: 50px;
+    text-align: left; }
+    section.index a {
+      color: #1212d8;
+      display: block; }
   section.blank {
     background: #000; }
   section.code {
