@@ -1617,7 +1617,7 @@ section {
   position: relative;
   width: 100vw;
   z-index: 0; }
-  section img {
+  section > img {
     height: 100vh;
     -o-object-fit: contain;
        object-fit: contain;
@@ -1768,9 +1768,13 @@ section {
       section#slide-14 div cite {
         font-size: 0.8em; }
 
-.title {
-  line-height: 1.2;
+.uppercase {
   text-transform: uppercase; }
+  .uppercase mark {
+    background: rgba(0, 255, 255, 0.3); }
+
+.title {
+  line-height: 1.2; }
   .title mark {
     background: rgba(0, 255, 255, 0.3); }
 
