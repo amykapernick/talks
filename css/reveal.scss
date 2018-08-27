@@ -196,7 +196,7 @@ section {
     width: 100vw;
     z-index: 0;
 
-    img {
+    > img {
         height: 100vh;
         object-fit: contain;
         width: 100vw;
@@ -441,9 +441,16 @@ section {
     }
 }
 
+.uppercase {
+    text-transform: uppercase;
+
+    mark {
+        background: rgba($cyan, 0.3);
+    }
+}
+
 .title {
     line-height: 1.2;
-    text-transform: uppercase;
 
     mark {
         background: rgba($cyan, 0.3);
