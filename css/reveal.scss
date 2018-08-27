@@ -196,7 +196,7 @@ section {
     width: 100vw;
     z-index: 0;
 
-    img {
+    > img {
         height: 100vh;
         object-fit: contain;
         width: 100vw;
@@ -375,6 +375,14 @@ section {
             &.correct {
                 border: 10px solid #21b621;
                 padding: 23px;
+            }
+
+            img {
+                height: auto;
+                    max-height: 25vh;
+                margin: 0 auto;
+                width: auto;
+                    max-width: 30vw;
             }
         }
     
