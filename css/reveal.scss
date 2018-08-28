@@ -202,10 +202,23 @@ section {
     width: 100vw;
     z-index: 0;
 
-    img {
+    > img {
         height: 100vh;
         object-fit: contain;
         width: 100vw;
+    }
+
+    &.index {
+        align-content: start;
+        font-size: 0.2em;
+        justify-items: start;
+        padding: 50px;
+        text-align: left;
+
+        a {
+            color: $blue;
+            display: block;
+        }
     }
 
     &.blank {
@@ -283,6 +296,19 @@ section {
 
         padding: 5vw;
         text-align: center;
+
+        &.long {
+            ul {
+                display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 20px;
+                    grid-auto-rows: 1fr;
+
+                pre {
+                    padding: 0;
+                }
+            }
+        }
     
         ul {
             display: grid;
@@ -299,6 +325,11 @@ section {
                 }
             }
         }
+
+        p {
+            font-size: 0.5em;
+            margin: 0;
+        }
     
         li {
             display: grid;
@@ -307,12 +338,57 @@ section {
             font-size: 80px;
             list-style-type: none;
             padding: 30px;
+            position: relative;
             margin: 0;
             text-align: center;
+
+            &:before {
+                color: #fff;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                font-size: 30px;
+                height: 40px;
+                position: absolute;
+                    top: 5px;
+                    left: 5px;
+                width: 40px;
+            }
+
+            &:nth-child(1) {
+                &:before {
+                    content: 'A';
+                }
+            }
+
+            &:nth-child(2) {
+                &:before {
+                    content: 'B';
+                }
+            }
+
+            &:nth-child(3) {
+                &:before {
+                    content: 'C';
+                }
+            }
+
+            &:nth-child(4) {
+                &:before {
+                    content: 'D';
+                }
+            }
 
             &.correct {
                 border: 10px solid #21b621;
                 padding: 23px;
+            }
+
+            img {
+                height: auto;
+                    max-height: 25vh;
+                margin: 0 auto;
+                width: auto;
+                    max-width: 30vw;
             }
         }
     
@@ -431,6 +507,14 @@ section {
                  font-size: 0.8em;
             }
         }
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+
+    mark {
+        background: rgba($cyan, 0.3);
     }
 }
 
