@@ -86,7 +86,13 @@ button, .btn {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: 0;
+    left: 0;
+    
+    &.border {
+        section {
+            border-left: 20px solid lightseagreen;
+        }
+    }
 }
 
 p {
