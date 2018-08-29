@@ -206,6 +206,10 @@ section {
         height: 100vh;
         object-fit: contain;
         width: 100vw;
+
+        &.background {
+            object-fit: cover;
+        }
     }
 
     &.index {
