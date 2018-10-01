@@ -1,0 +1,114 @@
+//So you think you know HTML - Fenders 2018
+.custom-1 {
+    section {
+        &#slide-6 {
+            grid-template-columns: 3fr 2fr;
+            font-size: 80px;
+            padding: 4vw;
+            grid-gap: 2vw;
+    
+            > pre {
+                padding: 0;
+            }
+        }
+    
+        &#slide-7 {
+            font-size: 60px;
+    
+            div {
+                font-size: 0.6em;
+            }
+        }
+    
+        &#slide-8 {
+            font-size: 50px;
+    
+            table {
+                font-size: 0.9em;
+            }
+        }
+    
+        &#slide-10 {
+            font-size: 60px;
+        }
+    
+        &#slide-9 {
+            font-size: 80px;
+        }
+    
+        &#slide-15 {
+            font-size: 55px;
+    
+            svg {
+                height: 1em;
+                width: 1em;
+            }
+    
+            table {
+                align-self: start;
+                max-width: 100%;
+    
+                td, th {
+                    height: 1em;
+                    text-align: center;
+                    vertical-align: center;
+    
+                    &.good {
+                        background: #71d671;
+                    }
+    
+                    &.average {
+                        background: #e69b5d;
+                    }
+    
+                    &.poor {
+                        background: #f14c4c;
+                    }
+                }
+    
+            }
+        }
+    
+        &#slide-12 {
+            font-size: 70px;
+        }
+    
+        &#slide-13 {
+            font-size: 60px;
+    
+            div{
+                font-size: 0.7em;
+    
+                p {
+                    line-height: 1.3;
+                }
+    
+                cite {
+                    font-size: 0.8em;
+                }
+            }
+        }
+    
+        &#slide-14 {
+            font-size: 60px;
+    
+            div {
+                font-size: 0.7em;
+    
+                blockquote {
+                    font-size: 1.2em;
+                    margin: 0.5em 10px;
+                }
+         
+                cite {
+                     font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+//The Art of Failure - Google Devfest Melbourne 2018
+.custom-2 {
+    font-size: 70px;
+}
