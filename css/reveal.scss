@@ -20,7 +20,7 @@ h1, h2, h3 {
 }
   
 h1 {
-    font-size: 14vh;
+    font-size: 1.5em;
     text-align: center;
 }
 
@@ -448,7 +448,6 @@ section {
 
     &.grid {
         font-size: 0.5em;
-        display: grid;
         
         &.r2 {
             grid-template-rows: 1fr 1fr;
@@ -456,6 +455,10 @@ section {
 
         &.r2-1 {
             grid-template-rows: 2fr 1fr;
+        }
+
+        &.r1-2 {
+            grid-template-rows: 1fr 2fr;
         }
 
         &.c2 {

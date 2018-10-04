@@ -110,5 +110,11 @@
 
 //The Art of Failure - Google Devfest Melbourne 2018
 .custom-2 {
-    font-size: 70px;
+    font-size: 10vh;
+
+    section {
+        &.grid {
+            font-size: 0.6em;
+        }
+    }
 }
