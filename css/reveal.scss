@@ -163,6 +163,10 @@ pre {
     white-space: normal;
 }
 
+small {
+    font-size: 0.5em;
+}
+
 form {
     display: flex;
         flex-direction: column;
@@ -243,6 +247,14 @@ section {
 
         svg, img {
             max-height: 100%;
+        }
+
+        &.caption {
+            display: grid;
+                grid-template-rows: 1fr auto;
+                align-items: center;
+                justify-items: center;
+            padding: 20px;
         }
     }
 
