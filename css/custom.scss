@@ -113,8 +113,25 @@
     font-size: 10vh;
 
     section {
-        &.grid {
-            // font-size: 0.6em;
+        ul {
+            font-size: 0.7em;
+            margin-left: 7vw;
+
+            li {
+                margin: 0.7em 0;
+            }
+        }
+
+        .fragment {
+            &.fade-in-then-semi-out {
+                &.visible {
+                    opacity: 0.3;
+
+                    &.current-fragment {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }
