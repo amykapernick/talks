@@ -135,3 +135,42 @@
         }
     }
 }
+
+//i3 Pitch 2018
+.custom-3 {
+    section {
+        &.list {
+            justify-items: stretch;
+        }
+
+        ul {
+            font-size: 0.7em;
+            margin-left: 2em;
+            width: auto;
+        }
+    }
+}
+
+//ACS Diversity Dinner
+@mixin sizeIncrement($x) {
+    @for $i from 1 through $x {
+        $j: $i / 10;
+        $z: ($j + 0.9) * 100%;
+
+        &:nth-child(#{$i}) {
+            font-size: $z;
+        }
+    }
+}
+
+.custom-4 {
+    section {
+        .tagcloud {
+            font-size: 0.44em;
+
+            span {
+                @include sizeIncrement(15);
+            }
+        }
+    }
+}

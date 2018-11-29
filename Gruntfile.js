@@ -133,7 +133,7 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss', 'lib/css/custom-accessible.css' ],
+				files: [ 'css/reveal.scss', 'lib/css/custom-accessible.css', 'css/custom.scss' ],
 				tasks: 'css-core'
 			},
 			html: {
