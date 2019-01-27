@@ -1,0 +1,537 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/rainbow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body class="custom-5">
+		<header role="banner"></header>
+
+		<div class="reveal">
+			<div class="slides grid">
+				<section>
+					<p class="title">CSS Grid<br/><small>What is this Magic?!</small></p>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section class="blank">
+					<aside class="notes">
+						- In the beginning there was darkness and emptiness<br/>
+						- And then Tim Berers-Lee said "Let there be internet"
+					</aside>
+				</section>
+
+				<section class="white">
+					<div class="body">
+							<H1>World Wide Web</H1>The WorldWideWeb (W3) is a wide-area<A
+							NAME=0 HREF="WhatIs.html">
+							hypermedia</A> information retrieval
+							initiative aiming to give universal
+							access to a large universe of documents.<P>
+							Everything there is online about
+							W3 is linked directly or indirectly
+							to this document, including an <A
+							NAME=24 HREF="Summary.html">executive
+							summary</A> of the project, <A
+							NAME=29 HREF="Administration/Mailing/Overview.html">Mailing lists</A>
+							, <A
+							NAME=30 HREF="Policy.html">Policy</A> , November's  <A
+							NAME=34 HREF="News/9211.html">W3  news</A> ,
+							<A
+							NAME=41 HREF="FAQ/List.html">Frequently Asked Questions</A> .
+							<DL>
+							<DT><A
+							NAME=44 HREF="../DataSources/Top.html">What's out there?</A>
+							<DD> Pointers to the
+							world's online information,<A
+							NAME=45 HREF="../DataSources/bySubject/Overview.html"> subjects</A>
+							, <A
+							NAME=z54 HREF="../DataSources/WWW/Servers.html">W3 servers</A>, etc.
+							<DT><A
+							NAME=46 HREF="Help.html">Help</A>
+							<DD> on the browser you are using
+							<DT><A
+							NAME=13 HREF="Status.html">Software Products</A>
+							<DD> A list of W3 project
+							components and their current state.
+							(e.g. <A
+							NAME=27 HREF="LineMode/Browser.html">Line Mode</A> ,X11 <A
+							NAME=35 HREF="Status.html#35">Viola</A> ,  <A
+							NAME=26 HREF="NeXT/WorldWideWeb.html">NeXTStep</A>
+							, <A
+							NAME=25 HREF="Daemon/Overview.html">Servers</A> , <A
+							NAME=51 HREF="Tools/Overview.html">Tools</A> ,<A
+							NAME=53 HREF="MailRobot/Overview.html"> Mail robot</A> ,<A
+							NAME=52 HREF="Status.html#57">
+							Library</A> )
+							<DT><A
+							NAME=47 HREF="Technical.html">Technical</A>
+							<DD> Details of protocols, formats,
+							program internals etc
+							<DT><A
+							NAME=40 HREF="Bibliography.html">Bibliography</A>
+							<DD> Paper documentation
+							on  W3 and references.
+							<DT><A
+							NAME=14 HREF="People.html">People</A>
+							<DD> A list of some people involved
+							in the project.
+							<DT><A
+							NAME=15 HREF="History.html">History</A>
+							<DD> A summary of the history
+							of the project.
+							<DT><A
+							NAME=37 HREF="Helping.html">How can I help</A> ?
+							<DD> If you would like
+							to support the web..
+							<DT><A
+							NAME=48 HREF="../README.html">Getting code</A>
+							<DD> Getting the code by<A
+							NAME=49 HREF="LineMode/Defaults/Distribution.html">
+							anonymous FTP</A> , etc.</A>
+							</DL>
+						</div>
+					<aside class="notes">
+						- Internet was simpler<br/>
+						- Just HTML content on a page similar to a word document<br/>
+						- Everyone got sick of Times New Roman<br/>
+						- Tim said "let the fonts and colours and sizes and positions be changeable"
+					</aside>
+				</section>
+
+				<section class="white">
+					<iframe class="background" src="./index_dot_css.html"></iframe>
+					<aside class="notes">
+						- And then there was CSS<br/>
+						- But before long this wasn't good enough either<br/>
+						- WE wanted to do more<br/>
+					</aside>
+				</section>
+
+				<section class="code vertical split small">
+					<pre><code data-trim class="hljs html">
+							<table>
+								<tr>
+									<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
+								</tr>
+								<tr>
+									<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+								</tr>
+								<tr>
+									<td width="20%" valign="top" bgcolor="#8bd3d8">
+										<a href="#">Menu link</a><br>
+										<a href="#">Menu link</a><br>
+									</td>
+									<td width="55%" valign="top" bgcolor="#e8f6f7">
+										<h2>Page heading</h2>
+										Lorum Ipsum
+										pair. <br>
+										Lorum ipsum
+									</td>
+									<td width="25%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+								</tr>
+							</table>
+					</code></pre>
+					<div>
+						<table>
+							<tr>
+								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
+							</tr>
+							<tr>
+								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+							</tr>
+							<tr>
+								<td width="20%" valign="top" bgcolor="#8bd3d8">
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</td>
+								<td width="55%" valign="top" bgcolor="#e8f6f7">
+									<h2>Page heading</h2>
+									Lorum Ipsum
+									pair. <br>
+									Lorum ipsum
+								</td>
+								<td width="25%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+							</tr>
+						</table>
+					</div>
+					<aside class="notes">
+						- So we discovered that you could use tables for layouts<br/>
+						- This was great because you could break the apge into a grid<br/>
+						- You could merge cells into each other<br/>
+						- And embed tables inside tables<br/>
+						- We finally had better control over how content was laid out on a page<br/>
+					</aside>
+				</section>
+
+				<section class="code small">
+					<pre><code data-trim class="hljs html">
+						<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+							<tbody>
+								<tr>
+									<td valign="top" align="center">
+										<table width="100%" cellspacing="0" cellpadding="0" border="0">
+											<tbody>
+												<tr>
+													<td valign="top" align="center">
+														<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+															<tbody>
+																<tr>
+																	<td valign="top">
+																		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																				<tr>
+																					<td valign="top">
+																						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+																							<tbody>
+																								<tr>
+																									<td valign="top" align="center">
+																										<table cellspacing="0" cellpadding="0" border="0" align="center">
+																											<tbody>
+																												<tr>
+																													<td valign="top" align="center">
+																														<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+																															<tbody>
+																																<tr>
+																																	<td valign="top" align="center">
+																																		<table cellspacing="0" cellpadding="0" border="0" align="center">
+																																			<tbody>
+																																				<tr>
+																																					<td valign="top" align="center">
+																																						<table>
+																																							<tbody>
+																																								<tr>
+																																									<td valign="top">
+																																										<a href="">
+																																											<img src="image.png" />
+																																										</a>
+																																									</td>
+																																								</tr>
+																																							</tbody>
+																																						</table>
+																																					</td>
+																																				</tr>
+																																			</tbody>
+																																		</table>
+																																	</td>
+																																</tr>
+																															</tbody>
+																														</table>
+																													</td>
+																												</tr>
+																											</tbody>
+																										</table>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</code></pre>
+					<aside class="notes">
+						- But before long, we ended up with excessive complexities<br/>
+						- Tables inside tables was great<br/>
+						- But tables inside tables inside tables inside tables<br/>
+						- Not so much<br/>
+						- This also made it more difficult when we started trying to make out websites work on different device sizes
+					</aside>
+				</section>
+			
+				<section class="code split vertical small table-example">
+					<pre>
+						<code class="hljs html">
+							<header><h1>My Website</h1></header>
+							<nav><a href="#">Home</a></nav>
+							<main>
+								<aside><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></aside>
+								<article>
+									<h2>Page heading</h2>
+									Lorum Ipsum pair. <br>
+									Lorum ipsum
+								</article>
+							</main>
+							<footer>Copyright ©</footer>
+						</code>
+						<code class="hljs css">
+							header {
+								height: 100px;
+								padding: 10px;
+								h1 {
+									margin-top: 30px;
+								}
+							}
+							nav {
+								clear: both;
+								height: 25px;
+								padding: 15px 10px 10px;
+							}
+							
+							main {
+								clear: both;
+								overflow: hidden;
+							}
+							aside {
+								float: left;
+								height: 100%;
+								padding: 10px;
+								width: 20%;
+								nav {
+									height: 100%;
+									padding: 0;
+								}
+							}
+							article {
+								float: left;
+								padding: 10px;
+								width: 55%;
+							}
+							footer {
+								clear: both;
+								height: 20px;
+								padding: 10px;
+								text-align: center;
+							}
+						</code>
+					</pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav>
+							<a href="#">Home</a>
+						</nav>
+						<div class="main">
+							<div class="aside">
+								<nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav>
+							</div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum Ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- So we started using float<br/>
+						- This meant we were back to following the separation of concerns<br/>
+						- Where HTML was for content, while CSS was for visual look and interface<br/>
+						- But before long, we found floats also weren't working<br/> 
+					</aside>
+				</section>
+
+				<section class="code small vertical compare">
+					<pre>
+						<code class="hljs scss">
+								.parent {
+									clear: both;
+									overflow: hidden;
+								}
+								
+								.child {
+									float: left;
+									width: 100%;
+									
+									@media (min-width: 500px) {
+										margin-right: 2%;
+										width: 49%;
+								
+										&:nth-child(2n) {
+											margin-right: 0;
+										}
+								
+										&:nth-child(2n + 1) {
+											clear: both;
+										}
+									}
+						</code>
+					</pre>
+					<pre>
+							<code class="hljs scss">
+										@media (min-width: 800px) {
+											clear: none !important;
+											margin-right: 1% !important;
+											width: 32.6666667%;
+									
+											&:nth-child(3n) {
+												margin-right: 0 !important;
+											}
+									
+											&:nth-child(3n + 1) {
+												clear: both !important;
+											}
+										}
+									}
+							</code>
+						</pre>
+					<aside class="notes">
+						- Your had to clearfix everything<br/>
+						- There were a bunch more container divs being used to keep floating elements together<br/>
+						- And when using media queries you often had to do complex calculations and change or reset the previous code<br/>
+						- Oh, and there was a LOT of using <pre>!important</pre><br/>
+						- So by the time we'd memorised how many % wide each element needed to be in a 6 column grid with a 1% margin, we were all excited when flexbox arrived
+					</aside>
+				</section>
+
+				<section class="code split small table-example flexy vertical">
+					<pre>
+						<code class="hlsj html">
+							<header>
+								<h1>My Website</h1>
+							</header>
+							<nav><a href="#">Home</a></nav>
+							<main>
+								<aside><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></aside>
+								<article>
+									<h2>Page heading</h2>
+									Lorum ipsum	pair. <br>
+									Lorum ipsum
+								</article>
+							</main>
+							<footer>Copyright ©</footer>
+						</code>
+						<code class="hlsj css scss">
+							header {
+								display: flex;
+									align-items: center;
+								height: 100px;
+								padding: 10px;
+							}
+							
+							nav {
+								display: flex;
+									align-items: center;
+								height: 30px;
+								padding: 10px;
+							}
+							
+							main {
+								display: flex;
+							}
+							
+							aside {
+								height: 100%;
+								padding: 10px;
+								width: 20%;
+								
+								nav {
+									background: inherit;
+									flex-wrap: wrap;
+								}
+							}
+							
+							article {
+								padding: 10px;
+								width: 55%;
+							}
+							
+							footer {
+								height: 20px;
+								padding: 10px;
+								text-align: center;
+							}
+						</code>
+					</pre>
+
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav><a href="#">Home</a></nav>
+						<div class="main">
+							<div class="aside"><nav>
+								<a href="#">Menu link</a><br>
+								<a href="#">Menu link</a><br>
+							</nav></div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum ipsum	pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<footer role="contentinfo">
+			@amys_kapers
+		</footer>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { 
+						hljs.configure({
+							tabReplace: ' '
+						});
+						hljs.initHighlightingOnLoad(); 
+					} }
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1
+			});
+		</script>
+	</body>
+</html>

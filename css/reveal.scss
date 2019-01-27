@@ -7,6 +7,10 @@ body {
       font-size: 100px;
       line-height: 1.4;
     margin: 0;
+
+    .progress {
+        visibility: hidden;
+    }
 }
 
 h1, h2, h3 {
@@ -92,6 +96,19 @@ button, .btn {
             }
         }
     }
+
+    &.grid {
+        &:before {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, $grey_light 1px, transparent 1px), linear-gradient(to bottom, $grey_light 1px, transparent 1px);
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+    }
 }
 
 p {
@@ -139,10 +156,6 @@ mark {
 table {
     border-collapse: collapse;
     text-align: left;
-
-    tr {
-
-    }
 
     td, th {
         border: 1px solid $grey_dark;

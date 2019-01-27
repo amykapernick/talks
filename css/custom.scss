@@ -174,3 +174,192 @@
         }
     }
 }
+
+//CSS Grid - NDC London
+.custom-5 {
+    .title {
+        small {
+            font-size: 0.7em;
+        }
+    }
+
+    section {
+        justify-items: stretch;
+
+        &.white {
+            background: #fff;
+        }
+
+        &.small {
+            font-size: 3vh;
+
+            pre {
+                font-size: 0.8em;
+                padding: 1vw 3vw;
+            }
+
+            > div {
+                // font-size: 1em;
+                padding: 5vw 2vw;
+            }
+        }
+    }
+
+    .body {
+        font-size: 16px;
+        font-family: 'Times New Roman', serif;
+        text-align: left;
+        padding: 20px;
+
+        * {
+            font-family: 'Times New Roman', serif;
+        }
+
+        h1 {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            margin-block-start: .67em;
+            margin-block-end: .67em;
+            text-align: left;
+        }
+
+        a {
+            color: rgb(0, 0, 238);
+            text-decoration: underline;
+        }
+
+        dd {
+            font-style: normal;
+            font-size: 1em;
+        }
+    }
+
+    iframe {
+        &.background {
+            height: 100vh;
+            width: 100vw;
+        }
+    }
+
+    table td {
+        border: none;
+    }
+
+    .table-example {
+        // pre {
+        //     display: grid;
+        //     grid-template-columns: 1fr;
+        //     grid-template-rows: 50vh 150vh;
+
+        //     code {
+        //         overflow: hidden;
+        //     }
+        // }
+
+        div {
+            text-align: left;
+
+            * {
+                box-sizing: content-box;
+            }
+
+            .header {
+                background: #1c75bc;
+                box-sizing: border-box;
+                height: 100px;
+                padding: 30px;
+                
+                h1 {
+                    margin-top: 10px;
+                }
+            }
+            
+            nav {
+                background: #8ebade;
+                clear: both;
+                height: 25px;
+                padding: 15px 20px 10px;
+            }
+            
+            .main {
+                background: #8bd3d8;
+                clear: both;
+                overflow: hidden;
+            }
+            
+            .aside {
+                float: left;
+                height: 100%;
+                padding: 20px;
+                width: calc(20% - 40px);
+                
+                nav {
+                    background: #8bd3d8;
+                    height: 100%;
+                    padding: 0;
+                }
+            }
+            
+            .article {
+                background: #e8f6f7;
+                float: left;
+                padding: 20px;
+                width: calc(55% - 40px);
+            }
+            
+            .footer {
+                background: #16a6b1;
+                clear: both;
+                height: 20px;
+                padding: 10px;
+                text-align: center;
+            }
+        }
+
+        &.flexy {
+            div {
+                .header {
+                    display: flex;
+                        align-items: center;
+                    height: 100px;
+                    padding: 10px;
+                    justify-content: center;
+                }
+                
+                nav {
+                    display: flex;
+                        align-items: center;
+                    height: 30px;
+                    padding: 10px;
+                }
+                
+                .main {
+                    display: flex;
+                }
+                
+                .aside {
+                    height: 100%;
+                    padding: 10px;
+                    width: 20%;
+                    
+                    nav {
+                        background: inherit;
+                        flex-wrap: wrap;
+                    }
+                }
+                
+                .article {
+                    padding: 10px;
+                    width: 55%;
+                }
+                
+                .footer {
+                    height: 20px;
+                    padding: 10px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
