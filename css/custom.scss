@@ -202,6 +202,34 @@
                 // font-size: 1em;
                 padding: 5vw 2vw;
             }
+
+            &.very {
+                font-size: 2vh;
+            }
+        }
+
+        > * {
+            max-height: 95vh;
+            overflow: hidden;
+        }
+
+        &.split.horizontal {
+            .image-container {
+                padding: 1vh 5vw;
+                img {
+                    border: 3px solid $grey_dark;
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+
+        > img {
+            width: 95vw;
+            display: block;
+            margin: 0 auto;
         }
     }
 
@@ -236,8 +264,11 @@
     }
 
     iframe {
+        border: 0;
+
         &.background {
             height: 100vh;
+            max-height: unset;
             width: 100vw;
         }
     }
@@ -360,6 +391,70 @@
                     text-align: center;
                 }
             }
+        }
+
+        &.griddy {
+            > div {
+                display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                
+                &:after {
+                    background: #8bd3d8;
+                    content: '';
+                    grid-column: -2;
+                    grid-row: 3;
+                }
+            }
+            
+            .header {
+                display: flex;
+                    align-items: center;
+                grid-column: 1 / -1;
+                height: 100px;
+                padding: 10px;
+            }
+            
+            nav {
+                display: flex;
+                    align-items: center;
+                grid-column: 1 / -1;
+                height: 30px;
+                padding: 10px;
+            }
+            
+            .aside {
+                padding: 10px;
+                
+                nav {
+                    background: inherit;
+                    flex-wrap: wrap;
+                }
+            }
+            
+            .main {
+                grid-column: span 3;
+                padding: 10px;
+            }
+            
+            .footer {
+                grid-column: 1 / -1;
+                height: 20px;
+                padding: 10px;
+                text-align: center;
+            }
+            
+        }
+    }
+
+    .table-grid {
+        font-size: 0.8em;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: 1.5em 1.5em;
+        grid-auto-columns: 1fr;
+
+        img {
+            width: 1em;
         }
     }
 }

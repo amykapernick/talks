@@ -186,7 +186,7 @@
 					</aside>
 				</section>
 
-				<section class="code small">
+				<section class="code small very">
 					<pre><code data-trim class="hljs html">
 						<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 							<tbody>
@@ -274,10 +274,13 @@
 				</section>
 			
 				<section class="code split vertical small table-example">
-					<pre>
-						<code class="hljs html">
-							<header><h1>My Website</h1></header>
-							<nav><a href="#">Home</a></nav>
+					<pre><code data-trim class="hljs html">
+							<header>
+								<h1>My Website</h1>
+							</header>
+							<nav>
+								<a href="#">Home</a>
+							</nav>
 							<main>
 								<aside><nav>
 									<a href="#">Menu link</a><br>
@@ -290,46 +293,6 @@
 								</article>
 							</main>
 							<footer>Copyright ©</footer>
-						</code>
-						<code class="hljs css">
-							header {
-								height: 100px;
-								padding: 10px;
-								h1 {
-									margin-top: 30px;
-								}
-							}
-							nav {
-								clear: both;
-								height: 25px;
-								padding: 15px 10px 10px;
-							}
-							
-							main {
-								clear: both;
-								overflow: hidden;
-							}
-							aside {
-								float: left;
-								height: 100%;
-								padding: 10px;
-								width: 20%;
-								nav {
-									height: 100%;
-									padding: 0;
-								}
-							}
-							article {
-								float: left;
-								padding: 10px;
-								width: 55%;
-							}
-							footer {
-								clear: both;
-								height: 20px;
-								padding: 10px;
-								text-align: center;
-							}
 						</code>
 					</pre>
 					<div>
@@ -357,67 +320,127 @@
 					<aside class="notes">
 						- So we started using float<br/>
 						- This meant we were back to following the separation of concerns<br/>
-						- Where HTML was for content, while CSS was for visual look and interface<br/>
-						- But before long, we found floats also weren't working<br/> 
 					</aside>
 				</section>
+
+				<section class="code split vertical small table-example">
+						<pre>
+							<code data-trim class="hljs css">
+								header {
+									height: 100px;
+									padding: 10px;
+								}
+								nav {
+									clear: both;
+									height: 25px;
+									padding: 15px;
+								}
+								main {
+									clear: both;
+									overflow: hidden;
+								}
+								aside {
+									float: left;
+									height: 100%;
+									padding: 10px;
+									width: 20%;
+								}
+								article {
+									float: left;
+									padding: 10px;
+									width: 55%;
+								}
+								footer {
+									clear: both;
+									height: 20px;
+									text-align: center;
+								}
+							</code>
+						</pre>
+						<div>
+							<div class="header">
+								<h1>My Website</h1>
+							</div>
+							<nav>
+								<a href="#">Home</a>
+							</nav>
+							<div class="main">
+								<div class="aside">
+									<nav>
+										<a href="#">Menu link</a><br>
+										<a href="#">Menu link</a><br>
+									</nav>
+								</div>
+								<div class="article">
+									<h2>Page heading</h2>
+									Lorum Ipsum pair. <br>
+									Lorum ipsum
+								</div>
+							</div>
+							<div class="footer">Copyright ©</div>
+						</div>
+						<aside class="notes">
+							- Where HTML was for content, while CSS was for visual look and interface<br/>
+							- But before long, we found floats also weren't working<br/> 
+						</aside>
+					</section>
 
 				<section class="code small vertical compare">
 					<pre>
 						<code class="hljs scss">
-								.parent {
-									clear: both;
-									overflow: hidden;
-								}
+							.parent {
+								clear: both;
+								overflow: hidden;
+							}
+							
+							.child {
+								float: left;
+								width: 100%;
 								
-								.child {
-									float: left;
-									width: 100%;
-									
-									@media (min-width: 500px) {
-										margin-right: 2%;
-										width: 49%;
-								
-										&:nth-child(2n) {
-											margin-right: 0;
-										}
-								
-										&:nth-child(2n + 1) {
-											clear: both;
-										}
+								@media (min-width: 500px) {
+									margin-right: 2%;
+									width: 49%;
+							
+									&:nth-child(2n) {
+										margin-right: 0;
 									}
+							
+									&:nth-child(2n + 1) {
+										clear: both;
+									}
+								}
 						</code>
 					</pre>
 					<pre>
-							<code class="hljs scss">
-										@media (min-width: 800px) {
-											clear: none !important;
-											margin-right: 1% !important;
-											width: 32.6666667%;
-									
-											&:nth-child(3n) {
-												margin-right: 0 !important;
-											}
-									
-											&:nth-child(3n + 1) {
-												clear: both !important;
-											}
-										}
+						<code class="hljs scss">
+								@media (min-width: 800px) {
+									clear: none !important;
+									margin-right: 1% !important;
+									width: 32.6666667%;
+							
+									&:nth-child(3n) {
+										margin-right: 0 !important;
 									}
-							</code>
+							
+									&:nth-child(3n + 1) {
+										clear: both !important;
+									}
+								}
+							}
+						</code>
 						</pre>
 					<aside class="notes">
 						- Your had to clearfix everything<br/>
 						- There were a bunch more container divs being used to keep floating elements together<br/>
 						- And when using media queries you often had to do complex calculations and change or reset the previous code<br/>
 						- Oh, and there was a LOT of using <pre>!important</pre><br/>
-						- So by the time we'd memorised how many % wide each element needed to be in a 6 column grid with a 1% margin, we were all excited when flexbox arrived
+						- So by the time we'd memorised how many % wide each element needed to be in a 6 column grid with a 1% margin
 					</aside>
 				</section>
 
 				<section class="code split small table-example flexy vertical">
 					<pre>
-						<code class="hlsj html">
+						<code data-trim class="hlsj html">
 							<header>
 								<h1>My Website</h1>
 							</header>
@@ -435,49 +458,7 @@
 							</main>
 							<footer>Copyright ©</footer>
 						</code>
-						<code class="hlsj css scss">
-							header {
-								display: flex;
-									align-items: center;
-								height: 100px;
-								padding: 10px;
-							}
-							
-							nav {
-								display: flex;
-									align-items: center;
-								height: 30px;
-								padding: 10px;
-							}
-							
-							main {
-								display: flex;
-							}
-							
-							aside {
-								height: 100%;
-								padding: 10px;
-								width: 20%;
-								
-								nav {
-									background: inherit;
-									flex-wrap: wrap;
-								}
-							}
-							
-							article {
-								padding: 10px;
-								width: 55%;
-							}
-							
-							footer {
-								height: 20px;
-								padding: 10px;
-								text-align: center;
-							}
-						</code>
 					</pre>
-
 					<div>
 						<div class="header">
 							<h1>My Website</h1>
@@ -496,8 +477,977 @@
 						</div>
 						<div class="footer">Copyright ©</div>
 					</div>
+					<aside class="notes">
+						- we were all excited when flexbox arrived
+						- We didn't have to do percentage math anymore<br/>
+						- And it reduced the number of media queries we needed<br/>
+						- And we were name able to easily centre content vertically, something we hadn't been able to do since tables<br/>
+					</aside>
 				</section>
 
+				<section class="code split small table-example flexy vertical">
+						<pre>
+							<code data-trim class="hlsj css scss">
+								header {
+									display: flex;
+										align-items: center;
+									height: 100px;
+									padding: 10px;
+								}
+								
+								nav {
+									display: flex;
+										align-items: center;
+									height: 30px;
+									padding: 10px;
+								}
+								
+								main {
+									display: flex;
+								}
+								
+								aside {
+									height: 100%;
+									padding: 10px;
+									width: 20%;
+									
+									nav {
+										background: inherit;
+										flex-wrap: wrap;
+									}
+								}
+								
+								article {
+									padding: 10px;
+									width: 55%;
+								}
+								
+								footer {
+									height: 20px;
+									padding: 10px;
+									text-align: center;
+								}
+							</code>
+						</pre>
+	
+						<div>
+							<div class="header">
+								<h1>My Website</h1>
+							</div>
+							<nav><a href="#">Home</a></nav>
+							<div class="main">
+								<div class="aside"><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></div>
+								<div class="article">
+									<h2>Page heading</h2>
+									Lorum ipsum	pair. <br>
+									Lorum ipsum
+								</div>
+							</div>
+							<div class="footer">Copyright ©</div>
+						</div>
+						<aside class="notes">
+							- We were finally starting to get the functionality we needed from our CSS<br/>
+							- No longer needed to write complicated code or work with percentages and our code was more responsive than ever<br/>
+							- But although flexbox is really good for flowing content<br/>
+						</aside>
+					</section>
+
+					<section class="code compare split vertical">
+						<pre><code data-trim class="hlsj css">
+							.parent {
+								display: flex;
+								width: 102%;
+								margin: -1%;
+							}
+						</code></pre>
+						<pre><code data-trim class="hlsj css">
+								.child {
+									flex: 1 1 auto;
+									margin: 1%;
+								}
+							</code></pre>
+						<aside class="notes">
+							- There was limited control on the cross axis<br/>
+							- And having gaps between the items tended to get a little complicated<br/>
+							- And often needed negative margins<br/>
+							- But things were looking up<br/>
+							- We finally had a CSS technology that was built for layout<br/>
+							- And in the distance, we could see the cavalry on it's way<br/>
+						</aside>
+					</section>
+
+					<section class="code small split vertical table-example griddy">
+						<pre><code data-trim class="hlsj html">
+							<header>
+								<h1>My Website</h1>
+							</header>
+							<nav><a href="#">Home</a></nav>
+							<aside><nav>
+								<a href="#">Menu link</a><br>
+								<a href="#">Menu link</a><br>
+							</nav></aside>
+							<main>
+								<h2>Page heading</h2>
+								Lorum ipsum	pair. <br>
+								Lorum ipsum
+							</main>
+							</main>
+							<footer>Copyright ©</footer>
+						</code></pre>
+						<div>
+							<div class="header">
+								<h1>My Website</h1>
+							</div>
+							<nav><a href="#">Home</a></nav>
+							<div class="aside"><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></div>
+							<div class="main">
+								<div class="article">
+									<h2>Page heading</h2>
+									Lorum ipsum	pair. <br>
+									Lorum ipsum
+								</div>
+							</div>
+							<div class="footer">Copyright ©</div>
+						</div>
+						<aside class="notes">
+							- In 2017, CSS Grid landed in all new major browsers<br/>
+							- THis gave us everything we'd been asking for for CSS Layouts<br/>
+							- Like flexbox, were able to define a set of contraints and have the browser make the layout responsive<br/>
+						</aside>
+					</section>
+
+					<section class="code small split vertical table-example griddy">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+								grid-template-columns: repeat(5, 1fr);
+							}
+							
+							header {
+								grid-column: 1 / -1;
+							}
+							
+							nav {
+								grid-column: 1 / -1;
+							}
+							
+							main {
+								grid-column: span 3;
+							}
+							
+							footer {
+								grid-column: 1 / -1;
+							}
+						</code></pre>
+						<div>
+							<div class="header">
+								<h1>My Website</h1>
+							</div>
+							<nav><a href="#">Home</a></nav>
+							<div class="aside"><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></div>
+							<div class="main">
+								<div class="article">
+									<h2>Page heading</h2>
+									Lorum ipsum	pair. <br>
+									Lorum ipsum
+								</div>
+							</div>
+							<div class="footer">Copyright ©</div>
+						</div>
+						<aside class="notes">
+							- But now able to control the layout in both directions<br/>
+							- With grid, able to define areas of the layout<br/>
+							- Define whether specific elements spanned multiple areas<br/>
+							- Dictate how the elements inside the grid behanved<br/>
+							- WE could now reduce the code we were writing<br/>
+							- Even better, we could reduce the thinking needed to make the layout responsive<br/>
+						</aside>
+					</section>
+
+					<section class="code split vertical compare small">
+						<pre><code data-trim class="hlsj html">
+							<table>
+								<tr>
+									<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
+								</tr>
+								<tr>
+									<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+								</tr>
+								<tr>
+									<td width="20%" valign="top" bgcolor="#8bd3d8">
+										<a href="#">Menu link</a><br>
+										<a href="#">Menu link</a><br>
+									</td>
+									<td width="55%" valign="top" bgcolor="#e8f6f7">
+										<h2>Page heading</h2>
+										Lorum Ipsum
+										pair. <br>
+										Lorum ipsum
+									</td>
+									<td width="25%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+								</tr>
+							</table>
+						</code></pre>
+						<pre><code data-trim class="hlsj css">
+								body {
+									display: grid;
+									grid-template-columns: repeat(5, 1fr);
+								}
+								
+								header {
+									grid-column: 1 / -1;
+								}
+								
+								nav {
+									grid-column: 1 / -1;
+								}
+								
+								main {
+									grid-column: span 3;
+								}
+								
+								footer {
+									grid-column: 1 / -1;
+								}
+						</code></pre>
+						<aside class="notes">
+							- But didn't we already have this with tables?<br/>
+							- Isn't grid just a newer fancier version of the table layout we've been scoffing at for years?<br/>
+						</aside>
+					</section>
+
+					<section>
+						<p>Grid &#8800; Tables<br/>
+							<small class="fragment">PS. <mark>Tables aren't bad</mark>, they're misunderstood</small></p>
+						<aside class="notes">
+							- No<br/>
+							- CSS grid is specifically designed for creating layouts<br/>
+							- It's deisgned for this use, rather than tables which we used as a hack<br/>
+							- And back to the separation of concerns principle, CSS is where we should be defining how the app/page looks<br/>
+						</aside>
+					</section>
+
+					<section>
+						<p>Grid helps us <br/><mark>write semantic HTML</mark></p>
+						<aside class="notes">
+							- CSS Grid also helps us get back to writing logical and semantic HTML<br/>
+							- We're no longer required to write our HTML based on how the page design looks<br/>
+							- We can now write our HTML based on the logical flow of the document and let CSS rearrange it visually<br/>
+							- When done right, this means that our content can now be more accessible to anyone using reader mode, saving and article for later or using a screen reader or assistive technology<br/>
+						</aside>
+					</section>
+
+					<section>
+						<img class="background" src="./wireframe.png" />
+						<aside class="notes">
+							- Thanks to CSS Grid, mocking up or building the layout of an app not only takes less time, it takes less code<br/>
+							- And to prove it, today we're going to build a note taking app using CSS Grid<br/>
+						</aside>
+					</section>
+
+					<section class="code small">
+						<pre><code data-trim class="hlsj html">
+							<body>
+								<header><a href="/"><h1>My Notebook</h1></a></header>
+								<section>
+									<nav>
+									<article>
+										<header>
+											<h2><a aria-current="page" class="" href="/note-1/">Note 1</a></h2>
+											<time datetime="11 Jan 2019">11 Jan 2019</time>
+										</header>
+										<div>There is a note written here…</div>
+									</article>
+									<article>
+										<header>
+											<h2><a href="/note-2/">Note 2</a></h2>
+											<time datetime="11 Jan 2019">11 Jan 2019</time>
+										</header>
+										<div>There is a note written here…</div>
+									</article>
+									</nav>
+								</section>
+								<main>
+									<article>
+										<header>
+											<h1>Note 1</h1>
+											<time datetime="11 Jan 2019">11 Jan 2019</time>
+										</header>
+										<main>
+											<p>There is a note written here...</p>
+											<p>And it says more stuff too</p>
+										</main>
+									</article>
+									<aside>
+										<h3>Created On</h3>
+										<time dateTime="26 Dec 2018">26 Dec 2018</time>
+										<h3>Tags</h3>
+										<ul>
+											<li><a>Tag 1</a></li>
+											<li><a>Tag 2</a></li>
+											<li><a>Tag 3</a></li>
+										</ul>
+									</aside>
+								</main>
+								<footer>
+									<nav>
+										<a href="/help">Help</a>
+										<a href="/contact">Contact Us</a>
+									</nav>
+								</footer>
+							</body>
+						</code></pre>
+						<aside class="notes">
+							- We've got a basic HTML structure to work with, and we know what we want the layout to look like<br/>
+							- We all know what happens next, right? This is the bit where you spend hours fighting with the layout and having to re-structure your HTML, right?<br/>
+						</aside>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-1.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+								grid-template-columns: repeat(5, 1fr);
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							repeat(number of times, size)
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							repeat(3, 200px)
+						</code></pre>
+						<p><kbd>200px 200px 200px</kbd></p>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							repeat(2, 10px 20vw)
+						</code></pre>
+						<p><kbd>10px 20vw 10px 20vw</kbd></p>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+								grid-template-columns: repeat(5, 1fr);
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<p>The <kbd>fr</kbd> unit</p>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							grid-template-columns: 100px 1fr 50px 2fr;
+							grid-gap: 20px;
+						</code></pre>
+						<small>
+							<kbd class="fragment">100% element width</kbd>
+							<kbd class="fragment"> - existing content</kbd>
+							<kbd class="fragment"> - gap</kbd>
+							<kbd class="fragment"> &#247; number of frs</kbd>
+						</small>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								display: grid;
+								grid-template-columns: repeat(5, 1fr);
+								grid-template-rows: 100px 1fr 20px;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							body {
+								grid-template-columns: repeat(5, 1fr);
+								grid-template-rows: 100px 1fr 20px;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-2.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							header {
+								grid-column-start: 1;
+								grid-column-end: -1;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							header {
+								/*grid-column-start: 1;
+								grid-column-end: -1;*/
+								grid-column: 1 / -1
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							header {
+								/*grid-column-start: 1;
+								grid-column-end: -1;
+								grid-column: 1 / -1*/
+								grid-column: span 5;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							header {
+								grid-column: 1 / -1;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-3.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							section {
+								grid-row: span 2;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							section {
+								grid-row: span 2;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-4.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							main {
+								grid-column: span 4;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							main {
+								grid-column: span 4;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-5.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							footer {
+								grid-column: span 4;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							footer {
+								grid-column: span 4;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-6.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								grid-template-columns: repeat(5, 1fr);
+								grid-template-rows: 100px 1fr 20px;
+								grid-template-areas:
+									'header header header header header'
+									'nav note note note note'
+									'nav footer footer footer footer';
+							}
+						</code></pre>
+					</section>
+
+					<section class="code compare split vertical">
+						<pre><code data-trim class="hlsj css">
+							header {
+								grid-area: header;
+							}
+
+							section {
+								grid-area: nav;
+							}
+						</code></pre>
+						<pre><code data-trim class="hlsj css">
+							main {
+								grid-area: note;
+							}
+
+							footer {
+								grid-area: footer;
+							}
+						</code></pre>
+					</section>
+
+					<section class="blank">
+						<img src="app/step-7.png" />
+					</section>
+
+					<section>
+						<p><span>Basic layout </span><span class="fragment">☑️</span><br/>
+							<span class="fragment">7 lines of CSS</span>
+						</p>
+					</section>
+
+					<section class="blank">
+						<img src="app/step-8.png" />
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							display: contents;
+						</code></pre>
+					</section>
+
+					<section class="code small">
+						<pre><code data-trim class="hlsj html">
+							<main>
+								<article>
+									<header>
+										<h1>Note Title</h1>
+										<time datetime="30 Jan 2019">30 Jan 2019</time>
+									</header>
+									<main>
+										<p>Note Content</p>
+									</main>
+								</article>
+								<aside>
+									<p>Note Sidebar</p>
+								</aside>
+							</main>
+						</code></pre>
+					</section>
+
+					<section class="code small">
+						<pre><code data-trim class="hlsj html">
+							<!-- <main> -->
+								<article>
+									<header>
+										<h1>Note Title</h1>
+										<time datetime="30 Jan 2019">30 Jan 2019</time>
+									</header>
+									<main>
+										<p>Note Content</p>
+									</main>
+								</article>
+								<aside>
+									<p>Note Sidebar</p>
+								</aside>
+							<!-- </main> -->
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							main {
+								grid-area: note;
+								display: contents;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+							main {
+								grid-area: note;
+								display: contents;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-9.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code data-trim class="hlsj css">
+							body {
+								grid-template-areas:
+									'header header header header header'
+									'nav note note note sidebar'
+									'nav footer footer footer footer';
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split vertical compare">
+						<pre><code data-trim class="hlsj css">
+							article {
+								grid-area: note;
+							}
+						</code></pre>
+						<pre><code data-trim class="hlsj css">
+							aside {
+								grid-area: sidebar;
+							}
+						</code></pre>
+					</section>
+
+					<section class="blank">
+						<img src="app/step-10.png" />
+					</section>
+
+					<section>
+						<p>So does Grid <mark>replace Flexbox?</mark></p>
+						<aside class="notes">
+							- So with all of these wonderful things<br/>
+							- Does that mean we don't have to or shouldn't use flexbox?<br/>
+						</aside>
+					</section>
+
+					<section class="blank">
+						<img src="batgirl.jpg" />
+						<aside class="notes">
+							- Look at it this way<br/>
+							- Batgirl kicks ass<br/>
+						</aside>
+					</section>
+
+					<section class="blank">
+						<img src="blackcanary.jpg" />
+						<aside class="notes">
+							- Black Canary also kicks ass<br/>
+							- But do we question whether we just need one and not the other?<br/>
+						</aside>
+					</section>
+
+					<section class="blank">
+						<img src="super_duo.jpg" />
+						<aside class="notes">
+							- No<br/>
+							- They work together and form a super duo<br/>
+						</aside>
+					</section>
+
+					<section>
+						<p><mark>Grid is awesome</mark> for layouts</p>
+					</section>
+
+					<section>
+						<p><mark>Flexbox is awesome</mark><br/> for flowing content</p>
+					</section>
+
+					<section>
+						<p>Grid + Flex =<br/><mark>super CSS Layout duo</mark></p>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							footer nav {
+								display: flex;
+								justify-content: space-evenly;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							footer nav {
+								display: flex;
+								justify-content: space-evenly;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-11.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							grid-parent {
+								justify-items: stretch;
+								align-items: stretch;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							grid-child {
+								justify-self: stretch;
+								align-self: stretch;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							footer {
+								justify-self: start;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							footer {
+								justify-self: start;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="./app/step-12.png" />
+						</div>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							footer {
+								justify-self: start;
+								width: 300px;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="./app/step-13.png" />
+						</div>
+					</section>
+
+					<section class="blank">
+						<img src="./app/step-14.png" />
+						<aside class="notes">
+							- With a couple of quick lines to add padding and a few visual points, we've already got a pretty good layout of our app.
+						</aside>
+					</section>
+
+					<section class="blank">
+						<img src="./app/step-15.png" />
+						<aside class="notes">
+							- But now we want to have a full view of all of our notes, in a grid.
+						</aside>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							main {
+								grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+							}
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							repeat(auto-fill, 100px)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							minmx(100px, 20vw)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							minmx(100px, 1fr)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							minmx(1fr, 300px)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							main {
+								grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							main {
+								grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="./app/step-16.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							main {
+								grid-template-rows: repeat(auto-fill, 150px);
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							main {
+								grid-template-rows: repeat(auto-fill, 150px);
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="./app/step-17.png" />
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							main {
+								grid-gap: 20px;
+							}
+						</code></pre>
+					</section>
+
+					<section class="code split horizontal">
+						<pre><code class="hlsj css">
+							main {
+								grid-gap: 20px;
+							}
+						</code></pre>
+						<div class="image-container">
+							<img src="./app/step-18.png" />
+						</div>
+					</section>
+
+					<section class="blank">
+						<img src="./app/step-19.png" />
+					</section>
+
+					<section>
+						<p>Sound too good to be true?</p>
+						<aside class="notes">
+							- Sounds awesome right?<br/>
+							- Yea um so one thing I didn't mention<br/>
+						</aside>
+					</section>
+
+					<section>
+						<p>Browser Support 😬</p>
+					</section>
+
+					<section>
+						<div class="table-grid browsers">
+							<span class="fragment"><img src="../img/chrome.svg"/></span>
+							<span class="fragment">57</span>
+							<span class="fragment"><img src="../img/firefox.svg"/></span>
+							<span class="fragment">52</span>
+							<span class="fragment"><img src="../img/safari.svg"/></span>
+							<span class="fragment">10.1</span>
+							<span class="fragment"><img src="../img/edge.svg"/></span>
+							<span class="fragment">16</span>
+							<span class="fragment"><img src="../img/internet-explorer.svg"/></span>
+							<span class="fragment">10<span class="fragment">ish</span></span>
+						</div>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							@supports
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							@supports(css-property: value)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							@supports(display: grid)
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							@supports(grid-template-areas: '.')
+						</code></pre>
+					</section>
+
+					<section class="code">
+						<pre><code class="hlsj css">
+							@supports(grid-template-areas: '.') {
+								main {
+									display: grid;
+								}
+							}
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Summing up:<br/>
+							CSS Grid is Awesome<br/>
+							The End<br/>
+						</p>
+					</section>
+
+					<section>
+						<ul>
+							<li>https://css-tricks.com/snippets/css/complete-guide-grid/</li>
+							<li>https://cssgrid.io/ (Wes Bos)</li>
+							<li>https://abookapart.com/products/the-new-css-layout</li>
+							<li>https://rachelandrew.co.uk/</li>
+							<li>http://jensimmons.com/</li>
+						</ul>
+					</section>
 			</div>
 		</div>
 

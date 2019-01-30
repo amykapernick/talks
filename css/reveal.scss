@@ -247,6 +247,7 @@ section {
 
         &.background {
             object-fit: cover;
+            max-height: unset;
         }
 
         &.graphic {
@@ -345,6 +346,10 @@ section {
 
             img {
                 height: 40vh;
+            }
+
+            > pre {
+                max-height: 50vh
             }
         }
     }
