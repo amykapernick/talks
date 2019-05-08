@@ -175,7 +175,7 @@
     }
 }
 
-//CSS Grid - NDC London
+//CSS Grid - NDC London 2019
 .custom-5 {
     .title {
         small {
@@ -462,7 +462,7 @@
             }
             
             .main {
-                background: #fff;
+                background: #e8f6f7;
                 grid-column: span 3;
                 padding: 10px;
 
@@ -501,6 +501,35 @@
         &.diff {
             grid-auto-columns: auto;
             font-size: 0.5em;
+        }
+    }
+}
+
+//CSS Grid - NDC Minnesota 2019 {
+.custom-6 {
+    section {
+        > img {
+            &.background {
+                width: 100vw;
+            }
+
+            &.graphic {
+                padding: 50px 50px 0;
+            }
+        }
+
+        &.compare {
+            font-size: 0.9em;
+
+            &.small {
+                font-size: 3vh;
+            }
+        }
+    } 
+
+    .table-grid {
+        &.diff {
+            font-size: 0.4em;
         }
     }
 }

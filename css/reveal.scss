@@ -248,6 +248,7 @@ section {
         &.background {
             object-fit: cover;
             max-height: unset;
+            min-width: 100vw;
         }
 
         &.graphic {
