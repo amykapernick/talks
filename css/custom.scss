@@ -539,3 +539,153 @@
         }
     }
 }
+
+//CSS Grid - NDC Oslo 2019
+.custom-7 {
+    section {
+        &.small {
+            pre {
+                font-size: 0.7em; 
+            }
+
+            &.very {
+                pre {
+                    font-size: 0.9em;
+                }
+            }
+        }
+
+        .layout-example {
+            > table {
+                width: 100%;
+            }
+        }
+
+        &.table-example {
+            > div {
+                .header {
+                    height: 155px;
+                    padding: 20px;
+
+                    h1 {
+                        margin-top: revert;
+                    }
+                }
+
+                nav, .footer {
+                    box-sizing: border-box;
+                    height: 78px;
+                    padding: 20px;
+                }
+            }
+
+            &.flexy {
+                > div {
+                    .header {
+                        height: 155px;
+                    }
+
+                    nav, .footer {
+                        height: 78px;
+                        padding: 20px;
+                    }
+
+                    .aside {
+                        float: none;
+                        padding: 20px;
+                        width: calc(25% - 40px);
+
+                        nav {
+                            padding: 0;
+                        }
+                    }
+
+                    .article {
+                        float: none;
+                        padding: 20px;
+                        width: calc(55% - 40px);
+                    }
+                }
+            }
+
+            &.griddy {
+                > div {
+                    grid-template-columns: repeat(4, 1fr);
+
+                    .header {
+                        height: 155px;
+                    }
+
+                    nav {
+                        height: 78px;
+                        padding: 20px;
+                    }
+
+                    .aside {
+                        padding: 20px;
+                        
+                        nav {
+                            padding: 0;
+                        }
+                    }
+
+                    .main {
+                        grid-column: span 2;
+                        padding: 20px;
+                    }                    
+
+                    .footer {
+                        height: 78px;
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+
+        &.center {
+            justify-content: center;
+        }
+
+        figure {
+            display: grid;
+            grid-template-rows: 1fr 10vh;
+            height: 90vh;
+            margin-top: 3vh;
+            justify-content: center;
+            justify-items: center;
+
+            img {
+                height: 100%;
+                object-fit: contain;
+                
+
+                &.graphic {
+                    align-self: center;
+                    max-height: 90%;
+                }
+            }
+        }
+
+        figcaption {
+            padding-top: 1vh;
+            font-size: 0.3em;
+            text-align: center;
+        }
+
+        &.blank {
+            figcaption {
+                color: #fff;
+            }
+        }
+
+        &.medium {
+            font-size: 7vh;
+        }
+
+        &.smallish {
+            li {
+                font-size: 0.8em;
+            }
+        }
+    }
+}

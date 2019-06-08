@@ -2378,3 +2378,97 @@ footer {
 
 .custom-6 .table-grid.diff {
   font-size: 0.4em; }
+
+.custom-7 section.small pre {
+  font-size: 0.7em; }
+
+.custom-7 section.small.very pre {
+  font-size: 0.9em; }
+
+.custom-7 section .layout-example > table {
+  width: 100%; }
+
+.custom-7 section.table-example > div .header {
+  height: 155px;
+  padding: 20px; }
+  .custom-7 section.table-example > div .header h1 {
+    margin-top: revert; }
+
+.custom-7 section.table-example > div nav, .custom-7 section.table-example > div .footer {
+  box-sizing: border-box;
+  height: 78px;
+  padding: 20px; }
+
+.custom-7 section.table-example.flexy > div .header {
+  height: 155px; }
+
+.custom-7 section.table-example.flexy > div nav, .custom-7 section.table-example.flexy > div .footer {
+  height: 78px;
+  padding: 20px; }
+
+.custom-7 section.table-example.flexy > div .aside {
+  float: none;
+  padding: 20px;
+  width: calc(25% - 40px); }
+  .custom-7 section.table-example.flexy > div .aside nav {
+    padding: 0; }
+
+.custom-7 section.table-example.flexy > div .article {
+  float: none;
+  padding: 20px;
+  width: calc(55% - 40px); }
+
+.custom-7 section.table-example.griddy > div {
+  grid-template-columns: repeat(4, 1fr); }
+  .custom-7 section.table-example.griddy > div .header {
+    height: 155px; }
+  .custom-7 section.table-example.griddy > div nav {
+    height: 78px;
+    padding: 20px; }
+  .custom-7 section.table-example.griddy > div .aside {
+    padding: 20px; }
+    .custom-7 section.table-example.griddy > div .aside nav {
+      padding: 0; }
+  .custom-7 section.table-example.griddy > div .main {
+    grid-column: span 2;
+    padding: 20px; }
+  .custom-7 section.table-example.griddy > div .footer {
+    height: 78px;
+    padding: 20px; }
+
+.custom-7 section.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.custom-7 section figure {
+  display: grid;
+  grid-template-rows: 1fr 10vh;
+  height: 90vh;
+  margin-top: 3vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center; }
+  .custom-7 section figure img {
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain; }
+    .custom-7 section figure img.graphic {
+      -ms-flex-item-align: center;
+          align-self: center;
+      max-height: 90%; }
+
+.custom-7 section figcaption {
+  padding-top: 1vh;
+  font-size: 0.3em;
+  text-align: center; }
+
+.custom-7 section.blank figcaption {
+  color: #fff; }
+
+.custom-7 section.medium {
+  font-size: 7vh; }
+
+.custom-7 section.smallish li {
+  font-size: 0.8em; }

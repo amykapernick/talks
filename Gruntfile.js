@@ -23,10 +23,6 @@ module.exports = grunt => {
 				' */'
 		},
 
-		qunit: {
-			files: [ 'test/*.html' ]
-		},
-
 		uglify: {
 			options: {
 				banner: '<%= meta.banner %>\n',
@@ -134,17 +130,16 @@ module.exports = grunt => {
 			},
 			theme: {
 				files: [
-					'css/*.scss',
+					'css/theme/source/*.sass',
+					'css/theme/source/*.scss',
+					'css/theme/template/*.sass',
+					'css/theme/template/*.scss'
 				],
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+				files: [ 'css/reveal.scss', 'css/custom.scss' ],
 				tasks: 'css-core'
-			},
-			test: {
-				files: [ 'test/*.html' ],
-				tasks: 'test'
 			},
 			html: {
 				files: root.map(path => path + '/**/*.html')
@@ -179,8 +174,5 @@ module.exports = grunt => {
 
 	// Serve presentation locally
 	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
-
-	// Run tests
-	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
 
 };
