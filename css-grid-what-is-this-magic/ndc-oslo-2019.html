@@ -704,13 +704,11 @@
 				<section id="slide-23" class="code small center">
 					<pre><code data-trim class="hlsj html">
 						<header>
-							<a href="/"><h1>My Notebook</h1></a>
+							<h1><a href="/">My Notebook</a></h1>
 						</header>
 						<nav>
-							<article>
-								<h2><a href="/note-1/">Note 1</a></h2>
-								<h2><a href="/note-2/">Note 2</a></h2>
-							</article>
+							<a href="/note-1/">Note 1</a>
+							<a href="/note-2/">Note 2</a>
 						</nav>
 						<main>
 							<article>
@@ -732,6 +730,8 @@
 					</code></pre>
 					<aside class="notes">
 						- We've got a basic HTML structure to work with, and we know what we want the layout to look like<br/>
+						- And it's important to note that this structure is semantic HTML<br/>
+						- No extra container divs, just pure semantic HTML<br/>
 						- We all know what happens next, right? This is the bit where you spend hours fighting with the layout and having to re-structure your HTML, right?<br/>
 					</aside>
 				</section>
@@ -1157,6 +1157,197 @@
 					<img class="graphic" src="app/step-10.png" />
 				</section>
 
+				<section id="slide-128">
+					<div class="table-grid browsers">
+						<span><img src="../img/chrome.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/firefox.svg"/></span>
+						<span><img src="./nightly.svg" /></span>
+						<span><img src="../img/safari.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/edge.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/internet-explorer.svg"/></span>
+						<span>🤣</span>
+					</div>
+				</section>
+
+				<section id="slide-129" class="blank">
+					<img class="graphic" src="app/step-13.png" />
+				</section>
+
+				<section id="slide-130">
+					<p><kbd>display: contents</kbd><br/>makes screen readers cry</p>
+					<aside class="notes">
+						- So there's a bug<br/>
+						- And yes it's not supposed to happen<br/>
+						- But in some browsers, when you apply display: contents to an element, eg. main, it makes the whole thing disappear, including children<br/>
+					</aside>
+				</section>
+
+				<section class="code medium center">
+					<pre><code data-trim class="hlsj html">
+						<!-- <main> -->
+							<article>
+								<header>
+									<h1>Note Title</h1>
+									<time datetime="30 Jan 2019">30 Jan 2019</time>
+								</header>
+								<main>
+									<p>Note Content</p>
+								</main>
+							</article>
+							<aside>
+								<p>Note Sidebar</p>
+							</aside>
+						<!-- </main> -->
+					</code></pre>
+					<aside class="notes">
+					 - So instead of making the main element disappear<br/>
+					</aside>
+				</section>
+
+				<section class="code medium center">
+					<pre><code data-trim class="hlsj html">
+						<!-- <main>
+							<article>
+								<header>
+									<h1>Note Title</h1>
+									<time datetime="30 Jan 2019">30 Jan 2019</time>
+								</header>
+								<main>
+									<p>Note Content</p>
+								</main>
+							</article>
+							<aside>
+								<p>Note Sidebar</p>
+							</aside>
+						</main> -->
+					</code></pre>
+					<aside class="notes">
+					 - It makes it all disappear<br/>
+					 - It'll still appear on the page<br/>
+					 - But anyone using a screen reader on select browsers won't hear it<br/>
+					</aside>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 Display Contents Is Not a CSS Reset.png" />
+						<figcaption>http://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html</figcaption>
+					</figure>
+				</section>
+
+				<section id="slide-131">
+					<p>Don't mess with the DOM</p>
+				</section>
+
+				<section id="slide-132">
+					<p>Subgrid to the rescue!</p>
+				</section>
+
+				<section id="slide-133" class="code center">
+					<pre><code  data-trim class="hlsj css">
+						body {
+							grid-template-areas:
+								'header header header header header'
+								'nav    note   note   note   note'
+								'nav    footer footer footer footer';
+						}
+					</code></pre>
+				</section>
+
+				<section id="slide-134" class="blank">
+					<img class="graphic" src="app/step-6.png" />
+				</section>
+
+				<section id="slide-135" class="code center">
+					<pre><code  data-trim class="hlsj css">
+						main {
+							grid-area: note;
+							/*display: contents;*/
+							display: grid;
+						}
+					</code></pre>
+				</section>
+
+				<section id="slide-136" class="blank">
+					<img class="graphic" src="app/step-21.png" />
+				</section>
+
+				<section id="slide-137" class="code split horizontal">
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-area: note;
+							display: grid;
+						}
+					</code></pre>
+					<div class="image-container">
+						<img src="app/step-21.png" />
+					</div>
+				</section>
+
+				<section id="slide-138" class="code center">
+					<pre><code  data-trim class="hlsj css">
+						main {
+							display: grid;
+							grid-template-columns: subgrid;
+						}
+					</code></pre>
+				</section>
+
+				<section id="slide-139" class="blank">
+					<img class="graphic" src="app/step-22.png" />
+				</section>
+
+				<section id="slide-140" class="code split horizontal">
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-template-columns: subgrid;
+						}
+					</code></pre>
+					<div class="image-container">
+						<img src="app/step-22.png" />
+					</div>
+				</section>
+
+				<section id="slide-141" class="code center">
+						<pre><code  data-trim class="hlsj css">
+							article {
+								grid-column: span 3;
+							}
+						</code></pre>
+					</section>
+	
+					<section id="slide-142" class="blank">
+						<img class="graphic" src="app/step-23.png" />
+					</section>
+	
+					<section id="slide-143" class="code split horizontal">
+						<pre><code data-trim class="hlsj css">
+								article {
+									grid-column: span 3;
+								}
+						</code></pre>
+						<div class="image-container">
+							<img src="app/step-23.png" />
+						</div>
+					</section>
+
+				<section id="slide-144" class="smallish">
+					<figure>
+						<img src="./Screenshot_2019-06-13 Subgrid.png" />
+						<figcaption>https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_layout/Subgrid</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 CSS Subgrid News and demos.png" />
+						<figcaption>https://rachelandrew.co.uk/archives/2019/04/16/css-subgrid-news-and-demos</figcaption>
+					</figure>
+				</section>
+
 				<section id="slide-71">
 					<p>So does Grid <mark>replace Flexbox?</mark></p>
 					<aside class="notes">
@@ -1572,138 +1763,7 @@
 				</section>
 
 				<section id="slide-127">
-					<p>CSS Grid 2.0 🥳<br/>
-						<span class="fragment">It's actually here now </span><br/><small class="fragment">(kinda)</small></p>
-				</section>
-
-				<section id="slide-128">
-					<div class="table-grid browsers">
-						<span><img src="../img/chrome.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/firefox.svg"/></span>
-						<span><img src="./nightly.svg" /></span>
-						<span><img src="../img/safari.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/edge.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/internet-explorer.svg"/></span>
-						<span>🤣</span>
-					</div>
-				</section>
-
-				<section id="slide-129" class="blank">
-					<img class="graphic" src="app/step-13.png" />
-				</section>
-
-				<section id="slide-130">
-					<p><kbd>display: contents</kbd><br/>makes screen readers cry</p>
-				</section>
-
-				<section>
-					<p class="small">http://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html</p>
-				</section>
-
-				<section id="slide-131">
-					<p>Don't mess with the DOM</p>
-				</section>
-
-				<section id="slide-132">
-					<p>Subgrid to the rescue!</p>
-				</section>
-
-				<section id="slide-133" class="code center">
-					<pre><code  data-trim class="hlsj css">
-						body {
-							grid-template-areas:
-								'header header header header header'
-								'nav    note   note   note   note'
-								'nav    footer footer footer footer';
-						}
-					</code></pre>
-				</section>
-
-				<section id="slide-134" class="blank">
-					<img class="graphic" src="app/step-6.png" />
-				</section>
-
-				<section id="slide-135" class="code center">
-					<pre><code  data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							/*display: contents;*/
-							display: grid;
-						}
-					</code></pre>
-				</section>
-
-				<section id="slide-136" class="blank">
-					<img class="graphic" src="app/step-21.png" />
-				</section>
-
-				<section id="slide-137" class="code split horizontal">
-					<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: grid;
-						}
-					</code></pre>
-					<div class="image-container">
-						<img src="app/step-21.png" />
-					</div>
-				</section>
-
-				<section id="slide-138" class="code center">
-					<pre><code  data-trim class="hlsj css">
-						main {
-							display: grid;
-							grid-template-columns: subgrid;
-						}
-					</code></pre>
-				</section>
-
-				<section id="slide-139" class="blank">
-					<img class="graphic" src="app/step-22.png" />
-				</section>
-
-				<section id="slide-140" class="code split horizontal">
-					<pre><code data-trim class="hlsj css">
-						main {
-							grid-template-columns: subgrid;
-						}
-					</code></pre>
-					<div class="image-container">
-						<img src="app/step-22.png" />
-					</div>
-				</section>
-
-				<section id="slide-141" class="code center">
-						<pre><code  data-trim class="hlsj css">
-							article {
-								grid-column: span 3;
-							}
-						</code></pre>
-					</section>
-	
-					<section id="slide-142" class="blank">
-						<img class="graphic" src="app/step-23.png" />
-					</section>
-	
-					<section id="slide-143" class="code split horizontal">
-						<pre><code data-trim class="hlsj css">
-								article {
-									grid-column: span 3;
-								}
-						</code></pre>
-						<div class="image-container">
-							<img src="app/step-23.png" />
-						</div>
-					</section>
-
-				<section id="slide-144" class="smallish">
-					<ul>
-						<li>https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_layout/Subgrid</li>
-						<li>https://rachelandrew.co.uk/archives/2019/04/16/css-subgrid-news-and-demos/</li>
-					</ul>
+					<p>CSS Grid 2.0 🥳</p>
 				</section>
 
 				<section id="slide-145">
@@ -1713,16 +1773,53 @@
 					</p>
 				</section>
 
-				<section id="slide-146" class="smallish">
-					<ul>
-						<li>https://css-tricks.com/snippets/css/complete-guide-grid/</li>
-						<li>https://cssgrid.io/ (Wes Bos)</li>
-						<li>https://abookapart.com/products/the-new-css-layout</li>
-						<li>https://rachelandrew.co.uk/</li>
-						<li>http://jensimmons.com/</li>
-						<li>https://cssgridgarden.com/</li>
-						<li>https://flexboxfroggy.com/</li>
-					</ul>
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 A Complete Guide to Grid CSS-Tricks.png" />
+						<figcaption>https://css-tricks.com/snippets/css/complete-guide-grid</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 CSS Grid.jpg" />
+						<figcaption>https://cssgrid.io</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 The New CSS Layout by Rachel Andrew.jpg" />
+						<figcaption>https://abookapart.com/products/the-new-css-layout</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 Home page of rachelandrew co uk.png" />
+						<figcaption>https://rachelandrew.co.uk</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 Home.png" />
+						<figcaption>http://jensimmons.com</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 Grid Garden.png" />
+						<figcaption>https://cssgridgarden.com</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./Screenshot_2019-06-13 Flexbox Froggy.png" />
+						<figcaption>https://flexboxfroggy.com</figcaption>
+					</figure>
 				</section>
 
 				<section id="slide-147">
