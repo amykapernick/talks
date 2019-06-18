@@ -23,6 +23,11 @@
 
 		<div class="reveal">
 			<div class="slides grid">
+				<section>
+					<p class="title">CSS Grid<br/><small>What is this Magic?!</small></p>
+					<aside class="notes">Test Clicker</aside>
+				</section>
+
 				<section id="slide-1">
 					<p class="title">CSS Grid<br/><small>What is this Magic?!</small></p>
 				</section>
@@ -763,11 +768,24 @@
 					</div>
 				</section>
 
+				<section class="blank">
+					<img class="background" src="./Inkedwireframe_LI.jpg" />
+				</section>
+
 				<section id="slide-27" class="code">
 					<pre><code data-trim class="hlsj css">
 						body {
 							display: grid;
-							grid-template-columns: repeat(5, 1fr);
+							grid-template-columns: 200px 200px 200px 200px 200px;
+						}
+					</code></pre>
+				</section>
+
+				<section id="slide-27" class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							display: grid;
+							grid-template-columns: repeat(5, 200px);
 						}
 					</code></pre>
 				</section>
@@ -790,6 +808,15 @@
 						repeat(2, 10px 20vw)
 					</code></pre>
 					<p><kbd>10px 20vw 10px 20vw</kbd></p>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							display: grid;
+							grid-template-columns: repeat(5, 20%);
+						}
+					</code></pre>
 				</section>
 
 				<section id="slide-31" class="code">
@@ -847,6 +874,10 @@
 					<img class="graphic" src="app/step-2.png" />
 				</section>
 
+				<section class="blank">
+					<img class="background" src="./Inkedwireframe_LI.jpg" />
+				</section>
+
 				<section id="slide-36" class="code">
 					<pre><code data-trim class="hlsj css">
 						body {
@@ -882,7 +913,7 @@
 				</section>
 
 				<section id="slide-40" class="blank">
-					<img class="graphic" src="app/step-2.5.png" />
+					<img class="graphic" src="app/step-2.5.jpg" />
 				</section>
 
 				<section id="slide-41" class="code center">
@@ -1626,10 +1657,58 @@
 					</div>
 				</section>
 
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-column-gap: 20px;
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-column-gap: 20px;
+							grid-row-gap: 20px;
+						}
+					</code></pre>
+				</section>
+
 				<section id="slide-108" class="code center">
 					<pre><code data-trim class="hlsj css">
 						main {
+							/*grid-column-gap: 20px;
+							grid-row-gap: 20px;*/
 							grid-gap: 20px;
+						}
+					</code></pre>
+					<aside class="notes">
+						- But why is grid-gap so much better than just using a margin?
+					</aside>
+				</section>
+
+				<section class="code split vertical compare medium">
+					<pre><code data-trim class="hlsj css">
+						.parent {
+							margin: -10px;
+						}
+
+						.child {
+							margin: 10px;
+						}
+					</code></pre>
+					<pre><code data-trim class="hlsj css">
+						.child {
+							margin: 10px;
+						}
+						.child:nth-child(5n) {
+							margin-right: 0;
+						}
+						.child:nth-child(5n - 4) {
+							margin-left: 0;
+						}
+						.child:nth-child(5n) {
+							margin-top: 0;
 						}
 					</code></pre>
 				</section>
@@ -1764,6 +1843,20 @@
 
 				<section id="slide-127">
 					<p>CSS Grid 2.0 🥳</p>
+				</section>
+
+				<section>
+					<p>But...</p>
+				</section>
+
+				<section class="split horizontal">
+					<p>But <span class="fragment">there's not enough support</span></p>
+					<p class="fragment"><kbd>@supports</kbd></p>
+				</section>
+
+				<section class="split horizontal">
+					<p>But <span class="fragment">we have to write a fallback</span></p>
+					<p class="fragment">You've already got one 🤷‍♀</p>
 				</section>
 
 				<section id="slide-145">
