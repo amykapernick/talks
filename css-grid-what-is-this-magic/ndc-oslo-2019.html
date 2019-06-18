@@ -1704,10 +1704,10 @@
 						.child:nth-child(5n) {
 							margin-right: 0;
 						}
-						.child:nth-child(5n - 4) {
+						.child:nth-child(5n+1) {
 							margin-left: 0;
 						}
-						.child:nth-child(5n) {
+						.child:nth-child(-n+6) {
 							margin-top: 0;
 						}
 					</code></pre>
@@ -1849,14 +1849,41 @@
 					<p>But...</p>
 				</section>
 
-				<section class="split horizontal">
-					<p>But <span class="fragment">there's not enough support</span></p>
-					<p class="fragment"><kbd>@supports</kbd></p>
+				<section>
+					<p>But there's not enough support</p>
 				</section>
 
-				<section class="split horizontal">
-					<p>But <span class="fragment">we have to write a fallback</span></p>
-					<p class="fragment">You've already got one 🤷‍♀</p>
+				<section>
+					<header>But there's not enough support</header>
+					<p>91.06%</p>
+				</section>
+
+				<section>
+					<header>But there's not enough support</header>
+					<p><kbd>@supports</kbd></p>
+				</section>
+
+				<section>
+					<header>But we have to write a fallback</header>
+					<p>You've already got one 🤷‍♀</p>
+				</section>
+
+				<section>
+					<p>But we don't have time</p>
+				</section>
+
+				<section>
+					<header>But we don't have time</header>
+					<p>You don't have to use <br/>grid everywhere</p>
+				</section>
+
+				<section>
+					<p>But we'll have to maintain it</p>
+				</section>
+
+				<section>
+					<header>But we'll have to maintain it</header>
+					<p>It's CSS. <br/><span class="fragment">No frameworks. Just CSS</span></p>
 				</section>
 
 				<section id="slide-145">
