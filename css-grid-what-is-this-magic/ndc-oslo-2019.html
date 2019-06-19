@@ -39,6 +39,13 @@
 					</aside>
 				</section>
 
+				<section class="blank">
+					<img src="./oslo.jpg" />
+					<aside class="notes">
+						- Although I'm not sure how I feel about the fact that this was taken at 10pm last night
+					</aside>
+				</section>
+
 				<section id="slide-3" class="blank">
 					<img class="background" src="../img/background.jpg" />
 					<aside class="notes">
@@ -946,6 +953,14 @@
 					</code></pre>
 				</section>
 
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						header {
+							grid-column: 1 / -1
+						}
+					</code></pre>
+				</section>
+
 				<section id="slide-44" class="blank">
 					<img class="graphic" src="app/step-3.png" />
 				</section>
@@ -1188,25 +1203,6 @@
 					<img class="graphic" src="app/step-10.png" />
 				</section>
 
-				<section id="slide-128">
-					<div class="table-grid browsers">
-						<span><img src="../img/chrome.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/firefox.svg"/></span>
-						<span><img src="./nightly.svg" /></span>
-						<span><img src="../img/safari.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/edge.svg"/></span>
-						<span>❌</span>
-						<span><img src="../img/internet-explorer.svg"/></span>
-						<span>🤣</span>
-					</div>
-				</section>
-
-				<section id="slide-129" class="blank">
-					<img class="graphic" src="app/step-13.png" />
-				</section>
-
 				<section id="slide-130">
 					<p><kbd>display: contents</kbd><br/>makes screen readers cry</p>
 					<aside class="notes">
@@ -1275,6 +1271,10 @@
 
 				<section id="slide-132">
 					<p>Subgrid to the rescue!</p>
+				</section>
+
+				<section id="slide-129" class="blank">
+					<img class="graphic" src="app/step-13.png" />
 				</section>
 
 				<section id="slide-133" class="code center">
@@ -1544,10 +1544,18 @@
 					</aside>
 				</section>
 
+				<section class="code medium center">
+					<pre><code data-trim class="hlsj css">
+						main {
+						  grid-template-columns: repeat(10, 300px);
+						}
+					</code></pre>
+				</section>
+
 				<section id="slide-93" class="code medium center">
 					<pre><code data-trim class="hlsj css">
 						main {
-						  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+						  grid-template-columns: repeat(auto-fill, 300px);
 						}
 					</code></pre>
 				</section>
@@ -1583,6 +1591,14 @@
 					<aside class="notes">
 						- So we're using auto-fill, do you remember what that does?<br/>
 					</aside>
+				</section>
+
+				<section class="code medium center">
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-template-columns: repeat(auto-fill, 300px);
+						}
+					</code></pre>
 				</section>
 
 				<section id="slide-98" class="code medium center">
@@ -1623,7 +1639,7 @@
 					<img class="graphic" src="app/step-16.png" />
 				</section>
 
-				<section id="slide-104" class="code split horizontal smallish">
+				<section id="slide-104" class="code split horizontal medium">
 					<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1765,6 +1781,24 @@
 
 				<section id="slide-116">
 					<p class="title">91.06%</p>
+					<aside class="note">
+						- Lemon's talk had US stats
+					</aside>
+				</section>
+
+				<section id="slide-128">
+					<div class="table-grid browsers">
+						<span><img src="../img/chrome.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/firefox.svg"/></span>
+						<span><img src="./nightly.svg" /></span>
+						<span><img src="../img/safari.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/edge.svg"/></span>
+						<span>❌</span>
+						<span><img src="../img/internet-explorer.svg"/></span>
+						<span>🤣</span>
+					</div>
 				</section>
 
 				<section id="slide-117">
