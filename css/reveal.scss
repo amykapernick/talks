@@ -482,6 +482,10 @@ section {
         
         &.r2 {
             grid-template-rows: 1fr 1fr;
+
+            &.header {
+                grid-template-rows: auto 1fr 1fr;
+            }
         }
 
         &.r2-1 {

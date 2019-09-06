@@ -1977,6 +1977,8 @@ section {
     font-size: 0.5em; }
     section.grid.r2 {
       grid-template-rows: 1fr 1fr; }
+      section.grid.r2.header {
+        grid-template-rows: auto 1fr 1fr; }
     section.grid.r2-1 {
       grid-template-rows: 2fr 1fr; }
     section.grid.r1-2 {
