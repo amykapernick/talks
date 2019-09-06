@@ -1,12 +1,12 @@
-const sass = require('node-sass')
+const sass = require('node-sass');
 
 module.exports = grunt => {
-	require('load-grunt-tasks')(grunt)
+	require('load-grunt-tasks')(grunt);
 
-	let port = grunt.option('port') || 8000
-	let root = grunt.option('root') || '.'
+	let port = grunt.option('port') || 8000;
+	let root = grunt.option('root') || '.';
 
-	if (!Array.isArray(root)) root = [root]
+	if (!Array.isArray(root)) root = [root];
 
 	// Project configuration
 	grunt.initConfig({
@@ -137,26 +137,26 @@ module.exports = grunt => {
 				livereload: true,
 			},
 		},
-	})
+	});
 
 	// Default task
-	grunt.registerTask('default', ['css', 'js'])
+	grunt.registerTask('default', ['css', 'js']);
 
 	// JS task
-	grunt.registerTask('js', ['jshint', 'uglify'])
+	grunt.registerTask('js', ['jshint', 'uglify']);
 
 	// Theme CSS
-	grunt.registerTask('css-themes', ['sass:themes'])
+	grunt.registerTask('css-themes', ['sass:themes']);
 
 	// Core framework CSS
-	grunt.registerTask('css-core', ['sass:core', 'autoprefixer', 'cssmin'])
+	grunt.registerTask('css-core', ['sass:core', 'autoprefixer', 'cssmin']);
 
 	// All CSS
-	grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin'])
+	grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
 
 	// Package presentation to archive
-	grunt.registerTask('package', ['default', 'zip'])
+	grunt.registerTask('package', ['default', 'zip']);
 
 	// Serve presentation locally
-	grunt.registerTask('serve', ['connect', 'watch'])
-}
+	grunt.registerTask('serve', ['connect', 'watch']);
+};
