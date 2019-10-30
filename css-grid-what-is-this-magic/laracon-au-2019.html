@@ -316,8 +316,6 @@
 					</div>
 					<aside class="notes">
 						- But now able to control the layout in both directions<br/>
-						- With grid, able to define areas of the layout<br/>
-						- Define whether specific elements spanned multiple areas<br/>
 						- Dictate how the elements inside the grid behanved<br/>
 						- WE could now reduce the code we were writing<br/>
 						- Even better, we could reduce the thinking needed to make the layout responsive<br/>
@@ -338,7 +336,6 @@
 					<p>Grid helps us <br/><mark>write semantic HTML</mark></p>
 					<aside class="notes">
 						- CSS Grid also helps us get back to writing logical and semantic HTML<br/>
-						- We're no longer required to write our HTML based on how the page design looks<br/>
 						- We can now write our HTML based on the logical flow of the document and let CSS rearrange it visually<br/>
 						- When done right, this means that our content can now be more accessible to anyone using reader mode, saving and article for later or using a screen reader or assistive technology<br/>
 					</aside>
@@ -418,7 +415,7 @@
 					<img class="background" src="./Inkedwireframe_LI.jpg" />
 				</section>
 
-				<section id="slide-27" class="code">
+				<section id="slide-27" class="code medium">
 					<pre><code data-trim class="hlsj css">
 						body {
 							display: grid;
@@ -427,7 +424,7 @@
 					</code></pre>
 				</section>
 
-				<section id="slide-27" class="code">
+				<section class="code">
 					<pre><code data-trim class="hlsj css">
 						body {
 							display: grid;
@@ -532,7 +529,7 @@
 				</section>
 
 				<section class="blank">
-					<img class="background" src="./Inkedwireframe_LI.jpg" />
+					<img src="./Inkedwireframe_LI.jpg" />
 				</section>
 
 				<section id="slide-36" class="code">
@@ -633,14 +630,6 @@
 					</code></pre>
 				</section>
 
-				<section class="code center">
-					<pre><code data-trim class="hlsj css">
-						header {
-							grid-column: 1 / -1
-						}
-					</code></pre>
-				</section>
-
 				<section id="slide-44" class="blank">
 					<img class="graphic" src="app/step-4.png" />
 				</section>
@@ -666,6 +655,9 @@
 							grid-row: 2 / -1;
 						}
 					</code></pre>
+					<aside class="notes">
+						- WE can define the nav to take up the middle and bottom row this way<br/>
+					</aside>
 				</section>
 
 				<section id="slide-46" class="code center">
@@ -675,6 +667,10 @@
 							grid-row: span 2;
 						}
 					</code></pre>
+					<aside class="notes">
+						- Alternatively, we can use a different syntax<br/>
+						- Which is where you just define how many rows/columns you want the element to cover<br/>
+					</aside>
 				</section>
 
 				<section id="slide-47" class="blank">
@@ -801,13 +797,13 @@
 					<pre><code  data-trim class="hlsj css">
 						main {
 							grid-area: note;
-\							display: grid;
+							display: grid;
 						}
 					</code></pre>
 				</section>
 
 				<section id="slide-136" class="blank">
-					<img class="graphic" src="app/step-10.png" />
+					<img class="graphic" src="app/step-11.png" />
 				</section>
 
 				<section id="slide-137" class="code split horizontal">
@@ -818,14 +814,22 @@
 						}
 					</code></pre>
 					<div class="image-container">
-						<img src="app/step-10.png" />
+						<img src="app/step-11.png" />
 					</div>
 				</section>
 
 				<section id="slide-138" class="code center">
 					<pre><code  data-trim class="hlsj css">
 						main {
-							display: grid;
+							grid-template-columns: repeat(4, 1fr);
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code  data-trim class="hlsj css">
+						main {
+							/* grid-template-columns: repeat(4, 1fr); */
 							grid-template-columns: subgrid;
 						}
 					</code></pre>
@@ -842,7 +846,7 @@
 						}
 					</code></pre>
 					<div class="image-container">
-						<img src="app/step-13.png" />
+						<img src="app/step-13.jpg" />
 					</div>
 				</section>
 
@@ -876,14 +880,7 @@
 					</figure>
 				</section>
 
-				<section>
-					<figure>
-						<img src="./Screenshot_2019-06-13 CSS Subgrid News and demos.png" />
-						<figcaption>https://rachelandrew.co.uk/archives/2019/04/16/css-subgrid-news-and-demos</figcaption>
-					</figure>
-				</section>
-
-				<section id="slide-71">
+				<!-- <section id="slide-71">
 					<p>So does Grid <mark>replace Flexbox?</mark></p>
 					<aside class="notes">
 						- So with all of these wonderful things<br/>
@@ -928,8 +925,8 @@
 
 				<section id="slide-77">
 					<p>Grid + Flex =<br/><mark>super CSS Layout duo</mark></p>
-				</section>
-				
+				</section> -->
+
 				<section id="slide-91" class="blank">
 					<img src="./app/step-17a.png" />
 					<aside class="notes">
@@ -961,12 +958,6 @@
 					</code></pre>
 				</section>
 
-				<section id="slide-94" class="code center">
-					<pre><code data-trim class="hlsj css">
-						repeat(auto-fill, 100px)
-					</code></pre>
-				</section>
-
 				<section id="slide-95" class="code center">
 					<pre><code data-trim class="hlsj css">
 						auto-fill / auto-fit
@@ -985,21 +976,15 @@
 					</aside>
 				</section>
 
-				<section id="slide-97" class="code center">
-					<pre><code data-trim class="hlsj css">
-						repeat(auto-fill, 100px)
-					</code></pre>
-					<aside class="notes">
-						- So we're using auto-fill, do you remember what that does?<br/>
-					</aside>
-				</section>
-
 				<section class="code medium center">
 					<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, 300px);
 						}
 					</code></pre>
+					<aside class="notes">
+						- So we're using auto-fill, do you remember what that does?<br/>
+					</aside>
 				</section>
 
 				<section id="slide-98" class="code medium center">
