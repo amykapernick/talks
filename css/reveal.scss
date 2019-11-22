@@ -1,83 +1,88 @@
 @import './global.scss';
 
 body {
-    background: $background;
-    color: $grey_dark;
-    font: $font_regular;
-      font-size: 100px;
-      line-height: 1.4;
-    margin: 0;
+	background: $background;
+	color: $grey_dark;
+	font: $font_regular;
+	font-size: 100px;
+	line-height: 1.4;
+	margin: 0;
 
-    .progress {
-        visibility: hidden;
-    }
+	.progress {
+		visibility: hidden;
+	}
 }
 
-h1, h2, h3 {
-    color: $grey_dark;
-    font: $font_headings;
+h1,
+h2,
+h3 {
+	color: $grey_dark;
+	font: $font_headings;
 }
-  
+
 h1 {
-    font-size: 1.5em;
-    text-align: center;
+	font-size: 1.5em;
+	text-align: center;
 }
 
 h2 {
-    font-size: 1.6em;
+	font-size: 1.6em;
 }
-  
+
 h3 {
-    color: $grey_dark;
-    font-size: 20px;
+	color: $grey_dark;
+	font-size: 20px;
 }
-  
-a, span.link {
-    color: $grey_dark;
-    font: $font_regular;
-    text-decoration: none;
+
+a,
+span.link {
+	color: $grey_dark;
+	font: $font_regular;
+	text-decoration: none;
 }
-  
+
 ul {
-    li {
-        text-align: left;
-    }
+	li {
+		text-align: left;
+	}
 }
 
 dt {
-    font-weight: bold;
+	font-weight: bold;
 }
-  
+
 i {
-    color: $grey_dark;
+	color: $grey_dark;
 }
 
 blockquote {
-    margin: 20px;
-    padding-left: 20px;
+	margin: 20px;
+	padding-left: 20px;
 }
 
 figure {
-    position: relative;
+	position: relative;
 }
 
 figcaption {
-    color: $grey_dark;
-    font-size: 12px;
-    padding-right: 10px;
-    text-align: right;
+	color: $grey_dark;
+	font-size: 12px;
+	padding-right: 10px;
+	text-align: right;
 }
 
-button, .btn {
-    background: $grey_light;
-    border: 1.5px solid $grey_dark;
-    box-shadow: 0px 6px 0px $grey, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
-    border-radius: 30px;
-    display: inline-block;
-    font-size: 80px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    max-width: 1000px;
+button,
+.btn {
+	background: $grey_light;
+	border: 1.5px solid $grey_dark;
+	box-shadow: 0px 6px 0px $grey, 0px 3px 15px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3),
+		inset 0px 0px 3px rgba(255, 255, 255, 0.5);
+	border-radius: 30px;
+	display: inline-block;
+	font-size: 80px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	max-width: 1000px;
 }
 
 .slides {
@@ -85,443 +90,448 @@ button, .btn {
 	top: 0;
 	right: 0;
 	bottom: 0;
-    left: 0;
-    
-    &.border {
-        section {
-            border-left: 20px solid lightseagreen;
+	left: 0;
 
-            &.blank {
-                border: none;
-            }
-        }
-    }
+	&.border {
+		section {
+			border-left: 20px solid lightseagreen;
 
-    &.grid {
-        &:before {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, $grey_light 1px, transparent 1px), linear-gradient(to bottom, $grey_light 1px, transparent 1px);
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-        }
-    }
+			&.blank {
+				border: none;
+			}
+		}
+	}
+
+	&.grid {
+		&:before {
+			background-size: 40px 40px;
+			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
+				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+		}
+	}
 }
 
 p {
-    font-size: 1em;
-    line-height: 1.5;
+	font-size: 1em;
+	line-height: 1.5;
 }
 
 ul {
-    font-size: 1em;
-    list-style-type: disc;
-    padding-left: 40px;
-    
-    li {
-        font-size: 1em;
-        list-style-type: disc;
-    }
+	font-size: 1em;
+	list-style-type: disc;
+	padding-left: 40px;
+
+	li {
+		font-size: 1em;
+		list-style-type: disc;
+	}
 }
 
 dd {
-    font-size: 0.8em;
-    font-style: italic;
+	font-size: 0.8em;
+	font-style: italic;
 }
 
 blockquote {
-    border-left: 10px solid $grey_light;
-    font-weight: bold;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
+	border-left: 10px solid $grey_light;
+	font-weight: bold;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: '\201C''\201D''\2018''\2019';
 
-    &:before {
-        color: #ccc;
-        content: open-quote;
-        font-size: 4em;
-        line-height: 0.1em;
-        margin-right: 0.25em;
-        vertical-align: -0.4em;
-    }
+	&:before {
+		color: #ccc;
+		content: open-quote;
+		font-size: 4em;
+		line-height: 0.1em;
+		margin-right: 0.25em;
+		vertical-align: -0.4em;
+	}
 }
 
 mark {
-    background-color: $cyan;
+	background-color: $cyan;
 }
 
 table {
-    border-collapse: collapse;
-    text-align: left;
+	border-collapse: collapse;
+	text-align: left;
 
-    td, th {
-        border: 1px solid $grey_dark;
-        padding: 20px;
-    }
+	td,
+	th {
+		border: 1px solid $grey_dark;
+		padding: 20px;
+	}
 
-    th {
-        font-size: 1.3em;
-    }
+	th {
+		font-size: 1.3em;
+	}
 }
 
 pre {
-    background: $grey_dark;
-    font-size: 0.5em;
-    margin: 0;
-    padding: 5vw;
-    text-align: left;
-    white-space: normal;
+	background: $grey_dark;
+	font-size: 0.5em;
+	margin: 0;
+	padding: 5vw;
+	text-align: left;
+	white-space: normal;
 }
 
 small {
-    font-size: 0.5em;
+	font-size: 0.5em;
 }
 
 form {
-    display: flex;
-        flex-direction: column;
-    margin: 0 auto;
-    text-align: left;
-    max-width: 1000px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	text-align: left;
+	max-width: 1000px;
 
-    label {
-        font-size: 0.9em;
-    }
+	label {
+		font-size: 0.9em;
+	}
 }
 
 legend {
-    font-size: 1em;
-    margin: 10px 0;
+	font-size: 1em;
+	margin: 10px 0;
 }
 
-input, button {
-    font-size: 1em;
-    line-height: 1.5em;
-    margin: 20px 0;
+input,
+button {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 20px 0;
 }
 
 header {
-    height: $header;
-        top: 0;
+	height: $header;
+	top: 0;
 }
 
-header, footer {
-    color: $grey;
-    display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-    font-size: 0.5em;
-    opacity: 0.7;
-    padding: 10px;
-    position: absolute;
-    width: 100vw;
-    z-index: 10;
+header,
+footer {
+	color: $grey;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	font-size: 0.5em;
+	opacity: 0.7;
+	padding: 10px;
+	position: absolute;
+	width: 100vw;
+	z-index: 10;
 }
 
 section {
-    display: grid;
-        justify-content: stretch;
-        justify-items: center;
-        align-content: stretch;
-        align-items: center;
-    height: 100vh;
-    padding: $header 0 $footer;
-    position: relative;
-    width: 100vw;
-    z-index: 0;
+	display: grid;
+	justify-content: stretch;
+	justify-items: center;
+	align-content: stretch;
+	align-items: center;
+	height: 100vh;
+	padding: $header 0 $footer;
+	position: relative;
+	width: 100vw;
+	z-index: 0;
 
-    header {
-        font-size: 0.4em;
-        height: auto;
-        width: 100%;
-        z-index: -1;
-    }
+	header {
+		font-size: 0.4em;
+		height: auto;
+		width: 100%;
+		z-index: -1;
+	}
 
-    > img {
-        height: 100vh;
-        object-fit: contain;
-        width: 100vw;
+	> img {
+		height: 100vh;
+		object-fit: contain;
+		width: 100vw;
 
-        &.background {
-            object-fit: cover;
-            max-height: unset;
-            min-width: 100vw;
-        }
+		&.background {
+			object-fit: cover;
+			max-height: unset;
+			min-width: 100vw;
+		}
 
-        &.graphic {
-            padding: 100px;
-        }
-    }
+		&.graphic {
+			padding: 100px;
+		}
+	}
 
-    .image-container {
-        height: 100%;
-        width: 100%;
+	.image-container {
+		height: 100%;
+		width: 100%;
 
-        svg, img {
-            max-height: 100%;
-        }
+		svg,
+		img {
+			max-height: 100%;
+		}
 
-        &.caption {
-            display: grid;
-                grid-template-rows: 1fr auto;
-                align-items: center;
-                justify-items: center;
-            padding: 20px;
-        }
-    }
+		&.caption {
+			display: grid;
+			grid-template-rows: 1fr auto;
+			align-items: center;
+			justify-items: center;
+			padding: 20px;
+		}
+	}
 
-    &.index {
-        align-content: start;
-        font-size: 0.2em;
-        justify-items: start;
-        padding: 50px;
-        text-align: left;
+	&.index {
+		align-content: start;
+		font-size: 0.2em;
+		justify-items: start;
+		padding: 50px;
+		text-align: left;
 
-        a {
-            color: $blue;
-            display: block;
-        }
-    }
+		a {
+			color: $blue;
+			display: block;
+		}
+	}
 
-    &.blank {
-        background: #000;
+	&.blank {
+		background: #000;
 
-        header {
-            display: none;
-        }
-    }
+		header {
+			display: none;
+		}
+	}
 
-    &.code {
-        background: $grey_dark;
-        color: #fff;
+	&.code {
+		background: $grey_dark;
+		color: #fff;
 
-        pre {
-            margin: 0;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+		pre {
+			margin: 0;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
 
-        &.split {
-            color: $grey_dark;
+		&.split {
+			color: $grey_dark;
 
-            pre {
-                color: #fff;
-            }
+			pre {
+				color: #fff;
+			}
 
-            > div {
-                padding: 5vw;
-            }
+			> div {
+				padding: 5vw;
+			}
 
-            img {
-                height: 90vh;
-                width: 90vw;
-            }
-        }
+			img {
+				height: 90vh;
+				width: 90vw;
+			}
+		}
 
-        &.vertical {
-            align-items: stretch;
-            background: linear-gradient(to right, $grey_dark 50%, $background 50%);
-            grid-template-columns: 50vw 50vw;
-            grid-template-rows: 100vw;
+		&.vertical {
+			align-items: stretch;
+			background: linear-gradient(to right, $grey_dark 50%, $background 50%);
+			grid-template-columns: 50vw 50vw;
+			grid-template-rows: 100vw;
 
-            &.compare {
-                background: $grey_dark;
-            }
+			&.compare {
+				background: $grey_dark;
+			}
 
-            &.example {
-                text-align: left;
-            }
+			&.example {
+				text-align: left;
+			}
 
-            img {
-                width: 40vw;
-            }
-        }
+			img {
+				width: 40vw;
+			}
+		}
 
-        &.horizontal {
-            background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
-            grid-template-columns: 100vw;
-            grid-template-rows: 50vh 50vh;
+		&.horizontal {
+			background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
+			grid-template-columns: 100vw;
+			grid-template-rows: 50vh 50vh;
 
-            img {
-                height: 40vh;
-            }
+			img {
+				height: 40vh;
+			}
 
-            > pre {
-                max-height: 50vh
-            }
-        }
-    }
+			> pre {
+				max-height: 50vh;
+			}
+		}
+	}
 
-    &.image {
-        img {
-            object-fit: cover;
-        }
-    }
+	&.image {
+		img {
+			object-fit: cover;
+		}
+	}
 
-    &.question {
-        align-items: stretch;
-        justify-items: stretch;
-        grid-gap: 2vw;
-        grid-template-rows: 1fr 2fr;
+	&.question {
+		align-items: stretch;
+		justify-items: stretch;
+		grid-gap: 2vw;
+		grid-template-rows: 1fr 2fr;
 
-        padding: 5vw;
-        text-align: center;
+		padding: 5vw;
+		text-align: center;
 
-        &.long {
-            ul {
-                display: grid;
-                    grid-template-columns: 1fr;
-                    grid-gap: 20px;
-                    grid-auto-rows: 1fr;
+		&.long {
+			ul {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-gap: 20px;
+				grid-auto-rows: 1fr;
 
-                pre {
-                    padding: 0;
-                }
-            }
-        }
-    
-        ul {
-            display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-gap: 20px;
-                grid-auto-rows: 1fr;
-            margin: 0;
-            padding: 20px;
+				pre {
+					padding: 0;
+				}
+			}
+		}
 
-            &.code {
-                li {
-                    background: $grey_dark;
-                    padding: 0;
-                }
-            }
-        }
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 20px;
+			grid-auto-rows: 1fr;
+			margin: 0;
+			padding: 20px;
 
-        p {
-            font-size: 0.5em;
-            margin: 0;
-        }
-    
-        li {
-            display: grid;
-                align-items: center;
-            border: 3px solid $grey_dark;
-            font-size: 80px;
-            list-style-type: none;
-            padding: 30px;
-            position: relative;
-            margin: 0;
-            text-align: center;
+			&.code {
+				li {
+					background: $grey_dark;
+					padding: 0;
+				}
+			}
+		}
 
-            &:before {
-                color: #fff;
-                border: 3px solid #fff;
-                border-radius: 50%;
-                font-size: 30px;
-                height: 40px;
-                position: absolute;
-                    top: 5px;
-                    left: 5px;
-                width: 40px;
-            }
+		p {
+			font-size: 0.5em;
+			margin: 0;
+		}
 
-            &:nth-child(1) {
-                &:before {
-                    content: 'A';
-                }
-            }
+		li {
+			display: grid;
+			align-items: center;
+			border: 3px solid $grey_dark;
+			font-size: 80px;
+			list-style-type: none;
+			padding: 30px;
+			position: relative;
+			margin: 0;
+			text-align: center;
 
-            &:nth-child(2) {
-                &:before {
-                    content: 'B';
-                }
-            }
+			&:before {
+				color: #fff;
+				border: 3px solid #fff;
+				border-radius: 50%;
+				font-size: 30px;
+				height: 40px;
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				width: 40px;
+			}
 
-            &:nth-child(3) {
-                &:before {
-                    content: 'C';
-                }
-            }
+			&:nth-child(1) {
+				&:before {
+					content: 'A';
+				}
+			}
 
-            &:nth-child(4) {
-                &:before {
-                    content: 'D';
-                }
-            }
+			&:nth-child(2) {
+				&:before {
+					content: 'B';
+				}
+			}
 
-            &.correct {
-                border: 10px solid #21b621;
-                padding: 23px;
-            }
+			&:nth-child(3) {
+				&:before {
+					content: 'C';
+				}
+			}
 
-            img {
-                height: auto;
-                    max-height: 25vh;
-                margin: 0 auto;
-                width: auto;
-                    max-width: 30vw;
-            }
-        }
-    
-        pre {
-            align-self: center;
-            justify-self: center;
-            display: block;
-            padding: 20px;
-        }
+			&:nth-child(4) {
+				&:before {
+					content: 'D';
+				}
+			}
 
-        button {
-            justify-self: center;
-        }
-    }
+			&.correct {
+				border: 10px solid #21b621;
+				padding: 23px;
+			}
 
-    &.grid {
-        font-size: 0.5em;
-        
-        &.r2 {
-            grid-template-rows: 1fr 1fr;
+			img {
+				height: auto;
+				max-height: 25vh;
+				margin: 0 auto;
+				width: auto;
+				max-width: 30vw;
+			}
+		}
 
-            &.header {
-                grid-template-rows: auto 1fr 1fr;
-            }
-        }
+		pre {
+			align-self: center;
+			justify-self: center;
+			display: block;
+			padding: 20px;
+		}
 
-        &.r2-1 {
-            grid-template-rows: 2fr 1fr;
-        }
+		button {
+			justify-self: center;
+		}
+	}
 
-        &.r1-2 {
-            grid-template-rows: 1fr 2fr;
-        }
+	&.grid {
+		font-size: 0.5em;
 
-        &.c2 {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
+		&.r2 {
+			grid-template-rows: 1fr 1fr;
+
+			&.header {
+				grid-template-rows: auto 1fr 1fr;
+			}
+		}
+
+		&.r2-1 {
+			grid-template-rows: 2fr 1fr;
+		}
+
+		&.r1-2 {
+			grid-template-rows: 1fr 2fr;
+		}
+
+		&.c2 {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 }
 
 .uppercase {
-    text-transform: uppercase;
+	text-transform: uppercase;
 
-    mark {
-        background: rgba($cyan, 0.3);
-    }
+	mark {
+		background: rgba($cyan, 0.3);
+	}
 }
 
 .title {
-    line-height: 1.2;
-    font-size: 1.5em;
+	line-height: 1.2;
+	font-size: 1.5em;
 
-    mark {
-        background: rgba($cyan, 0.3);
-    }
+	mark {
+		background: rgba($cyan, 0.3);
+	}
 }
 
 footer {
-    height: $footer;
-    bottom: 0;
+	height: $footer;
+	bottom: 0;
 }
 
-@import './custom.scss'
+@import './custom.scss';
