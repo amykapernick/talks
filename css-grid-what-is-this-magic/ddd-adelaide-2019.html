@@ -134,8 +134,7 @@
 					<iframe class="background" src="./index_dot_css.html"></iframe>
 					<aside class="notes">
 						- And then there was CSS<br/>
-						- But before long this wasn't good enough either<br/>
-						- WE wanted to do more<br/>
+						- We've come a long way with CSS and with our layouts<br/>
 					</aside>
 				</section>
 
@@ -192,108 +191,8 @@
 						</table>
 					</div>
 					<aside class="notes">
-						- So we discovered that you could use tables for layouts<br/>
-						- This was great because you could break the apge into a grid<br/>
-						- You could merge cells into each other<br/>
-						- And embed tables inside tables<br/>
-						- We finally had better control over how content was laid out on a page<br/>
-					</aside>
-				</section>
-
-				<section id="slide-10" class="code small very">
-					<pre><code data-trim class="hljs html">
-						<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" align="center">
-							<tbody><tr><td valign="top" align="center">
-								<table width="100%" cellspacing="0" cellpadding="0" border="0">
-									<tbody><tr><td valign="top" align="center">
-										<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
-											<tbody><tr><td valign="top">
-												<table width="100%" cellspacing="0" cellpadding="0" border="0">
-													<tbody><tr><td valign="top">
-														<table width="100%" cellspacing="0" cellpadding="0" border="0">
-															<tbody><tr><td valign="top" align="center">
-																<table cellspacing="0" cellpadding="0" border="0" align="center">
-																	<tbody><tr><td valign="top" align="center">
-																		<table width="100"><tr><td valign="top" align="center">
-																			<table cellspacing="0" cellpadding="0" border="0" align="center">
-																				<tbody><tr><td valign="top" align="center">
-																					<table>
-																						<tbody><tr><td valign="top">
-																							<a href=""><img src="image.png" /></a>
-																						</td></tr></tbody>
-																					</table>
-																				</td></tr></tbody>
-																			</table>
-																		</td></tr></table>
-																	</td></tr></tbody>
-																</table>
-															</td></tr></tbody>
-														</table>
-													</td></tr></tbody>
-												</table>
-											</td></tr></tbody>
-										</table>
-									</td></tr></tbody>
-								</table>
-							</td></tr></tbody>
-						</table>
-					</code></pre>
-					<aside class="notes">
-						- But before long, we ended up with excessive complexities<br/>
-						- Tables inside tables was great<br/>
-						- But tables inside tables inside tables inside tables<br/>
-						- Not so much<br/>
-						- This also made it more difficult when we started trying to make out websites work on different device sizes
-					</aside>
-				</section>
-			
-				<section id="slide-11" class="code split vertical small table-example">
-					<pre><code data-trim class="hljs html">
-							<header>
-								<h1>My Website</h1>
-							</header>
-							<nav>
-								<a href="#">Home</a>
-							</nav>
-							<main>
-								<aside><nav>
-									<a href="#">Menu link</a><br>
-									<a href="#">Menu link</a><br>
-								</nav></aside>
-								<article>
-									<h2>Page heading</h2>
-									Lorum Ipsum pair. <br>
-									Lorum ipsum
-								</article>
-							</main>
-							<footer>Copyright ©</footer>
-						</code>
-					</pre>
-					<div>
-						<div class="header">
-							<h1>My Website</h1>
-						</div>
-						<nav>
-							<a href="#">Home</a>
-						</nav>
-						<div class="main">
-							<div class="aside">
-								<nav>
-									<a href="#">Menu link</a><br>
-									<a href="#">Menu link</a><br>
-								</nav>
-							</div>
-							<div class="article">
-								<h2>Page heading</h2>
-								Lorum Ipsum pair. <br>
-								Lorum ipsum
-							</div>
-						</div>
-						<div class="footer">Copyright ©</div>
-					</div>
-					<aside class="notes">
-						- So we started using float<br/>
-						- This meant we were back to following the separation of concerns<br/>
+						- From the table layouts that still haunt our nightmares<br/>
+						- And potentially still our day if we're working with email templates<br/>
 					</aside>
 				</section>
 
@@ -351,108 +250,7 @@
 						<div class="footer">Copyright ©</div>
 					</div>
 					<aside class="notes">
-						- Where HTML was for content, while CSS was for visual look and interface<br/>
-						- But before long, we found floats also weren't working<br/> 
-					</aside>
-				</section>
-
-				<section id="slide-13" class="code small vertical compare">
-					<pre>
-						<code data-trim class="hljs scss">
-							.parent {
-								clear: both;
-								overflow: hidden;
-							}
-							
-							.child {
-								float: left;
-								width: 100%;
-								
-								@media (min-width: 500px) {
-									margin-right: 2%;
-									width: 49%;
-							
-									&:nth-child(2n) {
-										margin-right: 0;
-									}
-							
-									&:nth-child(2n + 1) {
-										clear: both;
-									}
-								}
-						</code>
-					</pre>
-					<pre>
-						<code data-trim class="hljs scss">
-								@media (min-width: 800px) {
-									clear: none !important;
-									margin-right: 1% !important;
-									width: 32.6666667%;
-							
-									&:nth-child(3n) {
-										margin-right: 0 !important;
-									}
-							
-									&:nth-child(3n + 1) {
-										clear: both !important;
-									}
-								}
-							}
-						</code>
-						</pre>
-					<aside class="notes">
-						- Your had to clearfix everything<br/>
-						- There were a bunch more container divs being used to keep floating elements together<br/>
-						- And when using media queries you often had to do complex calculations and change or reset the previous code<br/>
-						- Oh, and there was a LOT of using <pre>!important</pre><br/>
-						- So by the time we'd memorised how many % wide each element needed to be in a 6 column grid with a 1% margin
-					</aside>
-				</section>
-
-				<section id="slide-14" class="code split small table-example flexy vertical">
-					<pre>
-						<code data-trim class="hlsj html">
-							<header>
-								<h1>My Website</h1>
-							</header>
-							<nav><a href="#">Home</a></nav>
-							<main>
-								<aside><nav>
-									<a href="#">Menu link</a><br>
-									<a href="#">Menu link</a><br>
-								</nav></aside>
-								<article>
-									<h2>Page heading</h2>
-									Lorum ipsum	pair. <br>
-									Lorum ipsum
-								</article>
-							</main>
-							<footer>Copyright ©</footer>
-						</code>
-					</pre>
-					<div>
-						<div class="header">
-							<h1>My Website</h1>
-						</div>
-						<nav><a href="#">Home</a></nav>
-						<div class="main">
-							<div class="aside"><nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav></div>
-							<div class="article">
-								<h2>Page heading</h2>
-								Lorum ipsum	pair. <br>
-								Lorum ipsum
-							</div>
-						</div>
-						<div class="footer">Copyright ©</div>
-					</div>
-					<aside class="notes">
-						- we were all excited when flexbox arrived
-						- We didn't have to do percentage math anymore<br/>
-						- And it reduced the number of media queries we needed<br/>
-						- And we were name able to easily centre content vertically, something we hadn't been able to do since tables<br/>
+						- To float layouts and clearfixes<br/>
 					</aside>
 				</section>
 
@@ -508,75 +306,7 @@
 						<div class="footer">Copyright ©</div>
 					</div>
 					<aside class="notes">
-						- We were finally starting to get the functionality we needed from our CSS<br/>
-						- No longer needed to write complicated code or work with percentages and our code was more responsive than ever<br/>
-						- But although flexbox is really good for flowing content<br/>
-					</aside>
-				</section>
-
-				<section id="slide-16" class="code compare split vertical">
-					<pre><code data-trim class="hlsj css">
-						.parent {
-							display: flex;
-							width: 102%;
-							margin: -1%;
-						}
-					</code></pre>
-					<pre><code data-trim class="hlsj css">
-							.child {
-								flex: 1 1 auto;
-								margin: 1%;
-							}
-						</code></pre>
-					<aside class="notes">
-						- There was limited control on the cross axis<br/>
-						- And having gaps between the items tended to get a little complicated<br/>
-						- And often needed negative margins<br/>
-						- But things were looking up<br/>
-						- We finally had a CSS technology that was built for layout<br/>
-						- And in the distance, we could see the cavalry on it's way<br/>
-					</aside>
-				</section>
-
-				<section id="slide-17" class="code small split vertical table-example griddy">
-					<pre><code data-trim class="hlsj html">
-						<header>
-							<h1>My Website</h1>
-						</header>
-						<nav><a href="#">Home</a></nav>
-						<aside><nav>
-							<a href="#">Menu link</a><br>
-							<a href="#">Menu link</a><br>
-						</nav></aside>
-						<main>
-							<h2>Page heading</h2>
-							Lorum ipsum	pair. <br>
-							Lorum ipsum
-						</main>
-						<footer>Copyright ©</footer>
-					</code></pre>
-					<div>
-						<div class="header">
-							<h1>My Website</h1>
-						</div>
-						<nav><a href="#">Home</a></nav>
-						<div class="aside"><nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav></div>
-						<div class="main">
-							<div class="article">
-								<h2>Page heading</h2>
-								Lorum ipsum	pair. <br>
-								Lorum ipsum
-							</div>
-						</div>
-						<div class="footer">Copyright ©</div>
-					</div>
-					<aside class="notes">
-						- In 2017, CSS Grid landed in all new major browsers<br/>
-						- THis gave us everything we'd been asking for for CSS Layouts<br/>
-						- Like flexbox, were able to define a set of contraints and have the browser make the layout responsive<br/>
+						- Then rejoicing at flexbox and the regained ability to vertically centre content<br/>
 					</aside>
 				</section>
 
@@ -623,66 +353,9 @@
 					</div>
 					<aside class="notes">
 						- But now able to control the layout in both directions<br/>
-						- With grid, able to define areas of the layout<br/>
-						- Define whether specific elements spanned multiple areas<br/>
 						- Dictate how the elements inside the grid behanved<br/>
 						- WE could now reduce the code we were writing<br/>
 						- Even better, we could reduce the thinking needed to make the layout responsive<br/>
-					</aside>
-				</section>
-
-				<section id="slide-19" class="code split vertical compare small">
-					<pre><code data-trim class="hlsj html">
-						<table>
-							<tr>
-								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
-							</tr>
-							<tr>
-								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
-							</tr>
-							<tr>
-								<td width="20%" valign="top" bgcolor="#8bd3d8">
-									<a href="#">Menu link</a><br>
-									<a href="#">Menu link</a><br>
-								</td>
-								<td width="55%" valign="top" bgcolor="#e8f6f7">
-									<h2>Page heading</h2>
-									Lorum Ipsum
-									pair. <br>
-									Lorum ipsum
-								</td>
-								<td width="25%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
-							</tr>
-							<tr>
-								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
-							</tr>
-						</table>
-					</code></pre>
-					<pre><code data-trim class="hlsj css">
-							body {
-								display: grid;
-								grid-template-columns: repeat(5, 1fr);
-							}
-							
-							header {
-								grid-column: 1 / -1;
-							}
-							
-							nav {
-								grid-column: 1 / -1;
-							}
-							
-							main {
-								grid-column: span 3;
-							}
-							
-							footer {
-								grid-column: 1 / -1;
-							}
-					</code></pre>
-					<aside class="notes">
-						- But didn't we already have this with tables?<br/>
-						- Isn't grid just a newer fancier version of the table layout we've been scoffing at for years?<br/>
 					</aside>
 				</section>
 
