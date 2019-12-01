@@ -94,7 +94,7 @@ button,
 
 	&.border {
 		section {
-			border-left: 20px solid lightseagreen;
+			border-left: 20px solid #00acbb;
 
 			&.blank {
 				border: none;
@@ -249,7 +249,8 @@ section {
 		z-index: -1;
 	}
 
-	> img {
+	> img,
+	video {
 		height: 100vh;
 		object-fit: contain;
 		width: 100vw;

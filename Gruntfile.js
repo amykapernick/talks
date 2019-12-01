@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const sass = require('node-sass');
 
 module.exports = grunt => {
 	require('load-grunt-tasks')(grunt);
 
-	let port = grunt.option('port') || 8000;
+	let port = process.env.PORT || 8000;
 	let root = grunt.option('root') || '.';
 
 	if (!Array.isArray(root)) root = [root];
@@ -101,7 +103,7 @@ module.exports = grunt => {
 					port: port,
 					base: root,
 					livereload: true,
-					open: true,
+					open: false,
 					useAvailablePort: true,
 				},
 			},

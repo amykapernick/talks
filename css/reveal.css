@@ -1536,7 +1536,7 @@ button,
   bottom: 0;
   left: 0; }
   .slides.border section {
-    border-left: 20px solid lightseagreen; }
+    border-left: 20px solid #00acbb; }
     .slides.border section.blank {
       border: none; }
   .slides.grid:before {
@@ -1663,17 +1663,20 @@ section {
     height: auto;
     width: 100%;
     z-index: -1; }
-  section > img {
+  section > img,
+  section video {
     height: 100vh;
     -o-object-fit: contain;
        object-fit: contain;
     width: 100vw; }
-    section > img.background {
+    section > img.background,
+    section video.background {
       -o-object-fit: cover;
          object-fit: cover;
       max-height: unset;
       min-width: 100vw; }
-    section > img.graphic {
+    section > img.graphic,
+    section video.graphic {
       padding: 100px; }
   section .image-container {
     height: 100%;
@@ -2301,3 +2304,28 @@ footer {
 
 .custom-7 section.smallish li {
   font-size: 0.8em; }
+
+.custom-8 .section figure {
+  display: grid;
+  grid-template-rows: 1fr 10vh;
+  height: 90vh;
+  margin-top: 3vh;
+  -ms-flex-pack: center;
+      justify-content: center;
+  justify-items: center; }
+  .custom-8 .section figure img {
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain; }
+    .custom-8 .section figure img.graphic {
+      -ms-flex-item-align: center;
+          align-self: center;
+      max-height: 90%; }
+
+.custom-8 .section figcaption {
+  padding-top: 1vh;
+  font-size: 0.3em;
+  text-align: center; }
+
+.custom-8 .section.blank figcaption {
+  color: #fff; }

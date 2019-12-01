@@ -689,3 +689,40 @@
         }
     }
 }
+
+//How to manage my ducks - DDD Brisbane 2019
+.custom-8 {
+    .section {
+        figure {
+            display: grid;
+            grid-template-rows: 1fr 10vh;
+            height: 90vh;
+            margin-top: 3vh;
+            justify-content: center;
+            justify-items: center;
+    
+            img {
+                height: 100%;
+                object-fit: contain;
+                
+    
+                &.graphic {
+                    align-self: center;
+                    max-height: 90%;
+                }
+            }
+        }
+    
+        figcaption {
+            padding-top: 1vh;
+            font-size: 0.3em;
+            text-align: center;
+        }
+    
+        &.blank {
+            figcaption {
+                color: #fff;
+            }
+        }
+    }
+}
