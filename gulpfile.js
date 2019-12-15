@@ -11,6 +11,7 @@ const zip = require('gulp-zip');
 const connect = require('gulp-connect');
 
 let port = process.env.PORT || 8000;
+let sassFiles = ['css/global.scss', 'css/reveal.scss', 'css/custom.scss', 'css/a11y-dark.scss'];
 
 gulp.task('js', () =>
 	gulp
@@ -32,7 +33,7 @@ gulp.task(
 	gulp.series(
 		() =>
 			gulp
-				.src(['css/reveal.scss', 'css/custom.scss', 'css/a11y-dark.scss'])
+				.src(sassFiles)
 				.pipe(sass())
 				.pipe(autoprefixer())
 				.pipe(gulp.dest('./css')),

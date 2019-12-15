@@ -1,5 +1,3 @@
-@import './styles.scss';
-
 //Fonts
 @font-face {
 	font-family: 'Source Code Pro';
@@ -45,23 +43,4 @@
 	box-sizing: border-box;
 }
 
-//Fonts
-$font_regular: 'Lato', Arial, sans-serif;
-$font_headings: 'Quicksand', Arial, sans-serif;
-$font_code: 'Source Sans Pro', monospace;
-
-//Colours
-$red: #da0808;
-$blue: #1212d8;
-$cyan: #00acbb;
-$yellow: #e0e05a;
-
-$grey_light: #d1d1d1;
-$grey: #36454f;
-$grey_dark: #191919;
-
-$background: #faf8ef;
-
-//Values
-$header: 0;
-$footer: 5vh;
+@import './styles.scss';
