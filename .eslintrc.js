@@ -37,8 +37,7 @@ module.exports = {
 		'react/jsx-uses-vars': 'error',
 		'one-var': [2, 'consecutive'],
 	},
-	parser: 'babel-eslint',
 	parserOptions: {
 		ecmaVersion: 8, // optional, recommended 6+
 	},
-}
+};

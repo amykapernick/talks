@@ -1,17 +1,17 @@
 require('dotenv').config();
 
-const gulp = require('gulp');
-const eslint = require('gulp-eslint');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const minify = require('gulp-minify');
-const zip = require('gulp-zip');
-const connect = require('gulp-connect');
+const gulp = require('gulp'),
+	eslint = require('gulp-eslint'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	sass = require('gulp-sass'),
+	minify = require('gulp-minify'),
+	zip = require('gulp-zip'),
+	connect = require('gulp-connect');
+concat = require('gulp-concat');
 
-let port = process.env.PORT || 8000;
-let sassFiles = ['css/global.scss', 'css/reveal.scss', 'css/custom.scss', 'css/a11y-dark.scss'];
+let port = process.env.PORT || 8000,
+	sassFiles = ['css/global.scss', 'css/reveal.scss', 'css/custom.scss', 'css/a11y-dark.scss'];
 
 gulp.task('js', () =>
 	gulp
@@ -21,13 +21,6 @@ gulp.task('js', () =>
 		.pipe(gulp.dest('./js'))
 );
 
-gulp.task('css-themes', () =>
-	gulp
-		.src(['./css/theme/source/*.{sass,scss}'])
-		.pipe(sass())
-		.pipe(gulp.dest('./css/theme'))
-);
-
 gulp.task(
 	'css-core',
 	gulp.series(
@@ -35,7 +28,7 @@ gulp.task(
 			gulp
 				.src(sassFiles)
 				.pipe(sass())
-				.pipe(autoprefixer())
+				.pipe(concat('reveal.css'))
 				.pipe(gulp.dest('./css')),
 		() =>
 			gulp
@@ -46,7 +39,7 @@ gulp.task(
 	)
 );
 
-gulp.task('css', gulp.parallel('css-themes', 'css-core'));
+gulp.task('css', gulp.parallel('css-core'));
 
 gulp.task(
 	'test',
@@ -78,5 +71,5 @@ gulp.task('serve', () => {
 		useAvailablePort: true,
 	});
 	gulp.watch(['js/reveal.js'], gulp.series('js'));
-	gulp.watch(['css/**/*.scss'], gulp.series('css-core'));
+	gulp.watch(['css/*.scss'], gulp.series('css-core'));
 });
