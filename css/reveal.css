@@ -596,11 +596,15 @@ body {
         height: 66.66667%; } }
 
 @charset "UTF-8";
+:root {
+  --header: 0;
+  --footer: 5vh; }
+
 body {
   background: #faf8ef;
   color: #080808;
-  font: "Lato", Arial, sans-serif;
-  font-size: 100px;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 10vh;
   line-height: 1.4;
   margin: 0; }
   body .progress {
@@ -610,7 +614,7 @@ h1,
 h2,
 h3 {
   color: #080808;
-  font: "Quicksand", Arial, sans-serif; }
+  font-family: "Quicksand", Arial, sans-serif; }
 
 h1 {
   font-size: 1.5em;
@@ -621,12 +625,12 @@ h2 {
 
 h3 {
   color: #080808;
-  font-size: 20px; }
+  font-size: 1.4em; }
 
 a,
 span.link {
   color: #080808;
-  font: "Lato", Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
   text-decoration: none; }
 
 ul li {
@@ -643,13 +647,28 @@ blockquote {
   padding-left: 20px; }
 
 figure {
+  display: grid;
+  grid-template-rows: 1fr 10vh;
+  justify-content: center;
+  justify-items: center;
+  height: calc(100vh - var(--footer) - var(--header));
+  margin-top: 3vh;
   position: relative; }
+  figure img {
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%; }
+    figure img.graphic {
+      align-self: center;
+      max-height: 90%; }
 
 figcaption {
   color: #080808;
-  font-size: 12px;
-  padding-right: 10px;
-  text-align: right; }
+  font-size: 1em;
+  padding: 1vh 10px 0 0;
+  padding-top: 1vh;
+  font-size: 0.3em;
+  text-align: center; }
 
 button,
 .btn {
@@ -728,6 +747,7 @@ table {
 
 pre {
   background: #080808;
+  font-family: "Source Code Pro", monospace;
   font-size: 0.5em;
   margin: 0;
   padding: 5vw;
@@ -757,7 +777,7 @@ button {
   margin: 20px 0; }
 
 header {
-  height: 0;
+  height: var(--header);
   top: 0; }
 
 header,
@@ -766,7 +786,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  font-size: 0.5em;
+  font-size: 0.4em;
   opacity: 0.7;
   padding: 10px;
   position: absolute;
@@ -780,7 +800,7 @@ section {
   align-content: stretch;
   align-items: center;
   height: 100vh;
-  padding: 0 0 5vh;
+  padding: var(--header) 0 var(--footer);
   position: relative;
   width: 100vw;
   z-index: 0; }
@@ -960,7 +980,7 @@ section {
     background: rgba(0, 172, 187, 0.3); }
 
 footer {
-  height: 5vh;
+  height: var(--footer);
   bottom: 0; }
 
 .custom-1 section#slide-6 {

@@ -32,10 +32,22 @@ gulp.task(
 				.pipe(gulp.dest('./css')),
 		() =>
 			gulp
+				.src(['./css/print/print.scss'])
+				.pipe(sass())
+				.pipe(concat('paper.css'))
+				.pipe(gulp.dest('./css/print')),
+		() =>
+			gulp
 				.src(['css/reveal.css'])
 				.pipe(minify())
 				.pipe(rename('reveal.min.css'))
-				.pipe(gulp.dest('./css'))
+				.pipe(gulp.dest('./css')),
+		() =>
+			gulp
+				.src(['css/print/paper.css'])
+				.pipe(minify())
+				.pipe(rename('print.min.css'))
+				.pipe(gulp.dest('./css/print'))
 	)
 );
 

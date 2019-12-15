@@ -1,10 +1,15 @@
 @import './variables.scss';
 
+:root {
+	--header: #{$header};
+	--footer: #{$footer};
+}
+
 body {
 	background: $background;
 	color: $grey_dark;
-	font: $font_regular;
-	font-size: 100px;
+	font-family: $font_regular;
+	font-size: 10vh;
 	line-height: 1.4;
 	margin: 0;
 
@@ -17,7 +22,7 @@ h1,
 h2,
 h3 {
 	color: $grey_dark;
-	font: $font_headings;
+	font-family: $font_headings;
 }
 
 h1 {
@@ -31,13 +36,13 @@ h2 {
 
 h3 {
 	color: $grey_dark;
-	font-size: 20px;
+	font-size: 1.4em;
 }
 
 a,
 span.link {
 	color: $grey_dark;
-	font: $font_regular;
+	font-family: $font_regular;
 	text-decoration: none;
 }
 
@@ -61,14 +66,33 @@ blockquote {
 }
 
 figure {
+	display: grid;
+	grid-template-rows: 1fr 10vh;
+	justify-content: center;
+	justify-items: center;
+	height: calc(100vh - var(--footer) - var(--header));
+	margin-top: 3vh;
 	position: relative;
+
+	img {
+		height: 100%;
+		object-fit: contain;
+		max-width: 100%;
+
+		&.graphic {
+			align-self: center;
+			max-height: 90%;
+		}
+	}
 }
 
 figcaption {
 	color: $grey_dark;
-	font-size: 12px;
-	padding-right: 10px;
-	text-align: right;
+	font-size: 1em;
+	padding: 1vh 10px 0 0;
+	padding-top: 1vh;
+	font-size: 0.3em;
+	text-align: center;
 }
 
 button,
@@ -176,6 +200,7 @@ table {
 
 pre {
 	background: $grey_dark;
+	font-family: $font_code;
 	font-size: 0.5em;
 	margin: 0;
 	padding: 5vw;
@@ -212,7 +237,7 @@ button {
 }
 
 header {
-	height: $header;
+	height: var(--header);
 	top: 0;
 }
 
@@ -222,7 +247,7 @@ footer {
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	font-size: 0.5em;
+	font-size: 0.4em;
 	opacity: 0.7;
 	padding: 10px;
 	position: absolute;
@@ -237,7 +262,7 @@ section {
 	align-content: stretch;
 	align-items: center;
 	height: 100vh;
-	padding: $header 0 $footer;
+	padding: var(--header) 0 var(--footer);
 	position: relative;
 	width: 100vw;
 	z-index: 0;
@@ -531,7 +556,7 @@ section {
 }
 
 footer {
-	height: $footer;
+	height: var(--footer);
 	bottom: 0;
 }
 
