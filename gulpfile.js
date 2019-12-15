@@ -58,7 +58,7 @@ gulp.task(
 	)
 );
 
-gulp.task('default', gulp.series(gulp.parallel('js', 'css'), 'test'));
+gulp.task('default', gulp.series(gulp.parallel('js', 'css')));
 
 gulp.task(
 	'package',
