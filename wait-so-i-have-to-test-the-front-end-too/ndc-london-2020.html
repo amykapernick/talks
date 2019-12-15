@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Wait, so I have to test the front end too?</title>
+
+		<link rel="stylesheet" href="../css/reveal.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body class="">
+		<header role="banner"></header>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<p>Presentation</p>
+					<aside class="notes" data-markdown>- Test clicker</aside>
+				</section>
+				<section data-state="tweet" data-text="Tweet text">
+					<p>slide 2</p>
+					
+				</section>
+
+				<section>
+					<p>Middle slide</p>
+				</section>
+
+				<section data-state="tweet" data-text="Another tweet" data-image="https://quokkas.amyskapers.tech/img/quokka_(1).jpg">
+					<p>slide 3</p>
+				</section>
+				</div>
+
+		<footer role="contentinfo">
+			@amys_kapers
+		</footer>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: 'socket.io/socket.io.js', async: true},
+					{ src: '../plugin/notes-server/client.js', async: true},
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { 
+						hljs.configure({
+							tabReplace: '   '
+						});
+						hljs.initHighlightingOnLoad(); 
+					} }
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1
+			});
+
+			Reveal.addEventListener('tweet', () => {
+				let currentSlide = document.querySelector('.reveal .slides section.present')
+				console.log(currentSlide.getAttribute('data-text'))
+				
+				if(currentSlide.getAttribute('data-image')) {
+					console.log(currentSlide.getAttribute('data-image'))
+				}
+
+			}, false)
+		</script>
+	</<header>
+</html>

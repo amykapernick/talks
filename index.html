@@ -10,16 +10,13 @@
 		<link rel="stylesheet" href="css/reveal.css" />
 		<link rel="stylesheet" href="css/theme/black.css" />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css" />
-
 		<!-- Printing and PDF exports -->
 		<script>
-			var link = document.createElement('link')
-			link.rel = 'stylesheet'
-			link.type = 'text/css'
-			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css'
-			document.getElementsByTagName('head')[0].appendChild(link)
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
 		</script>
 	</head>
 	<body>
@@ -33,9 +30,10 @@
 						<li><a href="/so-you-think-you-know-html">So You Think You Know HTML</a></li>
 						<li><a href="/fender-lightning-round">The Fender Lightning Round</a></li>
 						<li><a href="/the-art-of-failure">The Art of Failure</a></li>
-						<li><a href="/being-a-more-sustainable-you">Being a More Sustainable You</a></li>
+						<li><a href="/being-a-more-sustainable-you">How to Manage Your Ducks</a></li>
 						<li><a href="/my-story">My Story</a></li>
 						<li><a href="/css-grid-what-is-this-magic">CSS Grid - What is this Magic?!</a></li>
+						<li><a href="/wait-so-i-have-to-test-the-front-end-too">Wait, so I have to test the Front End too?</a></li>
 					</ul>
 				</section>
 			</div>
@@ -56,9 +54,11 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: '../plugin/notes-server/client.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true },
 				],
-			})
+			});
 		</script>
 	</body>
 </html>

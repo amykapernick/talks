@@ -1,0 +1,737 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+
+				<link rel="stylesheet" href="lib/css/a11y-dark.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<header role="banner">
+
+		</header>
+
+		<div class="reveal">
+			<div class="slides custom-1">
+				<section id="slide-1">
+					<img src="./img/title.png" />
+
+					<aside class="notes">
+						- Asked about programming<br />
+						- HTML "not real programming" or "just markup"<br />
+						<br />
+						- HTML over 25 years old<br />
+						- Forms building blocks<br />
+						<br />
+						- HTML IS a markup language<br />
+						- Great place to start for web<br />
+						- Knowledge of how it works essential for others<br />
+						<br />
+						- HTML is markup, but should still get <br />
+						- Like more fun languages<br />
+						<br />
+						- When did you last look at a new standard?<br />
+						- Do you know the right element for an audio file?<br />
+						<br />
+						- definition?<br />
+						- Do you know when you should use a button?<br />
+					</aside>
+				</section>
+			
+				<section id="slide-2">
+					<p class="title">Good HTML is <br />key for Accessibility</p>
+
+					<aside class="notes">
+						- Not just for content<br />
+						- Or to target with CSS and js<br />
+						- Semantically correct HTML essential for screen readers<br />
+						- Reader knows what content to expect<br />
+						- Interprets for user<br />
+						<br />
+						- Screen readers aren't the only assistive tech<br />
+						- How would someone use a Braille reader?
+					</aside>
+				</section>
+			
+				<section id="slide-3" class="code">
+					<pre><code data-trim class="hljs html">
+						<!-- When making text bold, what do you use? -->
+
+						Is <b>this text</b> bold or <strong>this text</strong>?
+
+
+						<!-- What about italic? -->
+
+						Is <i>this text</i> italic, or <em>this text</em>?
+					</code></pre>
+
+					<aside class="notes">
+						- Use bold or italic to emphasise<br />
+						- How will someone with a screen reader know?<br />
+						<br />
+						- `b` and `i` apply formatting only<br />
+						- Screen readers ignore<br />
+						<br />
+						- `strong` and `em` are semantic tags<br />
+						- Screen readers interpret and read content differently<br />
+						<br />
+						- A11y not hard<br />
+						- Use the right element
+					</aside>
+				</section>
+
+				<section id="slide-4">
+					<p class="title">Google <mark>cares about<br /> your HTML</mark> too!</p>
+					<aside class="notes">
+						- Semantic HTML not just for a11y<br />
+						- Structure of site affects how it's used<br />
+						- eg. voice recognition and smartwatch<br />
+						- SEO affected by HTML structure
+					</aside>
+				</section>
+
+				<section id="slide-17" class="question">
+					<button>Download Catalogue</button>
+					<ul class="code">
+						<li><pre><code class="hljs html"><a>Link</a></code></pre></li>
+						<li><pre><code class="hljs html"><div>Clickable Div</div></code></pre></li>
+						<li><pre><code class="hljs html"><button>Download Button</button></code></pre></li>
+						<li><pre><code class="hljs html"><span>Clickable Span</span></code></pre></li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-25" class="question">
+					<button>Download Catalogue</button>
+					<ul class="code">
+						<li class="correct"><pre><code class="hljs html"><a>Link</a></code></pre></li>
+						<li><pre><code class="hljs html"><div>Clickable Div</div></code></pre></li>
+						<li><pre><code class="hljs html"><button>Download Button</button></code></pre></li>
+						<li><pre><code class="hljs html"><span>Clickable Span</span></code></pre></li>
+					</ul>
+				</section>
+
+				<section id="slide-5" class="code">
+					<pre><code data-trim class="hljs html">
+						<div class="link-disguise">Download Catalogue</div>
+
+
+						<button onClick="download()">Download Catalogue</button>
+
+
+						<a href="/catalogue.pdf">Download Catalogue</a>
+					</code></pre>
+					<aside class="notes">
+						- div is a layout element<br />
+						- Won't get keyboard focus<br />
+						- Can hack to make it clickable<br />
+						- Don't go to the effort<br />
+						<br />
+						- Often used interchangeably<br />
+						- Button for triggering actions, eg toggle<br />
+						- Link should go elsewhere<br />
+						- Other part of page, another page, email, phone number, document<br />
+						<br />
+						- Use CSS for appearance<br />
+						- Don't use a h6 because it's the right size
+					</aside>
+				</section>
+
+				<section id="slide-6" class="code split vertical compare">
+					<pre><code data-trim class="hljs html">
+						<h3>My Christmas List</h3>
+
+						<div class="list">
+						  <div class="list-item">Item 1</div>
+						  <div class="list-item">Item 2</div>
+						  <div class="list-item">Item 3</div>
+						  <div class="list-item">Item 4</div>
+						  <div class="list-item">Item 5</div>
+							...
+						  <div class="list-item">Item 199</div>
+						  <div class="list-item">Item 200</div>
+						  <div class="list-item">Item 201</div>
+						</div>
+					</code></pre>
+					<pre><code data-trim class="hljs html">
+						<h3>My Christmas List</h3>
+
+						<ul>
+						  <li>Item 1</li>
+						  <li>Item 2</li>
+						  <li>Item 3</li>
+						  <li>Item 4</li>
+						  <li>Item 5</li>
+							...
+						  <li>Item 199</li>
+						  <li>Item 200</li>
+						  <li>Item 201</li>
+						</ul>
+					</code></pre>
+					<aside class="notes">
+						- divs and spans only change display property<br />
+						- layout only<br />
+						<br />
+						- Screen readers take into account everything on the page<br />
+						- lists of headings, controls for tables, and information about lists<br />
+						<br />
+						- When divs used for things that need interaction<br />
+						- Eg headings, buttons, tables<br />
+						- Can't be translated into usable format<br />
+						- You rely on visual formatting only<br />
+						<br />
+						- Screen reader gives info about list<br />
+						- Stuck in unsemantic list<br />
+						- Screen reader just sees divs
+					</aside>
+				</section>
+
+				<section id="slide-18" class="question">
+					<pre><code class="hljs html"><dt></dt></code></pre>
+					<ul>
+						<li>Down Town</li>
+						<li>Definition Term</li>
+						<li>Description Term</li>
+						<li>David Thomas</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-26" class="question">
+					<pre><code class="hljs html"><dt></dt></code></pre>
+					<ul>
+						<li>Down Town</li>
+						<li class="correct">Definition Term</li>
+						<li class="correct">Description Term</li>
+						<li>David Thomas</li>
+					</ul>
+				</section>
+
+				<section id="slide-7" class="code split vertical example">
+					<pre><code data-trim class="hljs html">
+						<dl>
+						  <dt>Definition List</dt>
+						  <dd>A definition list is often used in glossaries or similar.</dd>
+						  <dt>Description List</dt>
+						  <dd>The same thing, they are known by different names</dd>
+						</dl>
+											
+						<dl>
+						  <dt>Name</dt>
+						  <dd>Amy</dd>
+						  <dt>Birthplace</dt>
+						  <dd>Wondai, Queensland</dd>
+						  <dt>Favourite Colour</dt>
+						  <dd>Purple</dd>
+						  <dt>Pets</dt>
+						  <dd>Remi (dog)</dd>
+						</dl>
+					</code></pre>
+					<div>
+						<dl>
+							<dt>Definition List</dt>
+							<dd>A definition list is often used in glossaries or similar.</dd>
+							<dt>Description List</dt>
+							<dd>The same thing, they are known by different names
+							</dd>
+						</dl>
+						
+						<dl>
+							<dt>Name</dt>
+							<dd>Amy</dd>
+							<dt>Birthplace</dt>
+							<dd>Wondai, Queensland</dd>
+							<dt>Favourite Colour</dt>
+							<dd>Purple</dd>
+							<dt>Pets</dt>
+							<dd>Remi (dog)</dd>
+						</dl>
+					</div>
+					<aside class="notes">
+						- Lesser know lists<br />
+						- Definition or description list<br />
+						- `dl` `dt` and `dd` elements<br />
+						- Term and description or definition<br />
+						<br />
+						- Used to define group of terms<br />
+						- Eg glossary<br />
+						- Show meta data<br />
+						- key-value pairs<br />
+						- spec information
+					</aside>
+				</section>
+
+				<section id="slide-19" class="question">
+					<pre><code class="hljs html"><table></table></code></pre>
+					<ul>
+						<li>Layouts</li>
+						<li>Data</li>
+						<li>Email Templates</li>
+						<li>Nightmares</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-27" class="question">
+					<pre><code class="hljs html"><table></table></code></pre>
+					<ul>
+						<li>Layouts</li>
+						<li class="correct">Data</li>
+						<li>Email Templates</li>
+						<li>Nightmares</li>
+					</ul>
+				</section>
+
+				<section id="slide-8" class="code split vertical">
+					<pre><code data-trim class="hljs html">
+						<table>
+						  <tbody>
+						    <tr>
+						      <th>Fenders Organiser</th>
+						      <th>Favourite Colour</th>
+						    </tr>
+						    <tr>
+						      <td>Amy</td><td>Purple</td>
+						    </tr>
+						    <tr>
+						      <td>Ben</td><td>Black</td>
+						    </tr>
+						    <tr>
+						      <td>DT</td><td>Green</td>
+						    </tr>
+						    <tr>
+						      <td>Jess</td><td>Blue</td>
+						    </tr>
+						    <tr>
+						      <td>Mandy</td><td>Purple</td>
+						    </tr>
+						  </tbody>
+						</table>
+					</code></pre>
+					<div>
+						<table>
+							<tr>
+								<th>Fenders Organiser</th>
+								<th>Favourite Colour</th>
+							</tr>
+							<tr>
+								<td>Amy</td>
+								<td>Purple</td>
+							</tr>
+							<tr>
+								<td>Ben</td>
+								<td>Black</td>
+							</tr>
+							<tr>
+								<td>DT</td>
+								<td>Teal</td>
+							</tr>
+							<tr>
+								<td>Jess</td>
+								<td>Black</td>
+							</tr>
+							<tr>
+								<td>Mandy</td>
+								<td>Purple</td>
+							</tr>
+						</table>
+					</div>
+					<aside class="notes">
+						- Tables have bad rap<br />
+						- Overuse in layouts<br />
+						- Nightmare to deal with<br />
+						- Secret superpower<br />
+						<br />
+						Data<br />
+						<br />
+						- Should be in a table<br />
+						- Use a table<br />
+						- Can use for intended use
+					</aside>
+				</section>
+
+				<section id="slide-20" class="question">
+					<input type="text" placeholder="Form Field" />
+					<ul class="code">
+						<li><pre><code class="hljs html"><h3>Email</h3></code></pre></li>
+						<li><pre><code class="hljs html"><label>Email:</label></code></pre></li>
+						<li><pre><code class="hljs html">placeholder="Email"</code></pre></li>
+						<li><pre><code class="hljs html"><legend>Email</legend></code></pre></li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-28" class="question">
+					<input type="text" placeholder="Form Field" />
+					<ul class="code">
+						<li><pre><code class="hljs html"><h3>Email</h3></code></pre></li>
+						<li class="correct"><pre><code class="hljs html"><label>Email:</label></code></pre></li>
+						<li><pre><code class="hljs html">placeholder="Email"</code></pre></li>
+						<li><pre><code class="hljs html"><legend>Email</legend></code></pre></li>
+					</ul>
+				</section>
+
+				<section id="slide-10" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						<form>
+						  <legend>Subscribe to the Newsletter</legend>
+						  <label for="email">Email:</label>
+						  <input id="email" type="email" name="email" />
+						  <button type="submit">Submit</button>
+						</form>
+					</code></pre>
+					<div>
+						<form>
+							<legend>Subscribe to the Newsletter</legend>
+							<label for="email">Email</label>
+							<input id="email" type="email" name="email" />
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+					<aside class="notes">
+						- Most forms use placeholders<br />
+						- Screen reader can't read<br />
+						- Can't interpret and tell user<br />
+						- Always use labels<br />
+						- Visually hide<br />
+						<br />
+						- Legends show title of form<br />
+						- Specific to forms<br />
+						- Input gets label, form gets legend
+					</aside>
+				</section>
+
+				<section id="slide-21" class="question">
+					<pre><code class="hljs html"><datalist></datalist></code></pre>
+					<ul>
+						<li>Tables</li>
+						<li>Lists</li>
+						<li>Forms</li>
+						<li>Meta Info</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-29" class="question">
+					<pre><code class="hljs html"><datalist></datalist></code></pre>
+					<ul>
+						<li>Tables</li>
+						<li>Lists</li>
+						<li class="correct">Forms</li>
+						<li>Meta Info</li>
+					</ul>
+				</section>
+
+				<section id="slide-9" class="code split vertical">
+					<pre><code data-trim class="hljs html">
+						<input list="rainbow" />
+
+						<datalist id="rainbow">
+						  <option>Red</option>
+						  <option>Orange</option>
+						  <option>Yellow</option>
+						  <option>Green</option>
+						  <option>Blue</option>
+						  <option>Indigo</option>
+						  <option>Violet</option>
+						</datalist>
+					</code></pre>
+					<div>
+						<img src="./img/datalist.jpg" />
+					</div>
+					<aside class="notes">
+						- Datalist works with inputs<br />
+						- Reduce human error<br />
+						- Increase UX<br />
+						- Dictate list of options like select<br />
+						- Allow user to type to narrow down<br />
+						- Some select fields get this <br />
+					</aside>
+				</section>
+
+				<section id="slide-22" class="question">
+					<pre><code class="hljs html"><mark></mark></code></pre>
+					<ul>
+						<li>Strikethrough</li>
+						<li>Highlight</li>
+						<li>Signature</li>
+						<li>Markdown</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-30" class="question">
+					<pre><code class="hljs html"><mark></mark></code></pre>
+					<ul>
+						<li>Strikethrough</li>
+						<li class="correct">Highlight</li>
+						<li>Signature</li>
+						<li>Markdown</li>
+					</ul>
+				</section>
+
+				<section id="slide-11" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						This is useful to make <mark>this text highlighted</mark> to stand out
+					</code></pre>
+					<div>
+						<p>This is useful to make <mark>this text highlighted</mark> to stand out</p>
+					</div>
+					<aside class="notes">
+						- Don't often use highlight<br />
+						- Medium bringing it back<br />
+						- Useful for creating emphasis<br />
+						- Works well mutliline<br />
+					</aside>
+				</section>
+
+				<section id="slide-23" class="question">
+					<pre><code class="hljs html"><source></source></code></pre>
+					<ul>
+						<li>Videos</li>
+						<li>Pictures</li>
+						<li>Code</li>
+						<li>Audio</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-31" class="question">
+					<pre><code class="hljs html"><source></source></code></pre>
+					<ul>
+						<li class="correct">Videos</li>
+						<li class="correct">Pictures</li>
+						<li>Code</li>
+						<li class="correct">Audio</li>
+					</ul>
+				</section>
+
+				<section id="slide-12" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						<picture>
+						  <source media="(min-width: 800px)" srcset="/image360.jpg" />
+						  <source srcset="/image720.jpg" />
+						  <img src="/image.jpg" />
+						</picture>
+					</code></pre>
+					<div>
+						<img src="./img/background.jpg" />
+					</div>
+					<aside class="notes">
+						- Trick question<br />
+						- Used in `audio`, `video` and `picture` elements<br />
+						- In picture element, used to serve responsive images<br />
+						- Similar to CSS media queries<br />
+						- Define sizes and image to use
+					</aside>
+				</section>
+
+				<section id="slide-24" class="question">
+					<pre><code class="hljs html"><q></q></code></pre>
+					<ul>
+						<li>The Queen</li>
+						<li>Quiz</li>
+						<li>Quote</li>
+						<li>Quota</li>
+					</ul>
+					<div class="fragment">
+						<audio data-autoplay src="./thinking_music.mp3" />
+					</div>
+				</section>
+
+				<section id="slide-32" class="question">
+					<pre><code class="hljs html"><q></q></code></pre>
+					<ul>
+						<li>The Queen</li>
+						<li>Quiz</li>
+						<li class="correct">Quote</li>
+						<li>Quota</li>
+					</ul>
+				</section>
+
+				<section id="slide-13" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						When doing research, I read a great quote <q cite="http://simplyaccessible.com/article/pitfalls-info-relationships/">HTML is the backbone of the web. Or rather, the forgotten backbone</q> by our own Julie Grundy.
+
+						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
+					</code></pre>
+					<div>
+						<p>When doing research, I read a great quote <q cite="http://simplyaccessible.com/article/pitfalls-info-relationships/">HTML is the backbone of the web. Or rather, the forgotten backbone</q> by our own Julie Grundy.</p>
+
+						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
+					</div>
+					<aside class="notes">
+						- May not use quotes<br />
+						- Uni taught to reference properly<br />
+						<br />
+						- `q` is inline quote<br />
+						- Doesn't need separating<br />
+						- Often enclose with quote marks<br />
+						<br />
+						- Goes with `cite`<br />
+						- Depends on spec if you use author name<br />
+						- W3C says yes<br />
+						- WHATWG says HELL NO
+					</aside>
+				</section>
+
+				<section id="slide-14" class="code split horizontal">
+					<pre><code data-trim class="hljs html">
+						<blockquote cite="http://simplyaccessible.com/article/pitfalls-info-relationships/">When you use semantically correct HTML, you're empowering people so they can find what they want faster and more easily</blockquote>
+
+						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
+					</code></pre>
+					<div>
+						<blockquote cite="http://simplyaccessible.com/article/pitfalls-info-relationships/">When you use semantically correct HTML, you're empowering people so they can find what they want faster and more easily</blockquote>
+
+						<cite>Three common accessibility pitfalls for developers: information and relationships, Julie Grundy (2016)</cite>
+					</div>
+					<aside class="notes">
+						- Works the same with blockquote
+					</aside>
+				</section>
+
+				<section id="slide-15">
+					<p>HTML5 Support</p>
+					<table>
+						<thead>
+							<tr>
+								<th colspan="6"><svg><use xlink:href="/img/fa-light.svg#desktop"></use></svg></th>
+								<th colspan="6"><svg><use xlink:href="/img/fa-light.svg#mobile"></use></svg></th>
+							</tr>
+							<tr>
+								<th><svg><use xlink:href="/img/fa-brands.svg#chrome"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#edge"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#firefox"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#internet-explorer"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#opera"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#safari"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#chrome"></use></svg><svg><use xlink:href="/img/fa-brands.svg#android"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#edge"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#firefox"></use></svg><svg><use xlink:href="/img/fa-brands.svg#android"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#opera"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-brands.svg#safari"></use></svg></th>
+								<th><svg><use xlink:href="/img/fa-light.svg#globe"></use></svg></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="good">95%</td>
+								<td class="good">88%</td>
+								<td class="good">88%</td>
+								<td class="poor">56%</td>
+								<td class="good">93%</td>
+								<td class="good">85%</td>
+								<td class="good">88%</td>
+								<td class="average">80%</td>
+								<td class="average">84%</td>
+								<td class="good">87%</td>
+								<td class="average">75%</td>
+								<td class="good">93%</td>
+							</tr>
+						</tbody>
+					</table>
+					<aside class="notes">
+						- Don't have the same disadvantages with new specs<br />
+						- When using new CSS and JS, need fallback for prod<br />
+						- Difficult to implement something new<br />
+						- HTML forwards compatible<br />
+						- If unrecognise, renders content anyway<br />
+						<br />
+						- IE is difficult<br />
+						- Won't apply styles to unknown elements<br />
+						- Won't use them as CSS selectors
+					</aside>
+				</section>
+
+				<section id="slide-16" class="blank">
+					<aside class="notes">
+						- Technology doesn't care how it looks<br />
+						- Give it the right element to interpret<br />
+						- Use your tools to make it look how you want<br />
+						- People use your site differently to you<br />
+						- In ways you won't expect<br />
+						<br />
+						- If you think recommended element won't work<br />
+						- Remember how it looks isn't the only thing<br />
+						- Can someone access it with a mouse?<br />
+						- Keyboard<br />
+						- Does it show focus<br />
+						- Does it give user feedback<br />
+						<br />
+						- We dont know how they use the site<br />
+						- Always consume HTML<br />
+						- Make sure it's semantic and logical from the start<br />
+						- Just building site on dodgy foundations<br />
+						<br />
+						- Don't be afraid to check HTML spec<br />
+						- Read up on something new<br />
+						- Stay up to date with standard changes<br />
+						- Changing with the times<br />
+						- Not as fast as JS<br />
+						- Need to keep up<br />
+						- Making things harder for ourselves<br />
+						- and others
+					</aside>
+				</section>
+
+				<section id="slide-33">
+					<img src="./img/end.png" />
+				</section>
+			</div>
+		</div>
+
+		<footer role="contentinfo">
+			@amys_kapers
+		</footer>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1
+			});
+		</script>
+	</body>
+</html>
