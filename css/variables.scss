@@ -18,3 +18,79 @@ $background: #faf8ef;
 //Values
 $header: 0;
 $footer: 5vh;
+
+//Controls
+// @keyframes bounce-right {
+// 	0%,
+// 	10%,
+// 	25%,
+// 	40%,
+// 	50% {
+// 		transform: translateX(0);
+// 	}
+// 	20% {
+// 		transform: translateX(10px);
+// 	}
+// 	30% {
+// 		transform: translateX(-5px);
+// 	}
+// }
+
+// @keyframes bounce-down {
+// 	0%,
+// 	10%,
+// 	25%,
+// 	40%,
+// 	50% {
+// 		transform: translateY(0);
+// 	}
+// 	20% {
+// 		transform: translateY(10px);
+// 	}
+// 	30% {
+// 		transform: translateY(-5px);
+// 	}
+// }
+
+//Transitions
+@mixin transition-global($style) {
+	.reveal .slides section[data-transition='#{$style}'],
+	.reveal.#{$style} .slides section:not([data-transition]) {
+		@content;
+	}
+}
+@mixin transition-stack($style) {
+	.reveal .slides section[data-transition='#{$style}'].stack,
+	.reveal.#{$style} .slides section.stack {
+		@content;
+	}
+}
+@mixin transition-horizontal-past($style) {
+	.reveal .slides > section[data-transition='#{$style}'].past,
+	.reveal .slides > section[data-transition~='#{$style}-out'].past,
+	.reveal.#{$style} .slides > section:not([data-transition]).past {
+		@content;
+	}
+}
+@mixin transition-horizontal-future($style) {
+	.reveal .slides > section[data-transition='#{$style}'].future,
+	.reveal .slides > section[data-transition~='#{$style}-in'].future,
+	.reveal.#{$style} .slides > section:not([data-transition]).future {
+		@content;
+	}
+}
+
+@mixin transition-vertical-past($style) {
+	.reveal .slides > section > section[data-transition='#{$style}'].past,
+	.reveal .slides > section > section[data-transition~='#{$style}-out'].past,
+	.reveal.#{$style} .slides > section > section:not([data-transition]).past {
+		@content;
+	}
+}
+@mixin transition-vertical-future($style) {
+	.reveal .slides > section > section[data-transition='#{$style}'].future,
+	.reveal .slides > section > section[data-transition~='#{$style}-in'].future,
+	.reveal.#{$style} .slides > section > section:not([data-transition]).future {
+		@content;
+	}
+}
