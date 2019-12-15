@@ -158,11 +158,11 @@ body {
           opacity: 1;
           visibility: inherit; }
         .reveal .slides section .fragment.highlight-red.visible, .reveal .slides section .fragment.highlight-current-red.current-fragment {
-          color: #ff2c2d; }
+          color: #e53935; }
         .reveal .slides section .fragment.highlight-green.visible, .reveal .slides section .fragment.highlight-current-green.current-fragment {
-          color: #17ff2e; }
+          color: #228b22; }
         .reveal .slides section .fragment.highlight-blue.visible, .reveal .slides section .fragment.highlight-current-blue.current-fragment {
-          color: #1b91ff; }
+          color: #0070a8; }
     .reveal .slides > section {
       -ms-perspective: 600px; }
       .reveal .slides > section.stack {
@@ -598,7 +598,7 @@ body {
 @charset "UTF-8";
 body {
   background: #faf8ef;
-  color: #191919;
+  color: #080808;
   font: "Lato", Arial, sans-serif;
   font-size: 100px;
   line-height: 1.4;
@@ -609,7 +609,7 @@ body {
 h1,
 h2,
 h3 {
-  color: #191919;
+  color: #080808;
   font: "Quicksand", Arial, sans-serif; }
 
 h1 {
@@ -620,12 +620,12 @@ h2 {
   font-size: 1.6em; }
 
 h3 {
-  color: #191919;
+  color: #080808;
   font-size: 20px; }
 
 a,
 span.link {
-  color: #191919;
+  color: #080808;
   font: "Lato", Arial, sans-serif;
   text-decoration: none; }
 
@@ -636,7 +636,7 @@ dt {
   font-weight: bold; }
 
 i {
-  color: #191919; }
+  color: #080808; }
 
 blockquote {
   margin: 20px;
@@ -646,16 +646,16 @@ figure {
   position: relative; }
 
 figcaption {
-  color: #191919;
+  color: #080808;
   font-size: 12px;
   padding-right: 10px;
   text-align: right; }
 
 button,
 .btn {
-  background: #d1d1d1;
-  border: 1.5px solid #191919;
-  box-shadow: 0px 6px 0px #36454f, 0px 3px 15px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 0px 3px rgba(255, 255, 255, 0.5);
+  background: #ededed;
+  border: 1.5px solid #080808;
+  box-shadow: 0px 6px 0px #4c4d4e, 0px 3px 15px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 0px 3px rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   display: inline-block;
   font-size: 80px;
@@ -675,7 +675,7 @@ button,
       border: none; }
   .slides.grid:before {
     background-size: 40px 40px;
-    background-image: linear-gradient(to right, #d1d1d1 1px, transparent 1px), linear-gradient(to bottom, #d1d1d1 1px, transparent 1px);
+    background-image: linear-gradient(to right, #ededed 1px, transparent 1px), linear-gradient(to bottom, #ededed 1px, transparent 1px);
     content: '';
     position: absolute;
     top: 0;
@@ -700,7 +700,7 @@ dd {
   font-style: italic; }
 
 blockquote {
-  border-left: 10px solid #d1d1d1;
+  border-left: 10px solid #ededed;
   font-weight: bold;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -721,13 +721,13 @@ table {
   text-align: left; }
   table td,
   table th {
-    border: 1px solid #191919;
+    border: 1px solid #080808;
     padding: 20px; }
   table th {
     font-size: 1.3em; }
 
 pre {
-  background: #191919;
+  background: #080808;
   font-size: 0.5em;
   margin: 0;
   padding: 5vw;
@@ -762,7 +762,7 @@ header {
 
 header,
 footer {
-  color: #36454f;
+  color: #4c4d4e;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -821,21 +821,21 @@ section {
     padding: 50px;
     text-align: left; }
     section.index a {
-      color: #1212d8;
+      color: #0070a8;
       display: block; }
   section.blank {
     background: #000; }
     section.blank header {
       display: none; }
   section.code {
-    background: #191919;
+    background: #080808;
     color: #fff; }
     section.code pre {
       margin: 0;
       white-space: pre-wrap;
       word-wrap: break-word; }
     section.code.split {
-      color: #191919; }
+      color: #080808; }
       section.code.split pre {
         color: #fff; }
       section.code.split > div {
@@ -845,17 +845,17 @@ section {
         width: 90vw; }
     section.code.vertical {
       align-items: stretch;
-      background: linear-gradient(to right, #191919 50%, #faf8ef 50%);
+      background: linear-gradient(to right, #080808 50%, #faf8ef 50%);
       grid-template-columns: 50vw 50vw;
       grid-template-rows: 100vw; }
       section.code.vertical.compare {
-        background: #191919; }
+        background: #080808; }
       section.code.vertical.example {
         text-align: left; }
       section.code.vertical img {
         width: 40vw; }
     section.code.horizontal {
-      background: linear-gradient(to bottom, #191919 50%, #faf8ef 50%);
+      background: linear-gradient(to bottom, #080808 50%, #faf8ef 50%);
       grid-template-columns: 100vw;
       grid-template-rows: 50vh 50vh; }
       section.code.horizontal img {
@@ -886,7 +886,7 @@ section {
       margin: 0;
       padding: 20px; }
       section.question ul.code li {
-        background: #191919;
+        background: #080808;
         padding: 0; }
     section.question p {
       font-size: 0.5em;
@@ -894,7 +894,7 @@ section {
     section.question li {
       display: grid;
       align-items: center;
-      border: 3px solid #191919;
+      border: 3px solid #080808;
       font-size: 80px;
       list-style-type: none;
       padding: 30px;
@@ -1113,7 +1113,7 @@ footer {
   .custom-5 section.split.horizontal .image-container {
     padding: 1vh 5vw; }
     .custom-5 section.split.horizontal .image-container img {
-      border: 3px solid #191919;
+      border: 3px solid #080808;
       max-width: 100%;
       max-height: 100%;
       width: auto;
@@ -1577,7 +1577,7 @@ footer {
   .custom-5 section.split.horizontal .image-container {
     padding: 1vh 5vw; }
     .custom-5 section.split.horizontal .image-container img {
-      border: 3px solid #191919;
+      border: 3px solid #080808;
       max-width: 100%;
       max-height: 100%;
       width: auto;

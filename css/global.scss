@@ -1,4 +1,4 @@
-@import './styles.scss';
+@import './variables.scss';
 
 //Fonts
 @font-face {
@@ -237,17 +237,17 @@ body {
 
 				&.highlight-red.visible,
 				&.highlight-current-red.current-fragment {
-					color: #ff2c2d;
+					color: $red;
 				}
 
 				&.highlight-green.visible,
 				&.highlight-current-green.current-fragment {
-					color: #17ff2e;
+					color: $green;
 				}
 
 				&.highlight-blue.visible,
 				&.highlight-current-blue.current-fragment {
-					color: #1b91ff;
+					color: $blue;
 				}
 			}
 		}

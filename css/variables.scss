@@ -4,53 +4,21 @@ $font_headings: 'Quicksand', Arial, sans-serif;
 $font_code: 'Source Sans Pro', monospace;
 
 //Colours
-$red: #da0808;
-$blue: #1212d8;
+$red: #e53935;
+$blue: #0070a8;
 $cyan: #00acbb;
-$yellow: #e0e05a;
+$yellow: #ffd700;
+$green: #228b22;
 
-$grey_light: #d1d1d1;
-$grey: #36454f;
-$grey_dark: #191919;
+$grey_light: #ededed;
+$grey: #4c4d4e;
+$grey_dark: #080808;
 
 $background: #faf8ef;
 
 //Values
 $header: 0;
 $footer: 5vh;
-
-//Controls
-// @keyframes bounce-right {
-// 	0%,
-// 	10%,
-// 	25%,
-// 	40%,
-// 	50% {
-// 		transform: translateX(0);
-// 	}
-// 	20% {
-// 		transform: translateX(10px);
-// 	}
-// 	30% {
-// 		transform: translateX(-5px);
-// 	}
-// }
-
-// @keyframes bounce-down {
-// 	0%,
-// 	10%,
-// 	25%,
-// 	40%,
-// 	50% {
-// 		transform: translateY(0);
-// 	}
-// 	20% {
-// 		transform: translateY(10px);
-// 	}
-// 	30% {
-// 		transform: translateY(-5px);
-// 	}
-// }
 
 //Transitions
 @mixin transition-global($style) {
