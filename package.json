@@ -31,6 +31,10 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-standard": "^4.0.1",
     "gulp-minify": "^3.1.0",
     "highlight.js": "^9.17.1"
   }
