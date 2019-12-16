@@ -778,17 +778,20 @@ button {
 
 header {
   height: var(--header);
+  padding: 0;
   top: 0; }
+  header:not(:empty) {
+    --header: 9vh;
+    padding: 10px 20px; }
 
-header,
+header:not(:empty),
 footer {
   color: #4c4d4e;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  font-size: 0.4em;
+  font-size: 5vh;
   opacity: 0.7;
-  padding: 10px;
   position: absolute;
   width: 100vw;
   z-index: 10; }
@@ -805,8 +808,6 @@ section {
   width: 100vw;
   z-index: 0; }
   section header {
-    font-size: 0.4em;
-    height: auto;
     width: 100%;
     z-index: -1; }
   section > img,
@@ -956,17 +957,31 @@ section {
     section.question button {
       justify-self: center; }
   section.grid {
-    font-size: 0.5em; }
+    --rows: 1;
+    --columns: 1;
+    max-height: 100vh;
+    padding-top: var(--header);
+    padding-bottom: var(--footer);
+    font-size: 0.5em;
+    grid-template-rows: repeat(var(--rows), 1fr);
+    grid-template-columns: repeat(var(--columns), 1fr); }
+    section.grid.header {
+      padding-top: 5vh; }
     section.grid.r2 {
-      grid-template-rows: 1fr 1fr; }
-      section.grid.r2.header {
-        grid-template-rows: auto 1fr 1fr; }
+      --rows: 2; }
     section.grid.r2-1 {
       grid-template-rows: 2fr 1fr; }
     section.grid.r1-2 {
       grid-template-rows: 1fr 2fr; }
     section.grid.c2 {
-      grid-template-columns: 1fr 1fr; }
+      --columns: 2; }
+    section.grid figure {
+      align-self: center;
+      grid-template-rows: 1fr max-content;
+      height: auto;
+      margin: 0; }
+      section.grid figure img {
+        max-height: 35vh; }
 
 .uppercase {
   text-transform: uppercase; }
@@ -981,6 +996,7 @@ section {
 
 footer {
   height: var(--footer);
+  padding: 10px;
   bottom: 0; }
 
 .custom-1 section#slide-6 {

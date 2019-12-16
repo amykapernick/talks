@@ -238,18 +238,23 @@ button {
 
 header {
 	height: var(--header);
+	padding: 0;
 	top: 0;
+
+	&:not(:empty) {
+		--header: 9vh;
+		padding: 10px 20px;
+	}
 }
 
-header,
+header:not(:empty),
 footer {
 	color: $grey;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	font-size: 0.4em;
+	font-size: 5vh;
 	opacity: 0.7;
-	padding: 10px;
 	position: absolute;
 	width: 100vw;
 	z-index: 10;
@@ -268,8 +273,6 @@ section {
 	z-index: 0;
 
 	header {
-		font-size: 0.4em;
-		height: auto;
 		width: 100%;
 		z-index: -1;
 	}
@@ -514,14 +517,26 @@ section {
 	}
 
 	&.grid {
+		--rows: 1;
+		--columns: 1;
+
+		max-height: 100vh;
+		padding-top: var(--header);
+		padding-bottom: var(--footer);
 		font-size: 0.5em;
+		grid-template-rows: repeat(var(--rows), 1fr);
+		grid-template-columns: repeat(var(--columns), 1fr);
+
+		&.header {
+			padding-top: 5vh;
+		}
 
 		&.r2 {
-			grid-template-rows: 1fr 1fr;
+			--rows: 2;
 
-			&.header {
-				grid-template-rows: auto 1fr 1fr;
-			}
+			// &.header {
+			// 	grid-template-rows: auto 1fr 1fr;
+			// }
 		}
 
 		&.r2-1 {
@@ -533,7 +548,18 @@ section {
 		}
 
 		&.c2 {
-			grid-template-columns: 1fr 1fr;
+			--columns: 2;
+		}
+
+		figure {
+			align-self: center;
+			grid-template-rows: 1fr max-content;
+			height: auto;
+			margin: 0;
+
+			img {
+				max-height: 35vh;
+			}
 		}
 	}
 }
@@ -557,6 +583,7 @@ section {
 
 footer {
 	height: var(--footer);
+	padding: 10px;
 	bottom: 0;
 }
 
