@@ -4,18 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="../css/reveal.css">
 
-				<link rel="stylesheet" href="lib/css/a11y-dark.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+		<link rel="stylesheet" href="../css/print/paper.css" />
 	</head>
 	<body>
 		<header role="banner">
@@ -25,7 +16,7 @@
 		<div class="reveal">
 			<div class="slides custom-1">
 				<section id="slide-1">
-					<img src="./img/title.png" />
+					<img src="../img/title.png" />
 
 					<aside class="notes">
 						- Asked about programming<br />
@@ -458,7 +449,7 @@
 						</datalist>
 					</code></pre>
 					<div>
-						<img src="./img/datalist.jpg" />
+						<img src="../img/datalist.jpg" />
 					</div>
 					<aside class="notes">
 						- Datalist works with inputs<br />
@@ -540,7 +531,7 @@
 						</picture>
 					</code></pre>
 					<div>
-						<img src="./img/background.jpg" />
+						<img src="../img/background.jpg" />
 					</div>
 					<aside class="notes">
 						- Trick question<br />
@@ -701,37 +692,43 @@
 				</section>
 
 				<section id="slide-33">
-					<img src="./img/end.png" />
+					<img src="../img/end.png" />
 				</section>
 			</div>
 		</div>
 
 		<footer role="contentinfo">
-			@amys_kapers
-		</footer>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				],
-				controls: false,
-				display: 'grid',
-				width: "100%",
-				height: "100%",
-				margin: 0,
-				minScale: 1,
-				maxScale: 1
-			});
-		</script>
-	</body>
-</html>
+				@amys_kapers
+			</footer>
+	
+			<script src="../lib/js/head.min.js"></script>
+			<script src="../js/reveal.js"></script>
+	
+			<script>
+				// More info about config & dependencies:
+				// - https://github.com/hakimel/reveal.js#configuration
+				// - https://github.com/hakimel/reveal.js#dependencies
+				Reveal.initialize({
+					dependencies: [
+						{ src: '../plugin/markdown/marked.js' },
+						{ src: '../plugin/markdown/markdown.js' },
+						{ src: '../plugin/notes/notes.js', async: true },
+						{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { 
+							hljs.configure({
+								tabReplace: '   '
+							});
+							hljs.initHighlightingOnLoad(); 
+						} }
+					],
+					controls: false,
+					display: 'grid',
+					width: "100%",
+					height: "100%",
+					margin: 0,
+					minScale: 1,
+					maxScale: 1
+				});
+			</script>
+		</body>
+	</html>
+	
