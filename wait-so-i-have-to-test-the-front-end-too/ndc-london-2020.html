@@ -18,38 +18,15 @@
 					<p>Presentation</p>
 					<aside class="notes" data-markdown>- Test clicker</aside>
 				</section>
-				<section data-state="tweet" data-text="Tweet text">
-					<p>slide 2</p>
-					<div>
-						<span class="fragment highlight-red">Fragment</span>
-						<span class="fragment highlight-blue">Fragment 2</span>
-						<span class="fragment highlight-green">Fragment 3</span>
-						<span class="fragment">Fragment 4</span>
-					</div>
 
-				</section>
-
-				<section>
-					<p>Middle slide</p>
-				</section>
-
-				<section class="code">
-					<pre><code data-trim class="hljs html">
-						<p>Html Code</p>
-					</code></pre>
-				</section>
-
-				<section data-state="tweet" data-text="Another tweet" data-image="https://quokkas.amyskapers.tech/img/quokka_(1).jpg">
-					<p>slide 3</p>
-				</section>
 			</div>
 
 			<footer role="contentinfo">
 			@amys_kapers
 		</footer>
 
-			<script src="../lib/js/head.min.js"></script>
-			<script src="../js/reveal.js"></script>
+			<script type="text/javascript" src="../lib/js/head.min.js"></script>
+			<script type="text/javascript" src="../js/reveal.js"></script>
 
 			<script>
 				// More info about config & dependencies:
@@ -90,12 +67,13 @@
 
 				Reveal.addEventListener('tweet', () => {
 					let currentSlide = document.querySelector('.reveal .slides section.present')
-					console.log(currentSlide.getAttribute('data-text'))
 
 					if (currentSlide.getAttribute('data-image')) {
 						console.log(currentSlide.getAttribute('data-image'))
-					} else {}
-
+						console.log(currentSlide.getAttribute('data-text'))
+					} else {
+						console.log(currentSlide.getAttribute('data-text'))
+					}
 				}, false)
 			</script>
 		</<header>
