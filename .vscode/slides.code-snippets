@@ -26,7 +26,7 @@
 			"\t<pre><code data-trim class=\"hljs\">",
 			"\t\t",
 			"\t</code></pre>",
-			"\t<aside class=\"notes\">",
+			"\t<aside class=\"notes\" data-markdown>",
 			"\t</aside>",
 			"</section>"
 		]
@@ -39,7 +39,7 @@
 		"body": [
 			"<section>",
 			"\t",
-			"\t<aside class=\"notes\">",
+			"\t<aside class=\"notes\" data-markdown>",
 			"\t</aside>",
 			"</section>"
 		]
@@ -53,7 +53,7 @@
 		"body": [
 			"<section data-state=\"tweet\" data-text=\"{tweet_text}\">",
 			"\t",
-			"\t<aside class=\"notes\">",
+			"\t<aside class=\"notes\" data-markdown>",
 			"\t</aside>",
 			"</section>"
 		]
@@ -69,7 +69,7 @@
 		"body": [
 			"<section data-state=\"tweet\" data-text=\"{tweet_text}\" data-image=\"{tweet_image}\">",
 			"\t",
-			"\t<aside class=\"notes\">",
+			"\t<aside class=\"notes\" data-markdown>",
 			"\t</aside>",
 			"</section>"
 		]
