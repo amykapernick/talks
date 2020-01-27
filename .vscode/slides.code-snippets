@@ -77,5 +77,21 @@
 			"\t</aside>",
 			"</section>"
 		]
+	},
+	"slide-resource-caption": {
+		"prefix": [
+			"resource",
+			"slide",
+			"caption"
+		],
+		"body": [
+			"<section>",
+			"  <figure>",
+		  "	<img src=\"$1\" />",
+		  "	<figcaption>$2</figcaption>",
+			"  </figure>",
+			"</section>"
+		],
+		"description": "slide-resource-caption"
 	}
 }

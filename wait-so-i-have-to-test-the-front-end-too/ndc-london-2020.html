@@ -1,160 +1,181 @@
 <!doctype html>
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Wait, so I have to test the front end too?</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Wait, so I have to test the front end too?</title>
 
-	<link rel="stylesheet" href="../css/reveal.css" />
+		<link rel="stylesheet" href="../css/reveal.css"/>
 
-	<link rel="stylesheet" href="../css/print/paper.css" />
-</head>
+		<link rel="stylesheet" href="../css/print/paper.css"/>
+	</head>
 
-<body class="">
-	<header role="banner"></header>
+	<body class="">
+		<header role="banner"></header>
 
-	<div class="reveal">
-		<div class="slides">
-			<!-- Slides start here -->
-			<section>
-				<p>Wait...<br />So I have to test the front end too?</p>
-				<aside class="notes" data-markdown>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Slides start here -->
+				<section>
+					<p>Wait...<br/>So I have to test the front end too?</p>
+					<aside class="notes" data-markdown>
 					- Test clicker
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>Wait...<br />So I have to test the front end too?</p>
-				<aside class="notes" data-markdown>
+				<section>
+					<p>Wait...<br/>So I have to test the front end too?</p>
+					<aside class="notes" data-markdown>
 					- Clicker has been tested
 				</aside>
-			</section>
+				</section>
 
-			<section>
+				<section>
 				Why test?
 				<aside class="notes" data-markdown>
 					- We all know that testing is important, that's never a question
 					- Although there is a lot of debate about whether you should write your code or your tests first
 					- We even have a software process, test driven development, centred around tests
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>What about the front end?</p>
-				<aside class="notes" data-markdown>
+				<section>
+					<p>What about the front end?</p>
+					<aside class="notes" data-markdown>
 					- But despite all those strong opinions
 					- We often don't hear about what's happening on the front end
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>The front end matters too</p>
-				<aside class="notes" data-markdown>
+				<section>
+					<p>The front end matters too</p>
+					<aside class="notes" data-markdown>
 					- There are so many different tests we need to be running on the front end
 
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<div class="tagcloud">
-					<span class="fragment">Accessibility testing</span>
-					<span class="fragment">Performance testing</span>
-					<span class="fragment">User testing</span>
-					<span class="fragment">HTML validation</span>
-					<span class="fragment">Visual Regression testing</span>
-				</div>
-				<aside class="notes" data-markdown>
+				<section>
+					<div class="tagcloud">
+						<span class="fragment">Accessibility testing</span>
+						<span class="fragment">Performance testing</span>
+						<span class="fragment">User testing</span>
+						<span class="fragment">HTML validation</span>
+						<span class="fragment">Visual Regression testing</span>
+					</div>
+					<aside class="notes" data-markdown>
 					- Accessibility testing, performance testing, user testing, HTML validation, visual regression
 					testing
 					- It's often hard to work out what you need to test for and where to start
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>So I'm a testing expert?<br />
-					<span class="fragment">No.</span>
-				</p>
-				<aside class="notes" data-markdown>
+				<section>
+					<p>So I'm a testing expert?<br/>
+						<span class="fragment">No.</span>
+					</p>
+					<aside class="notes" data-markdown>
 					- So if I'm standing up here telling you how to do this, it must mean I'm an expert?
 					- 6 months ago, the only testing I could do was running the cypress npm script for a project with
 					pre-written tests
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>So why me?</p>
-				<aside class="notes" data-markdown>
+				<section>
+					<p>So why me?</p>
+					<aside class="notes" data-markdown>
 					- I've only just gone through the process of learning to test
 					- Coming with no prior knowledge
 				</aside>
-			</section>
+				</section>
 
-			<section>
-				<p>Linting</p>
-				<aside class="notes" data-markdown>
-					- Ok, not technically testing
-				</aside>
-			</section>
+				<section>
+					<p>Linting</p>
+					<aside class="notes" data-markdown>
+						- Ok, not technically testing
+					</aside>
+				</section>
 
-			<!-- Slides end here -->
-		</div>
+				<section class="code">
+					<pre><code data-trim class="hljs bash">
+						yarn install eslint
+					</code></pre>
+					<aside class="notes" data-markdown></aside>
+				</section>
 
-		<footer role="contentinfo">
+				<section>
+					<figure>
+						<img src="./24-ways.png"/>
+						<figcaption>https://24ways.org/2019/twelve-days-of-front-end-testing/</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./javascript-january.jpg"/>
+						<figcaption>https://www.javascriptjanuary.com/blog/getting-started-with-front-end-testing</figcaption>
+					</figure>
+				</section>
+
+				<!-- Slides end here -->
+			</div>
+
+			<footer role="contentinfo">
 			@amys_kapers
 		</footer>
 
-		<script type="text/javascript" src="../lib/js/head.min.js"></script>
-		<script type="text/javascript" src="../js/reveal.js"></script>
+			<script type="text/javascript" src="../lib/js/head.min.js"></script>
+			<script type="text/javascript" src="../js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{
-						src: '../plugin/markdown/marked.js'
-					}, {
-						src: '../plugin/markdown/markdown.js'
-					}, {
-						src: '../plugin/notes/notes.js',
-						async: true
-					}, {
-						src: 'socket.io/socket.io.js',
-						async: true
-					}, {
-						src: '../plugin/notes-server/client.js',
-						async: true
-					}, {
-						src: '../plugin/highlight/highlight.js',
-						async: true,
-						callback: function () {
-							hljs.configure({ tabReplace: '   ' });
-							hljs.initHighlightingOnLoad();
+			<script>
+				// More info about config & dependencies:
+				// - https://github.com/hakimel/reveal.js#configuration
+				// - https://github.com/hakimel/reveal.js#dependencies
+				Reveal.initialize({
+					dependencies: [
+						{
+							src: '../plugin/markdown/marked.js'
+						}, {
+							src: '../plugin/markdown/markdown.js'
+						}, {
+							src: '../plugin/notes/notes.js',
+							async: true
+						}, {
+							src: 'socket.io/socket.io.js',
+							async: true
+						}, {
+							src: '../plugin/notes-server/client.js',
+							async: true
+						}, {
+							src: '../plugin/highlight/highlight.js',
+							async: true,
+							callback: function () {
+								hljs.configure({tabReplace: '   '});
+								hljs.initHighlightingOnLoad();
+							}
 						}
+					],
+					controls: false,
+					display: 'grid',
+					width: "100%",
+					height: "100%",
+					margin: 0,
+					minScale: 1,
+					maxScale: 1
+				});
+
+				Reveal.addEventListener('tweet', () => {
+					let currentSlide = document.querySelector('.reveal .slides section.present')
+
+					if (currentSlide.getAttribute('data-image')) {
+						console.log(currentSlide.getAttribute('data-image'))
+						console.log(currentSlide.getAttribute('data-text'))
+					} else {
+						console.log(currentSlide.getAttribute('data-text'))
 					}
-				],
-				controls: false,
-				display: 'grid',
-				width: "100%",
-				height: "100%",
-				margin: 0,
-				minScale: 1,
-				maxScale: 1
-			});
-
-			Reveal.addEventListener('tweet', () => {
-				let currentSlide = document.querySelector('.reveal .slides section.present')
-
-				if (currentSlide.getAttribute('data-image')) {
-					console.log(currentSlide.getAttribute('data-image'))
-					console.log(currentSlide.getAttribute('data-text'))
-				} else {
-					console.log(currentSlide.getAttribute('data-text'))
-				}
-			}, false)
-		</script>
+				}, false)
+			</script>
 		</<header>
 
-</html>
+	</html>
