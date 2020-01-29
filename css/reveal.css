@@ -982,6 +982,17 @@ section {
       margin: 0; }
       section.grid figure img {
         max-height: 35vh; }
+  section .table-grid {
+    font-size: 0.8em;
+    display: grid;
+    justify-self: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); }
+    section .table-grid.browsers {
+      grid-auto-flow: column;
+      grid-template-rows: 1.5em 1.5em;
+      grid-auto-columns: 1fr; }
+    section .table-grid img {
+      width: 1em; }
 
 .uppercase {
   text-transform: uppercase; }

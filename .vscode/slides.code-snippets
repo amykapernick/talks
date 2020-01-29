@@ -93,5 +93,44 @@
 			"</section>"
 		],
 		"description": "slide-resource-caption"
+	},
+	"slide-browsers": {
+		"prefix": ["browsers", "slide", "list"],
+		"body": [
+			"<section>",
+			"  <div class=\"table-grid browsers\">",
+			"	<span class=\"fragment\"><img src=\"../img/chrome.svg\"/></span>",
+			"	<span class=\"fragment\">$1</span>",
+			"	<span class=\"fragment\"><img src=\"../img/firefox.svg\"/></span>",
+			"	<span class=\"fragment\">$2</span>",
+			"	<span class=\"fragment\"><img src=\"../img/safari.svg\"/></span>",
+			"	<span class=\"fragment\">$3</span>",
+			"	<span class=\"fragment\"><img src=\"../img/edge.svg\"/></span>",
+			"	<span class=\"fragment\">$4</span>",
+			"	<span class=\"fragment\"><img src=\"../img/internet-explorer.svg\"/></span>",
+			"	<span class=\"fragment\">$5<span class=\"fragment\">ish</span></span>",
+			"  </div>",
+			"  <aside class=\"notes\" data-markdown>",
+			"    ",
+			"  </aside>",
+			"</section>"
+		],
+		"description": "slide-browsers"
+	},
+	"slide-grid": {
+		"prefix": ["grid", "slide", "list"],
+		"body": [
+			"<section>",
+			"  <div class=\"table-grid\">",
+			"    <span>$1</span>",
+			"    <span>$2</span>",
+			"    <span>$3</span>",
+			"  </div>",
+			"  <aside class=\"notes\" data-markdown>",
+			"    $4",
+			"  </aside>",
+			"</section>"
+		],
+		"description": "slide-grid"
 	}
 }
