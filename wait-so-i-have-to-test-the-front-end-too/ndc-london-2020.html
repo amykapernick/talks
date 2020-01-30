@@ -18,16 +18,66 @@
 		<div class="slides">
 			<!-- Slides start here -->
 			<section>
-				<p>Wait...<br />So I have to test the front end too?</p>
+				<p>Wait...<br /><small>So I have to test the front end too?</small></p>
 				<aside class="notes" data-markdown>
 					- Test clicker
 				</aside>
 			</section>
 
 			<section>
-				<p>Wait...<br />So I have to test the front end too?</p>
+				<p>Wait...<br /><small>So I have to test the front end too?</small></p>
 				<aside class="notes" data-markdown>
 					- Clicker has been tested
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./london.png" />
+				<aside class="notes" data-markdown>
+					- I hail from Perth in Australia and am really enjoying not having to travel halfway across the
+					world
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./london.jpg" />
+				<aside class="notes" data-markdown>
+					- It's exciting to be back in London, as a year ago I was here speaking at my first NDC
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img src="./london-2019.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/background.jpg" />
+				<aside class="notes" data-markdown>
+					- I'm a freelance front end developer, which means I spend most of my time at the beach and the rest
+					of it working from home in my pyjamas
+					- I'm also heavily involved in the Perth tech community, help run a user group for front end
+					developers, am on the committee for the DDD Perth conference, attend all the Perth tech meetups and
+					work as an evangelist for YOW conferences
+					- Last year I also became a Twilio champion and a Microsoft MVP
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/rem.jpg" />
+				<aside class="notes" data-markdown>
+					- I also have a beautiful grey and white border collie who sits next to me wherever I'm working from
+					home
+					- And got very upset when I finally had to get my suitcase out over the weekend
+				</aside>
+			</section>
+
+			<section>
+				<p>Wait...<br /><small>So I have to test the front end too?</small></p>
+				<aside class="notes" data-markdown>
+					- But today I'm here to talk about testing
 				</aside>
 			</section>
 
@@ -40,7 +90,8 @@
 				</aside>
 			</section>
 
-			<section data-state="tweet" data-text="We make sure we test, but why do we forget the front end? The front end matters too! #NDCLondon">
+			<section data-state="tweet"
+				data-text="We make sure we test, but why do we forget the front end? The front end matters too! #NDCLondon">
 				<p>What about the front end?</p>
 				<aside class="notes" data-markdown>
 					- But despite all those strong opinions
@@ -98,7 +149,7 @@
 			</section>
 
 			<section>
-				<p>Automated checking for programmatic and stylistic errors</p>
+				<p>Automated checking for <mark>programmatic and stylistic</mark> errors</p>
 				<aside class="notes" data-markdown>
 					- Type of automated check
 					- Happens early in development
@@ -117,7 +168,7 @@
 			<section>
 				<section class="code">
 					<pre><code data-trim class="hljs bash">
-						npm add eslint
+						npm install eslint
 					</code></pre>
 					<aside class="notes" data-markdown>
 						- Back to demo (`eslint-template`)
@@ -141,7 +192,7 @@
 			<section>
 				<section class="code">
 					<pre><code data-trim class="hljs bash">
-							npm add stylelint
+							npm install stylelint
 						</code></pre>
 					<aside class="notes" data-markdown>
 						- Back to demo (`stylelint-template`)
@@ -181,9 +232,31 @@
 			</section>
 
 			<section>
+				<p>Web Content Accessibility Guidelines<br /><mark>WCAG</mark></p>
+				<aside class="notes" data-markdown>
+					- Tests against the web content accessibility Guidelines
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./wcag-website.png" />
+					<figcaption>https://www.w3.org/WAI/standards-guidelines/wcag</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./pa11y-website.png" />
+					<figcaption>https://pa11y.org</figcaption>
+				</figure>
+			</section>
+
+			<section>
 				<section class="code">
 					<pre><code data-trim class="hljs bash">
-							npm add pa11y
+							npm install pa11y
 						</code></pre>
 					<aside class="notes" data-markdown>
 						- Back to demo (`pa11y-test`)
@@ -465,16 +538,16 @@
 				</section>
 			</section>
 
-			<section class="code">
+			<section class="code medium">
 				<pre><code data-trim class="hljs js">
 					describe(`Blog Homepage`, () => {
-						before(() => {
-							cy.visit(`http://my-testing-blog.local`);
-						});
+					  before(() => {
+					    cy.visit(`http://my-testing-blog.local`);
+					  });
 					
-						it(`Contains "My Testing Blog" in the title`, () => {
-							cy.title().should(`contain`, `My Testing Blog`);
-						});
+					  it(`Contains "My Testing Blog" in the title`, () => {
+					    cy.title().should(`contain`, `My Testing Blog`);
+					  });
 					});
 				</code></pre>
 				<aside class="notes" data-markdown>
@@ -482,20 +555,20 @@
 				</aside>
 			</section>
 
-			<section class="code">
+			<section class="code medium">
 				<pre><code data-trim class="hljs js">
 					// Name of Test
 					describe('Blog Homepage', () => {
-						// Runs at the start of this test
-						before(() => {
-							// Visit our website in the Cypress browser
-							cy.visit('http://my-testing-blog.local')
-						})
+					  // Runs at the start of this test
+					  before(() => {
+					    // Visit our website in the Cypress browser
+					      cy.visit('http://my-testing-blog.local')
+					    })
 
-						// Assertion - title should contain specific text
-						it('contains "My Testing Blog" in the title', () => {
-							cy.title().should('contain', 'My Testing Blog')
-						})
+					  // Assertion - title should contain specific text
+					  it('contains "My Testing Blog" in the title', () => {
+					    cy.title().should('contain', 'My Testing Blog')
+					  })
 					})
 				</code></pre>
 				<aside class="notes" data-markdown>
@@ -538,16 +611,16 @@
 			</section>
 
 			<section>
-				<section class="code">
+				<section class="code medium">
 					<pre><code data-trim class="hljs js">
 						describe(`Blog Homepage`, () => {
-							before(() => {
-								cy.visit(`http://my-testing-blog.local`);
-							});
-						
-							it(`Contains "My Testing Blog" in the title`, () => {
-								cy.title().should(`contain`, `My Testing Blog`);
-							});
+						  before(() => {
+						   cy.visit(`http://my-testing-blog.local`);
+						  });
+						  
+						  it(`Contains "My Testing Blog" in the title`, () => {
+						   cy.title().should(`contain`, `My Testing Blog`);
+						  });
 						});
 					</code></pre>
 					<aside class="notes" data-markdown>
@@ -585,8 +658,22 @@
 				</aside>
 			</section>
 
+			<section>
+				<p>🎉</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
 			<section data-state="tweet"
 				data-text="want more information about front end testing? check out this awesome list of resources https://noti.st/amyskapers/czxwo9/wait-i-have-to-test-the-front-end-too#resources">
+				<figure>
+					<img src="./intro-to-pa11y-jennifer.png" />
+					<figcaption>https://youtu.be/DHPX2ShCxBc</figcaption>
+				</figure>
+			</section>
+
+			<section>
 				<figure>
 					<img src="./24-ways.png" />
 					<figcaption>https://24ways.org/2019/twelve-days-of-front-end-testing/</figcaption>
@@ -602,7 +689,12 @@
 				</figure>
 			</section>
 
-			
+			<section>
+				<p>Thank You 👏</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
 
 			<!-- Slides end here -->
 		</div>
@@ -652,14 +744,34 @@
 			});
 
 			Reveal.addEventListener('tweet', () => {
-				let currentSlide = document.querySelector('.reveal .slides section.present')
+				// const test = false
 
-				if (currentSlide.getAttribute('data-image')) {
-					console.log(currentSlide.getAttribute('data-image'))
-					console.log(currentSlide.getAttribute('data-text'))
-				} else {
-					console.log(currentSlide.getAttribute('data-text'))
-				}
+				// let currentSlide = document.querySelector('.reveal .slides section.present')
+
+				// if (test) {
+				// 	console.log('Testing Slides')
+				// 	console.log(currentSlide.getAttribute('data-image'))
+				// 	console.log(currentSlide.getAttribute('data-text'))
+				// }
+				// else {
+				// 	fetch('https://maker.ifttt.com/trigger/presentation_tweet/with/key/beRMmnAy3N3L9juNkJjFJ8zx3VGEivPDoZcerduUSgY', {
+				// 		method: 'POST',
+				// 		mode: 'cors', // no-cors, *cors, same-origin
+				// 		headers: {
+				// 			'Content-Type': 'application/json'
+				// 		},
+				// 		body: JSON.stringify({ "value1": "test" }) // body data type must match "Content-Type" header
+				// 	});
+
+				// 	// if (currentSlide.getAttribute('data-image')) {
+				// 	// 	console.log(currentSlide.getAttribute('data-image'))
+				// 	// 	console.log(currentSlide.getAttribute('data-text'))
+				// 	// } else {
+				// 	// 	console.log(currentSlide.getAttribute('data-text'))
+				// 	// }
+				// }
+
+
 			}, false)
 		</script>
 		</<header>
