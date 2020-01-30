@@ -993,6 +993,10 @@ section {
       grid-auto-columns: 1fr; }
     section .table-grid img {
       width: 1em; }
+  section.small {
+    font-size: 0.5em; }
+  section.medium {
+    font-size: 0.8em; }
 
 .uppercase {
   text-transform: uppercase; }

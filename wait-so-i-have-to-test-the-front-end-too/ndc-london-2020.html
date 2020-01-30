@@ -1,215 +1,667 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>Wait, so I have to test the front end too?</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Wait, so I have to test the front end too?</title>
 
-		<link rel="stylesheet" href="../css/reveal.css"/>
+	<link rel="stylesheet" href="../css/reveal.css" />
 
-		<link rel="stylesheet" href="../css/print/paper.css"/>
-	</head>
+	<link rel="stylesheet" href="../css/print/paper.css" />
+</head>
 
-	<body class="">
-		<header role="banner"></header>
+<body class="">
+	<header role="banner"></header>
 
-		<div class="reveal">
-			<div class="slides">
-				<!-- Slides start here -->
-				<section>
-					<p>Wait...<br/>So I have to test the front end too?</p>
-					<aside class="notes" data-markdown>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Slides start here -->
+			<section>
+				<p>Wait...<br />So I have to test the front end too?</p>
+				<aside class="notes" data-markdown>
 					- Test clicker
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>Wait...<br/>So I have to test the front end too?</p>
-					<aside class="notes" data-markdown>
+			<section>
+				<p>Wait...<br />So I have to test the front end too?</p>
+				<aside class="notes" data-markdown>
 					- Clicker has been tested
 				</aside>
-				</section>
+			</section>
 
-				<section>
+			<section>
 				Why test?
 				<aside class="notes" data-markdown>
 					- We all know that testing is important, that's never a question
 					- Although there is a lot of debate about whether you should write your code or your tests first
 					- We even have a software process, test driven development, centred around tests
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>What about the front end?</p>
-					<aside class="notes" data-markdown>
+			<section data-state="tweet" data-text="We make sure we test, but why do we forget the front end? The front end matters too! #NDCLondon">
+				<p>What about the front end?</p>
+				<aside class="notes" data-markdown>
 					- But despite all those strong opinions
 					- We often don't hear about what's happening on the front end
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>The front end matters too</p>
-					<aside class="notes" data-markdown>
+			<section>
+				<p>The front end matters too</p>
+				<aside class="notes" data-markdown>
 					- There are so many different tests we need to be running on the front end
 
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<div class="tagcloud">
-						<span class="fragment">Accessibility testing</span>
-						<span class="fragment">Performance testing</span>
-						<span class="fragment">User testing</span>
-						<span class="fragment">HTML validation</span>
-						<span class="fragment">Visual Regression testing</span>
-					</div>
-					<aside class="notes" data-markdown>
+			<section>
+				<div class="tagcloud">
+					<span class="fragment">Accessibility testing</span>
+					<span class="fragment">Performance testing</span>
+					<span class="fragment">User testing</span>
+					<span class="fragment">HTML validation</span>
+					<span class="fragment">Visual Regression testing</span>
+				</div>
+				<aside class="notes" data-markdown>
 					- Accessibility testing, performance testing, user testing, HTML validation, visual regression
 					testing
 					- It's often hard to work out what you need to test for and where to start
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>So I'm a testing expert?<br/>
-						<span class="fragment">No.</span>
-					</p>
-					<aside class="notes" data-markdown>
+			<section>
+				<p>So I'm a testing expert?<br />
+					<span class="fragment">No.</span>
+				</p>
+				<aside class="notes" data-markdown>
 					- So if I'm standing up here telling you how to do this, it must mean I'm an expert?
 					- 6 months ago, the only testing I could do was running the cypress npm script for a project with
 					pre-written tests
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>So why me?</p>
-					<aside class="notes" data-markdown>
+			<section>
+				<p>So why me?</p>
+				<aside class="notes" data-markdown>
 					- I've only just gone through the process of learning to test
 					- Coming with no prior knowledge
 				</aside>
-				</section>
+			</section>
 
-				<section>
-					<p>Linting</p>
-					<aside class="notes" data-markdown>
-						- Ok, not technically testing
-					</aside>
-				</section>
+			<section>
+				<p>Linting</p>
+				<aside class="notes" data-markdown>
+					- Ok, not technically testing
+				</aside>
+			</section>
 
-				<section>
-					<p>Automated checking for programmatic and stylistic errors</p>
-					<aside class="notes" data-markdown>
-						- Type of automated check
-						- Happens early in development
-						- Checks for (and sometimes fixes) small stylistic errors
-					</aside>
-				</section>
+			<section>
+				<p>Automated checking for programmatic and stylistic errors</p>
+				<aside class="notes" data-markdown>
+					- Type of automated check
+					- Happens early in development
+					- Checks for (and sometimes fixes) small stylistic errors
+				</aside>
+			</section>
 
-				<section>
-					<div class="table-grid">
-						<span><img src="./eslint.svg"/></span>
-						<span><img src="./stylelint.svg"/></span>
-					</div>
-					<aside class="notes" data-markdown></aside>
-				</section>
+			<section>
+				<div class="table-grid">
+					<span><img src="./eslint.svg" /></span>
+					<span><img src="./stylelint.svg" /></span>
+				</div>
+				<aside class="notes" data-markdown></aside>
+			</section>
 
-				<section>
-					<section class="code">
-						<pre><code data-trim class="hljs bash">
-						yarn install eslint
-					</code></pre>
-						<aside class="notes" data-markdown></aside>
-					</section>
-					<section>
-						<p>Video backup</p>
-						<aside class="notes" data-markdown></aside>
-					</section>
-					<section>
-						<p>Second backup</p>
-						<aside class="notes" data-markdown></aside>
-					</section>
-				</section>
-
+			<section>
 				<section class="code">
 					<pre><code data-trim class="hljs bash">
-						yarn install stylelint
+						npm add eslint
 					</code></pre>
-					<aside class="notes" data-markdown></aside>
+					<aside class="notes" data-markdown>
+						- Back to demo (`eslint-template`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/eslint/eslint.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./eslint-rules.png" />
+					<figcaption>https://eslint.org/docs/rules</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs bash">
+							npm add stylelint
+						</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`stylelint-template`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/stylelint/stylelint.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./stylelint-rules.png" />
+					<figcaption>https://stylelint.io/user-guide/rules</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<p>Accessibility Testing</p>
+				<aside class="notes" data-markdown>
+					- Validating HTML
+					- Checking for alt tags
+					- Colour Contrast
+					- Screen readers and reader modes
+					- Google Home and voice assistants
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./pa11y-website.png" />
+					<figcaption>https://pa11y.org</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs bash">
+							npm add pa11y
+						</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`pa11y-test`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/pa11y/pa11y-basic.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes"></aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/pa11y/pa11y-windows.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hljs json">
+						"code": "wcag2aa.principle1.guideline1_1.1_1_1.h37",
+						"type": "error",
+						"typecode": 1,
+						"message": "img element missing an alt attribute. use the alt attribute to specify a short text alternative.",
+						"context": "<img src=\"/img/rottnest-lighthouse-2500.jpg\">",
+						"selector": "html > body > header > img",
+						"runner": "htmlcs",
+						"runnerextras": {}
+					</code></pre>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hljs json">
+						"code": "wcag2aa.principle1.guideline1_1.1_1_1.h37",
+						"type": "error",
+						"typecode": 1,
+						"message": "img element missing an alt attribute. use the alt attribute to specify a short text alternative.",
+						"context": "<img src=\"/img/rottnest-lighthouse-2500.jpg\">",
+						"selector": "html > body > header > img",
+					</code></pre>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hljs json">
+						"context": "<img src=\"/img/rottnest-lighthouse-2500.jpg\">",
+						"selector": "html > body > header > img",
+					</code></pre>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./pa11y-error-html.png" />
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs json">
+						"code": "wcag2aa.principle1.guideline1_1.1_1_1.h37",
+						"message": "img element missing an alt attribute. use the alt attribute to specify a short text alternative.",
+					</code></pre>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs json">
+						1_1.1_1_1.h37
+					</code></pre>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./wcag-guidelines.png" />
+					<figcaption>http://squizlabs.github.io/HTML_CodeSniffer/Standards/WCAG2/</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<section class="code small">
+					<pre><code data-trim class="hljs js">
+						pa11y('http://my-testing-blog.local', {
+							actions: [
+								'click element #tab-1',
+								'wait for element #tab-1-content to be visible',
+							],
+							viewport: {
+								width: 320,
+								height: 480,
+								ismobile: true
+							},
+							standard: 'wcag2aaa',
+							headers: {
+								'content-type': 'application/json'
+							},
+							method: 'post',
+							postdata: '{"foo": "bar", "bar": "baz"}'
+						});
+					</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`pa11y-options`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/pa11y/pa11y-screenshot.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./pa11y_home.png" />
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs js">
+						await Promise.all([
+							pa11y(`http://my-testing-blog.local`, options),
+						])
+					</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs js">
+							await Promise.all([
+								pa11y(`http://my-testing-blog.local`, options),
+								pa11y(`http://my-testing-blog.local/blog-post`, options)
+							])
+						</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`pa11y-mobile-home`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/pa11y/pa11y-multiple-mobile.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+			</section>
+
+			<section>
+				<p>Visual Regression Testing</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img src="./visual-regression.png" />
+				<aside class="notes" data-markdown>
+					- Screenshots of app
+					- Compares old to new
+					- Visual equivalent of git diffs
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./backstop.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs bash">
+					npm install -g backstopjs
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs bash">
+						backstop init
+					</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`backstop init`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="backups/backstop/backstop-test.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+			</section>
+
+			<section>
+				<p>Can yield false results</p>
+				<aside class="notes" data-markdown>
+					- Visual regression tests pixel perfect
+					- Can yield failures where it's ok
+					- Eg if images haven't loaded in properly yet
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./backstop-false-results.webp" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./backstop-threshold.png" />
+					<figcaption>https://github.com/garris/BackstopJS</figcaption>
+				</figure>
+				<aside class="notes" data-markdown>
+					- Can change the threshold to allow minor changes
+				</aside>
+			</section>
+
+			<section>
+				<p>End to end testing</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./cypress-webpage.png" />
+				<aside class="notes" data-markdown>
+					- Cypress is one of many options
+					- Mainly because it had previously been used in a project
+					- Can be tricky to get your head around it
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs bash">
+					npm install cypress
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Still haven't gotten that on WSL
+					- Currently using git bash to run it on Windows
+				</aside>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs bash">
+						cypress open
+					</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (`cypress-home-tests`)
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/cypress/cypress-open.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/cypress/cypress-home-test.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs js">
+					describe(`Blog Homepage`, () => {
+						before(() => {
+							cy.visit(`http://my-testing-blog.local`);
+						});
+					
+						it(`Contains "My Testing Blog" in the title`, () => {
+							cy.title().should(`contain`, `My Testing Blog`);
+						});
+					});
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs js">
+					// Name of Test
+					describe('Blog Homepage', () => {
+						// Runs at the start of this test
+						before(() => {
+							// Visit our website in the Cypress browser
+							cy.visit('http://my-testing-blog.local')
+						})
+
+						// Assertion - title should contain specific text
+						it('contains "My Testing Blog" in the title', () => {
+							cy.title().should('contain', 'My Testing Blog')
+						})
+					})
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./chai-github.png" />
+					<figcaption>https://github.com/chaijs/chai</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./cypress-assertions.png" />
+					<figcaption>https://docs.cypress.io/guides/references/assertions.html</figcaption>
+				</figure>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs js">
+					expect(name).to.not.equal('Jane')
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Chain functions together
+					- Make assumptions, `expect` or `should`
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./cypress-tutorials.png" />
+					<figcaption>https://docs.cypress.io/examples/examples/tutorials.html</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<section class="code">
+					<pre><code data-trim class="hljs js">
+						describe(`Blog Homepage`, () => {
+							before(() => {
+								cy.visit(`http://my-testing-blog.local`);
+							});
+						
+							it(`Contains "My Testing Blog" in the title`, () => {
+								cy.title().should(`contain`, `My Testing Blog`);
+							});
+						});
+					</code></pre>
+					<aside class="notes" data-markdown>
+						- Back to demo (run cypress test)
+					</aside>
 				</section>
 
-				<section>
-					<figure>
-						<img src="./24-ways.png"/>
-						<figcaption>https://24ways.org/2019/twelve-days-of-front-end-testing/</figcaption>
-					</figure>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/cypress/cypress-run-home-test.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
+
+					</aside>
 				</section>
+				<section class="blank">
+					<video autoplay loop>
+						<source src="./backups/cypress/cypress-mobile-tests.mp4" type="video/mp4" />
+					</video>
+					<aside class="notes">
 
-				<section>
-					<figure>
-						<img src="./javascript-january.jpg"/>
-						<figcaption>https://www.javascriptjanuary.com/blog/getting-started-with-front-end-testing</figcaption>
-					</figure>
+					</aside>
 				</section>
+			</section>
 
-				<!-- Slides end here -->
-			</div>
+			<section>
+				<ul>
+					<li class="fragment">Linting <span class="fragment">✅</span></li>
+					<li class="fragment">Accessibility Testing <span class="fragment">✅</span></li>
+					<li class="fragment">Visual Regression Testing <span class="fragment">✅</span></li>
+					<li class="fragment">End to End Testing <span class="fragment">✅</span></li>
+				</ul>
+				<aside class="notes" data-markdown>
 
-			<footer role="contentinfo">
+				</aside>
+			</section>
+
+			<section data-state="tweet"
+				data-text="want more information about front end testing? check out this awesome list of resources https://noti.st/amyskapers/czxwo9/wait-i-have-to-test-the-front-end-too#resources">
+				<figure>
+					<img src="./24-ways.png" />
+					<figcaption>https://24ways.org/2019/twelve-days-of-front-end-testing/</figcaption>
+				</figure>
+				<aside class="notes" data-markdown></aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./javascript-january.jpg" />
+					<figcaption>https://www.javascriptjanuary.com/blog/getting-started-with-front-end-testing
+					</figcaption>
+				</figure>
+			</section>
+
+			
+
+			<!-- Slides end here -->
+		</div>
+
+		<footer role="contentinfo">
 			@amys_kapers
 		</footer>
 
-			<script type="text/javascript" src="../lib/js/head.min.js"></script>
-			<script type="text/javascript" src="../js/reveal.js"></script>
+		<script type="text/javascript" src="../lib/js/head.min.js"></script>
+		<script type="text/javascript" src="../js/reveal.js"></script>
 
-			<script>
-				// More info about config & dependencies:
-				// - https://github.com/hakimel/reveal.js#configuration
-				// - https://github.com/hakimel/reveal.js#dependencies
-				Reveal.initialize({
-					dependencies: [
-						{
-							src: '../plugin/markdown/marked.js'
-						}, {
-							src: '../plugin/markdown/markdown.js'
-						}, {
-							src: '../plugin/notes/notes.js',
-							async: true
-						}, {
-							src: 'socket.io/socket.io.js',
-							async: true
-						}, {
-							src: '../plugin/notes-server/client.js',
-							async: true
-						}, {
-							src: '../plugin/highlight/highlight.js',
-							async: true,
-							callback: function () {
-								hljs.configure({tabReplace: '   '});
-								hljs.initHighlightingOnLoad();
-							}
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{
+						src: '../plugin/markdown/marked.js'
+					}, {
+						src: '../plugin/markdown/markdown.js'
+					}, {
+						src: '../plugin/notes/notes.js',
+						async: true
+					}, {
+						src: 'socket.io/socket.io.js',
+						async: true
+					}, {
+						src: '../plugin/notes-server/client.js',
+						async: true
+					}, {
+						src: '../plugin/highlight/highlight.js',
+						async: true,
+						callback: function () {
+							hljs.configure({ tabReplace: '   ' });
+							hljs.initHighlightingOnLoad();
 						}
-					],
-					controls: false,
-					display: 'grid',
-					width: "100%",
-					height: "100%",
-					margin: 0,
-					minScale: 1,
-					maxScale: 1
-				});
-
-				Reveal.addEventListener('tweet', () => {
-					let currentSlide = document.querySelector('.reveal .slides section.present')
-
-					if (currentSlide.getAttribute('data-image')) {
-						console.log(currentSlide.getAttribute('data-image'))
-						console.log(currentSlide.getAttribute('data-text'))
-					} else {
-						console.log(currentSlide.getAttribute('data-text'))
 					}
-				}, false)
-			</script>
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1
+			});
+
+			Reveal.addEventListener('tweet', () => {
+				let currentSlide = document.querySelector('.reveal .slides section.present')
+
+				if (currentSlide.getAttribute('data-image')) {
+					console.log(currentSlide.getAttribute('data-image'))
+					console.log(currentSlide.getAttribute('data-text'))
+				} else {
+					console.log(currentSlide.getAttribute('data-text'))
+				}
+			}, false)
+		</script>
 		</<header>
 
-	</html>
+</html>
