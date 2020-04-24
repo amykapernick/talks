@@ -148,13 +148,34 @@ p {
 }
 
 ul {
-	font-size: 1em;
+	font-size: 0.9em;
 	list-style-type: disc;
-	padding-left: 40px;
+	padding-left: 1em;
+	max-width: 90vw;
 
 	li {
 		font-size: 1em;
 		list-style-type: disc;
+
+		&.yes {
+			padding-left: 10px;
+
+			&::marker {
+				content: '✔';
+				color: $green;
+				font-size: 0.8em;
+			}
+		}
+
+		&.no {
+			padding-left: 10px;
+
+			&::marker {
+				content: '✗';
+				color: $red;
+				font-size: 0.8em;
+			}
+		}
 	}
 }
 
@@ -334,6 +355,23 @@ section {
 		}
 	}
 
+	&.split {
+		&.vertical {
+			align-items: stretch;
+			grid-template-columns: 50vw 50vw;
+			grid-template-rows: 100vw;
+		}
+
+		&.horizontal {
+			grid-template-columns: 100vw;
+			grid-template-rows: 50vh 50vh;
+		}
+
+		ul {
+			font-size: 0.8em;
+		}
+	}
+
 	&.code {
 		background: $grey_dark;
 		color: #fff;
@@ -345,6 +383,7 @@ section {
 		}
 
 		&.split {
+			background: linear-gradient(to right, $grey_dark 50%, $background 50%);
 			color: $grey_dark;
 
 			pre {
@@ -361,16 +400,11 @@ section {
 			}
 		}
 
+		&.compare {
+			background: $grey_dark;
+		}
+
 		&.vertical {
-			align-items: stretch;
-			background: linear-gradient(to right, $grey_dark 50%, $background 50%);
-			grid-template-columns: 50vw 50vw;
-			grid-template-rows: 100vw;
-
-			&.compare {
-				background: $grey_dark;
-			}
-
 			&.example {
 				text-align: left;
 			}
@@ -381,9 +415,9 @@ section {
 		}
 
 		&.horizontal {
-			background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
-			grid-template-columns: 100vw;
-			grid-template-rows: 50vh 50vh;
+			&.example {
+				text-align: left;
+			}
 
 			img {
 				height: 40vh;
@@ -588,6 +622,34 @@ grid-auto-flow: column;
 
 	&.medium {
 		font-size: 0.8em;
+	}
+
+	&.filter {
+		&.achromatopsia {
+			filter: url('../how-to-build-an-inaccessible-app/filters.svg#achromatopsia')
+		}
+	}
+
+	&.quote {
+			grid-template-rows: 1fr 10vh;
+			justify-content: center;
+			justify-items: center;
+			height: calc(100vh - var(--footer) - var(--header));
+			margin-top: 3vh;
+			position: relative;
+
+		blockquote {
+			font-size: 0.8em;
+			margin: 0;
+		}
+		cite {
+			color: $grey_dark;
+			font-size: 1em;
+			padding: 1vh 10px 0 0;
+			padding-top: 1vh;
+			font-size: 0.3em;
+			text-align: center;
+		}
 	}
 }
 

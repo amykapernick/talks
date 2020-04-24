@@ -163,7 +163,7 @@
 		],
 		"body": [
 			"<section class=\"blank\">",
-			"  <video autoplay loop>",
+			"  <video autoplay>",
 			"    <source src=\"$1\" type=\"video/mp4\" />",
 			"  </video>",
 			"  <aside class=\"notes\">",
@@ -172,5 +172,66 @@
 			"</section>"
 		],
 		"description": "slide-video"
-	}
+	},
+	"slide-code-split-vertical": {
+		"prefix": [
+			"code",
+			"split",
+			"vertical",
+			"compare"
+		],
+		"body": [
+			"<section class=\"code split vertical compare\">",
+		  "	<pre><code data-trim class=\"hlsj\">",
+		  "		$1",
+		  "	</code></pre>",
+		  "	<pre><code data-trim class=\"hlsj\">",
+		  "		$2",
+		  "	</code></pre>",
+		  "	<aside class=\"notes\" data-markdown>",
+		  "		$3",
+		  "	</aside>",
+			"</section>"
+		],
+		"description": "slide-code-split-vertical"
+	},
+	"slide-code-split-horizontal": {
+		"prefix": [
+			"code",
+			"split",
+			"vertical",
+			"compare"
+		],
+		"body": [
+			"<section class=\"code split horizontal\">",
+		  "	<pre><code data-trim class=\"hlsj\">",
+		  "		$1",
+		  "	</code></pre>",
+		  "	<div>",
+		  "		$3",
+		  "	</div>",
+			"</section>"
+		],
+		"description": "slide-code-split-horizontal"
+	},
+	"slide-split-vertical": {
+		"prefix": [
+			"split",
+			"vertical",
+		],
+		"body": [
+			"<section class=\"split vertical\">",
+		  "	<div>",
+		  "		$1",
+		  "	</div>",
+		  "	<div>",
+		  "		$2",
+		  "	</div>",
+		  "	<aside class=\"notes\" data-markdown>",
+		  "		$3",
+		  "	</aside>",
+			"</section>"
+		],
+		"description": "slide-split-vertical"
+	},
 }

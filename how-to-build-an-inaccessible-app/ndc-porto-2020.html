@@ -1,0 +1,911 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Wait, so I have to test the front end too?</title>
+
+	<link rel="stylesheet" href="../css/reveal.css" />
+
+	<link rel="stylesheet" href="../css/print/paper.css" />
+</head>
+
+<body class="">
+	<header role="banner"></header>
+
+	<div class="reveal">
+		<div class="slides">
+			<!-- Slides start here -->
+			<section>
+				<p>How to Build an Inaccessible App</p>
+				<aside class="notes" data-markdown>
+					- Test clicker
+				</aside>
+			</section>
+
+			<section>
+				<p>How to Build an Inaccessible App</p>
+				<aside class="notes" data-markdown>
+					- Clicker has been tested
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./perth.png" />
+				<aside class="notes" data-markdown>
+					- I live in Perth, Australia, which means that I have to travel for at least 20 hours to get
+					anywhere
+					- And this time was no different, it took me almost
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/rem_hallway.jpg" />
+				<aside class="notes" data-markdown>
+					- a whole minute to get here, due to a dog in the middle of the hallway
+					- I'm really excited to get to speak at NDC Porto this year as well
+					- Although I'm not a fan of your weather
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./perth_weather.jpg" />
+				<aside class="notes" data-markdown>
+					- It feels pretty much just like Perth
+					- I may as well have stayed home
+					- And although I may be the first session for you this morning, somehow I've still managed to get a
+					Friday afternoon slot
+				</aside>
+			</section>
+
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/background.jpg" />
+				<aside class="notes" data-markdown>
+					- I'm a freelance front end developer, which means I spend most of my time at the beach and the rest
+					of it working from home in my pyjamas
+					- I'm also heavily involved in the Perth tech community, help run a user group for front end
+					developers, am on the committee for the DDD Perth conference, attend all the Perth tech meetups and
+					work as an evangelist for YOW conferences
+					- Last year I also became a Twilio champion and a Microsoft MVP
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/rem.jpg" />
+				<aside class="notes" data-markdown>
+					- I also have a beautiful grey and white border collie who sits next to me wherever I'm working from
+					home
+					- Although he's getting very confused about all my video calls, whenever I start a call and say
+					hello, he can tell I'm talking to someone so goes to the front door because he assumes there's
+					someone come to visit
+				</aside>
+			</section>
+
+			<section>
+				<p>How to Build an Inaccessible App</p>
+				<aside class="notes" data-markdown>
+					- But today I'm here to talk about accessibility
+					- And rather than do what every other accessibility talk does,
+					- Today I'm going to teach you how to make things less accessible
+					- I'm also going to talk about some of the aria attributes
+					- And deciphering warnings you get from testing tools or as part of your build pipeline
+				</aside>
+			</section>
+
+			<section>
+				<header>Inaccessible Components</header>
+				<p>Buttons</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./buttons.png" />
+					<figcaption>https://cdpn.io/yLYgLGY</figcaption>
+				</figure>
+			</section>
+
+			<section class="blank">
+				<video autoplay loop>
+					<source src="./buttons_hover_click.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section class="code split horizontal compare medium">
+				<pre><code data-trim class="hlsj html">
+					<div class="button">Click me!</div>
+					<script>
+						document.querySelectorAll(".button").forEach((button) => {
+							button.addEventListener("click", clickFunc());
+						});
+					</script>
+				</code></pre>
+				<pre><code data-trim class="hlsj html">
+					<button onclick="clickFunc()">Click me!</button>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="split vertical">
+				<div>
+					<code>button</code>
+					<ul>
+						<li class="yes">Keyboard Accessible</li>
+						<li class="yes">Clickable</li>
+						<li class="yes">Tabbable</li>
+						<li class="yes">Focusable</li>
+					</ul>
+				</div>
+				<div>
+					<code>div</code>
+					<ul>
+						<li class="no">Keyboard Accessible</li>
+						<li class="no">Clickable</li>
+						<li class="no">Tabbable</li>
+						<li class="no">Focusable</li>
+					</ul>
+				</div>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<header>Inaccessible Components</header>
+				<p>Form Labels</p>
+				<aside class="notes" data-markdown>
+					-
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./form_labels.png" />
+					<figcaption>https://cdpn.io/jObyEqq</figcaption>
+				</figure>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hljs">
+					<form>
+						<input type="text" placeholder="Full Name" />
+						<input type="email" placeholder="Email Address" />
+						<input type="text" placeholder="Credit Card" />
+						<input type="text" placeholder="Mother's maiden name" />
+						<input type="text" placeholder="First Pet" />
+					</form>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./form_fill_placeholder.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./form_labels_placeholder.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./form_labels_placeholder_speech.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./form_labels_placeholder_speech_hidden.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hljs">
+					<form>
+						<label for="name">Full Name</label>
+						<input type="text" id="name" placeholder="Full Name" />
+						<label for="email">Email Address</label>
+						<input type="email" id="email" placeholder="Email Address" />
+						<style>
+							form label {
+								position: absolute;
+								right: -200vw;
+							}
+						</style>
+					</form>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./form_labels_offset_speech.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./form_fill_labels_move.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section class="code medium">
+				<pre><code data-trim class="hlsj js">
+					document.querySelectorAll("form input").forEach((i) => {
+						i.addEventListener("input", (e) => {
+							console.log(e.target.value);
+					
+							if (e.target.value && e.target.value !== "") {
+								e.target.previousElementSibling.classList.add("active");
+							}
+						});
+					});					
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hlsj css">
+					form label {
+						pointer-events: none;
+						position: relative;
+						top: 30px;
+						left: 10px;
+
+						&.active {
+							top: -5px;
+							transition: all 0.01s;
+						}
+					}
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<header>Inaccessible Components</header>
+				<p>Icon Labels</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./icon_links.png" />
+					<figcaption>https://cdpn.io/JjYEEVr</figcaption>
+				</figure>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<nav>
+						<a href="https://codepen.io/amys_kapers">
+							<svg></svg>
+						</a>
+						<a href="https://twitter.com/amys_kapers">
+							<svg></svg>
+						</a>
+						<a href="https://amyskapers.dev">
+							<svg></svg>
+						</a>
+					</nav>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./icon_links_speech.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./icon_links_speech_hidden.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<nav>
+						<a href="https://codepen.io/amys_kapers">
+							<svg></svg><span>Codepen</span>
+						</a>
+						<a href="https://twitter.com/amys_kapers">
+							<svg></svg><span>Twitter</span>
+						</a>
+						<a href="https://amyskapers.dev">
+							<svg></svg><span>Website</span>
+						</a>
+					</nav>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs css">
+					a span {
+						position: absolute;
+						right: -200vw;
+					}
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./icon_links_labelled_speech.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<header>Inaccessible Components</header>
+				<p>Hover Effects</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./hover_effects.png" />
+					<figcaption>https://cdpn.io/ExVZWyw</figcaption>
+				</figure>
+			</section>
+
+			<section data-transition="fade" class="blank">
+				<video autoplay loop>
+					<source src="./hover_effect_single.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- Hover effects are used to indicate that an element can be clicked
+					- And usually involve changing a colour
+					- ANd we can see here, the colour is changing on hover, which means this must be clickable
+				</aside>
+			</section>
+
+			<section data-transition="fade" class="blank filter achromatopsia">
+				<video autoplay loop>
+					<source src="./hover_effect_single.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- But what if the user has a vision deficiency, and is unable to differentiate between colours as
+					well
+					- Can you see the difference between the colours?
+				</aside>
+			</section>
+
+			<section data-transition="fade" class="blank">
+				<video autoplay loop>
+					<source src="./hover_effects.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- Using something other than a colour change
+					- Like changing a background, border or the underline
+				</aside>
+			</section>
+
+			<section data-transition="fade" class="blank filter achromatopsia">
+				<video autoplay loop>
+					<source src="./hover_effects.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- No longer relies on differentiating between colours
+					- So users can more easily tell the difference
+					- Although I'd only recommend using the border as an option if the element has a bit of space around
+					it
+				</aside>
+			</section>
+
+			<!-- <section>
+				<header>Inaccessible Components</header>
+				<p>Focus States</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="" />
+					<figcaption>https://cdpn.io/</figcaption>
+				</figure>
+			</section> -->
+
+			<section>
+				<header>Inaccessible Components</header>
+				<p>Tab Index</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./tab_order.png" />
+					<figcaption>https://cdpn.io/abvJOqM</figcaption>
+				</figure>
+			</section>
+
+			<section class="medium">
+				<p><strong>0</strong> : Can be navigated to via keyboard</p>
+				<p><strong>-1</strong> : Cannot be navigated to via keyboard</p>
+				<p><strong>1</strong> : Will be navigated to in order</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs">
+					<form>
+						<input tabindex="1" type="text" />
+						<input tabindex="2" type="email" />
+						<input tabindex="3" type="text" />
+						<input tabindex="4" type="text" />
+						<input tabindex="5" type="text" />
+					</form>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./tab_order_normal.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs">
+					<form>
+						<input tabindex="1" type="text" />
+						<input tabindex="2" type="email" />
+						<input tabindex="3" type="text" />
+						<input type="text" />
+						<input tabindex="4" type="text" />
+						<input tabindex="5" type="text" />
+					</form>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./tab_order_edited.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section>
+				<header><code>aria</code></header>
+				<p><code>aria</code> attributes</p>
+				<aside class="notes" data-markdown>
+					- Aria is often grabbed for when you know something has to be accessible
+					- But most of the time they're not necessary
+					- Earlier this year I was working on a project that needed to be accessible
+					- Developer ran a testing tool, which told him to add
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs">
+					<div role="">
+						
+					</div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<header><code>aria</code></header>
+				<p>Button, Checkbox, Link, Radio, Searchbox, Slider, Scrollbar, Tab, Textbox, Menu, Article, Heading,
+					Img, List, Row, Tablet, Banner, Complementary, Form, Main, Navigation, Alert, Status...</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./mdn_aria_roles.png" />
+					<figcaption>https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
+					</figcaption>
+				</figure>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div role="presentation">
+						<blockquote>
+							There is some text here
+							<a href="">Click here</a>
+						</blockquote>
+						<img src="./graphic.png" />
+					</div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Developer added "presentation" as the role
+					- This element's role is "presentation" but contains child elements with semantic meaning.
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div>
+						<blockquote>
+							There is some text here
+							<a href="">Click here</a>
+						</blockquote>
+						<img src="./graphic.png" alt="" />
+					</div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- All that was needed to do was add an empty alt tag
+					- To show that the image was presentational
+				</aside>
+			</section>
+
+			<section>
+				<header><code>aria</code></header>
+				<p>Semantic HTML 🎉</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="quote">
+				<blockquote>Many of these widgets were later incorporated into HTML5, and developers should prefer using
+					the correct semantic HTML element over using ARIA, if such an element exists</blockquote>
+				<cite>https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA</cite>
+
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs">
+					<!-- role="button" -->
+					<button></button>
+
+					<!-- role="form" -->
+					<form></form>
+
+					<!-- role="navigation" -->
+					<nav></nav>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div aria-label=""></div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Label defines a string that labels the current element
+					- Used to describe where there isn't text to describe it
+
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img src="./icon_links.png" />
+				<aside class="notes" data-markdown>
+					- Similar to the icons
+					- Alternative could have been to add `aria-label`s to the links
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div aria-label=""></div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- however as a HTML attribute
+					- It doesn't get translated in the browser
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<p id="content">Important content</p>
+					<div aria-labelledby="content"></div>
+
+					<label for="name">Name</label>
+					<input id="name" />
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- however as a HTML attribute
+					- It doesn't get translated in the browser
+				</aside>
+			</section>
+
+			<section>
+				<header>Testing</header>
+				<p>Testing</p>
+				<aside class="notes" data-markdown>
+					- While there are several automated tests
+					- And tools that you can use
+					- To properly test for a11y, need to run user testing
+					- With people who use this every day
+					- Difference between us opening a screen reader to run a test
+					- And someone who uses it every day
+				</aside>
+			</section>
+
+			<section>
+				<header>Testing</header>
+				<p>Testing tools</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="../wait-so-i-have-to-test-the-front-end-too/pa11y-website.png" />
+					<figcaption>https://pa11y.org</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<p>Web Content Accessibility Guidelines<br /><mark>WCAG</mark></p>
+				<aside class="notes" data-markdown>
+					- Tests against the web content accessibility Guidelines
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="../wait-so-i-have-to-test-the-front-end-too/wcag-website.png" />
+					<figcaption>https://www.w3.org/WAI/standards-guidelines/wcag</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<p>Demo time 🤞</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<header>Testing</header>
+				<p>Deciphering tests</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<!-- Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.", -->
+
+					<img src="/img/graphic.jpg" />
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<!-- This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of NaN:1. -->
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<!-- This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid. -->
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./axe-website.png" />
+					<figcaption>https://github.com/dequelabs/axe-core</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./whocanuse.png" />
+					<figcaption>https://whocanuse.com/</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./accessible_brand_colours.png" />
+					<figcaption>https://abc.useallfive.com</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./color-blindness-emulation.png" />
+					<figcaption>https://github.com/hail2u/color-blindness-emulation</figcaption>
+				</figure>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs css">
+					.element {
+						filter: url('filters.svg#protanopia');
+						filter: url('filters.svg#protanomaly');
+						filter: url('filters.svg#deuteranopia');
+						filter: url('filters.svg#deuteranomaly');
+						filter: url('filters.svg#tritanopia');
+						filter: url('filters.svg#tritanomaly');
+						filter: url('filters.svg#achromatopsia');
+						filter: url('filters.svg#achromatomaly');
+					}
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Include the SVG file in your project
+					- Apply the relevant filter when you need to
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="../wait-so-i-have-to-test-the-front-end-too/24-ways.png" />
+					<figcaption>https://24ways.org/2019/twelve-days-of-front-end-testing/</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="../wait-so-i-have-to-test-the-front-end-too/javascript-january.jpg" />
+
+					<figcaption>https://www.javascriptjanuary.com/blog/getting-started-with-front-end-testing
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./ndc-london-youtube.png" />
+					<figcaption>https://youtu.be/-__TNwVR110</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./inaccessible_components.png" />
+					<figcaption>https://codepen.io/collection/AypYaP</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<ul>
+					<li>twitter.com/amys_kapers</li>
+					<li>amyskapers.dev</li>
+					<li>blog.amyskapers.dev</li>
+					<li>speaking.amyskapers.dev</li>
+					<li>github.com/amykapernick</li>
+					<li>twitch.tv/amyskapers</li>
+				</ul>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<p>Thank You 👏</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<!-- Slides end here -->
+		</div>
+
+		<footer role="contentinfo">
+			@amys_kapers
+		</footer>
+
+		<script type="text/javascript" src="../lib/js/head.min.js"></script>
+		<script type="text/javascript" src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{
+						src: '../plugin/markdown/marked.js'
+					}, {
+						src: '../plugin/markdown/markdown.js'
+					}, {
+						src: '../plugin/notes/notes.js',
+						async: true
+					}, {
+						src: 'socket.io/socket.io.js',
+						async: true
+					}, {
+						src: '../plugin/notes-server/client.js',
+						async: true
+					}, {
+						src: '../plugin/highlight/highlight.js',
+						async: true,
+						callback: function () {
+							hljs.configure({ tabReplace: '   ' });
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1
+			});
+
+		</script>
+		</<header>
+
+</html>
