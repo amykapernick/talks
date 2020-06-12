@@ -223,6 +223,10 @@
 			overflow: hidden;
 		}
 
+		> section {
+			max-height: 100vh;
+		}
+
 		> ul {
 			margin-left: 3vw;
 		}

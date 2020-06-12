@@ -647,10 +647,14 @@ blockquote {
   padding-left: 20px; }
 
 figure {
+  align-self: stretch;
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr 10vh;
   justify-content: center;
   justify-items: center;
+  justify-self: stretch;
+  min-height: calc(100vh - var(--footer) - var(--header));
   height: calc(100vh - var(--footer) - var(--header));
   margin-top: 3vh;
   position: relative; }
@@ -837,6 +841,8 @@ section {
     section > img.graphic,
     section video.graphic {
       padding: 100px; }
+  section > section {
+    max-height: 100vh; }
   section .image-container {
     height: 100%;
     width: 100%; }
@@ -894,12 +900,15 @@ section {
       text-align: left; }
     section.code.vertical img {
       width: 40vw; }
-    section.code.horizontal.example {
-      text-align: left; }
-    section.code.horizontal img {
-      height: 40vh; }
-    section.code.horizontal > pre {
-      max-height: 50vh; }
+    section.code.horizontal {
+      background: linear-gradient(to bottom, #080808 50%, #faf8ef 50%);
+      color: #080808; }
+      section.code.horizontal.example {
+        text-align: left; }
+      section.code.horizontal img {
+        height: 40vh; }
+      section.code.horizontal > pre {
+        max-height: 50vh; }
   section.image img {
     object-fit: cover; }
   section.question {
@@ -1195,6 +1204,8 @@ footer {
   .custom-5 section > * {
     max-height: 95vh;
     overflow: hidden; }
+  .custom-5 section > section {
+    max-height: 100vh; }
   .custom-5 section > ul {
     margin-left: 3vw; }
   .custom-5 section.split.horizontal .image-container {
@@ -1659,6 +1670,8 @@ footer {
   .custom-5 section > * {
     max-height: 95vh;
     overflow: hidden; }
+  .custom-5 section > section {
+    max-height: 100vh; }
   .custom-5 section > ul {
     margin-left: 3vw; }
   .custom-5 section.split.horizontal .image-container {

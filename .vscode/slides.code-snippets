@@ -105,6 +105,33 @@
 		],
 		"description": "slide-browsers"
 	},
+	"slide-browsers-colour": {
+		"prefix": [
+			"browsers",
+			"slide",
+			"list"
+		],
+		"body": [
+			"<section>",
+			"  <div class=\"table-grid browsers\">",
+			"	<span class=\"fragment\"><img src=\"../img/chrome_colour.svg\"/></span>",
+			"	<span class=\"fragment\">$1</span>",
+			"	<span class=\"fragment\"><img src=\"../img/firefox_colour.svg\"/></span>",
+			"	<span class=\"fragment\">$2</span>",
+			"	<span class=\"fragment\"><img src=\"../img/safari_colour.svg\"/></span>",
+			"	<span class=\"fragment\">$3</span>",
+			"	<span class=\"fragment\"><img src=\"../img/edge_colour.svg\"/></span>",
+			"	<span class=\"fragment\">$4</span>",
+			"	<span class=\"fragment\"><img src=\"../img/ie_colour.svg\"/></span>",
+			"	<span class=\"fragment\">$5<span class=\"fragment\">ish</span></span>",
+			"  </div>",
+			"  <aside class=\"notes\" data-markdown>",
+			"    ",
+			"  </aside>",
+			"</section>"
+		],
+		"description": "slide-browsers-colour"
+	},
 	"slide-grid": {
 		"prefix": [
 			"grid",

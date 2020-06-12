@@ -66,10 +66,14 @@ blockquote {
 }
 
 figure {
+	align-self: stretch;
 	display: grid;
+	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 10vh;
 	justify-content: center;
 	justify-items: center;
+	justify-self: stretch;
+	min-height: calc(100vh - var(--footer) - var(--header));
 	height: calc(100vh - var(--footer) - var(--header));
 	margin-top: 3vh;
 	position: relative;
@@ -316,6 +320,10 @@ section {
 		}
 	}
 
+	> section {
+		max-height: 100vh;
+	}
+
 	.image-container {
 		height: 100%;
 		width: 100%;
@@ -415,6 +423,9 @@ section {
 		}
 
 		&.horizontal {
+			background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
+			color: $grey_dark;
+
 			&.example {
 				text-align: left;
 			}
