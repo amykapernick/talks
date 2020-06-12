@@ -100,7 +100,89 @@
 					- But first I want to talk to you about why
 					- Why is this important?
 					- Who am I catering towards?
+				</aside>
+			</section>
 
+			<section>
+				<p><mark>70% of the web is inaccessible</mark><br /> to people with low vision</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<div class="tagcloud">
+					<span class="fragment"><mark>10%</mark> have colour blindness</span>
+					<span class="fragment"><mark>31%</mark> have low vision</span>
+					<span class="fragment"><mark>33%</mark> have cataracts</span>
+				</div>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<div class="tagcloud">
+					<span class="fragment"><mark>17%</mark> have blindness or visual impairment</span>
+					<span class="fragment"><mark>6%</mark> have deafness or hearing loss</span>
+					<span class="fragment"><mark>2.6%</mark> have a cognitive impairment</span>
+					<span class="fragment"><mark>5%</mark> have a mobility impairment</span>
+				</div>
+				<aside class="notes" data-markdown>
+					- And while these may seem like small numbers
+					- This translates into millions of people
+					- And People with vision impairments account for $6.9B billion in online spending each year
+					- It's not a small difference
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img src="./inaccessible_websites_tweet.png" />
+				<aside class="notes" data-markdown>
+					- The other day I saw this tweet
+					- From Larene, an a11y expert from Brisbane, who is also a MVP and YOW Evangelist with me
+					- 10 years ago, her dad had no issues navigating the internet by himself
+					- But now, he needs more help each week as everyone updates to the latest new framework, makes their website a SPA and adds popups and clutter
+					- These options can all be accessible, but we need to take extra steps to do this
+					- If not, we're just making our websites unuseable to an increasing percentage of the population
+				</aside>
+			</section>
+
+			<section>
+				<div class="tagcloud">
+					<span class="fragment"><mark>Sunlight</mark> and glare</span>
+					<span class="fragment"><mark>Night Mode</mark></span>
+					<span class="fragment"><mark>Big fingers</mark> and small screens</span>
+					<span class="fragment"><mark>Injury</mark> or Illness</span>
+					<span class="fragment"><mark>Multi-tasking</mark></span>
+				</div>
+				<aside class="notes" data-markdown>
+					- This also doesn't just affect people with a permanent impairment either
+					- This affects all of us
+					- Ever tried to use your phone outside or where there's glare?
+					- Do you use night mode on your phone or computer?
+					- Android phones now take that one step further and can turn a phone screen to greyscale in the evening
+					- Do you have big fingers and have trouble with the small touch area on touch screens?
+					- Do you have an injury or illness that affects your sight, hearing or mobility?
+					- Last year I got an eye infection that severely impacted the vision in one eye for a period of time
+					- Maybe you temporarily lost part of your hearing?
+					- Maybe you lost use of one of your arms?
+					- Are you trying to do more than one thing at a time?
+					- Maybe you're trying to work while holding a small child
+					- Lots of us have had to try and work under less than ideal scenarios lately, how many times have you had to work one handed because the other one is entertaining one of your kids?
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Vision Impairment<br />
+					Hearing Impairment<br />
+					Mobility Impairment<br />
+					Cognitive Impairment<br />
+				</p>
+				<aside class="notes" data-markdown>
+					- Throughout the presentation I'll also touch on which impairments each approach can help
+					- And for which users you're making a better experience for
 				</aside>
 			</section>
 
@@ -166,6 +248,18 @@
 				</div>
 				<aside class="notes" data-markdown>
 
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Mobility Impairment ✅
+				</p>
+				<aside class="notes" data-markdown>
+					- Users with a vision impairment will often use their keyboard for navigation
+					- Users with a mobility impairment may also use their keyboard
+					- If they don't have the motor skills and control to navigate with a mousee
 				</aside>
 			</section>
 
@@ -302,6 +396,42 @@
 			</section>
 
 			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Mobility Impairment ✅
+				</p>
+				<aside class="notes" data-markdown>
+					- Those using screen readers can identify form fields if they have labels
+					- But labels also benefit those with mobility impairments particularly with fields like checkboxes and radio buttons
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay loop>
+					<source src="./form_fields_click_area.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- If you have a label for a checkbox, and link the label to the input
+					- That increases the touch area
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hlsj html">
+					<input id="checkbox-1" type="checkbox" />
+					<label for="checkbox-1">Click me!</label>
+					
+					<label>
+						<input type="checkbox" />
+						Click me!
+					</label>
+				</code></pre>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
 				<header>Inaccessible Components</header>
 				<p>Icon Labels</p>
 				<aside class="notes" data-markdown>
@@ -388,6 +518,16 @@
 			</section>
 
 			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Cognitive Impairment ✅<br />
+				</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
 				<header>Inaccessible Components</header>
 				<p>Hover Effects</p>
 				<aside class="notes" data-markdown>
@@ -443,6 +583,15 @@
 					- So users can more easily tell the difference
 					- Although I'd only recommend using the border as an option if the element has a bit of space around
 					it
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Vision Impairment ✅
+				</p>
+				<aside class="notes" data-markdown>
+
 				</aside>
 			</section>
 
@@ -535,6 +684,183 @@
 			</section>
 
 			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Motor Impairment ✅<br />
+					Cognitive Impairment ✅
+				</p>
+				<aside class="notes" data-markdown>
+					- Dyslexics sometimes use screen readers to navigate the page
+					- They find it easier to focus
+					- Hijacking the tab order makes it more confusing if people can actually see the page
+				</aside>
+			</section>
+
+			<section>
+				<p>Click/Touch Areas</p>
+				<aside class="notes" data-markdown>
+					- We've all been there, we've all done it
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./click_area.png" />
+				<aside class="notes" data-markdown>
+					- tried to press something and inevitably pressed something else
+					- Most of the time it's fine, sometimes we need to repeat an action
+					- But sometimes we might accidentally click on a link to something we *definitely* do not want
+					- Maybe we're at work, and it looks like we're doing something dodgy
+					- Now imagine you have a motor impairment, and you don't have as much control over your hands?
+					- How hard would it be to make sure you're clicking on the right thing?
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs css">
+					a {
+						padding: 10px 15px;
+						margin: 10px;
+					}
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Thankfully this is an easy one to fix
+					- Increasing the touch area increases the target size and makes it easier
+					- Increasing space between elements also means you're less likely to hit the wrong thing
+					- It also makes it more noticeable, and easier for people to recognise individual elements, or pick out a certain one
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="./click_area_spaced.png" />
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Motor Impairment ✅<br />
+					Cognitive Impairment ✅<br />
+				</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<p>Animations</p>
+				<aside class="notes" data-markdown>
+					- We all know about animations, we use them to enhance our websites
+				</aside>
+			</section>
+
+			<section>
+				<p>⚠ Animation warning ⚠</p>
+				<aside class="notes" data-markdown>
+					- If you have epilepsy or are triggered by flashing lights, please look away for this slide
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./animation_flashing.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+					- I mean who doesn't love looking at this on a website
+					- What could possibly be wrong with this?
+					- Thankfully, there is another easy fix
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="graphic" src="./windows_reduced_motion.png" />
+				<aside class="notes" data-markdown>
+					- There is a setting to disable settings on your computer
+					- On Windows it's under **Ease of Access**, then Display
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs css">
+					@media (prefers-reduced-motion) {
+						.animated-element {
+							animation: none;
+						}
+					}
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- There's then a media query for the `prefers-reduced motion` setting
+					- If people have elected to turn that on, you can disable animations in your CSS
+				</aside>
+			</section>
+
+			<section>
+				<p>⚠ Animation warning ⚠</p>
+				<aside class="notes" data-markdown>
+					- If you have epilepsy or are triggered by flashing lights, please look away for this slide
+				</aside>
+			</section>
+
+			<section class="blank">
+				<video autoplay>
+					<source src="./animation_prefers_reduced_motion.mp4" type="video/mp4" />
+				</video>
+				<aside class="notes">
+
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Cognitive Impairment ✅<br />
+				</p>
+				<aside class="notes" data-markdown>
+					- This is super important for people with cognitive impairments like epilepsy or migraines
+					- But it also benefits those who have difficulty concentrating
+					- ANd sometimes people may just choose to turn this setting on because they prefer it (I know I got a little queasy looking at this demo so much while I was making it)
+					- It's important to respect the choices of our users, if we don't we will lose them
+				</aside>
+			</section>
+
+			<section>
+				<p>Captions and Transcripts</p>
+				<aside class="notes" data-markdown>
+					- This is another big one for a11y
+					- Adding captions to our content benefits everyone
+				</aside>
+			</section>
+
+			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Hearing Impairment ✅<br />
+					Cognitive Impairment ✅<br />
+				</p>
+				<aside class="notes" data-markdown>
+					- Captions help people can't hear your video or audio
+					- Transcripts also help, and can be read by screen readers for those with a vision impairment
+					- And both are used by those with cognitive impairments as they may find it easier to concentrate on the text
+					- Transcripts also make your content more searchable, people can find phrases or information within the text without needing to listen to or watch the original media
+				</aside>
+			</section>
+
+			<section>
+				<p>Doing this properly<br /> is <mark>expensive</mark></p>
+				<aside class="notes" data-markdown>
+					- And yes, often we say, but it's so expensive and the automated alternatives aren't as good
+				</aside>
+			</section>
+
+			<section>
+				<p>A 70% accurate alternative<br /> is <mark>better than nothing</mark></p>
+				<aside class="notes" data-markdown>
+					- Yes but it's better than nothing.
+					- Automated YouTube captions are better than no captions
+					- And they can also give you a starting point, so you just need to go through and tweak them later
+				</aside>
+			</section>
+
+			<section>
 				<header><code>aria</code></header>
 				<p><code>aria</code> attributes</p>
 				<aside class="notes" data-markdown>
@@ -573,38 +899,6 @@
 				</figure>
 			</section>
 
-			<section class="code">
-				<pre><code data-trim class="hljs html">
-					<div role="presentation">
-						<blockquote>
-							There is some text here
-							<a href="">Click here</a>
-						</blockquote>
-						<img src="./graphic.png" />
-					</div>
-				</code></pre>
-				<aside class="notes" data-markdown>
-					- Developer added "presentation" as the role
-					- This element's role is "presentation" but contains child elements with semantic meaning.
-				</aside>
-			</section>
-
-			<section class="code">
-				<pre><code data-trim class="hljs html">
-					<div>
-						<blockquote>
-							There is some text here
-							<a href="">Click here</a>
-						</blockquote>
-						<img src="./graphic.png" alt="" />
-					</div>
-				</code></pre>
-				<aside class="notes" data-markdown>
-					- All that was needed to do was add an empty alt tag
-					- To show that the image was presentational
-				</aside>
-			</section>
-
 			<section>
 				<header><code>aria</code></header>
 				<p>Semantic HTML 🎉</p>
@@ -636,6 +930,59 @@
 				</code></pre>
 				<aside class="notes" data-markdown>
 
+				</aside>
+			</section>
+
+			<section>
+				<figure>
+					<img src="../front-end-web-fundamentals/htmlreference.png" />
+					<figcaption>htmlreference.io</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<p>
+					Vision Impairment ✅<br />
+					Motor Impairment ✅<br />
+					Cognitive Impairment ✅<br />
+				</p>
+				<aside class="notes" data-markdown>
+					- Semantic HTML benefits anyone who uses a screen reader or assistive technology
+					- These elements provide context about the kind of information in them, which can be conveyed to the user
+					- Context which we would normally infer through vision, eg. dot points suggest that there's a list
+					- Using the correct html elements for a list means the screen reader can tell the user that there's a list
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div role="presentation">
+						<blockquote>
+							There is some text here
+							<a href="">Click here</a>
+						</blockquote>
+						<img src="./graphic.png" />
+					</div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- Developer added "presentation" as the role
+					- This element's role is "presentation" but contains child elements with semantic meaning.
+				</aside>
+			</section>
+
+			<section class="code">
+				<pre><code data-trim class="hljs html">
+					<div>
+						<blockquote>
+							There is some text here
+							<a href="">Click here</a>
+						</blockquote>
+						<img src="./graphic.png" alt="" />
+					</div>
+				</code></pre>
+				<aside class="notes" data-markdown>
+					- All that was needed to do was add an empty alt tag
+					- To show that the image was presentational
 				</aside>
 			</section>
 
@@ -677,8 +1024,9 @@
 					<input id="name" />
 				</code></pre>
 				<aside class="notes" data-markdown>
-					- however as a HTML attribute
-					- It doesn't get translated in the browser
+					- If you use `aria-labelledby`, it references another HTML element to use as the label
+					- Similar to how labels are linked to content
+					- And the content inside the HTML element will get translated, so the user is still able to understand it
 				</aside>
 			</section>
 
