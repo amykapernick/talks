@@ -1,0 +1,1120 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Front End Web Fundamentals - CSS Layouts</title>
+
+	<link rel="stylesheet" href="../css/reveal.css" />
+
+	<link rel="stylesheet" href="../css/print/paper.css" />
+</head>
+
+<body class="custom-5 custom-7">
+	<header role="banner"></header>
+
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<p>Front End Fundamentals<br /> <small>CSS Layouts</small></p>
+				<aside class="notes" data-markdown>- Test clicker</aside>
+			</section>
+			<section>
+				<p>Grab some coffee ☕ <br />and settle in</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+			<section class="blank">
+				<img class="background" src="../img/map_perth_australia.png" />
+				<aside class="notes" data-markdown>
+					- I live in Perth, Australia, which means that I have to travel for at least 20 hours to get
+					anywhere
+					- And this time was no different, it took me almost
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/rem_hallway.jpg" />
+				<aside class="notes" data-markdown>
+					- a whole minute to get here, due to a dog in the middle of the hallway
+					- I'm a bit disappointed that I don't get to be in Oslo this year
+					- I mean I can deal with the fact that the timezones aren't great
+					- I mean last year I was up until 3am most nights anyway
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/melbourne_night.jpg" />
+				<aside class="notes" data-markdown>
+					- I mean what is with this sky? I took this at 10pm!
+					- I'll be seeing a darker sky doing this workshop today than I saw my entire week in Oslo last year
+				</aside>
+			</section>
+
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/background.jpg" />
+				<aside class="notes" data-markdown>
+					- I'm a freelance front end developer, which means I spend most of my time at the beach and the rest
+					of it working from home in my pyjamas
+					- I'm also heavily involved in the Perth tech community, help run a user group for front end
+					developers, am on the committee for the DDD Perth conference, attend all the Perth tech meetups and
+					work as an evangelist for YOW conferences
+					- Last year I also became a Twilio champion and a Microsoft MVP
+				</aside>
+			</section>
+
+			<section class="blank">
+				<img class="background" src="../img/rem.jpg" />
+				<aside class="notes" data-markdown>
+					- I also have a beautiful grey and white border collie who sits next to me wherever I'm working from
+					home
+					- Although he's getting very confused about all my video calls, whenever I start a call and say
+					hello, he can tell I'm talking to someone so goes to the front door because he assumes there's
+					someone come to visit
+				</aside>
+			</section>
+
+			<section>
+				<p>Like Melbourne, but with better coffee<br /> 🙊</p>
+				<aside class="notes" data-markdown>
+					- I know, shock right?
+					- Apologies in advance, I'm on Australian internet, we're all hoping it holds up
+					- Also apologies if you can hear people yelling in the background, no one is being murdered, that's just how my neighbours talk to each other
+					- Apologies also if a dog starts barking loudly, while my dog has been warned that this is important, if someone is walking on the street and he deems them to close to our fence, that is even more urgent
+					- And lastly, I'm assuming most of you are also at home.
+					- I expect kids, pets, partners, family to be around, we're all working under less than desirable circumstances
+					- Please make sure that if there's background noise your mic is muted
+					- If you're not comfortable, feel free to turn your camera off, but it's nice to be able to see some faces (and maybe even some pets)
+				</aside>
+			</section>
+
+			<section>
+				<p>Ask Questions 🙋‍♀️</p>
+				<aside class="notes" data-markdown>
+					- This is just a small group
+					- And I don't know what your experiences are
+					- Please ask questions if you have them
+					- Even if they're oddly specific, someone else may benefit from the answer
+				</aside>
+			</section>
+
+			<section>
+				<p>Your turn</p>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section class="medium">
+				<ul>
+					<li>Name</li>
+					<li>Role</li>
+					<li>When you first learnt CSS</li>
+					<li>When you last wrote front end code</li>
+					<li>What are you hoping to learn most from the workshop</li>
+					<li>What code do you typically work with?</li>
+				</ul>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<section>
+					<p>CSS Layouts</p>
+					<aside class="notes" data-markdown>
+					</aside>
+				</section>
+
+				<section>
+					<p>kapers.dev/ndcmel2020-git</p>
+					<aside class="notes" data-markdown>
+						- Download code from github
+					</aside>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hljs shell">
+						npm install
+
+						## OR
+
+						yarn install
+					</code></pre>
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section>
+					<p>CSS Layouts</p>
+					<aside class="notes" data-markdown>
+						- Now that we've built a good structure, it's time to use CSS to put the layout together
+						- CSS Layouts have come a long way over the years
+					</aside>
+				</section>
+
+				<section class="code vertical split small">
+					<pre><code data-trim class="hljs html">
+						<table>
+							<tr>
+								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
+							</tr>
+							<tr>
+								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+							</tr>
+							<tr>
+								<td width="25%" valign="top" bgcolor="#8bd3d8">
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</td>
+								<td width="55%" valign="top" bgcolor="#e8f6f7">
+									<h2>Page heading</h2>
+									Lorum Ipsum pair.<br>
+									Lorum ipsum
+								</td>
+								<td width="20%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+							</tr>
+						</table>
+					</code></pre>
+					<div class="layout-example">
+						<table>
+							<tr>
+								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc">
+									<h1>My Website</h1>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+							</tr>
+							<tr>
+								<td width="25%" valign="top" bgcolor="#8bd3d8">
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</td>
+								<td width="55%" valign="top" bgcolor="#e8f6f7">
+									<h2>Page heading</h2>
+									Lorum Ipsum
+									pair. <br>
+									Lorum ipsum
+								</td>
+								<td width="20%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+							</tr>
+						</table>
+					</div>
+					<aside class="notes">
+						- So we discovered that you could use tables for layouts<br />
+						- This was great because you could break the apge into a grid<br />
+						- You could merge cells into each other<br />
+						- And embed tables inside tables<br />
+						- We finally had better control over how content was laid out on a page<br />
+					</aside>
+				</section>
+
+				<section class="code small very">
+					<pre><code data-trim class="hljs html">
+						<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+							<tbody><tr><td valign="top" align="center">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody><tr><td valign="top" align="center">
+										<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+											<tbody><tr><td valign="top">
+												<table width="100%" cellspacing="0" cellpadding="0" border="0">
+													<tbody><tr><td valign="top">
+														<table width="100%" cellspacing="0" cellpadding="0" border="0">
+															<tbody><tr><td valign="top" align="center">
+																<table cellspacing="0" cellpadding="0" border="0" align="center">
+																	<tbody><tr><td valign="top" align="center">
+																		<table width="100"><tr><td valign="top" align="center">
+																			<table cellspacing="0" cellpadding="0" border="0" align="center">
+																				<tbody><tr><td valign="top" align="center">
+																					<table>
+																						<tbody><tr><td valign="top">
+																							<a href=""><img src="image.png" /></a>
+																						</td></tr></tbody>
+																					</table>
+																				</td></tr></tbody>
+																			</table>
+																		</td></tr></table>
+																	</td></tr></tbody>
+																</table>
+															</td></tr></tbody>
+														</table>
+													</td></tr></tbody>
+												</table>
+											</td></tr></tbody>
+										</table>
+									</td></tr></tbody>
+								</table>
+							</td></tr></tbody>
+						</table>
+					</code></pre>
+					<aside class="notes">
+						- But before long, we ended up with excessive complexities<br />
+						- Tables inside tables was great<br />
+						- But tables inside tables inside tables inside tables<br />
+						- Not so much<br />
+						- This also made it more difficult when we started trying to make out websites work on different device sizes
+					</aside>
+				</section>
+
+				<section class="code split vertical small table-example">
+					<pre><code data-trim class="hljs html">
+							<header>
+								<h1>My Website</h1>
+							</header>
+							<nav>
+								<a href="#">Home</a>
+							</nav>
+							<main>
+								<aside><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></aside>
+								<article>
+									<h2>Page heading</h2>
+									Lorum Ipsum pair. <br>
+									Lorum ipsum
+								</article>
+							</main>
+							<footer>Copyright ©</footer>
+						</code>
+					</pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav>
+							<a href="#">Home</a>
+						</nav>
+						<div class="main">
+							<div class="aside">
+								<nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav>
+							</div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum Ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- So we started using float<br />
+						- This meant we were back to following the separation of concerns<br />
+					</aside>
+				</section>
+
+				<section class="code split vertical small table-example">
+					<pre>
+						<code data-trim class="hljs css">
+							header {
+								height: 100px;
+								padding: 10px;
+							}
+							nav {
+								clear: both;
+								height: 25px;
+								padding: 15px;
+							}
+							main {
+								clear: both;
+								overflow: hidden;
+							}
+							aside {
+								float: left;
+								padding: 10px;
+							}
+							article {
+								float: left;
+								padding: 10px;
+								width: 55%;
+							}
+							footer {
+								clear: both;
+								height: 20px;
+							}
+						</code>
+					</pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav>
+							<a href="#">Home</a>
+						</nav>
+						<div class="main">
+							<div class="aside">
+								<nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav>
+							</div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum Ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- Where HTML was for content, while CSS was for visual look and interface<br />
+						- But before long, we found floats also weren't working<br />
+					</aside>
+				</section>
+
+				<section class="code small split vertical compare">
+					<pre>
+						<code data-trim class="hljs scss">
+							.parent {
+								clear: both;
+								overflow: hidden;
+							}
+							
+							.child {
+								float: left;
+								width: 100%;
+								
+								@media (min-width: 500px) {
+									margin-right: 2%;
+									width: 49%;
+							
+									&:nth-child(2n) {
+										margin-right: 0;
+									}
+							
+									&:nth-child(2n + 1) {
+										clear: both;
+									}
+								}
+						</code>
+					</pre>
+					<pre>
+						<code data-trim class="hljs scss">
+								@media (min-width: 800px) {
+									clear: none !important;
+									margin-right: 1% !important;
+									width: 32.6666667%;
+							
+									&:nth-child(3n) {
+										margin-right: 0 !important;
+									}
+							
+									&:nth-child(3n + 1) {
+										clear: both !important;
+									}
+								}
+							}
+						</code>
+						</pre>
+					<aside class="notes">
+						- Your had to clearfix everything<br />
+						- There were a bunch more container divs being used to keep floating elements together<br />
+						- And when using media queries you often had to do complex calculations and change or reset the previous code<br />
+						- Oh, and there was a LOT of using
+						<pre>!important</pre><br />
+						- So by the time we'd memorised how many % wide each element needed to be in a 6 column grid with a 1% margin
+					</aside>
+				</section>
+
+				<section class="code split small table-example flexy vertical">
+					<pre>
+						<code data-trim class="hlsj html">
+							<header>
+								<h1>My Website</h1>
+							</header>
+							<nav><a href="#">Home</a></nav>
+							<main>
+								<aside><nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav></aside>
+								<article>
+									<h2>Page heading</h2>
+									Lorum ipsum	pair. <br>
+									Lorum ipsum
+								</article>
+							</main>
+							<footer>Copyright ©</footer>
+						</code>
+					</pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav><a href="#">Home</a></nav>
+						<div class="main">
+							<div class="aside">
+								<nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav>
+							</div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- we were all excited when flexbox arrived
+						- We didn't have to do percentage math anymore<br />
+						- And it reduced the number of media queries we needed<br />
+						- And we were name able to easily centre content vertically, something we hadn't been able to do since tables<br />
+					</aside>
+				</section>
+
+				<section class="code split small table-example flexy vertical">
+					<pre>
+						<code data-trim class="hlsj css scss">
+							header {
+								height: 100px;
+							}
+							nav {
+								display: flex;
+									align-items: center;
+								height: 30px;
+								padding: 10px;
+							}
+							main {
+								display: flex;
+							}
+							aside {
+								width: 20%;
+								nav {
+									flex-wrap: wrap;
+								}
+							}
+							article {
+								padding: 10px;
+								width: 55%;
+							}
+							footer {
+								height: 20px;
+								padding: 10px;
+								text-align: center;
+							}
+						</code>
+					</pre>
+
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav><a href="#">Home</a></nav>
+						<div class="main">
+							<div class="aside">
+								<nav>
+									<a href="#">Menu link</a><br>
+									<a href="#">Menu link</a><br>
+								</nav>
+							</div>
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- We were finally starting to get the functionality we needed from our CSS<br />
+						- No longer needed to write complicated code or work with percentages and our code was more responsive than ever<br />
+						- But although flexbox is really good for flowing content<br />
+					</aside>
+				</section>
+
+				<section class="code compare split vertical">
+					<pre><code data-trim class="hlsj css">
+						.parent {
+							display: flex;
+							width: 102%;
+							margin: -1%;
+						}
+					</code></pre>
+					<pre><code data-trim class="hlsj css">
+							.child {
+								flex: 1 1 auto;
+								margin: 1%;
+							}
+						</code></pre>
+					<aside class="notes">
+						- There was limited control on the cross axis<br />
+						- And having gaps between the items tended to get a little complicated<br />
+						- And often needed negative margins<br />
+						- But things were looking up<br />
+						- We finally had a CSS technology that was built for layout<br />
+						- And in the distance, we could see the cavalry on it's way<br />
+					</aside>
+				</section>
+
+				<section class="code small split vertical table-example griddy">
+					<pre><code data-trim class="hlsj html">
+						<header>
+							<h1>My Website</h1>
+						</header>
+						<nav><a href="#">Home</a></nav>
+						<aside><nav>
+							<a href="#">Menu link</a><br>
+							<a href="#">Menu link</a><br>
+						</nav></aside>
+						<main>
+							<h2>Page heading</h2>
+							Lorum ipsum	pair. <br>
+							Lorum ipsum
+						</main>
+						<footer>Copyright ©</footer>
+					</code></pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav><a href="#">Home</a></nav>
+						<div class="aside">
+							<nav>
+								<a href="#">Menu link</a><br>
+								<a href="#">Menu link</a><br>
+							</nav>
+						</div>
+						<div class="main">
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- In 2017, CSS Grid landed in all new major browsers<br />
+						- THis gave us everything we'd been asking for for CSS Layouts<br />
+						- Like flexbox, were able to define a set of contraints and have the browser make the layout responsive<br />
+					</aside>
+				</section>
+
+				<section class="code small split vertical table-example griddy">
+					<pre><code data-trim class="hlsj css">
+						body {
+							display: grid;
+							grid-template-columns: repeat(5, 1fr);
+						}
+						
+						header {
+							grid-column: 1 / -1;
+						}
+						
+						nav {
+							grid-column: 1 / -1;
+						}
+						
+						main {
+							grid-column: span 3;
+						}
+						
+						footer {
+							grid-column: 1 / -1;
+						}
+					</code></pre>
+					<div>
+						<div class="header">
+							<h1>My Website</h1>
+						</div>
+						<nav><a href="#">Home</a></nav>
+						<div class="aside">
+							<nav>
+								<a href="#">Menu link</a><br>
+								<a href="#">Menu link</a><br>
+							</nav>
+						</div>
+						<div class="main">
+							<div class="article">
+								<h2>Page heading</h2>
+								Lorum ipsum pair. <br>
+								Lorum ipsum
+							</div>
+						</div>
+						<div class="footer">Copyright ©</div>
+					</div>
+					<aside class="notes">
+						- But now able to control the layout in both directions<br />
+						- With grid, able to define areas of the layout<br />
+						- Define whether specific elements spanned multiple areas<br />
+						- Dictate how the elements inside the grid behanved<br />
+						- WE could now reduce the code we were writing<br />
+						- Even better, we could reduce the thinking needed to make the layout responsive<br />
+					</aside>
+				</section>
+
+				<section>
+					<ul>
+						<li class="fragment">CSS Grid</li>
+						<li class="fragment">Flexbox</li>
+						<li class="fragment">Floats</li>
+					</ul>
+					<aside class="notes" data-markdown>
+						- Today we'll be going through 3 different CSS properties and using them for layouts
+						- CSS grid is great for two dimensional layouts, and laying out the whole page
+						- Flexbox is great to use as a fallback for CSS Grid, and is also really useful for flowing content in one direction
+						- And although they get a bad reputation, floats still have a place in modern layouts, so we're going to go through where you can use them as well
+					</aside>
+				</section>
+
+				<section>
+					<p>Browser Support 🙄</p>
+					<aside class="notes" data-markdown>
+						- Starting off with the fun bits
+					</aside>
+				</section>
+
+				<section>
+					<div class="table-grid browsers">
+						<span><img src="../img/chrome_colour.svg" /></span>
+						<span>57</span>
+						<span><img src="../img/firefox_colour.svg" /></span>
+						<span>52</span>
+						<span><img src="../img/safari_colour.svg" /></span>
+						<span>10.1</span>
+						<span><img src="../img/edge_colour.svg" /></span>
+						<span>16</span>
+						<span><img src="../img/ie_colour.svg" /></span>
+						<span>10ish</span>
+					</div>
+					<aside class="notes" data-markdown>
+						- CSS Grid support
+						- For Europe this equates to around 94.4% of browsers supporting grid
+					</aside>
+				</section>
+
+				<section>
+					<div class="table-grid browsers">
+						<span><img src="../img/chrome_colour.svg" /></span>
+						<span>21</span>
+						<span><img src="../img/firefox_colour.svg" /></span>
+						<span>28</span>
+						<span><img src="../img/safari_colour.svg" /></span>
+						<span>6.1</span>
+						<span><img src="../img/edge_colour.svg" /></span>
+						<span>12</span>
+						<span><img src="../img/ie_colour.svg" /></span>
+						<span>10</span>
+					</div>
+					<aside class="notes" data-markdown>
+						- Flexbox has a few extra years on grid so the support is a bit better
+						- 96.2% support in Europe
+						- Fairly decent support in IE 10 and 11, with a few exceptions due to known bugs
+					</aside>
+				</section>
+
+				<section>
+					<div class="table-grid browsers">
+						<span><img src="../img/chrome_colour.svg" /></span>
+						<span>4</span>
+						<span><img src="../img/firefox_colour.svg" /></span>
+						<span>2</span>
+						<span><img src="../img/safari_colour.svg" /></span>
+						<span>3.1</span>
+						<span><img src="../img/edge_colour.svg" /></span>
+						<span>12</span>
+						<span><img src="../img/ie_colour.svg" /></span>
+						<span>6</span>
+					</div>
+					<aside class="notes" data-markdown>
+						- And well floats have been around for a while, so if you're needing to support browsers that are before it's time, I apologise
+						- Technically even this only equates to 97.4% of European users as well, so remember that we're not going to get a perfect support percentage, it's about knowing what you will and won't support and drawing the line
+					</aside>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hljs css">
+						body {
+							display: grid;
+						}
+					</code></pre>
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hljs css">
+						grid-template-columns
+						
+						grid-template-rows
+					</code></pre>
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							grid-template-columns: 200px 200px 200px 200px 200px;
+						}
+					</code></pre>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							grid-template-columns: repeat(5, 200px);
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						repeat(number of times, size)
+					</code></pre>
+				</section>
+
+				<section class="code split horizontal">
+					<pre><code data-trim class="hlsj css">
+						repeat(3, 200px)
+					</code></pre>
+					<p><kbd>200px 200px 200px</kbd></p>
+				</section>
+
+				<section class="code split horizontal">
+					<pre><code data-trim class="hlsj css">
+						repeat(2, 10px 20vw)
+					</code></pre>
+					<p><kbd>10px 20vw 10px 20vw</kbd></p>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							grid-template-columns: repeat(5, 20%);
+						}
+					</code></pre>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							grid-template-columns: repeat(5, 1fr);
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>The <kbd>fr</kbd> unit</p>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_1.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_2.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_3.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_4.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_5.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="blank">
+					<img class="background" src="../css-grid-what-is-this-magic/fr_unit_all.png" />
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<!-- <section class="code split horizontal">
+					<pre><code data-trim class="hlsj css">
+						grid-template-columns: 100px 1fr 50px 2fr;
+						grid-gap: 20px;
+					</code></pre>
+					<small class="table-grid diff">
+						<kbd class="fragment">100% element width</kbd>
+						<kbd class="fragment">510px</kbd>
+						<kbd class="fragment"> - existing content</kbd>
+						<kbd class="fragment"> - 150px</kbd>
+						<kbd class="fragment"> - gap</kbd>
+						<kbd class="fragment"> - 60px</kbd>
+						<kbd class="fragment"> &#247; number of frs</kbd>
+						<kbd class="fragment"> &#247; 3</kbd>
+					</small>
+				</section> -->
+
+				<section>
+					<p><kbd>1fr</kbd> = <kbd>100px</kbd></p>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						/*grid-template-columns: 100px 1fr 50px 2fr;*/
+						grid-template-columns: 100px 100px 50px 200px;
+						grid-gap: 20px;
+					</code></pre>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hljs css">
+						grid-template-columns: 100px 250px 50px;
+
+						grid-template-columns: repeat(5, 200px);
+
+						grid-template-columns: 1fr 100px 2fr 50px;
+					</code></pre>
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						header {
+							grid-column-start: 1;
+							grid-column-end: -1;
+							grid-row-start: 1;
+							grid-row-end: -1;
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						header {
+							grid-column: 1 / -1;
+							grid-row: 1 / -1;
+						}
+					</code></pre>
+				</section>
+
+				<section class="code">
+					<pre><code data-trim class="hlsj css">
+						body {
+							grid-template-columns: 200px repeat(4, 1fr);
+							grid-template-rows: 100px 1fr 20px;
+							grid-template-areas:
+							  'header 	header 	header 	header 	header'
+							  'sidebar	content	content	content	content'
+							  'footer   footer 	footer 	footer 	footer';
+						}
+					</code></pre>
+				</section>
+
+				<section class="code compare split vertical">
+					<pre><code data-trim class="hlsj css">
+						header {
+							grid-area: header;
+						}
+
+						aside {
+							grid-area: sidebar;
+						}
+					</code></pre>
+					<pre><code data-trim class="hlsj css">
+						main {
+							grid-area: content;
+						}
+
+						footer {
+							grid-area: footer;
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						@supports
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						@supports(css-property: value) {
+							/*Insert code here*/
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						@supports(display: grid) {
+							/*Code here*/
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<figure><img class="graphic" src="../img/ie_colour.svg" /></figure>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						@supports(grid-template-areas: '.') {
+							/*Code here*/
+						}
+					</code></pre>
+				</section>
+
+				<section class="code center">
+					<pre><code data-trim class="hlsj css">
+						@supports(grid-template-areas: '.') {
+							main {
+								display: grid;
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 A Complete Guide to Grid CSS-Tricks.png" />
+						<figcaption>https://css-tricks.com/snippets/css/complete-guide-grid</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 CSS Grid.jpg" />
+						<figcaption>https://cssgrid.io</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 The New CSS Layout by Rachel Andrew.jpg" />
+						<figcaption>https://abookapart.com/products/the-new-css-layout</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 Home page of rachelandrew co uk.png" />
+						<figcaption>https://rachelandrew.co.uk</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 Home.png" />
+						<figcaption>http://jensimmons.com</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 Grid Garden.png" />
+						<figcaption>https://cssgridgarden.com</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="../css-grid-what-is-this-magic/Screenshot_2019-06-13 Flexbox Froggy.png" />
+						<figcaption>https://flexboxfroggy.com</figcaption>
+					</figure>
+				</section>
+
+				<section>
+					<figure>
+						<img src="./ndc-oslo-2019.png" />
+						<figcaption>https://speaking.amyskapers.dev/C31dZb/css-grid-what-is-this-magic</figcaption>
+					</figure>
+				</section>
+
+			</section>
+		</div>
+
+		<footer role="contentinfo">
+			@amys_kapers
+		</footer>
+
+		<script type="text/javascript" src="../lib/js/head.min.js"></script>
+		<script type="text/javascript" src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{
+						src: '../plugin/markdown/marked.js'
+					}, {
+						src: '../plugin/markdown/markdown.js'
+					}, {
+						src: '../plugin/notes/notes.js',
+						async: true
+					}, {
+						src: 'socket.io/socket.io.js',
+						async: true
+					}, {
+						src: '../plugin/notes-server/client.js',
+						async: true
+					}, {
+						src: '../plugin/highlight/highlight.js',
+						async: true,
+						callback: function () {
+							hljs.configure({ tabReplace: '   ' });
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				],
+				controls: false,
+				display: 'grid',
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				navigationMode: 'linear'
+			});
+
+			Reveal.addEventListener('tweet', () => {
+				let currentSlide = document.querySelector('.reveal .slides section.present')
+
+				if (currentSlide.getAttribute('data-image')) {
+					console.log(currentSlide.getAttribute('data-image'))
+					console.log(currentSlide.getAttribute('data-text'))
+				} else {
+					console.log(currentSlide.getAttribute('data-text'))
+				}
+			}, false)
+		</script>
+		</<header>
+
+</html>
