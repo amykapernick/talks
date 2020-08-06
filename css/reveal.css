@@ -2002,7 +2002,7 @@ footer {
   .hljs.bash:before {
     border-right: 1px solid grey;
     color: grey;
-    content: '[me@amyskapers.dev] $';
+    content: '[amy@kapers.dev] $';
     font-size: 0.5em;
     margin-right: 1em;
     padding-right: 1em; }
