@@ -144,6 +144,13 @@ button,
 			bottom: 0;
 		}
 	}
+
+	&.quokka {
+		background-image: url('/img/quokka_transparent.png');
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-size: auto 25%;
+	}
 }
 
 p {
