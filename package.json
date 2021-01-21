@@ -26,7 +26,7 @@
     "gulp-zip": "^5.0.2",
     "mustache": "^4.0.1",
     "node-sass": "^4.14.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "license": "MIT",
   "dependencies": {
