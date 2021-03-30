@@ -23,20 +23,20 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-zip": "^5.0.2",
-    "mustache": "^4.0.1",
-    "node-sass": "^4.14.1",
-    "socket.io": "^2.3.0"
+    "gulp-zip": "^5.1.0",
+    "mustache": "^4.2.0",
+    "node-sass": "^5.0.0",
+    "socket.io": "^4.0.0"
   },
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint": "^7.23.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-standard": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^3.1.0",
-    "highlight.js": "^10.2.1"
+    "highlight.js": "^10.7.1"
   }
 }
