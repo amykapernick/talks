@@ -665,7 +665,7 @@ figure {
     max-width: 100%; }
     figure img.graphic {
       align-self: center;
-      max-height: 90%; }
+      max-height: 72vh; }
 
 figcaption {
   color: #080808;
@@ -1492,7 +1492,7 @@ footer {
     object-fit: contain; }
     .custom-7 section figure img.graphic {
       align-self: center;
-      max-height: 90%; }
+      max-height: 72vh; }
 
 .custom-7 section figcaption {
   padding-top: 1vh;
@@ -1520,7 +1520,7 @@ footer {
     object-fit: contain; }
     .custom-8 .section figure img.graphic {
       align-self: center;
-      max-height: 90%; }
+      max-height: 72vh; }
 
 .custom-8 .section figcaption {
   padding-top: 1vh;
@@ -1958,7 +1958,7 @@ footer {
     object-fit: contain; }
     .custom-7 section figure img.graphic {
       align-self: center;
-      max-height: 90%; }
+      max-height: 72vh; }
 
 .custom-7 section figcaption {
   padding-top: 1vh;
@@ -1986,7 +1986,7 @@ footer {
     object-fit: contain; }
     .custom-8 .section figure img.graphic {
       align-self: center;
-      max-height: 90%; }
+      max-height: 72vh; }
 
 .custom-8 .section figcaption {
   padding-top: 1vh;
