@@ -1,69 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>reveal.js</title>
 
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/reveal.css" />
-	<link rel="stylesheet" href="css/theme/black.css" />
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/amy_custom_light.css">
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 
 <body>
-	<header role="banner"></header>
-
 	<div class="reveal">
 		<div class="slides">
 			<section class="index">
 				<p class="title">Amy's Talks</p>
 				<ul>
-					<li><a href="/so-you-think-you-know-html">So You Think You Know HTML</a></li>
-					<li><a href="/fender-lightning-round">The Fender Lightning Round</a></li>
-					<li><a href="/the-art-of-failure">The Art of Failure</a></li>
-					<li><a href="/being-a-more-sustainable-you">How to Manage Your Ducks</a></li>
-					<li><a href="/my-story">My Story</a></li>
-					<li><a href="/css-grid-what-is-this-magic">CSS Grid - What is this Magic?!</a></li>
-					<li><a href="/wait-so-i-have-to-test-the-front-end-too">Wait, so I have to test the Front End
-							too?</a></li>
-					<li><a href="/how-to-build-quokkabot">How to Build Quokkabot</a></li>
-					<li><a href="/how-to-build-an-inaccessible-app">How to an Inaccesible App</a></li>
-					<li><a href="/front-end-web-fundamentals">Front End Web Fundamentals</a></li>
+					<li>
+						<a href="/presentations/css-grid-what-is-this-magic">
+							CSS Grid - What is this Magic?!
+						</a>
+					</li>
 				</ul>
 			</section>
 		</div>
 	</div>
 
-	<footer role="contentinfo">
-		@amys_kapers
-	</footer>
-
-	<script src="js/reveal.js"></script>
-
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
 	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
 		Reveal.initialize({
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/notes/notes.js', async: true },
-				{ src: 'socket.io/socket.io.js', async: true },
-				{ src: '../plugin/notes-server/client.js', async: true },
-				{ src: 'plugin/highlight/highlight.js', async: true },
-			],
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
 	</script>
 </body>
