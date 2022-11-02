@@ -1,0 +1,61 @@
+.code {
+	color: #fff;
+
+	pre {
+		align-self: stretch;
+	}
+
+	pre,
+	code {
+		padding: 0;
+		margin: 0;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		overflow: visible;
+	}
+
+	&.split {
+		color: $grey_dark;
+
+		pre {
+			color: #fff;
+			padding: 0;
+		}
+
+		>div {
+			padding: 5vw;
+		}
+
+		img {
+			height: 90vh;
+			width: 90vw;
+		}
+	}
+
+	&.vertical {
+		&.example {
+			text-align: left;
+		}
+
+		img {
+			width: 40vw;
+		}
+	}
+
+	&.horizontal {
+
+		color: $grey_dark;
+
+		&.example {
+			text-align: left;
+		}
+
+		img {
+			height: 40vh;
+		}
+
+		>pre {
+			max-height: 50vh;
+		}
+	}
+}

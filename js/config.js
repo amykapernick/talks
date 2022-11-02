@@ -5,8 +5,8 @@ export default {
 
 	// The "normal" size of the presentation, aspect ratio will be preserved
 	// when the presentation is scaled to fit different resolutions
-	width: 960,
-	height: 700,
+	width: 1600,
+	height: 900,
 
 	// Factor of the display size that should remain empty around the content
 	margin: 0.04,
@@ -16,11 +16,11 @@ export default {
 	maxScale: 2.0,
 
 	// Display presentation control arrows
-	controls: true,
+	controls: false,
 
 	// Help the user learn the controls by providing hints, for example by
 	// bouncing the down arrow when they first encounter a vertical slide
-	controlsTutorial: true,
+	controlsTutorial: false,
 
 	// Determines where controls appear, "edges" or "bottom-right"
 	controlsLayout: 'bottom-right',
@@ -30,7 +30,7 @@ export default {
 	controlsBackArrows: 'faded',
 
 	// Display a presentation progress bar
-	progress: true,
+	progress: false,
 
 	// Display the page number of the current slide
 	// - true:    Show slide number
@@ -52,15 +52,15 @@ export default {
 	// - "all":      Always show the slide number
 	// - "print":    Only when printing to PDF
 	// - "speaker":  Only in the speaker view
-	showSlideNumber: 'all',
+	showSlideNumber: 'speaker',
 
 	// Use 1 based indexing for # links to match slide number (default is zero
 	// based)
-	hashOneBasedIndex: false,
+	hashOneBasedIndex: true,
 
 	// Add the current slide number to the URL hash so that reloading the
 	// page/copying the URL will return you to the same slide
-	hash: false,
+	hash: true,
 
 	// Flags if we should monitor the hash and change slides accordingly
 	respondToHashChanges: true,
@@ -75,7 +75,7 @@ export default {
 	//
 	// If you set this to 'focused', we will only capture keyboard events
 	// for embedded decks when they are in focus
-	keyboardCondition: null,
+	keyboardCondition: 'focused',
 
 	// Disables the default reveal.js slide layout (scaling and centering)
 	// so that you can use custom CSS layout
@@ -138,7 +138,7 @@ export default {
 
 	// Flags if we should show a help overlay when the question-mark
 	// key is pressed
-	help: true,
+	help: false,
 
 	// Flags if it should be possible to pause the presentation (blackout)
 	pause: true,
@@ -160,7 +160,7 @@ export default {
 	//           the viewDistance, iframes with only data-src will be loaded when visible
 	// - true:   All iframes with data-src will be loaded when within the viewDistance
 	// - false:  All iframes with data-src will be loaded only when visible
-	preloadIframes: null,
+	preloadIframes: true,
 
 	// Can be used to globally disable auto-animation
 	autoAnimate: true,
@@ -229,10 +229,10 @@ export default {
 	focusBodyOnPageVisibilityChange: true,
 
 	// Transition style
-	transition: 'slide', // none/fade/slide/convex/concave/zoom
+	transition: 'fade', // none/fade/slide/convex/concave/zoom
 
 	// Transition speed
-	transitionSpeed: 'default', // default/fast/slow
+	transitionSpeed: 'fast', // default/fast/slow
 
 	// Transition style for full page slide backgrounds
 	backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom

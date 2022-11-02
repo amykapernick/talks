@@ -1,0 +1,51 @@
+img,
+video {
+	&.background {
+		object-fit: cover;
+		max-height: unset;
+		min-width: 100%;
+		max-width: unset;
+		min-height: 100%;
+		transform: scale(calc(1 + (1 - var(--slide-scale, 1))));
+		transform-origin: center;
+		width: 100%;
+	}
+
+	&.graphic {
+		padding: 100px;
+	}
+}
+
+.image-container {
+	height: 100%;
+	width: 100%;
+
+	svg,
+	img {
+		max-height: 100%;
+	}
+
+	&.caption {
+		display: grid;
+		grid-template-rows: 1fr auto;
+		align-items: center;
+		justify-items: center;
+		padding: 20px;
+	}
+}
+
+.image {
+	img {
+		object-fit: cover;
+	}
+}
+
+iframe {
+	&.background {
+		object-fit: cover;
+		max-height: unset;
+		min-width: 100vw;
+		max-width: unset;
+		min-height: 100vh;
+	}
+}

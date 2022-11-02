@@ -41,6 +41,20 @@ body {
 	font-size: var(--r-main-font-size);
 	font-weight: normal;
 	color: var(--r-main-color);
+
+	&.grid {
+		&:before {
+			background-size: 40px 40px;
+			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
+				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+		}
+	}
 }
 
 h1,
@@ -128,6 +142,62 @@ button,
 	max-width: 1000px;
 }
 
+.reveal {
+	&:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 100vw;
+		height: 100vh;
+		z-index: 0;
+	}
+
+	&:has(.present.blank) {
+		&:before {
+			content: '';
+			background: #000;
+
+		}
+	}
+
+	&:has(.present.white) {
+		&:before {
+			content: '';
+			background: #fff;
+		}
+	}
+
+	&:has(.present.code) {
+		&:before {
+			content: '';
+			background: $grey_dark;
+		}
+	}
+
+	&:has(.present.split) {
+		&:before {
+			content: '';
+		}
+
+		&:has(.present:not(.compare)) {
+			&:has(.present.vertical) {
+				&:before {
+					background: linear-gradient(to right, $grey_dark 50%, $background 50%);
+				}
+			}
+
+			&:has(.present.horizontal) {
+				&:before {
+					background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
+				}
+			}
+		}
+
+
+	}
+}
+
 .slides {
 	text-align: center;
 	top: 0;
@@ -145,19 +215,6 @@ button,
 		}
 	}
 
-	&.grid {
-		&:before {
-			background-size: 40px 40px;
-			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
-				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-		}
-	}
 
 	&.quokka {
 		background-image: url('/img/quokka_transparent.png');
@@ -165,6 +222,11 @@ button,
 		background-position: left bottom;
 		background-size: auto 25%;
 	}
+
+	@import '../../custom/slides/index.scss';
+
+
+
 }
 
 p {
@@ -303,387 +365,10 @@ footer {
 	font-size: 5vh;
 	opacity: 0.7;
 	position: absolute;
-	width: 100vw;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	z-index: 10;
-}
-
-section {
-	display: grid;
-	justify-content: stretch;
-	justify-items: center;
-	align-content: stretch;
-	align-items: center;
-	height: 100vh;
-	padding: var(--header) 0 var(--footer);
-	position: relative;
-	width: 100vw;
-	z-index: 0;
-
-	header {
-		width: 100%;
-		z-index: -1;
-	}
-
-	>img,
-	video {
-		height: 100vh;
-		object-fit: contain;
-		width: 100vw;
-
-		&.background {
-			object-fit: cover;
-			max-height: unset;
-			min-width: 100vw;
-		}
-
-		&.graphic {
-			padding: 100px;
-		}
-	}
-
-	>section {
-		max-height: 100vh;
-	}
-
-	.image-container {
-		height: 100%;
-		width: 100%;
-
-		svg,
-		img {
-			max-height: 100%;
-		}
-
-		&.caption {
-			display: grid;
-			grid-template-rows: 1fr auto;
-			align-items: center;
-			justify-items: center;
-			padding: 20px;
-		}
-	}
-
-	&.index {
-		align-content: start;
-		font-size: 0.2em;
-		justify-items: start;
-		padding: 50px;
-		text-align: left;
-
-		a {
-			color: $blue;
-			display: block;
-		}
-	}
-
-	&.blank {
-		background: #000;
-
-		header {
-			display: none;
-		}
-	}
-
-	&.split {
-		&.vertical {
-			align-items: stretch;
-			grid-template-columns: 50vw 50vw;
-			grid-template-rows: 100vw;
-		}
-
-		&.horizontal {
-			grid-template-columns: 100vw;
-			grid-template-rows: 50vh 50vh;
-		}
-
-		ul {
-			font-size: 0.8em;
-		}
-	}
-
-	&.code {
-		background: $grey_dark;
-		color: #fff;
-
-		pre {
-			margin: 0;
-			white-space: pre-wrap;
-			word-wrap: break-word;
-		}
-
-		&.split {
-			background: linear-gradient(to right, $grey_dark 50%, $background 50%);
-			color: $grey_dark;
-
-			pre {
-				color: #fff;
-			}
-
-			>div {
-				padding: 5vw;
-			}
-
-			img {
-				height: 90vh;
-				width: 90vw;
-			}
-		}
-
-		&.compare {
-			background: $grey_dark;
-		}
-
-		&.vertical {
-			&.example {
-				text-align: left;
-			}
-
-			img {
-				width: 40vw;
-			}
-		}
-
-		&.horizontal {
-			background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
-			color: $grey_dark;
-
-			&.example {
-				text-align: left;
-			}
-
-			img {
-				height: 40vh;
-			}
-
-			>pre {
-				max-height: 50vh;
-			}
-		}
-	}
-
-	&.image {
-		img {
-			object-fit: cover;
-		}
-	}
-
-	&.question {
-		align-items: stretch;
-		justify-items: stretch;
-		grid-gap: 2vw;
-		grid-template-rows: 1fr 2fr;
-
-		padding: 5vw;
-		text-align: center;
-
-		&.long {
-			ul {
-				display: grid;
-				grid-template-columns: 1fr;
-				grid-gap: 20px;
-				grid-auto-rows: 1fr;
-
-				pre {
-					padding: 0;
-				}
-			}
-		}
-
-		ul {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-gap: 20px;
-			grid-auto-rows: 1fr;
-			margin: 0;
-			padding: 20px;
-
-			&.code {
-				li {
-					background: $grey_dark;
-					padding: 0;
-				}
-			}
-		}
-
-		p {
-			font-size: 0.5em;
-			margin: 0;
-		}
-
-		li {
-			display: grid;
-			align-items: center;
-			border: 3px solid $grey_dark;
-			font-size: 80px;
-			list-style-type: none;
-			padding: 30px;
-			position: relative;
-			margin: 0;
-			text-align: center;
-
-			&:before {
-				color: #fff;
-				border: 3px solid #fff;
-				border-radius: 50%;
-				font-size: 30px;
-				height: 40px;
-				position: absolute;
-				top: 5px;
-				left: 5px;
-				width: 40px;
-			}
-
-			&:nth-child(1) {
-				&:before {
-					content: 'A';
-				}
-			}
-
-			&:nth-child(2) {
-				&:before {
-					content: 'B';
-				}
-			}
-
-			&:nth-child(3) {
-				&:before {
-					content: 'C';
-				}
-			}
-
-			&:nth-child(4) {
-				&:before {
-					content: 'D';
-				}
-			}
-
-			&.correct {
-				border: 10px solid #21b621;
-				padding: 23px;
-			}
-
-			img {
-				height: auto;
-				max-height: 25vh;
-				margin: 0 auto;
-				width: auto;
-				max-width: 30vw;
-			}
-		}
-
-		pre {
-			align-self: center;
-			justify-self: center;
-			display: block;
-			padding: 20px;
-		}
-
-		button {
-			justify-self: center;
-		}
-	}
-
-	&.grid {
-		--rows: 1;
-		--columns: 1;
-
-		max-height: 100vh;
-		padding-top: var(--header);
-		padding-bottom: var(--footer);
-		font-size: 0.5em;
-		grid-template-rows: repeat(var(--rows), 1fr);
-		grid-template-columns: repeat(var(--columns), 1fr);
-
-		&.header {
-			padding-top: 5vh;
-		}
-
-		&.r2 {
-			--rows: 2;
-
-			// &.header {
-			// 	grid-template-rows: auto 1fr 1fr;
-			// }
-		}
-
-		&.r2-1 {
-			grid-template-rows: 2fr 1fr;
-		}
-
-		&.r1-2 {
-			grid-template-rows: 1fr 2fr;
-		}
-
-		&.c2 {
-			--columns: 2;
-		}
-
-		figure {
-			align-self: center;
-			grid-template-rows: 1fr max-content;
-			height: auto;
-			margin: 0;
-
-			img {
-				max-height: 35vh;
-			}
-		}
-	}
-
-	.table-grid {
-		font-size: 0.8em;
-		display: grid;
-		justify-self: stretch;
-		grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
-
-
-		&.browsers {
-			grid-auto-flow: column;
-			grid-template-rows: 1.5em 1.5em;
-			grid-auto-columns: 1fr;
-		}
-
-		img {
-			width: 1em;
-		}
-	}
-
-	&.small {
-		font-size: 0.5em;
-	}
-
-	&.medium {
-		font-size: 0.8em;
-	}
-
-	&.filter {
-		&.achromatopsia {
-			filter: url('../how-to-build-an-inaccessible-app/filters.svg#achromatopsia')
-		}
-	}
-
-	&.quote {
-		grid-template-rows: 1fr 10vh;
-		justify-content: center;
-		justify-items: center;
-		height: calc(100vh - var(--footer) - var(--header));
-		margin-top: 3vh;
-		position: relative;
-
-		blockquote {
-			font-size: 0.8em;
-			margin: 0;
-		}
-
-		cite {
-			color: $grey_dark;
-			font-size: 1em;
-			padding: 1vh 10px 0 0;
-			padding-top: 1vh;
-			font-size: 0.3em;
-			text-align: center;
-		}
-	}
 }
 
 .uppercase {

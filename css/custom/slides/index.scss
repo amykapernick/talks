@@ -1,0 +1,72 @@
+section {
+	display: grid !important;
+	justify-content: stretch;
+	justify-items: center;
+	align-content: stretch;
+	align-items: center;
+	height: 100vh;
+	padding: 0;
+	position: relative;
+	width: 100vw;
+	z-index: 0;
+	text-align: center;
+
+
+
+	header {
+		width: 100%;
+		z-index: -1;
+	}
+
+	>img,
+	video {
+		height: 100vh;
+		object-fit: contain;
+		width: 100vw;
+	}
+
+	>section {
+		max-height: 100vh;
+	}
+}
+
+.index {
+	align-content: start;
+	font-size: 0.2em;
+	justify-items: start;
+	padding: 50px;
+	text-align: left;
+
+	a {
+		color: $blue;
+		display: block;
+	}
+}
+
+.split {
+	width: 100%;
+	height: 100%;
+
+	&.vertical {
+		align-items: stretch;
+		grid-template-columns: repeat(2, 50%);
+		grid-template-rows: 1fr;
+	}
+
+	&.horizontal {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	ul {
+		font-size: 0.8em;
+	}
+}
+
+@import './code.scss';
+@import './media.scss';
+@import './a11y.scss';
+@import './content.scss';
+@import './grid.scss';
+@import './size.scss';
+@import './quiz.scss';

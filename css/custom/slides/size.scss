@@ -1,0 +1,27 @@
+.small {
+	font-size: 0.5em;
+
+	pre {
+		font-size: 0.6em;
+	}
+
+	>div {
+		padding: 5vw 2vw;
+	}
+
+	&.very {
+		font-size: 0.3em;
+	}
+}
+
+.medium {
+	font-size: 0.8em;
+}
+
+&.smallish {
+	font-size: 6vh;
+
+	&.code {
+		font-size: 9vh;
+	}
+}

@@ -4,10 +4,10 @@ $font_headings: 'Quicksand', Arial, sans-serif;
 $font_code: 'Source Code Pro', monospace;
 
 //Colours
-$red: #e53935;
+$red: #DC143C;
 $blue: #0070a8;
 $cyan: #00acbb;
-$yellow: #ffd700;
+$yellow: #FFD700;
 $green: #228b22;
 
 $grey_light: #ededed;
@@ -22,43 +22,53 @@ $footer: 5vh;
 
 //Transitions
 @mixin transition-global($style) {
+
 	.reveal .slides section[data-transition='#{$style}'],
 	.reveal.#{$style} .slides section:not([data-transition]) {
 		@content;
 	}
 }
+
 @mixin transition-stack($style) {
+
 	.reveal .slides section[data-transition='#{$style}'].stack,
 	.reveal.#{$style} .slides section.stack {
 		@content;
 	}
 }
+
 @mixin transition-horizontal-past($style) {
-	.reveal .slides > section[data-transition='#{$style}'].past,
-	.reveal .slides > section[data-transition~='#{$style}-out'].past,
-	.reveal.#{$style} .slides > section:not([data-transition]).past {
+
+	.reveal .slides>section[data-transition='#{$style}'].past,
+	.reveal .slides>section[data-transition~='#{$style}-out'].past,
+	.reveal.#{$style} .slides>section:not([data-transition]).past {
 		@content;
 	}
 }
+
 @mixin transition-horizontal-future($style) {
-	.reveal .slides > section[data-transition='#{$style}'].future,
-	.reveal .slides > section[data-transition~='#{$style}-in'].future,
-	.reveal.#{$style} .slides > section:not([data-transition]).future {
+
+	.reveal .slides>section[data-transition='#{$style}'].future,
+	.reveal .slides>section[data-transition~='#{$style}-in'].future,
+	.reveal.#{$style} .slides>section:not([data-transition]).future {
 		@content;
 	}
 }
 
 @mixin transition-vertical-past($style) {
-	.reveal .slides > section > section[data-transition='#{$style}'].past,
-	.reveal .slides > section > section[data-transition~='#{$style}-out'].past,
-	.reveal.#{$style} .slides > section > section:not([data-transition]).past {
+
+	.reveal .slides>section>section[data-transition='#{$style}'].past,
+	.reveal .slides>section>section[data-transition~='#{$style}-out'].past,
+	.reveal.#{$style} .slides>section>section:not([data-transition]).past {
 		@content;
 	}
 }
+
 @mixin transition-vertical-future($style) {
-	.reveal .slides > section > section[data-transition='#{$style}'].future,
-	.reveal .slides > section > section[data-transition~='#{$style}-in'].future,
-	.reveal.#{$style} .slides > section > section:not([data-transition]).future {
+
+	.reveal .slides>section>section[data-transition='#{$style}'].future,
+	.reveal .slides>section>section[data-transition~='#{$style}-in'].future,
+	.reveal.#{$style} .slides>section>section:not([data-transition]).future {
 		@content;
 	}
 }
