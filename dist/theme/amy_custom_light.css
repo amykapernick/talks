@@ -840,14 +840,16 @@ footer {
   margin-top: 3vh;
   position: relative;
 }
-.slides figure img {
+.slides figure img,
+.slides figure video {
   height: 100%;
   max-height: 80vh;
   object-fit: contain;
   margin: 0 auto;
   max-width: 100%;
 }
-.slides figure img.graphic {
+.slides figure img.graphic,
+.slides figure video.graphic {
   align-self: center;
   max-height: 72vh;
 }
@@ -883,6 +885,9 @@ footer {
 }
 .slides .split iframe:not(.background) {
   border-color: rgba(76, 77, 78, 0.5);
+}
+.slides .split img {
+  object-fit: contain;
 }
 .slides .split .image-container.image-container {
   padding: 0;

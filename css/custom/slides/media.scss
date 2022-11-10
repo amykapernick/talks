@@ -61,7 +61,8 @@ figure {
 	margin-top: 3vh;
 	position: relative;
 
-	img {
+	img,
+	video {
 		height: 100%;
 		max-height: 80vh;
 		object-fit: contain;
@@ -114,6 +115,10 @@ iframe {
 		&:not(.background) {
 			border-color: rgba($grey, 0.5);
 		}
+	}
+
+	img {
+		object-fit: contain;
 	}
 
 	.image-container.image-container {

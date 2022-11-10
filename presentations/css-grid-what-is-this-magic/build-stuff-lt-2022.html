@@ -533,7 +533,7 @@
 				</aside>
 			</section>
 
-			<section class="code small center">
+			<section class="code small centre">
 				<pre><code data-trim class="hlsj html">
 						<header>
 							<h1><a href="/">My Notebook</a></h1>
@@ -572,7 +572,7 @@
 				<img class="graphic" src="./img/app/step-1.png" />
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 					body {
 						display: grid;
@@ -617,7 +617,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(number of times, size)
 					</code></pre>
@@ -680,12 +680,28 @@
 				<p><kbd>1fr</kbd> = <kbd>100px</kbd></p>
 			</section>
 
-			<section class="code">
+			<section class="code split horizontal">
 				<pre><code data-trim class="hlsj css">
-						/*grid-template-columns: 100px 1fr 50px 2fr;*/
-						grid-template-columns: 100px 100px 50px 200px;
+						grid-template-columns: 100px 1fr 50px 2fr;
 						grid-gap: 20px;
 					</code></pre>
+				<img src="./img/fr_unit_1.png" />
+			</section>
+
+			<section class="code split horizontal">
+				<pre><code data-trim class="hlsj css">
+						grid-template-columns: 100px 1fr 50px 2fr;
+						grid-gap: 20px;
+					</code></pre>
+				<img src="./img/fr_unit_2.png" />
+			</section>
+
+			<section class="code split horizontal">
+				<pre><code data-trim class="hlsj css">
+						grid-template-columns: 100px 1fr 50px 2fr;
+						grid-gap: 20px;
+					</code></pre>
+				<img src="./img/fr_unit_3.png" />
 			</section>
 
 			<section class="code">
@@ -767,7 +783,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column-start: 1;
@@ -795,7 +811,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column-start: 1;
@@ -804,7 +820,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							/*grid-column-start: 1;
@@ -814,7 +830,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column: 1 / -1
@@ -841,7 +857,7 @@
 				<img class="graphic" src="./img/app/step-4b.jpg" />
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						nav {
 							grid-row: 2 / -1;
@@ -849,7 +865,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						nav {
 							/* grid-row: 2 / -1; */
@@ -873,7 +889,7 @@
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column: span 4;
@@ -896,7 +912,7 @@
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						footer {
 							grid-column: span 4;
@@ -989,15 +1005,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						main {
-							display: contents;
-						}
-					</code></pre>
-			</section>
-
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj html">
 						<main>
 							<article>
@@ -1016,197 +1024,24 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main> -->
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						<!-- </main> -->
-					</code></pre>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: contents;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-9.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: contents;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./img/app/step-9.png" />
-				</div>
-			</section>
-
-			<section class="code">
-				<pre><code data-trim class="hlsj css">
-						body {
-							grid-template-areas:
-							  'header header header header header'
-							  'nav    note   note   note   sidebar'
-							  'nav    footer footer footer footer';
-						}
-					</code></pre>
-			</section>
-
-			<section class="code split vertical compare">
-				<pre><code data-trim class="hlsj css">
-						article {
-							grid-area: note;
-						}
-					</code></pre>
-				<pre><code data-trim class="hlsj css">
-						aside {
-							grid-area: sidebar;
-						}
-					</code></pre>
+			<section class="code centre">
+				<pre><code  data-trim class="hlsj css">
+					main {
+						display: grid;
+						grid-template-columns: 3fr 1fr;
+					}
+				</code></pre>
 			</section>
 
 			<section class="blank">
 				<img class="graphic" src="./img/app/step-10.png" />
 			</section>
 
-			<section>
-				<p><kbd>display: contents</kbd><br /> makes screen readers cry</p>
-				<aside class="notes" data-markdown>
-					- So there's a bug
-					- And yes it's not supposed to happen
-					- But in some browsers, when you apply display: contents to an element, eg. main, it makes the whole thing disappear, including children
-				</aside>
-			</section>
-
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main> -->
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						<!-- </main> -->
-					</code></pre>
-				<aside class="notes" data-markdown>
-					- So instead of making the main element disappear
-				</aside>
-			</section>
-
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main>
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						</main> -->
-					</code></pre>
-				<aside class="notes" data-markdown>
-					- It makes it all disappear
-					- It'll still appear on the page
-					- But anyone using a screen reader on select browsers won't hear it
-				</aside>
-			</section>
-
-			<section>
-				<figure>
-					<img src="./img/Screenshot_2019-06-13 Display Contents Is Not a CSS Reset.png" />
-					<figcaption>http://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html</figcaption>
-				</figure>
-			</section>
-
-			<section>
-				<p>Don't mess with the DOM</p>
-			</section>
-
-			<section>
-				<p>Subgrid to the rescue!</p>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-10.png" />
-			</section>
-
-			<section class="code center">
-				<pre><code  data-trim class="hlsj css">
-						body {
-							grid-template-areas:
-								'header header header header header'
-								'nav    note   note   note   note'
-								'nav    footer footer footer footer';
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-8.5.png" />
-			</section>
-
-			<section class="code center">
-				<pre><code  data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							/*display: contents;*/
-							display: grid;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-10.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: grid;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./img/app/step-10.png" />
-				</div>
-			</section>
-
-			<section class="code center">
+			<section class="code centre">
 				<pre><code  data-trim class="hlsj css">
 						main {
 							display: grid;
+							/* grid-template-columns: 3fr 1fr; */
 							grid-template-columns: subgrid;
 						}
 					</code></pre>
@@ -1227,7 +1062,7 @@
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code  data-trim class="hlsj css">
 							article {
 								grid-column: span 3;
@@ -1272,33 +1107,6 @@
 				</aside>
 			</section>
 
-			<section class="blank">
-				<figure>
-					<img class="graphic" src="./img/batgirl.jpg" />
-					<figcaption>www.dccomics.com/characters/batgirl</figcaption>
-				</figure>
-				<aside class="notes" data-markdown>
-					- Look at it this way
-					- Batgirl kicks ass
-				</aside>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/blackcanary.jpg" />
-				<aside class="notes" data-markdown>
-					- Black Canary also kicks ass
-					- But do we question whether we just need one and not the other?
-				</aside>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/super_duo.jpg" />
-				<aside class="notes" data-markdown>
-					- No
-					- They work together and form a super duo
-				</aside>
-			</section>
-
 			<section>
 				<p><mark>Grid is awesome</mark> for layouts</p>
 			</section>
@@ -1319,99 +1127,8 @@
 				</aside>
 			</section>
 
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer nav {
-							display: flex;
-							justify-content: space-between;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-15.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer nav {
-							display: flex;
-							justify-content: space-between;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./img/app/step-15.png" />
-				</div>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						.grid-parent {
-							justify-items: stretch;
-							align-items: stretch;
-						}
-					</code></pre>
-			</section>
-
 			<section class="blank">
 				<img class="graphic" src="./img/app/step-14.png" />
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						.grid-child {
-							justify-self: stretch;
-							align-self: stretch;
-						}
-					</code></pre>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-16.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./img/app/step-16.png" />
-				</div>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-							width: 300px;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="./img/app/step-17.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-							width: 300px;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./img/app/step-17.png" />
-				</div>
 			</section>
 
 			<section class="blank">
@@ -1429,7 +1146,7 @@
 				</aside>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 						  grid-template-columns: repeat(10, 300px);
@@ -1437,7 +1154,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 						  grid-template-columns: repeat(auto-fill, 300px);
@@ -1445,21 +1162,28 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(auto-fill, 100px)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						auto-fill / auto-fit
 					</code></pre>
 			</section>
 
-			<section class="blank">
+			<section>
 				<figure>
 					<img src="./img/autofill-autofit.png" />
+					<figcaption>codepen.io/SaraSoueidan/pen/JrLdBQ</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<video data-autoplay src="./img/autofit_autofill.mp4"></video>
 					<figcaption>codepen.io/SaraSoueidan/pen/JrLdBQ</figcaption>
 				</figure>
 				<aside class="notes" data-markdown>
@@ -1469,7 +1193,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(auto-fill, 100px)
 					</code></pre>
@@ -1478,7 +1202,7 @@
 				</aside>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, 300px);
@@ -1486,7 +1210,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1494,25 +1218,25 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(100px, 20vw)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(100px, 1fr)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(1fr, 300px)
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1535,7 +1259,7 @@
 				</div>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-rows: repeat(auto-fill, 150px);
@@ -1558,7 +1282,7 @@
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column-gap: 20px;
@@ -1566,7 +1290,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column-gap: 20px;
@@ -1575,7 +1299,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							/*grid-column-gap: 20px;
@@ -1659,12 +1383,16 @@
 					<span class="fragment"><img src="../../dist/img/internet-explorer.svg" /></span>
 					<span class="fragment">10<span class="fragment">ish</span></span>
 				</div>
+				<aside class="notes" data-markdown>
+					- CSS grid Support
+				</aside>
 			</section>
 
 			<section>
 				<p class="title">97%</p>
 				<aside class="notes" data-markdown>
 					- Globally
+					- CSS grid Support
 				</aside>
 			</section>
 
@@ -1675,12 +1403,15 @@
 					<span><img src="../../dist/img/firefox.svg" /></span>
 					<span>71</span>
 					<span><img src="../../dist/img/safari.svg" /></span>
-					<span>❌</span>
+					<span>16</span>
 					<span><img src="../../dist/img/edge.svg" /></span>
 					<span>❌</span>
 					<span><img src="../../dist/img/internet-explorer.svg" /></span>
 					<span>🤣</span>
 				</div>
+				<aside class="notes" data-markdown>
+					- Subgrid Support
+				</aside>
 			</section>
 
 			<section class="code centre">
@@ -1743,6 +1474,13 @@
 
 			<section>
 				<figure>
+					<img src="./img/posters.jpg" />
+					<figcaption>css-tricks.com/snippets/css/complete-guide-grid</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
 					<img src="./img/Screenshot_2019-06-13 CSS Grid.jpg" />
 					<figcaption>cssgrid.io</figcaption>
 				</figure>
@@ -1791,14 +1529,11 @@
 			</section>
 
 			<section>
-				<figure>
-					<img src="./img/workshop_page.png" />
-					<figcaption>kapers.dev/workshop</figcaption>
-				</figure>
+				<p>Thank You 👏</p>
 			</section>
 
 			<section>
-				<p>Thank You 👏</p>
+				<p>Questions?</p>
 			</section>
 		</div>
 	</div>
