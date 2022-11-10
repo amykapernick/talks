@@ -27,6 +27,7 @@ $heading4Size: 1.3em;
 
 @include dark-bg-text-color(#fff);
 @import "../template/theme";
+@import '../../custom/global.scss';
 
 
 :root {
@@ -35,98 +36,24 @@ $heading4Size: 1.3em;
 }
 
 body {
-	line-height: 1.4;
-	margin: 0;
-	font-family: var(--r-main-font);
-	font-size: var(--r-main-font-size);
-	font-weight: normal;
-	color: var(--r-main-color);
+	@import '../../custom/backgrounds.scss';
 
-	&.grid {
-		&:before {
-			background-size: 40px 40px;
-			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
-				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-		}
+	@include backgrounds;
+}
+
+.reveal {
+	--slide-scale: 1;
+
+	pre code {
+		max-height: unset;
+	}
+
+	.slides {
+		text-align: center;
 	}
 }
 
-h1,
-h2,
-h3 {
-	color: inherit;
-}
 
-h1 {
-	text-align: center;
-}
-
-a,
-span.link {
-	color: inherit;
-	font-family: inherit;
-	text-decoration: none;
-}
-
-ul {
-	li {
-		text-align: left;
-	}
-}
-
-dt {
-	font-weight: bold;
-}
-
-i {
-	color: inherit;
-}
-
-blockquote {
-	margin: 20px;
-	padding-left: 20px;
-}
-
-figure {
-	align-self: stretch;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 10vh;
-	justify-content: center;
-	justify-items: center;
-	justify-self: stretch;
-	min-height: calc(100vh - var(--footer) - var(--header));
-	height: calc(100vh - var(--footer) - var(--header));
-	margin-top: 3vh;
-	position: relative;
-
-	img {
-		height: 100%;
-		max-height: 80vh;
-		object-fit: contain;
-		max-width: 100%;
-
-		&.graphic {
-			align-self: center;
-			max-height: 72vh;
-		}
-	}
-}
-
-figcaption {
-	color: $grey_dark;
-	font-size: 1em;
-	padding: 1vh 10px 0 0;
-	padding-top: 1vh;
-	font-size: 0.3em;
-	text-align: center;
-}
 
 button,
 .btn {
@@ -142,91 +69,10 @@ button,
 	max-width: 1000px;
 }
 
-.reveal {
-	&:before {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		width: 100vw;
-		height: 100vh;
-		z-index: 0;
+.title {
+	small {
+		font-size: 0.7em;
 	}
-
-	&:has(.present.blank) {
-		&:before {
-			content: '';
-			background: #000;
-
-		}
-	}
-
-	&:has(.present.white) {
-		&:before {
-			content: '';
-			background: #fff;
-		}
-	}
-
-	&:has(.present.code) {
-		&:before {
-			content: '';
-			background: $grey_dark;
-		}
-	}
-
-	&:has(.present.split) {
-		&:before {
-			content: '';
-		}
-
-		&:has(.present:not(.compare)) {
-			&:has(.present.vertical) {
-				&:before {
-					background: linear-gradient(to right, $grey_dark 50%, $background 50%);
-				}
-			}
-
-			&:has(.present.horizontal) {
-				&:before {
-					background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
-				}
-			}
-		}
-
-
-	}
-}
-
-.slides {
-	text-align: center;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-
-	&.border {
-		section {
-			border-left: 20px solid #00acbb;
-
-			&.blank {
-				border: none;
-			}
-		}
-	}
-
-
-	&.quokka {
-		background-image: url('/img/quokka_transparent.png');
-		background-repeat: no-repeat;
-		background-position: left bottom;
-		background-size: auto 25%;
-	}
-
-	@import '../../custom/slides/index.scss';
-
-
-
 }
 
 p {
@@ -308,13 +154,16 @@ table {
 }
 
 pre {
-	background: $grey_dark;
 	font-family: $font_code;
 	font-size: 0.5em;
 	margin: 0;
 	padding: 5vw;
 	text-align: left;
 	white-space: normal;
+}
+
+kbd {
+	font-family: $font_code;
 }
 
 small {
@@ -368,7 +217,7 @@ footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 10;
+	z-index: 1;
 }
 
 .uppercase {
@@ -394,4 +243,29 @@ footer {
 	bottom: 0;
 }
 
-@import '../../custom/custom.scss';
+.slides {
+	text-align: center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&.border {
+		section {
+			border-left: 20px solid #00acbb;
+
+			&.blank {
+				border: none;
+			}
+		}
+	}
+
+	&.quokka {
+		background-image: url('/img/quokka_transparent.png');
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-size: auto 25%;
+	}
+
+	@import '../../custom/slides/index.scss';
+}

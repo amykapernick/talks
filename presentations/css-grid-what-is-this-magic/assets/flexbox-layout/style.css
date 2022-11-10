@@ -1,0 +1,51 @@
+header {
+  background: #1c75bc;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 10px;
+}
+
+nav {
+  background: #8ebade;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+}
+
+main {
+  background: #8bd3d8;
+  display: flex;
+}
+
+aside {
+  height: 100%;
+  padding: 10px;
+  width: 20%;
+}
+
+aside nav {
+  background: inherit;
+  flex-wrap: wrap;
+}
+
+article {
+  background: #e8f6f7;
+  padding: 10px;
+  width: 55%;
+}
+
+footer {
+  background: #16a6b1;
+  height: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: Lato;
+  margin: 0;
+}

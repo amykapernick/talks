@@ -309,6 +309,7 @@ gulp.task('serve', () => {
 	gulp.watch([
 		'css/theme/source/*.{sass,scss}',
 		'css/theme/template/*.{sass,scss}',
+		'css/custom/**/*.{sass,scss}',
 	], gulp.series('css-themes', 'reload'))
 
 	gulp.watch([

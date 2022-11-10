@@ -56,9 +56,12 @@
 		grid-auto-flow: column;
 		grid-template-rows: 1.5em 1.5em;
 		grid-auto-columns: 1fr;
+		font-size: 1em;
+		text-align: center;
 	}
 
 	img {
-		width: 1em;
+		width: 1.5em;
+		margin: 0 auto;
 	}
 }

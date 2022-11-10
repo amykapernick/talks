@@ -1,0 +1,75 @@
+@mixin backgrounds {
+	&.grid {
+		&:before {
+			background-size: 40px 40px;
+			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
+				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+		}
+	}
+}
+
+.reveal {
+	.slides {
+		z-index: 3;
+	}
+
+	&:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 100vw;
+		height: 100vh;
+		z-index: 0;
+	}
+
+	&:has(.present.blank) {
+		&:before {
+			content: '';
+			background: #000;
+			z-index: 2;
+		}
+	}
+
+	&:has(.present.white) {
+		&:before {
+			content: '';
+			background: #fff;
+		}
+	}
+
+	&:has(.present.code) {
+		&:before {
+			content: '';
+			background: $grey_dark;
+		}
+	}
+
+	&:has(.present.split) {
+		&:before {
+			content: '';
+		}
+
+		&:has(.present:not(.compare)) {
+			&:has(.present.vertical) {
+				&:before {
+					background: linear-gradient(to right, $grey_dark 50%, $background 50%);
+				}
+			}
+
+			&:has(.present.horizontal) {
+				&:before {
+					background: linear-gradient(to bottom, $grey_dark 50%, $background 50%);
+				}
+			}
+		}
+
+
+	}
+}
