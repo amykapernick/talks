@@ -1,0 +1,17 @@
+.table-grid {
+	font-size: 0.8em;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: 1.5em 1.5em;
+	grid-auto-columns: 1fr;
+
+	img {
+		width: 1em;
+	}
+
+	&.diff {
+		grid-auto-columns: auto;
+		font-size: 0.35em;
+		grid-row-gap: 40px;
+	}
+}

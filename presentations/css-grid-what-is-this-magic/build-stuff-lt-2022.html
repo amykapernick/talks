@@ -13,6 +13,13 @@
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="../../plugin/highlight/a11y-dark.css">
+	<script>
+		function resizeIframe(obj) {
+			console.log({ obj })
+			console.log({ doc: obj.contentWindow.document.firstElementChild.offsetHeight })
+			obj.style.height = obj.contentWindow.document.firstElementChild.offsetHeight + 'px';
+		}
+	</script>
 </head>
 
 <body class="grid">
@@ -29,7 +36,7 @@
 				<p class="title">CSS Grid <br /><small>What is this Magic?!</small></p>
 			</section>
 
-			<section class="blank">
+			<section class="blank" data-full>
 				<img class="background" alt="" src="../../dist/img/background.jpg" />
 				<aside class="notes" data-markdown>
 					- I'm a freelance front end developer, which means I spend most of my time at the beach and the rest of it working from home in my pyjamas
@@ -37,7 +44,7 @@
 				</aside>
 			</section>
 
-			<section class="blank">
+			<section class="blank" data-full>
 				<img alt="" class="background" src="../../dist/img/rem.jpg" />
 				<aside class="notes" data-markdown>
 					- I also have a beautiful grey and white border collie who sits next to me wherever I'm working from home
@@ -61,8 +68,8 @@
 				</aside>
 			</section>
 
-			<section class="white">
-				<iframe class="background" title="The Internet" src="./the_internet/index.html"></iframe>
+			<section class="blank">
+				<iframe onload="resizeIframe(this)" title="The Internet" src="./assets/the_internet/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- Internet was simpler
 					- Just HTML content on a page similar to a word document
@@ -71,8 +78,8 @@
 				</aside>
 			</section>
 
-			<section class="white">
-				<iframe class="background" title="CSS" src="./index_dot_css/index.html"></iframe>
+			<section class="blank">
+				<iframe onload="resizeIframe(this)" title="CSS" src="./assets/index_dot_css/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- And then there was CSS
 					- But before long this wasn't good enough either
@@ -84,56 +91,29 @@
 				<pre><code data-trim class="hljs html">
 						<table>
 							<tr>
-								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
+								<td colspan="3"><h1>My Website</h1></td>
 							</tr>
 							<tr>
-								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
+								<td colspan="3" valign="middle" height="30"><a href="#">Home</a></td>
 							</tr>
 							<tr>
-								<td width="25%" valign="top" bgcolor="#8bd3d8">
+								<td width="25%">
 									<a href="#">Menu link</a><br>
 									<a href="#">Menu link</a><br>
 								</td>
-								<td width="55%" valign="top" bgcolor="#e8f6f7">
+								<td width="55%">
 									<h2>Page heading</h2>
 									Lorum Ipsum pair.<br>
 									Lorum ipsum
 								</td>
-								<td width="20%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
+								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
+								<td colspan="3" align="center" height="20">Copyright ©</td>
 							</tr>
 						</table>
 					</code></pre>
-				<div class="layout-example">
-					<table>
-						<tr>
-							<td colspan="3" style="height: 100px;" bgcolor="#1c75bc">
-								<h1>My Website</h1>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
-						</tr>
-						<tr>
-							<td width="25%" valign="top" bgcolor="#8bd3d8">
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</td>
-							<td width="55%" valign="top" bgcolor="#e8f6f7">
-								<h2>Page heading</h2>
-								Lorum Ipsum
-								pair. <br>
-								Lorum ipsum
-							</td>
-							<td width="20%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
-						</tr>
-						<tr>
-							<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
-						</tr>
-					</table>
-				</div>
+				<iframe title="Table Layout" onload="resizeIframe(this)" src="./assets/table-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- So we discovered that you could use tables for layouts
 					- This was great because you could break the apge into a grid
@@ -167,7 +147,7 @@
 																									<tbody><tr><td valign="top" align="center">
 																										<table>
 																											<tbody><tr><td valign="top">
-																												<a href=""><img src="image.png" /></a>
+																												<a href=""><img src="./img/image.png" /></a>
 																											</td></tr></tbody>
 																										</table>
 																									</td></tr></tbody>
@@ -200,7 +180,7 @@
 				</aside>
 			</section>
 
-			<section class="code split vertical small table-example">
+			<section class="code split vertical small">
 				<pre><code data-trim class="hljs html">
 							<header>
 								<h1>My Website</h1>
@@ -222,35 +202,14 @@
 							<footer>Copyright ©</footer>
 						</code>
 					</pre>
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav>
-						<a href="#">Home</a>
-					</nav>
-					<div class="main">
-						<div class="aside">
-							<nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav>
-						</div>
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum Ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Float Layout" src="./assets/float-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- So we started using float
 					- This meant we were back to following the separation of concerns
 				</aside>
 			</section>
 
-			<section class="code split vertical small table-example">
+			<section class="code split vertical small">
 				<pre>
 						<code data-trim class="hljs css">
 							header {
@@ -272,7 +231,6 @@
 							}
 							article {
 								float: left;
-								padding: 10px;
 								width: 55%;
 							}
 							footer {
@@ -281,28 +239,7 @@
 							}
 						</code>
 					</pre>
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav>
-						<a href="#">Home</a>
-					</nav>
-					<div class="main">
-						<div class="aside">
-							<nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav>
-						</div>
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum Ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Float Layout" src="./assets/float-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- Where HTML was for content, while CSS was for visual look and interface
 					- But before long, we found floats also weren't working
@@ -363,7 +300,7 @@
 				</aside>
 			</section>
 
-			<section class="code split small table-example flexy vertical">
+			<section class="code split small vertical">
 				<pre>
 						<code data-trim class="hlsj html">
 							<header>
@@ -384,26 +321,7 @@
 							<footer>Copyright ©</footer>
 						</code>
 					</pre>
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav><a href="#">Home</a></nav>
-					<div class="main">
-						<div class="aside">
-							<nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav>
-						</div>
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Flexbox Layout" src="./assets/flexbox-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- we were all excited when flexbox arrived
 					- We didn't have to do percentage math anymore
@@ -415,13 +333,9 @@
 			<section class="code split small table-example flexy vertical">
 				<pre>
 						<code data-trim class="hlsj css scss">
-							header {
-								height: 100px;
-							}
 							nav {
 								display: flex;
-									align-items: center;
-								height: 30px;
+								align-items: center;
 								padding: 10px;
 							}
 							main {
@@ -440,31 +354,11 @@
 							footer {
 								height: 20px;
 								padding: 10px;
-								text-align: center;
 							}
 						</code>
 					</pre>
 
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav><a href="#">Home</a></nav>
-					<div class="main">
-						<div class="aside">
-							<nav>
-								<a href="#">Menu link</a><br>
-								<a href="#">Menu link</a><br>
-							</nav>
-						</div>
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Flexbox Layout" src="./assets/flexbox-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- We were finally starting to get the functionality we needed from our CSS
 					- No longer needed to write complicated code or work with percentages and our code was more responsive than ever
@@ -496,7 +390,7 @@
 				</aside>
 			</section>
 
-			<section class="code small split vertical table-example griddy">
+			<section class="code small split vertical">
 				<pre><code data-trim class="hlsj html">
 						<header>
 							<h1>My Website</h1>
@@ -513,26 +407,7 @@
 						</main>
 						<footer>Copyright ©</footer>
 					</code></pre>
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav><a href="#">Home</a></nav>
-					<div class="aside">
-						<nav>
-							<a href="#">Menu link</a><br>
-							<a href="#">Menu link</a><br>
-						</nav>
-					</div>
-					<div class="main">
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Grid Layout" src="./assets/grid-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- In 2017, CSS Grid landed in all new major browsers
 					- THis gave us everything we'd been asking for for CSS Layouts
@@ -563,26 +438,7 @@
 							grid-column: 1 / -1;
 						}
 					</code></pre>
-				<div>
-					<div class="header">
-						<h1>My Website</h1>
-					</div>
-					<nav><a href="#">Home</a></nav>
-					<div class="aside">
-						<nav>
-							<a href="#">Menu link</a><br>
-							<a href="#">Menu link</a><br>
-						</nav>
-					</div>
-					<div class="main">
-						<div class="article">
-							<h2>Page heading</h2>
-							Lorum ipsum pair. <br>
-							Lorum ipsum
-						</div>
-					</div>
-					<div class="footer">Copyright ©</div>
-				</div>
+				<iframe onload="resizeIframe(this)" title="Grid Layout" src="./assets/grid-layout/index.html"></iframe>
 				<aside class="notes" data-markdown>
 					- But now able to control the layout in both directions
 					- With grid, able to define areas of the layout
@@ -595,30 +451,29 @@
 
 			<section class="code split vertical compare small">
 				<pre><code data-trim class="hlsj html">
-						<table>
-							<tr>
-								<td colspan="3" style="height: 100px;" bgcolor="#1c75bc"><h1>My Website</h1></td>
-							</tr>
-							<tr>
-								<td colspan="3" valign="middle" height="30" bgcolor="#8ebade"><a href="#">Home</a></td>
-							</tr>
-							<tr>
-								<td width="20%" valign="top" bgcolor="#8bd3d8">
-									<a href="#">Menu link</a><br>
-									<a href="#">Menu link</a><br>
-								</td>
-								<td width="55%" valign="top" bgcolor="#e8f6f7">
-									<h2>Page heading</h2>
-									Lorum Ipsum
-									pair. <br>
-									Lorum ipsum
-								</td>
-								<td width="25%" valign="top" bgcolor="#8bd3d8">&nbsp;</td>
-							</tr>
-							<tr>
-								<td colspan="3" align="center" height="20" bgcolor="#16a6b1">Copyright ©</td>
-							</tr>
-						</table>
+					<table>
+						<tr>
+							<td colspan="3"><h1>My Website</h1></td>
+						</tr>
+						<tr>
+							<td colspan="3" valign="middle" height="30"><a href="#">Home</a></td>
+						</tr>
+						<tr>
+							<td width="25%">
+								<a href="#">Menu link</a><br>
+								<a href="#">Menu link</a><br>
+							</td>
+							<td width="55%">
+								<h2>Page heading</h2>
+								Lorum Ipsum pair.<br>
+								Lorum ipsum
+							</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td colspan="3" align="center" height="20">Copyright ©</td>
+						</tr>
+					</table>
 					</code></pre>
 				<pre><code data-trim class="hlsj css">
 							body {
@@ -649,7 +504,7 @@
 			</section>
 
 			<section>
-				<p>Grid &#8800; Tables
+				<p>Grid &#8800; Tables<br />
 					<small class="fragment">PS. <mark>Tables aren't bad</mark>, they're misunderstood</small>
 				</p>
 				<aside class="notes" data-markdown>
@@ -670,15 +525,15 @@
 				</aside>
 			</section>
 
-			<section class="blank">
-				<img class="background" src="./wireframe.png" />
+			<section class="blank" data-full>
+				<img class="background" src="./img/wireframe.png" />
 				<aside class="notes" data-markdown>
 					- Thanks to CSS Grid, mocking up or building the layout of an app not only takes less time, it takes less code
 					- And to prove it, today we're going to build a note taking app using CSS Grid
 				</aside>
 			</section>
 
-			<section class="code small center">
+			<section class="code small centre">
 				<pre><code data-trim class="hlsj html">
 						<header>
 							<h1><a href="/">My Notebook</a></h1>
@@ -714,10 +569,10 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-1.png" />
+				<img class="graphic" src="./img/app/step-1.png" />
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 					body {
 						display: grid;
@@ -726,7 +581,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-1.png" />
+				<img class="graphic" src="./img/app/step-1.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -736,12 +591,12 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-1.png" />
+					<img src="./img/app/step-1.png" />
 				</div>
 			</section>
 
-			<section class="blank">
-				<img class="background" src="./Inkedwireframe_LI.jpg" />
+			<section class="blank" data-full>
+				<img class="background" src="./img/Inkedwireframe_LI.jpg" />
 			</section>
 
 			<section class="code">
@@ -762,7 +617,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(number of times, size)
 					</code></pre>
@@ -810,13 +665,13 @@
 						grid-gap: 20px;
 					</code></pre>
 				<small class="table-grid diff">
-					<kbd class="fragment">100% element width</kbd>
+					<kbd class="fragment">{100% element width}</kbd>
 					<kbd class="fragment">510px</kbd>
-					<kbd class="fragment"> - existing content</kbd>
+					<kbd class="fragment"> - {existing content}</kbd>
 					<kbd class="fragment"> - 150px</kbd>
-					<kbd class="fragment"> - gap</kbd>
+					<kbd class="fragment"> - {gap}</kbd>
 					<kbd class="fragment"> - 60px</kbd>
-					<kbd class="fragment"> &#247; number of frs</kbd>
+					<kbd class="fragment"> &#247; {number of frs}</kbd>
 					<kbd class="fragment"> &#247; 3</kbd>
 				</small>
 			</section>
@@ -825,12 +680,28 @@
 				<p><kbd>1fr</kbd> = <kbd>100px</kbd></p>
 			</section>
 
-			<section class="code">
+			<section class="code split horizontal">
 				<pre><code data-trim class="hlsj css">
-						/*grid-template-columns: 100px 1fr 50px 2fr;*/
-						grid-template-columns: 100px 100px 50px 200px;
+						grid-template-columns: 100px 1fr 50px 2fr;
 						grid-gap: 20px;
 					</code></pre>
+				<img src="./img/fr_unit_1.png" />
+			</section>
+
+			<section class="code split horizontal">
+				<pre><code data-trim class="hlsj css">
+						grid-template-columns: 100px 1fr 50px 2fr;
+						grid-gap: 20px;
+					</code></pre>
+				<img src="./img/fr_unit_2.png" />
+			</section>
+
+			<section class="code split horizontal">
+				<pre><code data-trim class="hlsj css">
+						grid-template-columns: 100px 1fr 50px 2fr;
+						grid-gap: 20px;
+					</code></pre>
+				<img src="./img/fr_unit_3.png" />
 			</section>
 
 			<section class="code">
@@ -843,7 +714,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-2.png" />
+				<img class="graphic" src="./img/app/step-2.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -853,12 +724,12 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-2.png" />
+					<img src="./img/app/step-2.png" />
 				</div>
 			</section>
 
-			<section class="blank">
-				<img class="background" src="./Inkedwireframe_LI.jpg" />
+			<section class="blank" data-full>
+				<img class="background" src="./img/Inkedwireframe_LI.jpg" />
 			</section>
 
 			<section class="code">
@@ -872,15 +743,15 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-3.png" />
+				<img class="graphic" src="./img/app/step-3.png" />
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-2.png" />
+				<img class="graphic" src="./img/app/step-2.png" />
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-3.png" />
+				<img class="graphic" src="./img/app/step-3.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -891,12 +762,12 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-3.png" />
+					<img src="./img/app/step-3.png" />
 				</div>
 			</section>
 
-			<section class="blank">
-				<img class="background" src="./wireframe.png" />
+			<section class="blank" data-full>
+				<img class="background" src="./img/wireframe.png" />
 				<aside class="notes" data-markdown>
 					- Define that the header should take full width of page
 					- Several ways to do this
@@ -905,14 +776,14 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-2.5.jpg" />
+				<img class="graphic" src="./img/app/step-2.5.jpg" />
 				<aside class="notes" data-markdown>
 					- The lines of the grid are defined, and can be used to set where an element sits
 					- If we want the header to start at the beginning, we want it to start at grid line 1
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column-start: 1;
@@ -921,7 +792,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-2.5.jpg" />
+				<img class="graphic" src="./img/app/step-2.5.jpg" />
 				<aside class="notes" data-markdown>
 					- We want it to go all the way to the end
 					- So could set to end at grid line 6
@@ -931,7 +802,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-2.5b.jpg" />
+				<img class="graphic" src="./img/app/step-2.5b.jpg" />
 				<aside class="notes" data-markdown>
 					- They're also numbered backwards
 					- So instead we can define that the header should go to grid line -1
@@ -940,7 +811,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column-start: 1;
@@ -949,7 +820,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							/*grid-column-start: 1;
@@ -959,7 +830,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						header {
 							grid-column: 1 / -1
@@ -968,7 +839,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-4.png" />
+				<img class="graphic" src="./img/app/step-4.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -978,15 +849,15 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-4.png" />
+					<img src="./img/app/step-4.png" />
 				</div>
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-4b.jpg" />
+				<img class="graphic" src="./img/app/step-4b.jpg" />
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						nav {
 							grid-row: 2 / -1;
@@ -994,7 +865,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						nav {
 							/* grid-row: 2 / -1; */
@@ -1004,7 +875,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-5.png" />
+				<img class="graphic" src="./img/app/step-5.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1014,11 +885,11 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-5.png" />
+					<img src="./img/app/step-5.png" />
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column: span 4;
@@ -1027,7 +898,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-6.png" />
+				<img class="graphic" src="./img/app/step-6.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1037,11 +908,11 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-6.png" />
+					<img src="./img/app/step-6.png" />
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						footer {
 							grid-column: span 4;
@@ -1050,7 +921,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-7.png" />
+				<img class="graphic" src="./img/app/step-7.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1060,7 +931,7 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-7.png" />
+					<img src="./img/app/step-7.png" />
 				</div>
 			</section>
 
@@ -1099,24 +970,24 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-8.png" />
+				<img class="graphic" src="./img/app/step-8.png" />
 			</section>
 
-			<section class="blank">
+			<section>
 				<figure>
-					<img src="./grid-inspector.gif" />
-					<figcaption>https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts</figcaption>
+					<img src="./img/grid-inspector.gif" />
+					<figcaption>developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts</figcaption>
 				</figure>
 			</section>
 
 			<section>
-				<p><span>Basic layout </span><span class="fragment">☑️</span>
+				<p><span>Basic layout </span><span class="fragment">✅</span><br />
 					<span class="fragment">7 lines of CSS 🤯</span>
 				</p>
 			</section>
 
-			<section class="blank">
-				<img class="graphic" src="./wireframe.png" />
+			<section class="blank" data-full>
+				<img class="background" src="./img/wireframe.png" />
 				<aside class="notes" data-markdown data-markdown>
 					- But now if we look at the wireframe, there's something we haven't done yet
 					- In the wireframe we have the note in the main section, but there's a sidebar on the edge
@@ -1125,7 +996,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-8.5.png" />
+				<img class="graphic" src="./img/app/step-8.5.png" />
 				<aside class="notes" data-markdown data-markdown>
 					- We can see that currently those sections ae under one another
 					- So let's see how we can add the sidebar
@@ -1134,15 +1005,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						main {
-							display: contents;
-						}
-					</code></pre>
-			</section>
-
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj html">
 						<main>
 							<article>
@@ -1161,204 +1024,31 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main> -->
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						<!-- </main> -->
-					</code></pre>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: contents;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-9.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: contents;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="app/step-9.png" />
-				</div>
-			</section>
-
-			<section class="code">
-				<pre><code data-trim class="hlsj css">
-						body {
-							grid-template-areas:
-							  'header header header header header'
-							  'nav    note   note   note   sidebar'
-							  'nav    footer footer footer footer';
-						}
-					</code></pre>
-			</section>
-
-			<section class="code split vertical compare">
-				<pre><code data-trim class="hlsj css">
-						article {
-							grid-area: note;
-						}
-					</code></pre>
-				<pre><code data-trim class="hlsj css">
-						aside {
-							grid-area: sidebar;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-10.png" />
-			</section>
-
-			<section>
-				<p><kbd>display: contents</kbd>makes screen readers cry</p>
-				<aside class="notes" data-markdown>
-					- So there's a bug
-					- And yes it's not supposed to happen
-					- But in some browsers, when you apply display: contents to an element, eg. main, it makes the whole thing disappear, including children
-				</aside>
-			</section>
-
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main> -->
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						<!-- </main> -->
-					</code></pre>
-				<aside class="notes" data-markdown>
-					- So instead of making the main element disappear
-				</aside>
-			</section>
-
-			<section class="code medium center">
-				<pre><code data-trim class="hlsj html">
-						<!-- <main>
-							<article>
-								<header>
-									<h1>Note Title</h1>
-									<time datetime="30 Jan 2019">30 Jan 2019</time>
-								</header>
-								<main>
-									<p>Note Content</p>
-								</main>
-							</article>
-							<aside>
-								<p>Note Sidebar</p>
-							</aside>
-						</main> -->
-					</code></pre>
-				<aside class="notes" data-markdown>
-					- It makes it all disappear
-					- It'll still appear on the page
-					- But anyone using a screen reader on select browsers won't hear it
-				</aside>
-			</section>
-
-			<section>
-				<figure>
-					<img src="./Screenshot_2019-06-13 Display Contents Is Not a CSS Reset.png" />
-					<figcaption>http://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html</figcaption>
-				</figure>
-			</section>
-
-			<section>
-				<p>Don't mess with the DOM</p>
-			</section>
-
-			<section>
-				<p>Subgrid to the rescue!</p>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-10.png" />
-			</section>
-
-			<section class="code center">
+			<section class="code centre">
 				<pre><code  data-trim class="hlsj css">
-						body {
-							grid-template-areas:
-								'header header header header header'
-								'nav    note   note   note   note'
-								'nav    footer footer footer footer';
-						}
-					</code></pre>
+					main {
+						display: grid;
+						grid-template-columns: 3fr 1fr;
+					}
+				</code></pre>
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-8.5.png" />
+				<img class="graphic" src="./img/app/step-10.png" />
 			</section>
 
-			<section class="code center">
-				<pre><code  data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							/*display: contents;*/
-							display: grid;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-10.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						main {
-							grid-area: note;
-							display: grid;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="app/step-10.png" />
-				</div>
-			</section>
-
-			<section class="code center">
+			<section class="code centre">
 				<pre><code  data-trim class="hlsj css">
 						main {
 							display: grid;
+							/* grid-template-columns: 3fr 1fr; */
 							grid-template-columns: subgrid;
 						}
 					</code></pre>
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-13.png" />
+				<img class="graphic" src="./img/app/step-13.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1368,11 +1058,11 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="app/step-13.png" />
+					<img src="./img/app/step-13.png" />
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code  data-trim class="hlsj css">
 							article {
 								grid-column: span 3;
@@ -1381,7 +1071,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-14.png" />
+				<img class="graphic" src="./img/app/step-14.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1391,21 +1081,21 @@
 								}
 						</code></pre>
 				<div class="image-container">
-					<img src="app/step-14.png" />
+					<img src="./img/app/step-14.png" />
 				</div>
 			</section>
 
 			<section class="smallish">
 				<figure>
-					<img src="./Screenshot_2019-06-13 Subgrid.png" />
-					<figcaption>https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_layout/Subgrid</figcaption>
+					<img src="./img/Screenshot_2019-06-13 Subgrid.png" />
+					<figcaption>developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_layout/Subgrid</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 CSS Subgrid News and demos.png" />
-					<figcaption>https://rachelandrew.co.uk/archives/2019/04/16/css-subgrid-news-and-demos</figcaption>
+					<img src="./img/Screenshot_2019-06-13 CSS Subgrid News and demos.png" />
+					<figcaption>rachelandrew.co.uk/archives/2019/04/16/css-subgrid-news-and-demos</figcaption>
 				</figure>
 			</section>
 
@@ -1414,33 +1104,6 @@
 				<aside class="notes" data-markdown>
 					- So with all of these wonderful things
 					- Does that mean we don't have to or shouldn't use flexbox?
-				</aside>
-			</section>
-
-			<section class="blank">
-				<figure>
-					<img src="batgirl.jpg" />
-					<figcaption>https://www.dccomics.com/characters/batgirl</figcaption>
-				</figure>
-				<aside class="notes" data-markdown>
-					- Look at it this way
-					- Batgirl kicks ass
-				</aside>
-			</section>
-
-			<section class="blank">
-				<img src="blackcanary.jpg" />
-				<aside class="notes" data-markdown>
-					- Black Canary also kicks ass
-					- But do we question whether we just need one and not the other?
-				</aside>
-			</section>
-
-			<section class="blank">
-				<img src="super_duo.jpg" />
-				<aside class="notes" data-markdown>
-					- No
-					- They work together and form a super duo
 				</aside>
 			</section>
 
@@ -1453,114 +1116,23 @@
 			</section>
 
 			<section>
-				<p>Grid + Flex =<mark>super CSS Layout duo</mark></p>
+				<p>Grid + Flex = <mark>super CSS Layout duo</mark></p>
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-14a.png" />
+				<img class="graphic" src="./img/app/step-14a.png" />
 				<aside class="notes" data-markdown>
 					- Flexbox useful for flowing content
 					- Like nav menus
 				</aside>
 			</section>
 
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer nav {
-							display: flex;
-							justify-content: space-between;
-						}
-					</code></pre>
+			<section class="blank">
+				<img class="graphic" src="./img/app/step-14.png" />
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-15.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer nav {
-							display: flex;
-							justify-content: space-between;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="app/step-15.png" />
-				</div>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						grid-parent {
-							justify-items: stretch;
-							align-items: stretch;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-14.png" />
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						grid-child {
-							justify-self: stretch;
-							align-self: stretch;
-						}
-					</code></pre>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-16.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./app/step-16.png" />
-				</div>
-			</section>
-
-			<section class="code center">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-							width: 300px;
-						}
-					</code></pre>
-			</section>
-
-			<section class="blank">
-				<img class="graphic" src="app/step-17.png" />
-			</section>
-
-			<section class="code split horizontal">
-				<pre><code data-trim class="hlsj css">
-						footer {
-							justify-self: start;
-							width: 300px;
-						}
-					</code></pre>
-				<div class="image-container">
-					<img src="./app/step-17.png" />
-				</div>
-			</section>
-
-			<section class="blank">
-				<img src="./app/step-17a.png" />
+				<img class="graphic" src="./img/app/step-17a.png" />
 				<aside class="notes" data-markdown>
 					- With a couple of quick lines to add padding and a few visual points, we've already got a pretty good layout of our app.
 					- And while this is nowhere near a finished product, it's not bad for the amount of code we've written
@@ -1568,13 +1140,13 @@
 			</section>
 
 			<section class="blank">
-				<img src="./app/step-18.png" />
+				<img class="graphic" src="./img/app/step-18.png" />
 				<aside class="notes" data-markdown>
 					- But now we want to have a full view of all of our notes, in a grid.
 				</aside>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 						  grid-template-columns: repeat(10, 300px);
@@ -1582,7 +1154,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 						  grid-template-columns: repeat(auto-fill, 300px);
@@ -1590,22 +1162,29 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(auto-fill, 100px)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						auto-fill / auto-fit
 					</code></pre>
 			</section>
 
-			<section class="blank">
+			<section>
 				<figure>
-					<img src="./autofill-autofit.png" />
-					<figcaption>https://codepen.io/SaraSoueidan/pen/JrLdBQ</figcaption>
+					<img src="./img/autofill-autofit.png" />
+					<figcaption>codepen.io/SaraSoueidan/pen/JrLdBQ</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<video data-autoplay src="./img/autofit_autofill.mp4"></video>
+					<figcaption>codepen.io/SaraSoueidan/pen/JrLdBQ</figcaption>
 				</figure>
 				<aside class="notes" data-markdown>
 					- auto-fill FILLS the row with as many columns as it can fit, even if you don't need that many
@@ -1614,7 +1193,7 @@
 				</aside>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						repeat(auto-fill, 100px)
 					</code></pre>
@@ -1623,7 +1202,7 @@
 				</aside>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, 300px);
@@ -1631,7 +1210,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1639,25 +1218,25 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(100px, 20vw)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(100px, 1fr)
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						minmax(1fr, 300px)
 					</code></pre>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1666,7 +1245,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-19.png" />
+				<img class="graphic" src="./img/app/step-19.png" />
 			</section>
 
 			<section class="code split horizontal medium">
@@ -1676,11 +1255,11 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="./app/step-19.png" />
+					<img src="./img/app/step-19.png" />
 				</div>
 			</section>
 
-			<section class="code medium center">
+			<section class="code medium centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-template-rows: repeat(auto-fill, 150px);
@@ -1689,7 +1268,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-20.png" />
+				<img class="graphic" src="./img/app/step-20.png" />
 			</section>
 
 			<section class="code split horizontal medium">
@@ -1699,11 +1278,11 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="./app/step-20.png" />
+					<img src="./img/app/step-20.png" />
 				</div>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column-gap: 20px;
@@ -1711,7 +1290,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							grid-column-gap: 20px;
@@ -1720,7 +1299,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						main {
 							/*grid-column-gap: 20px;
@@ -1760,7 +1339,7 @@
 			</section>
 
 			<section class="blank">
-				<img class="graphic" src="app/step-21.png" />
+				<img class="graphic" src="./img/app/step-21.png" />
 			</section>
 
 			<section class="code split horizontal">
@@ -1770,12 +1349,12 @@
 						}
 					</code></pre>
 				<div class="image-container">
-					<img src="./app/step-21.png" />
+					<img src="./img/app/step-21.png" />
 				</div>
 			</section>
 
 			<section class="blank">
-				<img src="./app/step-21a.png" />
+				<img src="./img/app/step-21a.png" />
 			</section>
 
 
@@ -1793,67 +1372,55 @@
 
 			<section>
 				<div class="table-grid browsers">
-					<span class="fragment"><img src="../img/chrome.svg" /></span>
+					<span class="fragment"><img src="../../dist/img/chrome.svg" /></span>
 					<span class="fragment">57</span>
-					<span class="fragment"><img src="../img/firefox.svg" /></span>
+					<span class="fragment"><img src="../../dist/img/firefox.svg" /></span>
 					<span class="fragment">52</span>
-					<span class="fragment"><img src="../img/safari.svg" /></span>
+					<span class="fragment"><img src="../../dist/img/safari.svg" /></span>
 					<span class="fragment">10.1</span>
-					<span class="fragment"><img src="../img/edge.svg" /></span>
+					<span class="fragment"><img src="../../dist/img/edge.svg" /></span>
 					<span class="fragment">16</span>
-					<span class="fragment"><img src="../img/internet-explorer.svg" /></span>
+					<span class="fragment"><img src="../../dist/img/internet-explorer.svg" /></span>
 					<span class="fragment">10<span class="fragment">ish</span></span>
 				</div>
+				<aside class="notes" data-markdown>
+					- CSS grid Support
+				</aside>
 			</section>
 
 			<section>
-				<p class="title">94%</p>
+				<p class="title">97%</p>
 				<aside class="notes" data-markdown>
-					- Australia wide
+					- Globally
+					- CSS grid Support
 				</aside>
 			</section>
 
 			<section>
 				<div class="table-grid browsers">
-					<span><img src="../img/chrome.svg" /></span>
+					<span><img src="../../dist/img/chrome.svg" /></span>
 					<span>❌</span>
-					<span><img src="../img/firefox.svg" /></span>
+					<span><img src="../../dist/img/firefox.svg" /></span>
 					<span>71</span>
-					<span><img src="../img/safari.svg" /></span>
+					<span><img src="../../dist/img/safari.svg" /></span>
+					<span>16</span>
+					<span><img src="../../dist/img/edge.svg" /></span>
 					<span>❌</span>
-					<span><img src="../img/edge.svg" /></span>
-					<span>❌</span>
-					<span><img src="../img/internet-explorer.svg" /></span>
+					<span><img src="../../dist/img/internet-explorer.svg" /></span>
 					<span>🤣</span>
 				</div>
+				<aside class="notes" data-markdown>
+					- Subgrid Support
+				</aside>
 			</section>
 
-			<section>
-				<div class="table-grid browsers">
-					<span><img src="../img/chrome.svg" /></span>
-					<span>21</span>
-					<span><img src="../img/firefox.svg" /></span>
-					<span>28</span>
-					<span><img src="../img/safari.svg" /></span>
-					<span>6.1</span>
-					<span><img src="../img/edge.svg" /></span>
-					<span>12</span>
-					<span><img src="../img/internet-explorer.svg" /></span>
-					<span>10</span>
-				</div>
-			</section>
-
-			<section>
-				<p class="title">98%</p>
-			</section>
-
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						@supports
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						@supports(css-property: value) {
 							/*Insert code here*/
@@ -1861,7 +1428,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						@supports(display: grid) {
 							/*Code here*/
@@ -1870,10 +1437,10 @@
 			</section>
 
 			<section>
-				<figure><img class="graphic" src="../img/internet-explorer.svg" /></figure>
+				<figure><img class="graphic" src="../../dist/img/internet-explorer.svg" /></figure>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						@supports(grid-template-areas: '.') {
 							/*Code here*/
@@ -1881,7 +1448,7 @@
 					</code></pre>
 			</section>
 
-			<section class="code center">
+			<section class="code centre">
 				<pre><code data-trim class="hlsj css">
 						@supports(grid-template-areas: '.') {
 							main {
@@ -1892,117 +1459,72 @@
 			</section>
 
 			<section>
-				<p>But...</p>
-			</section>
-
-			<section>
-				<p>But there's not enough support</p>
-			</section>
-
-			<section>
-				<header>But there's not enough support</header>
-				<p>95%</p>
-			</section>
-
-			<section>
-				<header>But there's not enough support</header>
-				<p><kbd>@supports</kbd></p>
-			</section>
-
-			<section>
-				<p>But we have to write a fallback</p>
-			</section>
-
-			<section>
-				<header>But we have to write a fallback</header>
-				<p>You've already got one 🤷‍♀</p>
-			</section>
-
-			<section>
-				<p>But we don't have time</p>
-			</section>
-
-			<section>
-				<header>But we don't have time</header>
-				<p>You don't have to use grid everywhere</p>
-			</section>
-
-			<section>
-				<p>But we'll have to maintain it</p>
-			</section>
-
-			<section>
-				<header>But we'll have to maintain it</header>
-				<p>It's CSS. <span class="fragment">No frameworks. Just CSS</span></p>
-			</section>
-
-			<section>
 				<p>Summing up:
-					<span class="fragment">CSS Grid is Awesome</span>
+					<span class="fragment">CSS Grid is Awesome</span><br />
 					<span class="fragment">The End</span>
 				</p>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 A Complete Guide to Grid CSS-Tricks.png" />
-					<figcaption>https://css-tricks.com/snippets/css/complete-guide-grid</figcaption>
+					<img src="./img/Screenshot_2019-06-13 A Complete Guide to Grid CSS-Tricks.png" />
+					<figcaption>css-tricks.com/snippets/css/complete-guide-grid</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 CSS Grid.jpg" />
-					<figcaption>https://cssgrid.io</figcaption>
+					<img src="./img/posters.jpg" />
+					<figcaption>css-tricks.com/snippets/css/complete-guide-grid</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 The New CSS Layout by Rachel Andrew.jpg" />
-					<figcaption>https://abookapart.com/products/the-new-css-layout</figcaption>
+					<img src="./img/Screenshot_2019-06-13 CSS Grid.jpg" />
+					<figcaption>cssgrid.io</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 Home page of rachelandrew co uk.png" />
-					<figcaption>https://rachelandrew.co.uk</figcaption>
+					<img src="./img/Screenshot_2019-06-13 The New CSS Layout by Rachel Andrew.jpg" />
+					<figcaption>abookapart.com/products/the-new-css-layout</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 Home.png" />
+					<img src="./img/Screenshot_2019-06-13 Home page of rachelandrew co uk.png" />
+					<figcaption>rachelandrew.co.uk</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<figure>
+					<img src="./img/Screenshot_2019-06-13 Home.png" />
 					<figcaption>http://jensimmons.com</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 Grid Garden.png" />
-					<figcaption>https://cssgridgarden.com</figcaption>
+					<img src="./img/Screenshot_2019-06-13 Grid Garden.png" />
+					<figcaption>cssgridgarden.com</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./Screenshot_2019-06-13 Flexbox Froggy.png" />
-					<figcaption>https://flexboxfroggy.com</figcaption>
+					<img src="./img/Screenshot_2019-06-13 Flexbox Froggy.png" />
+					<figcaption>flexboxfroggy.com</figcaption>
 				</figure>
 			</section>
 
 			<section>
 				<figure>
-					<img src="./journal_github.png" />
-					<figcaption>https://github.com/amykapernick/css-grid-journal</figcaption>
-				</figure>
-			</section>
-
-			<section>
-				<figure>
-					<img src="./workshop_page.png" />
-					<figcaption>https://kapers.dev/workshop</figcaption>
+					<img src="./img/journal_github.png" />
+					<figcaption>github.com/amykapernick/css-grid-journal</figcaption>
 				</figure>
 			</section>
 
@@ -2011,7 +1533,7 @@
 			</section>
 
 			<section>
-				<p>kapers.dev/f2c</p>
+				<p>Questions?</p>
 			</section>
 		</div>
 	</div>
@@ -2024,6 +1546,7 @@
 	<script src="../../plugin/notes/notes.js"></script>
 	<script src="../../plugin/markdown/markdown.js"></script>
 	<script src="../../plugin/highlight/highlight.js"></script>
+
 	<script>
 		// More info about initialization & config:
 		// - https://revealjs.com/initialization/
@@ -2031,6 +1554,16 @@
 		Reveal.initialize({
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+
+		Reveal.on('slidechanged', function (event) {
+			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			if (event.currentSlide.attributes['data-full']) {
+				const container = event.currentSlide.parentElement
+				container.style.width = '100vw';
+				container.style.height = '100vh';
+				container.style.transform = 'translate(-50%, -50%) scale(1)'
+			}
 		});
 	</script>
 </body>

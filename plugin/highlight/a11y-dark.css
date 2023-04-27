@@ -21,7 +21,7 @@
 /* Comment */
 .hljs-comment,
 .hljs-quote {
-	color: #ededed;
+	color: #b0b0b0;
 }
 
 /* Red */
@@ -84,6 +84,7 @@
 }
 
 @media screen and (-ms-high-contrast: active) {
+
 	.hljs-addition,
 	.hljs-attribute,
 	.hljs-built_in,

@@ -2,11 +2,7 @@
 
 //CSS Grid - NDC London 2019
 .custom-5 {
-	.title {
-		small {
-			font-size: 0.7em;
-		}
-	}
+
 
 	section {
 		justify-items: stretch;
@@ -297,22 +293,7 @@
 		}
 	}
 
-	.table-grid {
-		font-size: 0.8em;
-		display: grid;
-		grid-auto-flow: column;
-		grid-template-rows: 1.5em 1.5em;
-		grid-auto-columns: 1fr;
 
-		img {
-			width: 1em;
-		}
-
-		&.diff {
-			grid-auto-columns: auto;
-			font-size: 0.5em;
-		}
-	}
 }
 
 //CSS Grid - NDC Minnesota 2019 {
@@ -343,11 +324,7 @@
 		}
 	}
 
-	.table-grid {
-		&.diff {
-			font-size: 0.4em;
-		}
-	}
+
 }
 
 //CSS Grid - NDC Oslo 2019

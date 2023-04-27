@@ -18,12 +18,12 @@ section {
 		z-index: -1;
 	}
 
-	>img,
-	video {
-		height: 100vh;
-		object-fit: contain;
-		width: 100vw;
-	}
+	// >img,
+	// video {
+	// 	height: 100vh;
+	// 	object-fit: contain;
+	// 	width: 100vw;
+	// }
 
 	>section {
 		max-height: 100vh;
@@ -70,3 +70,4 @@ section {
 @import './grid.scss';
 @import './size.scss';
 @import './quiz.scss';
+@import './layouts.scss';

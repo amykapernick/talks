@@ -1,0 +1,60 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+body:after {
+  background: #8bd3d8;
+  content: "";
+  grid-column: -2;
+  grid-row: 3;
+}
+
+header {
+  background: #1c75bc;
+  display: flex;
+  align-items: center;
+  grid-column: 1/-1;
+  height: 100px;
+  padding: 10px;
+}
+
+nav {
+  background: #8ebade;
+  display: flex;
+  align-items: center;
+  grid-column: 1/-1;
+  height: 30px;
+  padding: 10px;
+}
+
+aside {
+  background: #8bd3d8;
+  padding: 10px;
+}
+
+aside nav {
+  background: inherit;
+  flex-wrap: wrap;
+}
+
+main {
+  background: #e8f6f7;
+  grid-column: span 3;
+  padding: 10px;
+}
+
+footer {
+  background: #16a6b1;
+  grid-column: 1/-1;
+  height: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: Lato;
+  margin: 0;
+}
