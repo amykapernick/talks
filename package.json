@@ -15,17 +15,17 @@
     "url": "git@github.com:amykapernick/talks.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/eslint-parser": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
+    "@babel/preset-env": "^7.21.4",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "babel-plugin-transform-html-import-to-string": "^2.0.0",
     "colors": "^1.4.0",
-    "core-js": "^3.12.1",
+    "core-js": "^3.30.1",
     "fitty": "^2.3.0",
-    "glob": "^8.0.3",
+    "glob": "^10.2.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
@@ -34,24 +34,29 @@
     "gulp-header": "^2.0.9",
     "gulp-tap": "^2.0.0",
     "gulp-zip": "^5.1.0",
-    "highlight.js": "^11.6.0",
-    "marked": "^4.0.12",
-    "node-qunit-puppeteer": "^2.1.0",
-    "qunit": "^2.17.2",
-    "rollup": "^2.48.0",
+    "highlight.js": "^11.7.0",
+    "marked": "^4.3.0",
+    "node-qunit-puppeteer": "^2.1.2",
+    "qunit": "^2.19.4",
+    "rollup": "^3.21.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.39.2",
-    "yargs": "^17.6.0"
+    "sass": "^1.62.1",
+    "yargs": "^17.7.1"
   },
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "eslint": "^8.26.0",
+    "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^3.1.0",
     "reveal-multiplex": "^0.1.0"
+  },
+  "overrides": {
+    "rollup-plugin-terser": {
+      "rollup": "^3.21.0"
+    }
   }
 }

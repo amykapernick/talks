@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>WordPress for the Modern Web Dev</title>
+
+	<link rel="stylesheet" href="../../dist/reset.css">
+	<link rel="stylesheet" href="../../dist/reveal.css">
+	<link rel="stylesheet" href="../../dist/theme/amy_custom_light.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../../plugin/highlight/a11y-dark.css">
+</head>
+
+<body class="grid">
+	<header role="banner"></header>
+
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>WordPres for the Modern Web Dev</h1>
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+		</div>
+	</div>
+
+	<footer role="contentinfo">
+		@amys_kapers
+	</footer>
+
+	<script src="../../dist/reveal.js"></script>
+	<script src="../../plugin/notes/notes.js"></script>
+	<script src="../../plugin/markdown/markdown.js"></script>
+	<script src="../../plugin/highlight/highlight.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+
+		Reveal.on('slidechanged', function (event) {
+			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			if (event.currentSlide.attributes['data-full']) {
+				const container = event.currentSlide.parentElement
+				container.style.width = '100vw';
+				container.style.height = '100vh';
+				container.style.transform = 'translate(-50%, -50%) scale(1)'
+			}
+		});
+	</script>
+</body>
+
+</html>
