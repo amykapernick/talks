@@ -1,62 +1,49 @@
 {
   "name": "talks",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Presentation Slides",
   "homepage": "https://talks.amyskapers.dev/",
-  "main": "dist/reveal.js",
-  "module": "dist/reveal.esm.js",
   "scripts": {
-    "test": "gulp test",
-    "start": "gulp serve",
-    "build": "gulp build"
+    "dev": "astro dev --config ./config/astro.config.mjs",
+    "start": "npm run dev",
+    "build": "astro check && tsc --noEmit && npm run build:astro",
+    "build:astro": "astro build --config ./config/astro.config.mjs",
+    "preview": "astro preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:amykapernick/talks.git"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/eslint-parser": "^7.21.3",
-    "@babel/preset-env": "^7.21.4",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "babel-plugin-transform-html-import-to-string": "^2.0.0",
-    "colors": "^1.4.0",
-    "core-js": "^3.30.1",
-    "fitty": "^2.3.0",
-    "glob": "^10.2.2",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-connect": "^5.7.0",
-    "gulp-eslint": "^6.0.0",
-    "gulp-header": "^2.0.9",
-    "gulp-tap": "^2.0.0",
-    "gulp-zip": "^5.1.0",
-    "highlight.js": "^11.7.0",
-    "marked": "^4.3.0",
-    "node-qunit-puppeteer": "^2.1.2",
-    "qunit": "^2.19.4",
-    "rollup": "^3.21.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.62.1",
-    "yargs": "^17.7.1"
-  },
+  "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "eslint": "^8.39.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-standard": "^5.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-minify": "^3.1.0",
-    "reveal-multiplex": "^0.1.0"
+    "@astrojs/image": "^0.16.2",
+    "@astrojs/sitemap": "^1.2.2",
+    "@astrojs/ts-plugin": "^0.4.4",
+    "astro": "^2.1.3",
+    "postcss-advanced-variables": "^3.0.1",
+    "reveal.js": "^4.5.0",
+    "typescript": "^5.0.2"
   },
-  "overrides": {
-    "rollup-plugin-terser": {
-      "rollup": "^3.21.0"
-    }
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "astro-eslint-parser": "^0.13.1",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-astro": "^0.26.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "postcss-html": "^1.5.0",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nesting": "^11.2.2",
+    "postcss-rgb": "^1.0.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0",
+    "stylelint-config-astro": "^1.0.4",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-standard": "^31.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^3.0.0",
+    "stylelint-use-nesting": "^4.1.0"
   }
 }
