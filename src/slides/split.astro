@@ -1,0 +1,75 @@
+---
+export interface Props {
+	dir?: 'horizontal' | 'vertical'
+	split?: ('dark' | 'light')[]
+}
+
+const { dir = 'horizontal', split = ['dark', 'light'] } = Astro.props
+
+---
+
+<style>
+	@import '@mixins';
+
+	section {
+		@include code;
+		@include full_background;
+
+		&[data-direction="horizontal"] {
+			&[data-split="dark,light"] {
+				&::before {
+					background: linear-gradient(
+						to bottom,
+						$neutral 50%,
+						transparent 50%
+					);
+				}
+			}
+
+			&[data-split="light,dark"] {
+				&::before {
+					background: linear-gradient(
+						to top,
+						$neutral 50%,
+						transparent 50%
+					);
+				}
+			}
+		}
+
+		&[data-direction="vertical"] {
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 10vw;
+
+			& :global(pre),
+			& :global(code) {
+				white-space: break-spaces;
+				word-wrap: break-word;
+			}
+
+			&[data-split="dark,light"] {
+				&::before {
+					background: linear-gradient(
+						to right,
+						$neutral 50%,
+						transparent 50%
+					);
+				}
+			}
+
+			&[data-split="light,dark"] {
+				&::before {
+					background: linear-gradient(
+						to left,
+						$neutral 50%,
+						transparent 50%
+					);
+				}
+			}
+		}
+	}
+</style>
+
+<section data-direction={dir} data-split={split.join(',')}>
+	<slot />
+</section>

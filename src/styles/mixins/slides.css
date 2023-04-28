@@ -1,0 +1,20 @@
+@mixin code {
+	& :global(pre) {
+		max-height: 100%;
+		overflow: hidden; 
+		justify-self: stretch;
+		width: 100%;
+		display: block;
+	} 
+
+	& :global(pre),
+	& :global(code) {
+		padding: 0;
+		margin: 0;
+		display: block;
+		white-space: break-spaces;
+		word-wrap: break-word;
+		overflow: visible;
+		min-height: unset;
+	}
+}

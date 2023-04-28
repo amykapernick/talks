@@ -1,0 +1,21 @@
+body {
+	height: 100vh;
+	max-height: 100vh;
+	display: grid;
+	grid-template-rows: 1fr;
+}
+
+.reveal {
+	padding: $header_height 0 $footer_height;
+	
+	& > .slides {
+		& > section {
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+			position: static;
+			width: 100%;
+			max-height: 100%;
+		}
+	}
+}

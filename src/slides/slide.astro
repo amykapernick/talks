@@ -1,0 +1,46 @@
+---
+import Standard from '@slides/standard'
+import Code from '@slides/code'
+import Split from '@slides/split'
+import Quote from '@slides/quote'
+import Figure from '@slides/figure'
+import Header from '@parts/header'
+
+interface Props {
+	type: 'standard' | 'code' | 'split' | 'quote' | 'figure'
+}
+
+const { type = 'standard', ...props } = Astro.props
+
+let Slide = Standard
+
+switch(type) {
+	case 'code':
+		Slide = Code;
+		break;
+	case 'split':
+		Slide = Split;
+		break;
+	case 'quote':
+		Slide = Quote;
+		break;
+	case 'figure':
+		Slide = Figure;
+		break;
+}
+
+---
+
+<style>
+	
+</style>
+
+<Slide {...props}>
+	<Header>
+		<slot name="header" />
+	</Header>
+	<slot />
+	<aside class="notes" data-markdown>
+		<slot name="notes" />
+	</aside>
+</Slide>

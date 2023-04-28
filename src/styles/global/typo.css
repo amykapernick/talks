@@ -1,0 +1,47 @@
+body {
+	line-height: 1.5;
+	margin: 0;
+	font-family: $font_main;
+	font-size: $base_font;
+	font-weight: 400;
+	color: $neutral;
+}
+
+h1,
+h2,
+h3 {
+	color: inherit;
+	font-family: $font_heading;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2em;
+	text-wrap: balance;
+}
+
+a,
+.link {
+	color: inherit;
+	font-family: inherit;
+	text-decoration: none;
+}
+
+ul {
+	li {
+		text-align: left;
+	}
+}
+
+dt {
+	font-weight: bold;
+}
+
+i {
+	color: inherit;
+}
+
+blockquote {
+	margin: 20px;
+	padding-left: 20px;
+}

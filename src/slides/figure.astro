@@ -1,0 +1,42 @@
+---
+import { Picture, Image } from '@astrojs/image/components';
+
+const { image, caption } = Astro.props
+
+console.log({image})
+---
+
+<style>
+	figure {
+		height: 100%;
+		margin: 0;
+		display: grid;
+		width: 100%;
+		grid-template-rows: 1fr max-content;
+		justify-self: stretch;
+		align-self: stretch;
+		overflow: hidden;
+	}
+
+	div {
+		max-height: 100%;
+		overflow: hidden;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+</style>
+
+<section>
+	<figure>
+		<div>
+			<Image {...image} loading={'eager'} />
+		</div>
+		{caption && <figcaption>{caption}</figcaption>}
+	</figure>
+	<slot />
+</section>

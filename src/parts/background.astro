@@ -1,0 +1,21 @@
+---
+const { theme } = Astro.props
+---
+
+<style>
+	@import '@mixins';
+
+	div {
+		@include full_background;
+
+		background: $background;
+
+		&[data-theme="dark"] {
+			background: $neutral;
+		}
+	}
+</style>
+
+<div data-theme={theme}>
+
+</div>

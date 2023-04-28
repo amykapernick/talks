@@ -1,0 +1,25 @@
+@mixin backgrounds {
+	&.grid {
+		&:before {
+			background-size: 40px 40px;
+			background-image: linear-gradient(to right, $grey_light 1px, transparent 1px),
+				linear-gradient(to bottom, $grey_light 1px, transparent 1px);
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+		}
+	}
+}
+
+@mixin full_background {	
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	display: block;
+	z-index: -5;
+}

@@ -11,13 +11,16 @@ const colours = {
 	yellow: '#ffce03',
 	orange: '#f78d2b',
 	navy: '#364c93',
-	black: '#000000',
+	black: '#080808',
 	neutral: '@black',
-	neutral_10: '#e6e6e6',
-	neutral_25: '#bfbfbf',
-	neutral_50: '#808080',
-	neutral_75: '#404040',
-	neutral_90: '#191919',
+	red_a11y: '#DC143C',
+	blue_a11y: '#0070a8',
+	cyan_a11y: '#00acbb',
+	yellow_a11y: '#FFD700',
+	green_a11y: '#228b22',
+	grey: '#4c4d4e',
+	white: '#ededed'
 }
+
 
 module.exports = formatVariables(colours)

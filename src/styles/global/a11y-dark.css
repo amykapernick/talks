@@ -1,110 +1,186 @@
-/* a11y-dark theme */
-/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
-/* @author: ericwbailey */
+/**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
 
-.hljs {
-	display: block;
-	overflow-x: auto;
+/*
+ Theme
+ */
+code[class*="language-"],
+pre[class*="language-"] {
 	color: #f8f8f2;
-	padding: 0.5em;
+	background: none;
+	font-family: $font_code;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+ 
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+ 
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
-
-.hljs.bash:before {
-	border-right: 1px solid #ededed;
-	color: grey;
-	content: '[amy@kapers.dev] $';
-	font-size: 0.5em;
-	margin-right: 1em;
-	padding-right: 1em;
+ 
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	overflow: auto;
 }
-
-/* Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #b0b0b0;
+ 
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: $neutral;
 }
-
-/* Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #EB98A9;
+ 
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
 }
-
-/* Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #EB98A9;
+ 
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #d4d0ab;
 }
-
-/* Yellow */
-.hljs-attribute {
-	color: #FFD700;
+ 
+.token.punctuation {
+	color: #fefefe;
 }
-
-/* Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #36CE36;
+ 
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #ffa07a;
 }
-
-/* Blue */
-.hljs-title,
-.hljs-section {
-	color: #00CEE0;
+ 
+.token.boolean,
+.token.number {
+	color: #00e0e0;
 }
-
-/* Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #24B6FF;
+ 
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #abe338;
 }
-
-
-
-.hljs-emphasis {
-	font-style: italic;
+ 
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #00e0e0;
 }
-
-.hljs-strong {
+ 
+.token.atrule,
+.token.attr-value,
+.token.function {
+	color: #ffd700;
+}
+ 
+.token.keyword {
+	color: #00e0e0;
+}
+ 
+.token.regex,
+.token.important {
+	color: #ffd700;
+}
+ 
+.token.important,
+.token.bold {
 	font-weight: bold;
 }
-
+.token.italic {
+	font-style: italic;
+}
+ 
+.token.entity {
+	cursor: help;
+}
+ 
+ 
+/*
+  Plugin support
+  */
+ 
+/* Line highlight */
+.line-highlight {
+	background: rgba(255, 217, 0, 0.10);
+	border-top: 1px solid rgba(255, 217, 0, 0.55);
+	border-bottom: 1px solid rgba(255, 217, 0, 0.55);
+}
+ 
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+	border-right: 1px solid #F8F8F2;
+}
+ 
+.line-numbers-rows > span:before {
+	color: #D4D0AB;
+}
+ 
+ 
+/*
+  High contrast mode support
+ */
 @media screen and (-ms-high-contrast: active) {
-
-	.hljs-addition,
-	.hljs-attribute,
-	.hljs-built_in,
-	.hljs-builtin-name,
-	.hljs-bullet,
-	.hljs-comment,
-	.hljs-link,
-	.hljs-literal,
-	.hljs-meta,
-	.hljs-number,
-	.hljs-params,
-	.hljs-string,
-	.hljs-symbol,
-	.hljs-type,
-	.hljs-quote {
-		color: #faf8ef;
+	code[class*="language-"],
+	pre[class*="language-"] {
+		color: windowText;
+		background: window;
 	}
-
-	.hljs-keyword,
-	.hljs-selector-tag {
+ 
+	:not(pre) > code[class*="language-"],
+	pre[class*="language-"] {
+		background: window;
+	}
+ 
+	.token.important {
+		background: highlight;
+		color: window;
+		font-weight: normal;
+	}
+ 
+	.token.atrule,
+	.token.attr-value,
+	.token.function,
+	.token.keyword,
+	.token.operator,
+	.token.selector {
 		font-weight: bold;
+	}
+ 
+	.token.attr-value,
+	.token.comment,
+	.token.doctype,
+	.token.function,
+	.token.keyword,
+	.token.operator,
+	.token.property,
+	.token.string {
+		color: highlight;
+	}
+ 
+	.token.attr-value,
+	.token.url {
+		font-weight: normal;
 	}
 }

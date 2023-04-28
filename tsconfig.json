@@ -13,17 +13,14 @@
 			"astro/client"
 		],
 		"paths": {
-			"@components/*": [
-			"src/components/*.astro"
+			"@slides/*": [
+			"src/slides/*.astro"
 			],
 			"@ts/*": [
 			"src/types/*"
 			],
-			"@fonts/*": [
-			"src/fonts/*"
-			],
-			"@partials/*": [
-			"src/partials/*.astro"
+			"@parts/*": [
+			"src/parts/*.astro"
 			],
 			"@img/*": [
 			"src/img/*"
@@ -36,15 +33,6 @@
 			],
 			"@utils/*": [
 			"utils/*"
-			],
-			"@layouts/*": [
-			"src/layouts/*.astro"
-			],
-			"@data/*": [
-			"_data/*"
-			],
-			"@react/*": [
-			"src/react/*"
 			]
 		},
 		"jsx": "react-jsx",

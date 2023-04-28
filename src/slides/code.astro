@@ -1,0 +1,17 @@
+---
+import Background from "@parts/background";
+---
+
+<style>
+	@import '@mixins';
+
+	section {
+		@include code;
+		color: $white;
+	}
+</style>
+
+<Background theme="dark" />
+<section>
+	<slot />
+</section>

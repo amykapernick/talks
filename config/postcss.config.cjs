@@ -1,12 +1,11 @@
 const stylelint = require(`stylelint`);
 const nesting = require(`postcss-nesting`);
 const advancedCSS = require('postcss-advanced-variables')
-const path = require('path');
+const rgbahex = require('postcss-hexrgba')
 
 const colours = require('../src/styles/config/colours.cjs')
 const variables = require('../src/styles/config/variables.cjs');
 
-console.log({ variables, colours })
 
 module.exports = {
 	plugins: [
@@ -17,12 +16,13 @@ module.exports = {
 				...variables
 			},
 		}),
+		rgbahex,
 		nesting({
 			noIsPseudoSelector: true
 		}),
-		// stylelint({
-		// 	configFile: `./config/.stylelint.config.cjs`,
-		// 	quiet: true
-		// })
+		stylelint({
+			configFile: `./config/.stylelint.config.cjs`,
+			quiet: true
+		})
 	],
 }; 

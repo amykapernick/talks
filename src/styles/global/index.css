@@ -1,1 +1,10 @@
-@import './a11y-dark.css'
+@import './font';
+@import './typo';
+@import './a11y-dark';
+@import './background';
+@import './notes';
+@import './layout';
+
+* {
+	box-sizing: border-box;
+}
