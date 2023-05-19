@@ -1,13 +1,14 @@
 ---
+import Header from '@parts/header'
 import Standard from '@slides/standard'
 import Code from '@slides/code'
 import Split from '@slides/split'
 import Quote from '@slides/quote'
 import Figure from '@slides/figure'
-import Header from '@parts/header'
+import Section from '@slides/section'
 
 interface Props {
-	type: 'standard' | 'code' | 'split' | 'quote' | 'figure'
+	type: 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section'
 }
 
 const { type = 'standard', ...props } = Astro.props
@@ -26,6 +27,9 @@ switch(type) {
 		break;
 	case 'figure':
 		Slide = Figure;
+		break;
+	case 'section':
+		Slide = Section;
 		break;
 }
 
