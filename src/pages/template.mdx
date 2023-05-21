@@ -1,0 +1,71 @@
+---
+title: Slide Template
+layout: ../../parts/layout.astro
+config: 
+  navigationMode: linear
+---
+import Slide from '@slides/slide'
+import Background from '@parts/background'
+import AmyRem from '@img/amy_rem.jpg'
+
+<Background />
+
+<Slide>
+	# {frontmatter.title}
+</Slide>
+
+<Slide>
+	This slide has words
+</Slide>
+
+<Slide type="background" image={AmyRem} />
+
+<Slide type="figure" image={AmyRem} />
+
+<Slide type="figure" image={AmyRem} caption="Here is a photo" />
+
+<Slide align="left">
+	- This slide is left aligned
+</Slide>
+
+<Slide type="code" size="small">
+	```html
+	<!-- Semantic Button -->
+	<button onclick="doSomething()">Click Me!</button>
+	```
+</Slide>
+
+<Slide styles="sections" id="toc">
+	- This slide has a section
+	- And another
+</Slide>
+
+<Slide type="section">
+	<span  slot="header">Semantic HTML and Accessibility</span>
+	
+	<Slide>
+		# {frontmatter.title}
+	</Slide>
+
+	<Slide>
+		This slide has words
+	</Slide>
+
+	<Slide type="background" image={AmyRem} />
+
+	<Slide type="figure" image={AmyRem} />
+
+	<Slide type="figure" image={AmyRem} caption="Here is a photo" />
+
+	<Slide align="left">
+		- This slide is left aligned
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<!-- Semantic Button -->
+		<button onclick="doSomething()">Click Me!</button>
+		```
+	</Slide>
+
+</Slide>

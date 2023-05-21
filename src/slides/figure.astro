@@ -1,8 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-const { image, caption } = Astro.props
-
+const { image, caption, ...args } = Astro.props
 ---
 
 <style>
@@ -11,6 +10,7 @@ const { image, caption } = Astro.props
 		margin: 0;
 		display: grid;
 		width: 100%;
+		max-width: 90vw;
 		grid-template-rows: 1fr max-content;
 		justify-self: stretch;
 		align-self: stretch;
@@ -28,9 +28,14 @@ const { image, caption } = Astro.props
 		height: 100%;
 		object-fit: contain;
 	}
+
+	figcaption {
+		font-size: 0.8em;
+		padding: 0.4em 0;
+	}
 </style>
 
-<section>
+<section {...args}>
 	<figure>
 		<div>
 			<Image {...image} loading={'eager'} />

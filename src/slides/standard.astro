@@ -1,7 +1,36 @@
 ---
-
+const { styles, ...args } = Astro.props
 ---
 
-<section>
+<style>
+	section {
+		&[data-style="sections"] {
+			font-family: $font_heading;
+			text-align: left;
+
+			& :global(ul), & :global(ol) {
+				counter-reset: parts;
+				list-style-type: none;
+
+				& :global(li) {
+					counter-increment: parts;
+					margin-bottom: 0.5em;
+
+					&::before {
+						content: 'Part ' counter(parts) ':';
+						margin-right: 1ch;
+					}
+				}
+			}
+		}
+
+		&[data-style="title"] {
+			font-family: $font_headings;
+			font-size: 2em;
+		}
+	}
+</style>
+
+<section {...args} data-style={styles}>
 	<slot />
 </section>

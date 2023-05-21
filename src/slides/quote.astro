@@ -1,5 +1,5 @@
 ---
-
+const { ...args } = Astro.props
 ---
 
 <style>
@@ -11,22 +11,23 @@
 		margin-top: 3vh;
 		position: relative;
 
-		& blockquote {
-			font-size: 0.8em;
+		& :global(blockquote) {
+			font-size: 1em;
 			margin: 0;
+			padding: 0 2vw;
 		}
 
-		& cite {
+		& :global(cite) {
 			color: $grey;
 			font-size: 1em;
 			padding: 1vh 10px 0 0;
 			padding-top: 1vh;
-			font-size: 0.3em;
-			text-align: center;
+			display: block;
+			text-align: right;
 		}
 	}
 </style>
 
-<section>
+<section {...args}>
 	<slot />
 </section>

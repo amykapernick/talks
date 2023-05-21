@@ -3,7 +3,7 @@ const formatVariables = require('../../../utils/formatVariables.cjs');
 const colours = {
 	background: '#f7f0eb',
 	blue: '#318ce7',
-	purple_dark: '#9440a0',
+	purple_bright: '#9440a0',
 	green: '#64ad66',
 	pink: '#cb5699',
 	purple: '#7561c1',

@@ -14,25 +14,25 @@
 		],
 		"paths": {
 			"@slides/*": [
-			"src/slides/*.astro"
+				"src/slides/*.astro"
 			],
 			"@ts/*": [
-			"src/types/*"
+				"src/types/*"
 			],
 			"@parts/*": [
-			"src/parts/*.astro"
+				"src/parts/*.astro"
 			],
 			"@img/*": [
-			"src/img/*"
+				"src/img/*"
 			],
 			"@pages/*": [
-			"src/pages/*.astro"
+				"src/pages/*.astro"
 			],
 			"@styles/*": [
-			"src/styles/*",
+				"src/styles/*",
 			],
 			"@utils/*": [
-			"utils/*"
+				"utils/*"
 			]
 		},
 		"jsx": "react-jsx",

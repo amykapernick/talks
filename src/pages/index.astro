@@ -1,0 +1,75 @@
+---
+const pages = await Astro.glob('../pages/**/*.mdx')
+
+type Talk = {
+	name: string
+	events: {
+		name: string
+		event: string
+		url: string
+	}[]
+}
+
+let talks: Record<string, Talk> = {}
+
+pages.forEach(({frontmatter, url}) => {
+	const name: string = frontmatter.title
+	const slug: string = url.replace(/^\//, '').split('/')[0]
+	const event: string = url.split('/').pop().replace(/-/gi, ' ')
+
+	if(!talks[slug]) {
+		talks[slug] = {
+			name: name,
+			events: []
+		}
+	}
+
+	talks[slug].events.push({
+		name,
+		event,
+		url,
+	})
+})
+
+---
+
+<style>
+	:global(html body) {
+		display: block;
+
+		& h1 {
+			font-size: 1em;
+		}
+
+		& ul {
+			font-size: 0.8em;
+			margin-left: 10vw;
+
+			& ul {
+				margin-left: 1vw;
+			}
+		}
+
+		& a {
+			color: var.$purple_bright;
+		}
+	}
+</style>
+
+<h1>Talks</h1>
+<ul>
+	{Object.values(talks).map(({name, events}) =>  (
+		<li>
+			{name}
+			<ul>
+				{events.map(({url, event}) => (
+					<li>
+						<a href={url}>
+							{event}	
+						</a>	
+					</li>
+				))}	
+			</ul>
+		</li>
+	))}
+</ul>

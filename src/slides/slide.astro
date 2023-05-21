@@ -6,12 +6,15 @@ import Split from '@slides/split'
 import Quote from '@slides/quote'
 import Figure from '@slides/figure'
 import Section from '@slides/section'
+import Background from '@slides/background'
 
 interface Props {
-	type: 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section'
+	type: 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' | 'background'
+	align?: 'left' | 'right'
+	size?: 'small'
 }
 
-const { type = 'standard', ...props } = Astro.props
+const { type = 'standard', size, align, ...props } = Astro.props
 
 let Slide = Standard
 
@@ -31,6 +34,9 @@ switch(type) {
 	case 'section':
 		Slide = Section;
 		break;
+	case 'background':
+		Slide = Background;
+		break;
 }
 
 ---
@@ -39,7 +45,7 @@ switch(type) {
 	
 </style>
 
-<Slide {...props}>
+<Slide {...props} data-align={align} data-size={size}>
 	<Header>
 		<slot name="header" />
 	</Header>

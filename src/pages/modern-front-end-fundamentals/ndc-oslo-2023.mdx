@@ -1,0 +1,448 @@
+---
+title: Modern Front End Fundamentals
+layout: ../../parts/layout.astro
+config: 
+  navigationMode: linear
+---
+import Slide from '@slides/slide'
+import Background from '@parts/background'
+import AmyRem from '@img/amy_rem.jpg'
+import HTMLReference from './img/htmlreference.png'
+import GitHubRepo from './img/github_repo.jpg'
+import Codepen from './img/codepen_html.jpg'
+
+<Background />
+
+<Slide>
+	# {frontmatter.title}
+</Slide>
+
+<Slide>
+	Grab some coffee and settle in
+</Slide>
+
+<Slide type="background" image={AmyRem} />
+
+<Slide>
+	## Workshop Rules
+</Slide>
+
+<Slide>
+	Ask Questions 🙋‍♀️
+</Slide>
+
+<Slide>
+	Talk
+</Slide>
+
+<Slide>
+	Get Comfortable
+	<div slot="notes">
+		- Grab a drink and snacks if you want them
+	</div>
+</Slide>
+
+<Slide>
+	## Intros
+</Slide>
+
+<Slide align="left">
+	- Name
+	- Role
+	- When you first learnt HTML
+	- When you last wrote HTML or CSS
+	- What do you want out of the workshop
+	- What code do you typically work with
+</Slide>
+
+<Slide styles="sections" id="toc">
+	- [Semantic HTML and Accessibility](#html_a11y)
+	- [CSS Layouts and Modern CSS](#css)
+	- [Accessibility Testing](#a11y)
+	- [UI & Snapshot Testing](#ui)
+	- [GitHub Actions](#github_actions)
+</Slide>
+
+<Slide id="html_a11y" type="section">
+	<span  slot="header">Semantic HTML and Accessibility</span>
+	<Slide>
+		## Part 1:<br/><br /> Semantic HTML and Accessibility
+	</Slide>
+
+	<Slide>
+		HTML is <mark>the foundation</mark>
+		<div slot="notes">
+			- Whether you work with React, .NET, PHP
+
+			- If you're building for the web, you're building HTML
+
+			- Unless you're using Flash, and that's a different story
+		</div>
+	</Slide>
+
+	<Slide>
+		Semantic HTML introduces meaning to content
+		<div slot="notes">
+			- Similar to what typescript does for javascript
+			
+			- A semantic element allows us to define the type of content we're using rather than it just being a generic `any` value (like a `div` or `span`)
+		</div>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<!-- Semantic Button -->
+		<button onclick="doSomething()">Click Me!</button>
+
+		<!-- Non-Semantic Button -->
+		<div class="button" id="doSomethingButton">Click Me!</div>
+		<script>
+		document.getElementById('doSomethingButton').addEventListener('click', () => {
+			doSomething();
+		});
+		</script>
+		```
+		<div slot="notes">
+			- We can technically use any generic container element
+
+			- But if we use a semantic element instead it's literally built in
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<!-- Presentational Element -->
+		<b>This text is bold</b>
+
+		<!-- Semantic Element -->
+		<strong>This text is bold, and screen readers will tell the user it's important</strong>
+		```
+
+		<div slot="notes">
+			- Not all HTML elements are semantic
+
+			- Generic container elements are fine for their own particular Unless
+
+			- Some elements are for presentational purposes only as well
+
+			- Eg. `b` and `strong` willboth make text bold by default but the strong tag will also emphasise the text for screen readers, similarly to the way increased font weight does for visual readers
+		</div>
+	</Slide>
+
+	<Slide type="figure" image={HTMLReference} caption="htmlreference.io">
+		<div slot="notes">
+			- Great resource for HTML elements
+
+			- Good visual explanation and demo with links to good documentation
+
+			- Take 5min, go through and find 5 elements you have't heard of or used before
+		</div>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<h1>Page Title</h1>
+			<p>Lorem ipsum dipsum squiggily hokey pokey.</p>
+			<a>Click here!</a> 
+			<img src="my-image.jpg"> 
+			<ul>
+				<li>List Item</li>
+			</ul> 
+			<ol>
+				<li>Numbered list item</li>
+			</ol>
+		```
+		<div slot="notes">
+			- Some elements that we won't cover as they're assumed prior knowledge
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<header> <!-- Content is here --> </header>
+
+		<main> <!-- Content is here --> </main>
+
+		<footer> <!-- Content is here --> </footer>
+		```
+		<div slot="notes">
+			- Start off with some structure landmark elements
+			
+			- Header, footer and main are typically found directly inside the body, with all page content inside them
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<article></article>
+
+		<section></section>
+
+		<aside></aside>
+
+		<nav></nav>
+		```
+		<div slot="notes">
+			- Combine these with the previous 3 and most of our generic containers can be replaced
+		</div>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<header>
+			<h1>Site Title</h1>
+			<nav>
+				<a>Menu item</a>
+			</nav>
+			<form>
+				<input name="search">
+				<button>Search</button>
+			</form>
+		</header>
+		```
+		<div slot="notes">
+			The header represents introductory content
+			
+			This may be a heading element, logo, search form and navigation menus
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<footer>
+			<p>© Copyright @amys_kapers 2021</p>
+		</footer>
+		```
+		<div slot="notes">
+			The main element represents the dominant content of the document body
+		</div>
+	</Slide>
+
+	<Slide type="code">
+		```html
+		<main>
+			<h2>Heading</h2>
+			<p>Content here</p>
+			<img src="my-image.png" />
+		</main>
+
+
+		```
+		<div slot="notes">
+			The main element represents the dominant content of the document body
+
+			Partially supported in IE, this means it doesn’t have default browser styling which you can fix by explicitly setting the `display` property on it
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<body>
+			<header></header>
+
+			<main></main>
+
+			<footer></footer>
+		</body>
+
+		```
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<article>
+			<h2>Post title</h2>
+			<p>Post content is here. It's really interesting, you should definitely keep reading</p>
+		</article>
+
+
+		```
+		<div slot="notes">
+			Article is a self contained section
+
+			Something  that can be independently distributable or reusable
+
+			For example, a blog post or a news article
+
+			Pro tip, you can even include a header and footer inside an article
+		</div>
+	</Slide>
+
+	<Slide type="code" size="mediums">
+		```html
+		<section>
+			<h2>Section Title</h2>
+			<p>This section makes sense all by itself.</p>
+			<p>But it also makes sense as part of the whole page.</p>
+		</section>
+
+		```
+		<div slot="notes">
+			Similiar to the article element
+
+			Represents a self contained section
+		</div>
+	</Slide>
+
+	<Slide type="code">
+		```html
+		<aside>
+			<p>This content is related to the article it's in, and is probably off to the side of the page.</p>
+		</aside>
+
+		```
+	</Slide>
+
+	<Slide type="code">
+		```html
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</nav>
+
+		```
+	</Slide>
+
+	<Slide>
+		## ARIA <small>Accessible Rich Internet Applications</small>
+
+		<div slot="notes">
+			- When building things accessibly we often turn to using ARIA attributes
+
+			- ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<div role="header"> </div>
+
+		<div role="button" aria-label="Click me"> </div>
+
+		<div aria-hidden> </div>
+		```
+
+		<div slot="notes">
+			- `aria-label` and `role`
+
+			- `aria-hidden` and `aria-invalid`
+
+			- Includes a bunch of states and properties we can use to provide information for screen readers and assistive technologies
+
+			- And while it is good to have this ability, a lot of this has been baked into HTML
+		</div>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html	
+		<div class="nav_menu" role="navigation">
+			<!-- Navigation links go here -->
+		</div>
+
+		<nav>
+			<!-- Navigation links go here -->
+		</nav>
+		```
+	</Slide>
+
+
+	<Slide type="quote">
+		<blockquote>
+			**First rule of ARIA use**: If you can use a native HTML element with the semantics and behavour **already built in**, instead of repurposing an element and adding an ARIA role, state or property **then do so**.
+
+			<cite>W3C ARIA Guidelines</cite>
+		</blockquote>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<!-- Linking a label and input using the `for` and `id` attributes -->
+		<label for="firstname_field">First Name</label>
+		<input id="firstname_field" name="first_name" />
+
+		<!-- Linking a generic or un-described link with a label -->
+		<h2 id="html_and_a11y">Semantic HTML and Accessibility</h2>
+		<p>
+			To get started we're looking at HTML which is the foundation of the web...
+			<a href="/html-and-a11y" aria-labelledby="html_and_a11y">Read more</a>
+		</p>
+		```
+
+		<div slot="notes">
+			- Most often use I find I need an ARIA attribute (which is still hardly ever) is `aria-labelledby`
+
+			- Allows linking an element with a label that exists somewhere else in the DOM
+
+			- Similar to linking a form input and the label, but the id and attribute are the other way around
+		</div>
+	</Slide>
+
+
+	<Slide type="figure" image={GitHubRepo} caption="kapers.dev/workshop">
+		<div slot="notes">
+			- This is the repo we're working from
+			
+			- Includes the app and examples/instructions for each section of the workshop
+		</div>
+	</Slide>
+
+
+	<Slide type="figure" image={Codepen} caption="kapers.dev/workshop-semantichtml">
+		<div slot="notes">
+			- For this morning we're using this Codepen to build out the examples
+		</div>
+	</Slide>
+</Slide>
+
+<Slide styles="title">
+	Lunch Time 🍔!
+</Slide>
+
+<Slide id="css" type="section">
+	<Slide>
+		## CSS Layouts and Modern CSS
+	</Slide>
+
+	<Slide>
+		- CSS Grid
+		- Flexbox
+		- Floats
+
+		<div slot="notes">
+			Today we'll be going through 3 different CSS properties and using them for layouts
+			
+			CSS grid is great for two dimensional layouts, and laying out the whole page
+			
+			Flexbox is great to use as a fallback for CSS Grid, and is also really useful for flowing content in one direction
+			
+			And although they get a bad reputation, floats still have a place in modern layouts, so we're going to go through where you can use them as well
+
+		</div>
+	</Slide>
+
+	<Slide>
+		File: `./styles/main.css`
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		/* stylelint-disable at-rule-empty-line-before, csstools/use-nesting, comment-empty-line-before */
+
+		/* Flexbox */
+
+		/* CSS Grid */
+
+		/* Floats */
+
+		/* Columns */
+
+		/* Calendar */
+
+		```
+	</Slide>
+</Slide>
+
+<Slide styles="title">
+	Day 1 Completed 🥳
+</Slide>

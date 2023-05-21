@@ -4,6 +4,7 @@
 @import './background';
 @import './notes';
 @import './layout';
+@import './code';
 
 * {
 	box-sizing: border-box;

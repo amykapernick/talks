@@ -1,5 +1,7 @@
 ---
 import Background from "@parts/background";
+
+const { ...args } = Astro.props
 ---
 
 <style>
@@ -12,6 +14,6 @@ import Background from "@parts/background";
 </style>
 
 <Background theme="dark" />
-<section>
+<section {...args}>
 	<slot />
 </section>

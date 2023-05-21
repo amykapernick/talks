@@ -6,6 +6,10 @@ const { theme } = Astro.props
 	@import '@mixins';
 
 	div {
+		&:not(:has(+ section.present)) {
+			background: none;
+		}
+
 		@include full_background;
 
 		background: $background;

@@ -4,7 +4,7 @@ export interface Props {
 	split?: ('dark' | 'light')[]
 }
 
-const { dir = 'horizontal', split = ['dark', 'light'] } = Astro.props
+const { dir = 'horizontal', split = ['dark', 'light'], ...args } = Astro.props
 
 ---
 
@@ -70,6 +70,6 @@ const { dir = 'horizontal', split = ['dark', 'light'] } = Astro.props
 	}
 </style>
 
-<section data-direction={dir} data-split={split.join(',')}>
+<section  {...args} data-direction={dir} data-split={split.join(',')}>
 	<slot />
 </section>

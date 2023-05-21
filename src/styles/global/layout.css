@@ -16,6 +16,55 @@ body {
 			position: static;
 			width: 100%;
 			max-height: 100%;
+
+			&.stack.stack, &.present.present {
+				padding-bottom: $footer_height;
+			}
+
+			& > section {
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				position: static;
+				width: 100%;
+				max-height: 100%;
+
+				&.present.present {
+					padding-bottom: $footer_height;
+				}
+			}
+
+			&:has(> header) {
+				& > section {
+					padding-top: $header_height;
+				}
+			}
+		}
+
+		& section {
+			&[data-align="left"] {
+				text-align: left;
+			}
+
+			&[data-align="right"] {
+				text-align: right;
+			}
+
+			&[data-size="small"] {
+				& * {
+					font-size: 4vh;
+				}
+			}
+
+			&[data-size="medium"] {
+				& * {
+					font-size: 6vh;
+				}
+			}
+
+			& ul {
+				text-align: left;
+			}
 		}
 	}
 }
