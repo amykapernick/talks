@@ -5,6 +5,9 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
 	site: 'https://talks.amyskapers.dev',
+	server: {
+		port: 1234
+	},
 	vite: {
 		css: {
 			postcss: `./config`

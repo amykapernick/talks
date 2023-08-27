@@ -1,0 +1,100 @@
+---
+title: Modern Front End Fundamentals
+layout: ../../parts/layout.astro
+config: 
+  navigationMode: linear
+---
+import Slide from '@slides/slide'
+import Background from '@parts/background'
+import AmyRem from '@img/amy_rem.jpg'
+import HTMLReference from './img/htmlreference.png'
+import GitHubRepo from './img/github_repo.jpg'
+import Codepen from './img/codepen_html.jpg'
+
+<Background />
+
+<Slide>
+	# {frontmatter.title}
+</Slide>
+
+<Slide>
+	Grab some coffee and settle in
+</Slide>
+
+<Slide type="background" image={AmyRem} />
+
+<Slide>
+	## Workshop Rules
+</Slide>
+
+<Slide>
+	Ask Questions 🙋‍♀️
+</Slide>
+
+<Slide>
+	Talk
+</Slide>
+
+<Slide>
+	Get Comfortable
+	<div slot="notes">
+		- Grab a drink and snacks if you want them
+	</div>
+</Slide>
+
+<Slide>
+	## Intros
+</Slide>
+
+<Slide align="left">
+	- Name
+	- Role
+	- When you first learnt HTML
+	- When you last wrote HTML or CSS
+	- What do you want out of the workshop
+	- What code do you typically work with
+</Slide>
+
+<Slide>
+	## CSS Layouts and Modern CSS
+</Slide>
+
+<Slide>
+	- CSS Grid
+	- Flexbox
+	- Floats
+
+	<div slot="notes">
+		Today we'll be going through 3 different CSS properties and using them for layouts
+		
+		CSS grid is great for two dimensional layouts, and laying out the whole page
+		
+		Flexbox is great to use as a fallback for CSS Grid, and is also really useful for flowing content in one direction
+		
+		And although they get a bad reputation, floats still have a place in modern layouts, so we're going to go through where you can use them as well
+	</div>
+</Slide>
+
+<Slide>
+	File: `./styles/main.css`
+</Slide>
+
+<Slide type="code" size="small">
+	```css
+	/* stylelint-disable at-rule-empty-line-before, csstools/use-nesting, comment-empty-line-before */
+
+	/* Flexbox */
+
+	/* CSS Grid */
+
+	/* Floats */
+
+	/* Columns */
+
+	/* Calendar */
+
+	```
+
+	<div slot="notes">
+	</div>
+</Slide>
