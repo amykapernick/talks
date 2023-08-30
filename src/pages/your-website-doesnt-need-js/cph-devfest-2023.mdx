@@ -185,11 +185,36 @@ import NoJS from './img/no-js.svg'
 </Slide>
 
 <Slide styles="list">
+	- Nesting
 	- Range Slider
 	- Testimonials
 	- Toggle Switch
 	- Image Carousel
 </Slide>
+
+<Slide>
+	## Nesting
+</Slide>
+
+<Slide type="code" size="small">
+	```css
+	div {
+		& p {
+			color: red;
+		}
+	}
+	```
+</Slide>
+
+<Slide 
+	type="browsers"
+	browsers={{chrome: '2023', edge: '2023', safari: '2023', firefox: '2023'}}
+>
+	<div slot="notes">
+		`nesting`
+	</div>
+</Slide>
+
 
 <Slide>
 	## Range Slider
@@ -418,6 +443,10 @@ import NoJS from './img/no-js.svg'
 		- Just don't do this, use a gallery
 		- `:has` not supported in Firefox
 	</div>
+</Slide>
+
+<Slide>
+	nojs.amyskapers.dev
 </Slide>
 
 <Slide>

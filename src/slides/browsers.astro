@@ -1,10 +1,22 @@
 ---
-import SVG from '@parts/svg'
+import Chrome from '@img/browsers/chrome.svg'
+import Firefox from '@img/browsers/firefox.svg'
+import Edge from '@img/browsers/edge.svg'
+import IE from '@img/browsers/ie.svg'
+import Safari from '@img/browsers/safari.svg'
 
 type Browser = 'chrome' | 'edge' | 'firefox' | 'ie' | 'safari'
 
 interface Props {
 	browsers: Record<Browser, string>
+}
+
+const BrowserIcons: Record<Browser, ImageMetadata> = {
+	chrome: Chrome,
+	edge: Edge,
+	firefox: Firefox,
+	ie: IE,
+	safari: Safari
 }
 
 const { browsers, ...args } = Astro.props
@@ -16,8 +28,11 @@ const { browsers, ...args } = Astro.props
 		grid-template-columns: repeat(var(--cols), 1fr);
 		grid-template-rows: auto auto;
 		text-align: center;
+		grid-column-gap: 20px;
+		max-width: 90%;
+		margin: 0 auto;
 
-		& :global(svg) {
+		& img {
 			width: 100%;
 			height: auto;
 		}
@@ -35,7 +50,7 @@ const { browsers, ...args } = Astro.props
 <section {...args}>
 	<dl>
 		{Object.entries(browsers).map(([name, values]) => (
-			<dt><SVG name={`browsers/${name}`} /></dt>
+			<dt><img src={BrowserIcons[name]?.src} /></dt>
 			<dd>{values}</dd>
 		))}
 	</dl>
