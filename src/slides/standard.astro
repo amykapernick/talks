@@ -24,6 +24,14 @@ const { styles, ...args } = Astro.props
 			}
 		}
 
+		&[data-style="list"] {
+			text-align: left;
+
+			& :global(li) {
+				margin-bottom: 0.5em;
+			}
+		}
+
 		&[data-style="title"] {
 			font-family: $font_headings;
 			font-size: 2em;

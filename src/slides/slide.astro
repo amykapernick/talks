@@ -7,37 +7,30 @@ import Quote from '@slides/quote'
 import Figure from '@slides/figure'
 import Section from '@slides/section'
 import Background from '@slides/background'
+import Browsers from '@slides/browsers'
+
+type SlideType = 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' | 'background' | 'browsers'
 
 interface Props {
-	type: 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' | 'background'
-	align?: 'left' | 'right'
-	size?: 'small'
+	type: SlideType;
+	align?: 'left' | 'right';
+	size?: 'small' | 'medium';
 }
 
 const { type = 'standard', size, align, ...props } = Astro.props
 
-let Slide = Standard
-
-switch(type) {
-	case 'code':
-		Slide = Code;
-		break;
-	case 'split':
-		Slide = Split;
-		break;
-	case 'quote':
-		Slide = Quote;
-		break;
-	case 'figure':
-		Slide = Figure;
-		break;
-	case 'section':
-		Slide = Section;
-		break;
-	case 'background':
-		Slide = Background;
-		break;
+const SlideTypes: Record<SlideType, any> = {
+	code: Code,
+	split: Split,
+	quote: Quote,
+	figure: Figure,
+	section: Section,
+	background: Background,
+	browsers: Browsers,
+	standard: Standard
 }
+
+const SlideComponent = SlideTypes[type] || Standard
 
 ---
 
@@ -45,7 +38,7 @@ switch(type) {
 	
 </style>
 
-<Slide {...props} data-align={align} data-size={size}>
+<SlideComponent {...props} data-align={align} data-size={size}>
 	<Header>
 		<slot name="header" />
 	</Header>
@@ -53,4 +46,4 @@ switch(type) {
 	<aside class="notes" data-markdown>
 		<slot name="notes" />
 	</aside>
-</Slide>
+</SlideComponent>

@@ -1,3 +1,6 @@
+---
+const links: string[] = Astro.props?.footer || ['@amys_kapers@hachyderm.io', '@amys_kapers']
+---
 
 <style>
 	footer {
@@ -16,6 +19,7 @@
 </style>
 
 <footer>
-	<span>@amys_kapers@hachyderm.io</span>
-	<span>@amys_kapers</span>
+	{links.map(link => (
+		<span>{link}</span>
+	))}
 </footer>

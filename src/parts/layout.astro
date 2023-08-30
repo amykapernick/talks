@@ -6,9 +6,7 @@ import Footer from "@parts/footer";
 import 'reveal.js/dist/reveal.css'
 import "@styles/main.css";
 
-const { title, config } = Astro.props.frontmatter
-
-console.log({config})
+const { title, config, footer } = Astro.props.frontmatter
 
 ---
 
@@ -67,6 +65,6 @@ console.log({config})
 			</div>
 		</main>
 		
-		<Footer />
+		<Footer {footer} />
 	</body>
 </html>

@@ -1,0 +1,42 @@
+---
+import SVG from '@parts/svg'
+
+type Browser = 'chrome' | 'edge' | 'firefox' | 'ie' | 'safari'
+
+interface Props {
+	browsers: Record<Browser, string>
+}
+
+const { browsers, ...args } = Astro.props
+---
+
+<style define:vars={{cols: Object.entries(browsers).length}}>
+	dl {
+		display: grid;
+		grid-template-columns: repeat(var(--cols), 1fr);
+		grid-template-rows: auto auto;
+		text-align: center;
+
+		& :global(svg) {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	dt {
+		grid-row-start: 1;
+	}
+
+	dd {
+		grid-row-start: 2;
+	}
+</style>
+
+<section {...args}>
+	<dl>
+		{Object.entries(browsers).map(([name, values]) => (
+			<dt><SVG name={`browsers/${name}`} /></dt>
+			<dd>{values}</dd>
+		))}
+	</dl>
+</section>
