@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<script>
+	import Reveal from 'reveal.js'
+	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import revealDefaults from '../../config/revealjs.config.cjs'
+
+	const overrideConfig = JSON.parse(document.querySelector('body').getAttribute('data-config') ) || {}
+
+	console.log({overrideConfig})
+
+	const deck = new Reveal({
+		...revealDefaults,
+		plugins: [
+			Markdown,
+			Notes,
+		],
+		...overrideConfig
+	})
+
+	deck.initialize();
+
+	deck.on('slidechanged', function (event) {
+		// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+		if (event.currentSlide.attributes['data-full']) {
+			const container = event.currentSlide.parentElement
+			container.style.width = '100vw';
+			container.style.height = '100vh';
+			container.style.transform = 'translate(-50%, -50%) scale(1)'
+		}
+	})
+</script>
+
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<title>Modern WordPress Dev</title>
+	<link rel="stylesheet" href="/_astro/cph-devfest-2023.2e977e42.css" /></head>
+
+	<body>
+		
+
+<header class="astro-43BVCJ6M">
+	
+			
+		
+</header>
+
+		<main class="reveal">
+			<div class="slides">
+				
+
+<div class="astro-NBTB2M2V">
+
+</div>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		<span>Header</span>
+	
+</header>
+	<h1 id="wordpress-for-the-modern-web-developer">WordPress for the Modern Web Developer</h1>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+			</div>
+		</main>
+		
+		
+
+<footer class="astro-NFHJKLIF">
+	<span class="astro-NFHJKLIF">@amys_kapers@hachyderm.io</span><span class="astro-NFHJKLIF">@amys_kapers</span>
+</footer>
+	</body></html>

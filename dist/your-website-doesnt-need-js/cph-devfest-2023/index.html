@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<script>
+	import Reveal from 'reveal.js'
+	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import revealDefaults from '../../config/revealjs.config.cjs'
+
+	const overrideConfig = JSON.parse(document.querySelector('body').getAttribute('data-config') ) || {}
+
+	console.log({overrideConfig})
+
+	const deck = new Reveal({
+		...revealDefaults,
+		plugins: [
+			Markdown,
+			Notes,
+		],
+		...overrideConfig
+	})
+
+	deck.initialize();
+
+	deck.on('slidechanged', function (event) {
+		// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+		if (event.currentSlide.attributes['data-full']) {
+			const container = event.currentSlide.parentElement
+			container.style.width = '100vw';
+			container.style.height = '100vh';
+			container.style.transform = 'translate(-50%, -50%) scale(1)'
+		}
+	})
+</script>
+
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<title>Your Website does not need JavaScript</title>
+	<link rel="stylesheet" href="/_astro/cph-devfest-2023.2e977e42.css" /></head>
+
+	<body data-config="{&#34;navigationMode&#34;:&#34;linear&#34;}">
+		
+
+<header class="astro-43BVCJ6M">
+	
+			
+		
+</header>
+
+		<main class="reveal">
+			<div class="slides">
+				
+
+<div class="astro-NBTB2M2V">
+
+</div>
+
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="120" height="60" src="/_astro/no-js.ed6925f5_Z1K8TdU.svg" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">Your Website does not need JavaScript</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-N676EAZF">
+	<img class="astro-N676EAZF" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_20wIzF.jpg" loading="eager" decoding="async">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>JS is useful<br/> <small class="fragment">but often overused</small></p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>HTML &amp; CSS are lighter</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="list">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>No JS</li>
+<li>No build tools</li>
+<li>No npm packages</li>
+<li>Just HTML &amp; CSS</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="html-tricks">HTML Tricks</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="list">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>Content Targeting</li>
+<li>Accordians</li>
+<li>Form Validations</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h3 id="content-targeting">Content Targeting</h3>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Links to another page or website --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/about<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Other page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://google.com<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Other website<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- A File or Resource --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/img/my_image.jpg<span class="token punctuation">&quot;</span></span> <span class="token attr-name">download</span><span class="token punctuation">&gt;</span></span>Download Image<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/resources/info.pdf<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>View PDF<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- An ID --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Skip to main content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/about#contact<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Contact the team<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-css"><code class="language-css"><span class="token selector">.my_element:target</span> <span class="token punctuation">{</span>
+	<span class="token property">background</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo to show page sections</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p>:target</p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>This involves working with URL hash values and not a great alternative most of the time</li>
+<li>Not great for accessibility</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h3 id="accordians">Accordians</h3>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">&gt;</span></span>This bit is clickable to expand/collapse<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>This content is hidden but can then be expanded or re-collapsed.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Switch to live demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p>details and summary elements</p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>These are good</li>
+<li>When not supported they display as open</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h3 id="form-validations">Form Validations</h3>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="list">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Required Fields</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section side="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span> <span class="token attr-name">required</span> <span class="token punctuation">/&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Data Format</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>due_date<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tel<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>phone<span class="token punctuation">&quot;</span></span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>[0-9]{3}-[0-9]{3}-[0-9]{4}<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to form and show validations and formats</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>input[type=&quot;tel&quot;]</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>[pattern]</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Limited validation capabilities</li>
+<li>JS adds more powerful capabilities</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="css-tricks">CSS Tricks</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="list">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>Nesting</li>
+<li>Range Slider</li>
+<li>Testimonials</li>
+<li>Toggle Switch</li>
+<li>Image Carousel</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="nesting">Nesting</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+	<span class="token selector">&amp; p</span> <span class="token punctuation">{</span>
+		<span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p>nesting</p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="range-slider">Range Slider</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>range<span class="token punctuation">&quot;</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>range<span class="token punctuation">&quot;</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span> <span class="token attr-name">list</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>options<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>datalist</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>options<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Not good<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>5<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>🤷‍♀️<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Stupendous<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>datalist</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>input[type=&quot;range&quot;]</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>datalist</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>:has</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="testimonials">Testimonials</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>t_1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>testimonials<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>t_1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Quote 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blockquote</span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!-- Quote here --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blockquote</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-css"><code class="language-css"><span class="token selector">div:has(p:nth-child(4))</span> <span class="token punctuation">{</span>
+	<span class="token property">--children</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">div:has(p:nth-child(5))</span> <span class="token punctuation">{</span>
+	<span class="token property">--children</span><span class="token punctuation">:</span> 5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>:has</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>:not</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>grid</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Messing with form inputs for not forms isn’t great</li>
+<li>Would recommend adding some <code>aria</code> labels and roles to give more information</li>
+<li>May be confusing for why people are clicking radio buttons to change testimonials</li>
+<li><code>:has</code> not supported in Firefox</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="toggle-switch">Toggle Switch</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toggle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>off<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>switch<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>off<span class="token punctuation">&quot;</span></span> <span class="token attr-name">checked</span> <span class="token punctuation">/&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>off<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Off<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>on<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>switch<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>on<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>on<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>On<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>switch<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>
+	<span class="token atrule"><span class="token rule">@media</span><span class="token punctuation">(</span><span class="token property">prefers-color-scheme</span><span class="token punctuation">:</span> dark<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+		<span class="token property">--background</span><span class="token punctuation">:</span> #0d0d0d<span class="token punctuation">;</span>
+		<span class="token property">--neutral</span><span class="token punctuation">:</span> #f7f0eb<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>:has</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>prefers-color-scheme</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Similar to testimonials not great for a11y as using form inputs outside a form</li>
+<li>Would recommend adding <code>aria</code> labels to provide additional context</li>
+<li>Adding JS allows triggering a more complex function and saving the value to persist on different pages and on reload</li>
+<li><code>:has</code> not supported in Firefox</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="image-carousel">Image Carousel</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>images<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>i_1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>img_1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">checked</span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>img_1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Image 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>image<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>img_1.jpg<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Go to demo</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 5;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>grid</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-ZKLR5RBR" style="--cols: 4;">
+	<dl class="astro-ZKLR5RBR">
+		
+	</dl>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><p><code>:has</code></p></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Full Disclosure…</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Carousels still suck</li>
+<li>Not good for accessibility</li>
+<li>Should turn animation off based on media querry for <code>prefers-reduced-motion</code></li>
+<li>Just don’t do this, use a gallery</li>
+<li><code>:has</code> not supported in Firefox</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>nojs.amyskapers.dev</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>JS is useful <small class="fragment">but not the answer</small></p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Can you do it with HTML?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Can you do it with CSS?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Can JS make it better?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Can some JS be removed?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Do we <em>really</em> need to track this?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Questions?</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Thank You👏</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+			</div>
+		</main>
+		
+		
+
+<footer class="astro-NFHJKLIF">
+	<span class="astro-NFHJKLIF">@amyskapers.dev</span><span class="astro-NFHJKLIF">@amys_kapers</span>
+</footer>
+	</body></html>

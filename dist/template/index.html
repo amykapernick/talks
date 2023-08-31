@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<script>
+	import Reveal from 'reveal.js'
+	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import revealDefaults from '../../config/revealjs.config.cjs'
+
+	const overrideConfig = JSON.parse(document.querySelector('body').getAttribute('data-config') ) || {}
+
+	console.log({overrideConfig})
+
+	const deck = new Reveal({
+		...revealDefaults,
+		plugins: [
+			Markdown,
+			Notes,
+		],
+		...overrideConfig
+	})
+
+	deck.initialize();
+
+	deck.on('slidechanged', function (event) {
+		// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+		if (event.currentSlide.attributes['data-full']) {
+			const container = event.currentSlide.parentElement
+			container.style.width = '100vw';
+			container.style.height = '100vh';
+			container.style.transform = 'translate(-50%, -50%) scale(1)'
+		}
+	})
+</script>
+
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<title>Slide Template</title>
+	<link rel="stylesheet" href="/_astro/cph-devfest-2023.2e977e42.css" /></head>
+
+	<body data-config="{&#34;navigationMode&#34;:&#34;linear&#34;}">
+		
+
+<header class="astro-43BVCJ6M">
+	
+			
+		
+</header>
+
+		<main class="reveal">
+			<div class="slides">
+				
+
+<div class="astro-NBTB2M2V">
+
+</div>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h1 id="slide-template">Slide Template</h1>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>This slide has words</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-N676EAZF">
+	<img class="astro-N676EAZF" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_20wIzF.jpg" loading="eager" decoding="async">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_1TJy7e.jpg" loading="eager" decoding="async">
+		</div>
+		
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_1TJy7e.jpg" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">Here is a photo</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section data-align="left" class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>This slide is left aligned</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Semantic Button --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>Click Me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section id="toc" class="astro-4F3IN7SP" data-style="sections">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>This slide has a section</li>
+<li>And another</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+<section>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		<span>Semantic HTML and Accessibility</span>
+	
+</header>
+	
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h1 id="slide-template-1">Slide Template</h1>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>This slide has words</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-N676EAZF">
+	<img class="astro-N676EAZF" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_20wIzF.jpg" loading="eager" decoding="async">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_1TJy7e.jpg" loading="eager" decoding="async">
+		</div>
+		
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_1TJy7e.jpg" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">Here is a photo</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section data-align="left" class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>This slide is left aligned</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Semantic Button --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>Click Me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+			</div>
+		</main>
+		
+		
+
+<footer class="astro-NFHJKLIF">
+	<span class="astro-NFHJKLIF">@amys_kapers@hachyderm.io</span><span class="astro-NFHJKLIF">@amys_kapers</span>
+</footer>
+	</body></html>

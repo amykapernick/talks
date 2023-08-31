@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<script>
+	import Reveal from 'reveal.js'
+	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import revealDefaults from '../../config/revealjs.config.cjs'
+
+	const overrideConfig = JSON.parse(document.querySelector('body').getAttribute('data-config') ) || {}
+
+	console.log({overrideConfig})
+
+	const deck = new Reveal({
+		...revealDefaults,
+		plugins: [
+			Markdown,
+			Notes,
+		],
+		...overrideConfig
+	})
+
+	deck.initialize();
+
+	deck.on('slidechanged', function (event) {
+		// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+		if (event.currentSlide.attributes['data-full']) {
+			const container = event.currentSlide.parentElement
+			container.style.width = '100vw';
+			container.style.height = '100vh';
+			container.style.transform = 'translate(-50%, -50%) scale(1)'
+		}
+	})
+</script>
+
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<title>Modern Front End Fundamentals</title>
+	<link rel="stylesheet" href="/_astro/cph-devfest-2023.2e977e42.css" /></head>
+
+	<body data-config="{&#34;navigationMode&#34;:&#34;linear&#34;}">
+		
+
+<header class="astro-43BVCJ6M">
+	
+			
+		
+</header>
+
+		<main class="reveal">
+			<div class="slides">
+				
+
+<div class="astro-NBTB2M2V">
+
+</div>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h1 id="modern-front-end-fundamentals">Modern Front End Fundamentals</h1>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Grab some coffee and settle in</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-N676EAZF">
+	<img class="astro-N676EAZF" width="2210" height="1657" src="/_astro/amy_rem.d08ce203_20wIzF.jpg" loading="eager" decoding="async">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="workshop-rules">Workshop Rules</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Ask Questions 🙋‍♀️</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Talk</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Get Comfortable</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Grab a drink and snacks if you want them</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="intros">Intros</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section data-align="left" class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>Name</li>
+<li>Role</li>
+<li>When you first learnt HTML</li>
+<li>When you last wrote HTML or CSS</li>
+<li>What do you want out of the workshop</li>
+<li>What code do you typically work with</li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section id="toc" class="astro-4F3IN7SP" data-style="sections">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li><a href="#html_a11y">Semantic HTML and Accessibility</a></li>
+<li><a href="#css">CSS Layouts and Modern CSS</a></li>
+<li><a href="#a11y">Accessibility Testing</a></li>
+<li><a href="#ui">UI &amp; Snapshot Testing</a></li>
+<li><a href="#github_actions">GitHub Actions</a></li>
+</ul>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+<section>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		<span>Semantic HTML and Accessibility</span>
+	
+</header>
+	
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="part-1-semantic-html-and-accessibility">Part 1:<br/><br/> Semantic HTML and Accessibility</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>HTML is <mark>the foundation</mark></p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Whether you work with React, .NET, PHP</p>
+</li>
+<li>
+<p>If you’re building for the web, you’re building HTML</p>
+</li>
+<li>
+<p>Unless you’re using Flash, and that’s a different story</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Semantic HTML introduces meaning to content</p>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Similar to what typescript does for javascript</p>
+</li>
+<li>
+<p>A semantic element allows us to define the type of content we’re using rather than it just being a generic <code>any</code> value (like a <code>div</code> or <code>span</code>)</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Semantic Button --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>Click Me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- Non-Semantic Button --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>doSomethingButton<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Click Me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&#39;doSomethingButton&#39;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&#39;click&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>We can technically use any generic container element</p>
+</li>
+<li>
+<p>But if we use a semantic element instead it’s literally built in</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Presentational Element --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>This text is bold<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- Semantic Element --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">&gt;</span></span>This text is bold, and screen readers will tell the user it&#39;s important<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Not all HTML elements are semantic</p>
+</li>
+<li>
+<p>Generic container elements are fine for their own particular Unless</p>
+</li>
+<li>
+<p>Some elements are for presentational purposes only as well</p>
+</li>
+<li>
+<p>Eg. <code>b</code> and <code>strong</code> willboth make text bold by default but the strong tag will also emphasise the text for screen readers, similarly to the way increased font weight does for visual readers</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="1208" height="552" src="/_astro/htmlreference.3576bd04_Z2apcNr.png" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">htmlreference.io</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Great resource for HTML elements</p>
+</li>
+<li>
+<p>Good visual explanation and demo with links to good documentation</p>
+</li>
+<li>
+<p>Take 5min, go through and find 5 elements you have’t heard of or used before</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Page Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Lorem ipsum dipsum squiggily hokey pokey.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token punctuation">&gt;</span></span>Click here!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> 
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-image.jpg<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span> 
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>List Item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span> 
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Numbered list item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Some elements that we won’t cover as they’re assumed prior knowledge</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- Content is here --&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- Content is here --&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- Content is here --&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Start off with some structure landmark elements</p>
+</li>
+<li>
+<p>Header, footer and main are typically found directly inside the body, with all page content inside them</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>aside</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>Combine these with the previous 3 and most of our generic containers can be replaced</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Site Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token punctuation">&gt;</span></span>Menu item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>search<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Search<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><p>The header represents introductory content</p><p>This may be a heading element, logo, search form and navigation menus</p></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>© Copyright @amys_kapers 2021<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><p>The main element represents the dominant content of the document body</p></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Content here<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-image.png<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+	<aside class="notes" data-markdown>
+		<div><p>The main element represents the dominant content of the document body</p><p>Partially supported in IE, this means it doesn’t have default browser styling which you can fix by explicitly setting the <code>display</code> property on it</p></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Post title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Post content is here. It&#39;s really interesting, you should definitely keep reading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+	<aside class="notes" data-markdown>
+		<div><p>Article is a self contained section</p><p>Something  that can be independently distributable or reusable</p><p>For example, a blog post or a news article</p><p>Pro tip, you can even include a header and footer inside an article</p></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="mediums" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Section Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>This section makes sense all by itself.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>But it also makes sense as part of the whole page.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		<div><p>Similiar to the article element</p><p>Represents a self contained section</p></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>This content is related to the article it&#39;s in, and is probably off to the side of the page.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>aside</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/about<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/contact<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Contact<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="aria-accessible-rich-internet-applications">ARIA <small>Accessible Rich Internet Applications</small></h2>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>When building things accessibly we often turn to using ARIA attributes</p>
+</li>
+<li>
+<p>ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Click me<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">aria-hidden</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p><code>aria-label</code> and <code>role</code></p>
+</li>
+<li>
+<p><code>aria-hidden</code> and <code>aria-invalid</code></p>
+</li>
+<li>
+<p>Includes a bunch of states and properties we can use to provide information for screen readers and assistive technologies</p>
+</li>
+<li>
+<p>And while it is good to have this ability, a lot of this has been baked into HTML</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="medium" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>nav_menu<span class="token punctuation">&quot;</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>navigation<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!-- Navigation links go here --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!-- Navigation links go here --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-7SGUVRBX">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<blockquote><p><strong>First rule of ARIA use</strong>: If you can use a native HTML element with the semantics and behavour <strong>already built in</strong>, instead of repurposing an element and adding an ARIA role, state or property <strong>then do so</strong>.</p><cite>W3C ARIA Guidelines</cite></blockquote>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Linking a label and input using the `for` and `id` attributes --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>firstname_field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>First Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>firstname_field<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>first_name<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">&lt;!-- Linking a generic or un-described link with a label --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>html_and_a11y<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Semantic HTML and Accessibility<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+	To get started we&#39;re looking at HTML which is the foundation of the web...
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/html-and-a11y<span class="token punctuation">&quot;</span></span> <span class="token attr-name">aria-labelledby</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>html_and_a11y<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Read more<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>Most often use I find I need an ARIA attribute (which is still hardly ever) is <code>aria-labelledby</code></p>
+</li>
+<li>
+<p>Allows linking an element with a label that exists somewhere else in the DOM</p>
+</li>
+<li>
+<p>Similar to linking a form input and the label, but the id and attribute are the other way around</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="1788" height="755" src="/_astro/github_repo.690135b3_1DTi7d.jpg" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">kapers.dev/workshop</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>
+<p>This is the repo we’re working from</p>
+</li>
+<li>
+<p>Includes the app and examples/instructions for each section of the workshop</p>
+</li>
+</ul></div>
+	</aside>
+
+</section>
+
+
+
+<section class="astro-B4HNT3KI">
+	<figure class="astro-B4HNT3KI">
+		<div class="astro-B4HNT3KI">
+			<img class="astro-B4HNT3KI" width="1788" height="865" src="/_astro/codepen_html.b95e43de_1dyLNz.jpg" loading="eager" decoding="async">
+		</div>
+		<figcaption class="astro-B4HNT3KI">kapers.dev/workshop-semantichtml</figcaption>
+	</figure>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+	<aside class="notes" data-markdown>
+		<div><ul>
+<li>For this morning we’re using this Codepen to build out the examples</li>
+</ul></div>
+	</aside>
+
+</section>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="title">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Lunch Time 🍔!</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+<section>
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<h2 id="css-layouts-and-modern-css">CSS Layouts and Modern CSS</h2>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<ul>
+<li>CSS Grid</li>
+<li>Flexbox</li>
+<li>Floats</li>
+</ul>
+	<aside class="notes" data-markdown>
+		<div><p>Today we’ll be going through 3 different CSS properties and using them for layouts</p><p>CSS grid is great for two dimensional layouts, and laying out the whole page</p><p>Flexbox is great to use as a fallback for CSS Grid, and is also really useful for flowing content in one direction</p><p>And although they get a bad reputation, floats still have a place in modern layouts, so we’re going to go through where you can use them as well</p></div>
+	</aside>
+
+</section>
+
+
+
+<section class="astro-4F3IN7SP">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>File: <code>./styles/main.css</code></p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+
+<div data-theme="dark" class="astro-NBTB2M2V">
+
+</div>
+<section data-size="small" class="astro-HRXFYG4R">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<pre class="language-css"><code class="language-css"><span class="token comment">/* stylelint-disable at-rule-empty-line-before, csstools/use-nesting, comment-empty-line-before */</span>
+
+<span class="token comment">/* Flexbox */</span>
+
+<span class="token comment">/* CSS Grid */</span>
+
+<span class="token comment">/* Floats */</span>
+
+<span class="token comment">/* Columns */</span>
+
+<span class="token comment">/* Calendar */</span>
+</code></pre>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+
+
+
+
+<section class="astro-4F3IN7SP" data-style="title">
+	
+	
+
+<header class="astro-43BVCJ6M">
+	
+		
+	
+</header>
+	<p>Day 1 Completed 🥳</p>
+	<aside class="notes" data-markdown>
+		
+	</aside>
+
+</section>
+			</div>
+		</main>
+		
+		
+
+<footer class="astro-NFHJKLIF">
+	<span class="astro-NFHJKLIF">@amys_kapers@hachyderm.io</span><span class="astro-NFHJKLIF">@amys_kapers</span>
+</footer>
+	</body></html>
