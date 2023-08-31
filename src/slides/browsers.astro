@@ -49,10 +49,17 @@ const { browsers, ...args } = Astro.props
 
 <section {...args}>
 	<dl>
-		{Object.entries(browsers).map(([name, values]) => (
-			<dt><img src={BrowserIcons[name]?.src} /></dt>
-			<dd>{values}</dd>
-		))}
+		{Object.entries(browsers).map((browser) => {
+			const [name, values] = browser as [Browser, string]
+			const icon = BrowserIcons[name]
+
+			if(!icon || icon?.src) return <></>
+
+			return (
+				<dt><img src={icon.src} /></dt>
+				<dd>{values}</dd>
+			)}
+		)}
 	</dl>
 	<slot />
 </section>

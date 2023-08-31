@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev --config ./config/astro.config.mjs",
     "start": "npm run dev",
-    "build": "astro check && tsc --noEmit && npm run build:astro",
+    "ts": "astro check && tsc --noEmit",
+    "build": "npm run ts && npm run build:astro",
     "build:astro": "astro build --config ./config/astro.config.mjs",
     "preview": "astro preview"
   },

@@ -1,4 +1,6 @@
 ---
+import type { MDXInstance } from "astro"
+
 const pages = await Astro.glob('../pages/**/*.mdx')
 
 type Talk = {
@@ -12,10 +14,12 @@ type Talk = {
 
 let talks: Record<string, Talk> = {}
 
-pages.forEach(({frontmatter, url}) => {
+pages.forEach(({frontmatter, url}: MDXInstance<Record<string, any>>) => {
+	if(!url) return;
+
 	const name: string = frontmatter.title
-	const slug: string = url.replace(/^\//, '').split('/')[0]
-	const event: string = url.split('/').pop().replace(/-/gi, ' ')
+	const slug: string = url?.replace(/^\//, '')?.split('/')[0]
+	const event: string = url?.split('/').pop()?.replace(/-/gi, ' ') || ''
 
 	if(!talks[slug]) {
 		talks[slug] = {
