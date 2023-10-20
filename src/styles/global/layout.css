@@ -19,6 +19,7 @@ body {
 
 			&.stack.stack, &.present.present {
 				padding-bottom: $footer_height;
+				position: absolute;
 			}
 
 			& > section {
@@ -31,6 +32,7 @@ body {
 
 				&.present.present {
 					padding-bottom: $footer_height;
+					
 				}
 			}
 

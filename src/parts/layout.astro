@@ -9,16 +9,14 @@ const { title, config, footer } = Astro.props.frontmatter
 
 ---
 
-<script is:inline>
-	const Reveal = require('reveal.js')
-	const Markdown = require('reveal.js/plugin/markdown/markdown.esm.js')
-	const Notes = require('reveal.js/plugin/notes/notes.esm.js')
-	const revealDefaults = require('../../config/revealjs.config.cjs')
+<script>
+	import Reveal from 'reveal.js'
+	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import revealDefaults from '../../config/revealjs.config.cjs'
 
 	const data = document?.querySelector('body')?.getAttribute('data-config')
 	const overrideConfig = data ? JSON.parse(data ) : {}
-
-	console.log({overrideConfig})
 
 	const deck = new Reveal({
 		...revealDefaults,

@@ -19,7 +19,9 @@
 	width: 100vw;
 	height: 100vh;
 	left: 0;
-	top: -1 * $header_height;
+	/* top: calc(-1 * $header_height); */
 	display: block;
+	/* bottom: calc(-1 * $footer_height); */
+	bottom: 0;
 	z-index: -5;
 }

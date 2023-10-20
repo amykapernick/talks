@@ -5,6 +5,10 @@
 		z-index: 3;
 	}
 
+	& .backgrounds {
+		pointer-events: none;
+	}
+
 	&:before {
 		position: absolute;
 		top: 50%;
