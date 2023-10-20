@@ -29,10 +29,12 @@ const { title, config, footer } = Astro.props.frontmatter
 
 	deck.initialize();
 
-	deck.on('slidechanged', function (event) {
+	deck.on('slidechanged', function (event: any) {
 		// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+		if(!event?.currentSlide?.attributes) return
+
 		if (event.currentSlide.attributes['data-full']) {
-			const container = event.currentSlide.parentElement
+			const container = event?.currentSlide.parentElement
 			container.style.width = '100vw';
 			container.style.height = '100vh';
 			container.style.transform = 'translate(-50%, -50%) scale(1)'
