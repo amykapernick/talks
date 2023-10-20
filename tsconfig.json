@@ -1,5 +1,5 @@
 {
-	"extends": "astro/tsconfigs/strict",
+	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"plugins": [
@@ -9,7 +9,6 @@
 		],
 		"types": [
 			"node",
-			"@astrojs/image/client",
 			"astro/client"
 		],
 		"paths": {

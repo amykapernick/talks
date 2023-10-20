@@ -1,7 +1,8 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 const { image, caption, ...args } = Astro.props
+
 ---
 
 <style>
@@ -38,7 +39,7 @@ const { image, caption, ...args } = Astro.props
 <section {...args}>
 	<figure>
 		<div>
-			<Image {...image} loading={'eager'} />
+			<Image src={image} loading={'eager'} alt="" />
 		</div>
 		{caption && <figcaption>{caption}</figcaption>}
 	</figure>

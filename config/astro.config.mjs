@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
@@ -26,7 +25,6 @@ export default defineConfig({
 		gfm: true,
 	},
 	integrations: [
-		image(),
 		mdx({
 			extendMarkdownConfig: true
 		}),

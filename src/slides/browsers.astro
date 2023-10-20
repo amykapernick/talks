@@ -1,9 +1,10 @@
 ---
-import Chrome from '@img/browsers/chrome.svg'
-import Firefox from '@img/browsers/firefox.svg'
-import Edge from '@img/browsers/edge.svg'
-import IE from '@img/browsers/ie.svg'
-import Safari from '@img/browsers/safari.svg'
+import Chrome from '../img/browsers/chrome.svg'
+import Firefox from '../img/browsers/firefox.svg'
+import Edge from '../img/browsers/edge.svg'
+import IE from '../img/browsers/ie.svg'
+import Safari from '../img/browsers/safari.svg'
+import { Image } from 'astro:assets'
 
 type Browser = 'chrome' | 'edge' | 'firefox' | 'ie' | 'safari'
 
@@ -11,7 +12,7 @@ interface Props {
 	browsers: Record<Browser, string>
 }
 
-const BrowserIcons: Record<Browser, ImageMetadata> = {
+const BrowserIcons: Record<Browser, any> = {
 	chrome: Chrome,
 	edge: Edge,
 	firefox: Firefox,
@@ -20,6 +21,8 @@ const BrowserIcons: Record<Browser, ImageMetadata> = {
 }
 
 const { browsers, ...args } = Astro.props
+
+console.log({BrowserIcons})
 ---
 
 <style define:vars={{cols: Object.entries(browsers).length}}>
@@ -53,10 +56,12 @@ const { browsers, ...args } = Astro.props
 			const [name, values] = browser as [Browser, string]
 			const icon = BrowserIcons[name]
 
-			if(!icon || icon?.src) return <></>
+			console.log({icon})
+
+			if(!icon) return <></>
 
 			return (
-				<dt><img src={icon.src} /></dt>
+				<dt><Image src={icon} alt={`${name} icons`} /></dt>
 				<dd>{values}</dd>
 			)}
 		)}

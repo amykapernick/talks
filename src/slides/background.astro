@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 const { image, ...args } = Astro.props
 
@@ -17,6 +17,6 @@ const { image, ...args } = Astro.props
 </style>
 
 <section {...args}>
-	<Image {...image} loading={'eager'} />
+	<Image src={image} loading={'eager'} alt="" />
 	<slot />
 </section>
