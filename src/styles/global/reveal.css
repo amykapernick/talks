@@ -9,3 +9,15 @@
 		}
 	}
 }
+
+/* body {
+	&[data-speaker-layout="tall"] {
+		& #current-slide, & #upcoming-slide {
+			height: 45vh;
+		}
+	}
+}
+
+body[data-speaker-layout="tall"] #current-slide {
+	visibility: hidden !important;
+} */
