@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image, ...args } = Astro.props
+const { image, style, ...args } = Astro.props
 
 ---
 
@@ -13,10 +13,14 @@ const { image, ...args } = Astro.props
 		height: 100%;
 		object-fit: cover;
 		transform: translateY(calc(-1 * $header_height));
+
+		&[data-style="light"] {
+			filter: invert(100%) sepia(9%) saturate(29%) hue-rotate(156deg) brightness(113%) contrast(86%);
+		}
 	}
 </style>
 
 <section {...args}>
-	<Image src={image} loading={'eager'} alt="" />
+	<Image src={image} loading={'eager'} alt="" data-style={style} />
 	<slot />
 </section>

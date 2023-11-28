@@ -1,0 +1,85 @@
+---
+const {caption, theme, data, ...args } = Astro.props
+
+---
+
+<style>
+	figure {
+		height: 100%;
+		margin: 0;
+		display: grid;
+		width: 90vw;
+		max-width: 90vw;
+		grid-template-rows: 1fr max-content;
+		justify-self: stretch;
+		align-self: stretch;
+		overflow: hidden;
+		max-height: 100%;
+	}
+
+	div {
+		max-height: 100%;
+		width: auto;
+		height: 100%;
+	}
+
+	canvas {
+		display: block;
+		object-fit: contain;
+		object-position: center;
+		transform: translateX(-50%);
+		margin-left: 50%;
+		max-height: 100%;
+	}
+
+	figcaption {
+		font-size: 0.8em;
+		padding: 0.4em 0;
+	}
+</style>
+
+<section {...args}>
+	<figure>
+		<div id="chart" data-config={JSON.stringify([caption, data, theme])}><canvas></canvas></div>
+		{caption && <figcaption>{caption}</figcaption>}
+	</figure>
+	<slot />
+</section>
+
+<script>
+	import Chart from 'chart.js/auto'
+
+	const chart = document?.querySelector('#chart canvas')
+	const [caption = '', overrideConfig, theme] = JSON.parse(document?.querySelector('#chart').dataset.config || '[]')
+	const config = {
+		options: {
+			plugins: {
+				responsive: true,
+				legend: {
+					display: false,
+					position: 'right',
+					labels: {
+						color: ['navy'].includes(theme) ? '#fff' : '#000',
+						font: {
+							size: 40,
+							family: 'Arial',
+							lineHeight: 1.5,
+							weight: 700
+						}
+					} 
+				},
+				title: {
+					display: false,
+					text: caption
+				}
+			}
+		},
+	}
+
+	console.log({caption, overrideConfig, config})
+
+	new Chart(chart, {
+		...config,
+		...overrideConfig
+	})
+</script>

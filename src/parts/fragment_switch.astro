@@ -1,0 +1,21 @@
+---
+const { words = []} = Astro.props
+---
+
+<style>
+	.container {
+		display: inline-grid;
+		justify-content: start;
+		justify-items: start;
+	}
+
+	span {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+</style>
+
+<span class="container">
+	{words.map((word, i) => (
+		<span class={`fragment ${i < words.length - 1 ? 'fade-in-then-out' : 'fade-in'}`}>{word}</span>
+	))}
+</span>

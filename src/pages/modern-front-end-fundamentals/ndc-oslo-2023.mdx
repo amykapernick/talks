@@ -5,6 +5,7 @@ config:
   navigationMode: linear
 ---
 import Slide from '@slides/slide'
+import Notes from '@parts/notes'
 import Background from '@parts/background'
 import AmyRem from '@img/amy_rem.jpg'
 import HTMLReference from './img/htmlreference.png'
@@ -37,9 +38,9 @@ import Codepen from './img/codepen_html.jpg'
 
 <Slide>
 	Get Comfortable
-	<div slot="notes">
+	<Notes slot="notes">
 		- Grab a drink and snacks if you want them
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -71,22 +72,22 @@ import Codepen from './img/codepen_html.jpg'
 
 	<Slide>
 		HTML is <mark>the foundation</mark>
-		<div slot="notes">
+		<Notes slot="notes">
 			- Whether you work with React, .NET, PHP
 
 			- If you're building for the web, you're building HTML
 
 			- Unless you're using Flash, and that's a different story
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide>
 		Semantic HTML introduces meaning to content
-		<div slot="notes">
+		<Notes slot="notes">
 			- Similar to what typescript does for javascript
 			
 			- A semantic element allows us to define the type of content we're using rather than it just being a generic `any` value (like a `div` or `span`)
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="small">
@@ -102,11 +103,11 @@ import Codepen from './img/codepen_html.jpg'
 		});
 		</script>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			- We can technically use any generic container element
 
 			- But if we use a semantic element instead it's literally built in
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -118,7 +119,7 @@ import Codepen from './img/codepen_html.jpg'
 		<strong>This text is bold, and screen readers will tell the user it's important</strong>
 		```
 
-		<div slot="notes">
+		<Notes slot="notes">
 			- Not all HTML elements are semantic
 
 			- Generic container elements are fine for their own particular Unless
@@ -126,17 +127,17 @@ import Codepen from './img/codepen_html.jpg'
 			- Some elements are for presentational purposes only as well
 
 			- Eg. `b` and `strong` willboth make text bold by default but the strong tag will also emphasise the text for screen readers, similarly to the way increased font weight does for visual readers
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="figure" image={HTMLReference} caption="htmlreference.io">
-		<div slot="notes">
+		<Notes slot="notes">
 			- Great resource for HTML elements
 
 			- Good visual explanation and demo with links to good documentation
 
 			- Take 5min, go through and find 5 elements you have't heard of or used before
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="small">
@@ -152,9 +153,9 @@ import Codepen from './img/codepen_html.jpg'
 				<li>Numbered list item</li>
 			</ol>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			- Some elements that we won't cover as they're assumed prior knowledge
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -165,11 +166,11 @@ import Codepen from './img/codepen_html.jpg'
 
 		<footer> <!-- Content is here --> </footer>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			- Start off with some structure landmark elements
 			
 			- Header, footer and main are typically found directly inside the body, with all page content inside them
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -182,9 +183,9 @@ import Codepen from './img/codepen_html.jpg'
 
 		<nav></nav>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			- Combine these with the previous 3 and most of our generic containers can be replaced
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="small">
@@ -200,11 +201,11 @@ import Codepen from './img/codepen_html.jpg'
 			</form>
 		</header>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			The header represents introductory content
 			
 			This may be a heading element, logo, search form and navigation menus
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -213,9 +214,9 @@ import Codepen from './img/codepen_html.jpg'
 			<p>© Copyright @amys_kapers 2021</p>
 		</footer>
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			The main element represents the dominant content of the document body
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code">
@@ -228,11 +229,11 @@ import Codepen from './img/codepen_html.jpg'
 
 
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			The main element represents the dominant content of the document body
 
 			Partially supported in IE, this means it doesn’t have default browser styling which you can fix by explicitly setting the `display` property on it
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -257,7 +258,7 @@ import Codepen from './img/codepen_html.jpg'
 
 
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			Article is a self contained section
 
 			Something  that can be independently distributable or reusable
@@ -265,7 +266,7 @@ import Codepen from './img/codepen_html.jpg'
 			For example, a blog post or a news article
 
 			Pro tip, you can even include a header and footer inside an article
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="mediums">
@@ -277,11 +278,11 @@ import Codepen from './img/codepen_html.jpg'
 		</section>
 
 		```
-		<div slot="notes">
+		<Notes slot="notes">
 			Similiar to the article element
 
 			Represents a self contained section
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code">
@@ -307,11 +308,11 @@ import Codepen from './img/codepen_html.jpg'
 	<Slide>
 		## ARIA <small>Accessible Rich Internet Applications</small>
 
-		<div slot="notes">
+		<Notes slot="notes">
 			- When building things accessibly we often turn to using ARIA attributes
 
 			- ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -323,7 +324,7 @@ import Codepen from './img/codepen_html.jpg'
 		<div aria-hidden> </div>
 		```
 
-		<div slot="notes">
+		<Notes slot="notes">
 			- `aria-label` and `role`
 
 			- `aria-hidden` and `aria-invalid`
@@ -331,7 +332,7 @@ import Codepen from './img/codepen_html.jpg'
 			- Includes a bunch of states and properties we can use to provide information for screen readers and assistive technologies
 
 			- And while it is good to have this ability, a lot of this has been baked into HTML
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide type="code" size="medium">
@@ -369,29 +370,29 @@ import Codepen from './img/codepen_html.jpg'
 		</p>
 		```
 
-		<div slot="notes">
+		<Notes slot="notes">
 			- Most often use I find I need an ARIA attribute (which is still hardly ever) is `aria-labelledby`
 
 			- Allows linking an element with a label that exists somewhere else in the DOM
 
 			- Similar to linking a form input and the label, but the id and attribute are the other way around
-		</div>
+		</Notes>
 	</Slide>
 
 
 	<Slide type="figure" image={GitHubRepo} caption="kapers.dev/workshop">
-		<div slot="notes">
+		<Notes slot="notes">
 			- This is the repo we're working from
 			
 			- Includes the app and examples/instructions for each section of the workshop
-		</div>
+		</Notes>
 	</Slide>
 
 
 	<Slide type="figure" image={Codepen} caption="kapers.dev/workshop-semantichtml">
-		<div slot="notes">
+		<Notes slot="notes">
 			- For this morning we're using this Codepen to build out the examples
-		</div>
+		</Notes>
 	</Slide>
 </Slide>
 
@@ -409,7 +410,7 @@ import Codepen from './img/codepen_html.jpg'
 		- Flexbox
 		- Floats
 
-		<div slot="notes">
+		<Notes slot="notes">
 			Today we'll be going through 3 different CSS properties and using them for layouts
 			
 			CSS grid is great for two dimensional layouts, and laying out the whole page
@@ -418,7 +419,7 @@ import Codepen from './img/codepen_html.jpg'
 			
 			And although they get a bad reputation, floats still have a place in modern layouts, so we're going to go through where you can use them as well
 
-		</div>
+		</Notes>
 	</Slide>
 
 	<Slide>

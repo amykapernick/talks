@@ -6,6 +6,7 @@ config:
 footer: ['@amyskapers.dev', '@amys_kapers']
 ---
 import Slide from '@slides/slide'
+import Notes from '@parts/notes'
 import Background from '@parts/background'
 import AmyRem from '@img/amy_rem.jpg'
 import NoJS from './img/no-js.svg'
@@ -67,27 +68,27 @@ import NoJS from './img/no-js.svg'
 		background: pink;
 	}
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 		- Go to demo to show page sections
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2010', edge: '2015', safari: '2008', firefox: '2006', ie: '2011'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		:target
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- This involves working with URL hash values and not a great alternative most of the time
 		- Not great for accessibility
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -101,27 +102,27 @@ import NoJS from './img/no-js.svg'
 		<p>This content is hidden but can then be expanded or re-collapsed.</p>
 	</details>
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 		- Switch to live demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2011', edge: '2020', safari: '2012', firefox: '2016'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		details and summary elements
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- These are good
 		- When not supported they display as open
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -148,36 +149,36 @@ import NoJS from './img/no-js.svg'
 
 	<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 		- Go to form and show validations and formats
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2010', edge: '2015', safari: '2010', firefox: '2011', ie: '2012'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`input[type="tel"]`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2011', edge: '2015', safari: '2017', firefox: '2011', ie: '2012'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`[pattern]`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- Limited validation capabilities
 		- JS adds more powerful capabilities
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -210,9 +211,9 @@ import NoJS from './img/no-js.svg'
 	type="browsers"
 	browsers={{chrome: '2023', edge: '2023', safari: '2023', firefox: '2023'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		nesting
-	</div>
+	</Notes>
 </Slide>
 
 
@@ -235,36 +236,36 @@ import NoJS from './img/no-js.svg'
 		<option value="10">Stupendous</option>
 	</datalist>
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 	 - Go to demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2010', edge: '2015', safari: '2008', firefox: '2013', ie: '2012'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`input[type="range"]`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2018', edge: '2020', safari: '2019', firefox: '2023'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`datalist`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`:has`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -292,47 +293,47 @@ import NoJS from './img/no-js.svg'
 		--children: 5;
 	}
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 	 - Go to demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`:has`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2021', edge: '2021', safari: '2015', firefox: '2020'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`:not`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2017', edge: '2017', safari: '2017', firefox: '2017', ie: '2017'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`grid`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- Messing with form inputs for not forms isn't great
 		- Would recommend adding some `aria` labels and roles to give more information
 		- May be confusing for why people are clicking radio buttons to change testimonials
 		- `:has` not supported in Firefox
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -349,9 +350,9 @@ import NoJS from './img/no-js.svg'
 		<span class="switch"></span>
 	</div>
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 	 - Go to demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide type="code" size="small">
@@ -363,38 +364,38 @@ import NoJS from './img/no-js.svg'
 		}
 	}
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 	 - Go to demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`:has`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2019', edge: '2020', safari: '2019', firefox: '2019'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`prefers-color-scheme`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- Similar to testimonials not great for a11y as using form inputs outside a form
 		- Would recommend adding `aria` labels to provide additional context
 		- Adding JS allows triggering a more complex function and saving the value to persist on different pages and on reload
 		- `:has` not supported in Firefox
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
@@ -410,39 +411,39 @@ import NoJS from './img/no-js.svg'
 	</div>
 	
 	```
-	<div slot="notes">
+	<Notes slot="notes">
 	 - Go to demo
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2017', edge: '2017', safari: '2017', firefox: '2017', ie: '2017'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`grid`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide 
 	type="browsers"
 	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
 >
-	<div slot="notes">
+	<Notes slot="notes">
 		`:has`
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>
 	Full Disclosure...
 
-	<div slot="notes">
+	<Notes slot="notes">
 		- Carousels still suck
 		- Not good for accessibility
 		- Should turn animation off based on media querry for `prefers-reduced-motion`
 		- Just don't do this, use a gallery
 		- `:has` not supported in Firefox
-	</div>
+	</Notes>
 </Slide>
 
 <Slide>

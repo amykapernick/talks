@@ -20,6 +20,7 @@
     "@astrojs/ts-plugin": "^1.2.0",
     "@types/reveal": "^4.2.0",
     "astro": "^3.3.2",
+    "chart.js": "^4.4.0",
     "postcss-advanced-variables": "^3.0.1",
     "postcss-hexrgba": "^2.1.0",
     "reveal.js": "^4.6.1",

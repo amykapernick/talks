@@ -1,4 +1,5 @@
+---
+const slot = await Astro.slots.render('default');
+---
 
-<div  slot="notes">
-	<slot />
-</div>
+<Fragment set:html={slot} />

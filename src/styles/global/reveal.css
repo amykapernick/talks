@@ -1,0 +1,11 @@
+.reveal {
+	& .fragment {
+		&.fade-in-then-semi-out.visible {
+			opacity: 0.3;
+
+			&.current-fragment {
+				opacity: 1;
+			}
+		}
+	}
+}

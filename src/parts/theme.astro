@@ -1,0 +1,37 @@
+---
+const { theme, class: className = '', ...props } = Astro.props
+---
+
+<style>
+	.body {
+		--background_colour: $background;
+		--coltext_colouror: $neutral;
+
+		background: var(--background_colour);
+		color: var(--text_colour); 
+
+		&[data-theme="navy"] {
+			--background_colour: $light_navy;
+			--text_colour: $white;
+		}
+
+		&[data-theme="navy_light"] {
+			--background_colour: $white;
+			--text_colour: $light_navy;
+		}
+
+		&[data-theme="dark"] {
+			--background_colour: $neutral;
+			--text_colour: $white;
+		}
+
+		&[data-theme="blue"] {
+			--background_colour: $light_blue;
+			--text_colour: $white;
+		}
+	}
+</style>
+
+<body data-theme={theme} class={`${className} body`} {...props}>
+	<slot />
+</body>

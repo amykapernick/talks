@@ -34,7 +34,30 @@ const { styles, ...args } = Astro.props
 
 		&[data-style="title"] {
 			font-family: $font_headings;
-			font-size: 2em;
+			font-size: 1.9em;
+			align-content: center;
+
+			& :global(h1) {
+				font-size: 1em;
+				margin-bottom: 0.05em;
+			}
+
+			& :global(small) {
+				font-size: 0.5em;
+				font-style: normal;
+			}
+		}
+
+		&[data-style="section"] {
+			font-family: $font_headings;
+			align-content: center;
+
+			& :global(header) {
+				&:empty {
+					opacity: 1;
+					background: var(--background_colour);
+				}
+			}
 		}
 	}
 </style>

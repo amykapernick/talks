@@ -15,15 +15,22 @@ const { ...args } = Astro.props
 			font-size: 1em;
 			margin: 0;
 			padding: 0 2vw;
+			font-family: $font_headings;
+			text-align: left;
 		}
 
 		& :global(cite) {
-			color: $grey;
+			opacity: 0.9;
 			font-size: 1em;
 			padding: 1vh 10px 0 0;
 			padding-top: 1vh;
 			display: block;
 			text-align: right;
+			font-family: $font_main;
+
+			& :global(small) {
+				font-size: 0.5em;
+			}
 		}
 	}
 </style>

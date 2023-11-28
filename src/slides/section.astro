@@ -2,6 +2,16 @@
 
 ---
 
+<style>
+	section {
+		grid-template-rows: auto 1fr auto;
+
+		& > :global(section) {
+			grid-area: 2 / 1 / 3 / 2;
+		}
+	}
+</style>
+
 <section>
 	<slot />
 </section>

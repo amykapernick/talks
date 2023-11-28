@@ -1,0 +1,457 @@
+---
+title: Accessibility by Everyone
+layout: ../../parts/layout.astro
+config: 
+  navigationMode: linear
+  backgroundTransition: none
+footer: ['@amyskapers.dev', '@amys_kapers']
+theme: navy
+---
+import Slide from '@slides/slide'
+import Notes from '@parts/notes'
+import Switch from '@parts/fragment_switch'
+import Impairments from '@img/a11y/impairments.png'
+import ImpairmentTypes from '@img/a11y/types_of_impairments.png'
+import ImpairmentCategories from '@img/a11y/categories_of_impairments.png'
+import InstagramMusic from './img/instagram_background_music.mp3'
+
+<Slide data-style="title">
+	# {frontmatter.title}
+	<small>(and for everyone)</small>
+	<Notes slot="notes">
+		- World relies more on technology for everyday lives
+		- We as creators face an important responsibility to ensure that we're not excluding those around us who want to use waht we're creating
+	</Notes>
+</Slide>
+
+<Slide type="quote">
+	<blockquote>
+		<p>The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect</p>
+		<cite>Tim Berners-Lee</cite>
+	</blockquote>
+	<Notes slot="notes">
+		- What does it mean to make things accessible, what does it mean for us
+		- When we create technologies, whether software, hardware or something else
+		- Anyone can use and interact with it, using whatever means they prefer
+		- Given wahtever capabilities they have
+		- Mean the internet, the technologies, the solutions we're creating are made for everyone and with everyone in mind
+		- https://www.w3.org/mission/accessibility/
+	</Notes>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Why is Accessibility Important?</span>
+
+	<Slide data-style="section">
+		## Why is Accessibility Important?
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			<p>For better or worse, the people who design the touchpoints of society determine who can participate and who is left out, often unwittingly</p>
+			<cite>Kat Holmes <small>Mismatch: How Inclusion Shapes Design</small></cite>
+		</blockquote>
+		<Notes slot="notes">
+			- All of us here today are in a very important position, one to make a difference to people around us
+			- We have the power to make things better for people around us
+			- To decide who can participate and who is left out
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Inclusion makes us <Switch words={['more-effective', 'more innovative', 'better', 'happier']} />
+
+		<Notes slot="notes">
+			- Ignoring the fact that by building a non-accessible product we're excluding people around us
+			- A study in 2018 by the Disability Council of Australia and Suncorp found that inclusive teams and workplaces where
+				- 10 times more likely to be highly effective
+				- 9 x innovative
+				- 4 x provide excellent customer service
+				- 4 x to stay at a company
+				- 19 x more satisfied with their jobs
+			- https://www.dca.org.au/research/benchmarks-national-diversity
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Accessibility is a human right
+		<Notes slot="notes">
+			- We're seeing drastic changes to legislation and regulations around the accessibility and Inclusion
+			- Ccuntries all over are ensuring their laws are up to date as technology becomes more intermingled with our day-to-day
+			- Not a case of if, but when we're going to be legally required to make sure what we build is accessible
+			- And the secret is...
+		</Notes>
+	</Slide>
+
+	<Slide>
+		It's easier to do it right now
+		<Notes slot="notes">
+			- It's easier it make changes and improvements now, as we build things
+			- To include it from the very beginning, rather than trying to stick a band aid on it later
+		</Notes>
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			<p>Every inaccessible website tells [people with an impairment] *"you aren't welcome in this world"*.</p>
+			<p>If you don't know whether your website or app is accessible, it's not. Start learning.</p>
+			<cite>Larene Le Gassick</cite>
+		</blockquote>
+		<Notes slot="notes">
+			- If you don't know whether you're doing it right, you're probably not
+			- It's not too late to make a change though, to start making improvements and make sure everyone using your product feels welcome.
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Who Benefits from Accessibility?</span>
+
+	<Slide data-style="section"> 
+		## Who Benefits from Accessibility?
+	</Slide>
+
+	<Slide type="background" image={Impairments} style="light">
+		<Notes slot="notes">
+			- When we think of accessibility, we think of people with permanent impairments
+			- It could be someone who was blind or deaf, someone who was in a wheelchair or missing use of a limb
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="chart" 
+		caption="Global Impairments" 
+		theme={frontmatter.theme}
+		data={{
+			type: 'pie',
+			data: {
+				labels: [
+					'Permanent Impairments',
+					'Rest of population'
+				],
+				datasets: [{
+					label: 'Global Impairments',
+					data: [15, 85],
+					backgroundColor: [
+						'#228b22',
+						'#263773',
+					],
+				}]
+			}
+		}}
+	>
+		<Notes slot="notes">
+			- The world bank estimates that these people, people with permanent impairments are at least 15% of the global population
+			- That's over 1.2 billion people
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={Impairments} style="light">
+		<Notes slot="notes">
+			- Again these are what we refer to as permanent impairments
+			- Which are just a small subset of people with impairments
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={ImpairmentTypes} style="light">
+		<Notes slot="notes">
+			- Permanent impairments are not likely to be resolved, are long term, like a missing or non functioning limb
+			- There are also temporary impairments, which can't be resolved quickly but will resolve in the short to long term, for example a broken arm
+			- And finally we have situational impairments which are the result of the environment alone and can be resolved by leaving it, for example holding a child or pet
+			- Although not all impairments are permanent, and may not have as great an impact on a person's life, they can all be made easier by accessibility improvements we make
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={ImpairmentCategories} style="light">
+		<Notes slot="notes">
+			- Impairments are then in one of 4 different areas
+			- Hearing, have imapired, limited or no hearing in one or both ears
+			- Vision, have impaired, limited or no vision (could include things like colour blindness or glaucoma)
+			- Mobility, have impaired, limited or no movement or control of movement which could include conditions like arthritis or parkinsons that affect fine motor control
+			- Cognitive, which includes anything that impacts how information is processed and includes a wide range of conditions such as dyslexia, ADHD, Autism, limited language proficiency, migraines, epilepsy and more
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Who benefits from Accessibility?
+		<Notes slot="notes">
+			- So again we ask, who benefits from accessibility?
+			- Taking into account permanent, temporary and situation impairments
+			- Considering impairments that impact hearing, vision, mobility and cognition
+			- Who are we helping by making things more accessible and who are we excluding by not?
+			- Let's have a look at a few different accessibility features first
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Captions
+		<Notes slot="notes">
+			- Captions, transcripts, subtitles, whatever they are
+			- Providing a written version of media content is a big accessibility feature
+			- But it's not just people with impairments that benefit from captions
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Captions
+		<audio src={InstagramMusic} data-autoplay />
+		<Notes slot="notes">
+			- Anyone recognise this song?
+			- It's over about 90% of everything on my Instagram feed
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Captions
+		<Notes slot="notes">
+			- It and about 3 other songs seem to make up the background music behind every video and even photo
+			- I hate it, they're annoying and so I keep my volume off
+			- So if a video doesn't have captions, I'm not watching it, I won't even bother to turn the volume up
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Colour Contrast
+		<Notes slot="notes">
+			- Colour contrast, if you're not familiar with it involves making sure there's enough difference, or contrast between the background and text colours
+			- But this isn't just important for people with vision impairments, when was the last time you used your phone or computer outside? We're a very sunny country, there's a lot of glare
+			- Or maybe you use night mode on your device, changing the colours to be softer on your eyes in the evenings
+			- If you don't have sufficient colour contrast, people in these situations can all have difficulty in reading the content on the page
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Everyone.
+		<Notes slot="notes">
+			- When we make things accessible, everyone benefits
+			- Every single one of us has at some point or will at some point benefit from an accessibility improvements
+			- I mean think about the last time you avoided taking the stairs and used a lift or a ramp instead?
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="cloud"
+		fragment={true}
+		words={[
+			'Broken arm/hand',
+			'Ear Infection',
+			'Migraine',
+			'ESL',
+			'Dyslexia',
+			'Loud environment',
+			'Sunlight/Glare',
+			'Glasses',
+			'Colour Blind',
+			'Glaucoma or Cataracts',
+			'Old browser/Device',
+			'Reading Mode/Small Screen',
+			'Holding Child/Pet',
+			'Multi-tasking',
+			'Virtual Assistant',
+			'AI',
+			'Carpel Tunnel',
+			'No Headphones',
+			'Big Fingers',
+			'Night Mode',
+			'Limited Fine Motor Control',
+			'Easily Distracted',
+			'ADHD',
+			'Autism',
+			'Epilepsy'
+		]}
+	>
+		<Notes slot="notes">
+			- Broken an arm/finger or had limited/no motion of one or both hands/arms?
+			- Had an ear infection that led to diminished hearing?
+			- Had a migraine
+			- Have lower proficiency in the language used, or dyslexia
+			- Been in a loud situation such as a concert, public transport or screaming children
+			- Had glare on your screen
+			- Worn glasses, have colour blindness, glaucoma or cataracts
+			- Used an older browser, text only device, small screen or slow internet connection
+			- Had limited access of one arm/hand while holding a child, pet or multi-tasking
+			- Used a virtual assistant or consumed content through an AI assistant
+			- Had carpel tunnel or developer elbow
+			- Forgotten your headphones and wanted to watch a video
+			- Tried to press a tiny button with big fingers
+			- Used features such as night mode or colour shifting screens
+			- Limited fine motor control, difficulty using a mouse or targeting the correct spot on a screen
+			- Difficulty concentrating or easily distracted by animations, videos or other parts of a page
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="cloud"
+		words={[
+			'Broken arm/hand',
+			'Ear Infection',
+			'Migraine',
+			'ESL',
+			'Dyslexia',
+			'Loud environment',
+			'Sunlight/Glare',
+			'Glasses',
+			'Colour Blind',
+			'Glaucoma or Cataracts',
+			'Old browser/Device',
+			'Reading Mode/Small Screen',
+			'Holding Child/Pet',
+			'Multi-tasking',
+			'Virtual Assistant',
+			'AI',
+			'Carpel Tunnel',
+			'No Headphones',
+			'Big Fingers',
+			'Night Mode',
+			'Limited Fine Motor Control',
+			'Easily Distracted',
+			'ADHD',
+			'Autism',
+			'Epilepsy'
+		]}
+	>
+		<Notes slot="notes">
+			- These are all situations that beenfit from accessibility improvements
+			- Whether it be captions, clear design, non-complex language, thoughtful interface layout
+			- Or one of many more small touches that can make billions of people's lives better and easier
+			- And more importantly it can make them feel like they're being thought of and included in what we're building
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Why is Accessibility my Responsibility?</span>
+
+	<Slide data-style="section"> 
+		## Why is Accessibility my Responsibility?
+	</Slide>
+
+	<Slide
+		fragment={true}
+		type="cloud"
+		words={[
+			'Company Leadership',
+			'Managers & Team Leaders',
+			'Recruitment Teams',
+			'Human Resources',
+			'Project Managers',
+			'Product Owners',
+			'Marketing & Content Writers',
+			'Designers',
+			'Developers',
+			'QA & Testers',
+			'DevOps',
+			'Security'
+		]}
+	>
+		<Notes slot="notes">
+			- No matter where you sit in a company
+			- Or in the project or product lifecycle
+			- We all play a part in ensuring that what technology is being built is accessible
+			- I know this may not be everyone in the room, but if you don't fit into one of these roles, come and find me afterwards and I'd love to chat about how you can help as well
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership</span>
+
+		Goals and Values
+		<Notes slot="notes">
+			- From the top down, company leadership and decision makers have the ability to make sure accessibility and inclusion are a part of the company's goals, policies and core values
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership, Managers, Recruiting, HR</span>
+
+		Hiring SMEs
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header"></span>
+
+		
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header"></span>
+
+		
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header"></span>
+
+		
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<Slide data-style="section"> 
+		## The Hard Data
+	</Slide>
+
+	<Slide
+		type="chart" 
+		caption="Global Impairments" 
+		theme={frontmatter.theme}
+		data={{
+			type: 'pie',
+			data: {
+				labels: [
+					'Permanent Impairments',
+					'Rest of population'
+				],
+				datasets: [{
+					label: 'Global Impairments',
+					data: [15, 85],
+					backgroundColor: [
+						'#228b22',
+						'#263773',
+					],
+				}]
+			}
+		}}
+	>
+		<Notes slot="notes">
+			- Earlier we looked at the 15% of the global population with an impairment
+			- These people can make a big difference to your bottom line if they're able to use your product
+		</Notes>
+	</Slide>
+
+	<Slide>
+		$13 trillion each year
+		<Notes slot="notes">
+			- These people, combined with their friends and family who won't support a company that doesn't support them
+			- Have an estimated disposable income of $13 trillion dollars each year
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Little Steps</span>
+
+	<Slide data-style="section"> 
+		## Little Steps
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Resources</span>
+
+	<Slide data-style="section"> 
+		## Resources
+	</Slide>
+</Slide>

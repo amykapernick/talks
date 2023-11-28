@@ -19,7 +19,26 @@ const colours = {
 	yellow_a11y: '#FFD700',
 	green_a11y: '#228b22',
 	grey: '#4c4d4e',
-	white: '#ededed'
+	grey_light: '#f0f0f0',
+	white: '#ededed',
+	light_purple_bright: '#84398F',
+	light_purple: '#5B45AF',
+	light_navy: '#263773',
+	light_blue: '#1976D4',
+	light_green: '#437E45',
+	light_red: '#AD1728',
+	light_pink: '#A0276C',
+	light_orange: '#BB5C04',
+	light_yellow: '#8C7506',
+	dark_purple_bright: '#CE76DB',
+	dark_purple: '#9B8ADC',
+	dark_navy: '#7294FA',
+	dark_blue: '#4A9AEA',
+	dark_green: '@green',
+	dark_red: '#FF697C',
+	dark_pink: '#D976AF',
+	dark_orange: '@orange',
+	dark_yellow: '@yellow',
 }
 
 

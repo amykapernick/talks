@@ -4,8 +4,9 @@ import Footer from "@parts/footer";
 
 import 'reveal.js/dist/reveal.css'
 import "@styles/main.css";
+import Theme from '@parts/theme';
 
-const { title, config, footer } = Astro.props.frontmatter
+const { title, config, footer, theme } = Astro.props.frontmatter
 
 ---
 
@@ -42,6 +43,7 @@ const { title, config, footer } = Astro.props.frontmatter
 	})
 </script>
 
+
 <!DOCTYPE html>
 <html lang="en-AU">
 	<head>
@@ -54,17 +56,17 @@ const { title, config, footer } = Astro.props.frontmatter
 		<title>{title}</title>
 	</head>
 
-	<body data-config={JSON.stringify(config)}>
-		<Header>
-			<slot name="header" />
-		</Header>
-
-		<main class="reveal">
-			<div class="slides">
-				<slot />
-			</div>
-		</main>
-		
-		<Footer {footer} />
-	</body>
+	<Theme data-config={JSON.stringify(config)} theme={theme}>
+			<Header>
+				<slot name="header" />
+			</Header>
+	
+			<main class="reveal">
+				<div class="slides">
+					<slot />
+				</div>
+			</main>
+			
+			<Footer {footer} />
+	</Theme>
 </html>

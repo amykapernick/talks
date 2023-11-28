@@ -1,0 +1,58 @@
+---
+const { words = [], fragment, ...args } = Astro.props
+---
+
+<style>
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		&[data-size="large"] {
+			font-size: 0.7em;
+		}
+	}
+
+	li {
+		display: block;
+		margin: 10px;
+		padding: 0;
+		font-weight: 600;
+
+		&:nth-child(2n) {
+			font-size: 1.5em;
+		}
+
+		&:nth-child(3n) {
+			font-size: 1.3em;
+		}
+
+		&:nth-child(4n) {
+			font-size: 1.1em;
+		}
+
+		&:nth-child(9n) {
+			font-size: 0.9em;
+		}
+
+		&:nth-child(10n) {
+			font-size: 1.2em;
+		}
+
+		&:nth-child(6n) {
+			font-size: 0.7em;
+		}
+	}
+</style>
+
+<section {...args}>
+	<ul data-size={words.length > 20 ? 'large' : 'regular'}>
+		{words.map(word => (
+			<li class={`${fragment ? 'fragment fade-in-then-semi-out' : ''}`}>{word}</li>
+		))}
+	</ul>
+	<slot />
+</section>
