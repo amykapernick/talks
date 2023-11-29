@@ -70,12 +70,12 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</Notes>
 	</Slide>
 
-{/* TODO: MAke transition better and add blank screen */}
 	<Slide>
-		Inclusion makes us <Switch words={['more-effective', 'more innovative', 'better', 'happier']} />
+		<span class="fragment">Inclusion makes us <Switch words={['more-effective', 'more innovative', 'better', 'happier']} /></span>
 
 		<Notes slot="notes">
-			- Ignoring the fact that by building a non-accessible product we're excluding people around us
+			- But let's just for a second ignore that we shouldn't be excluding people
+			- What else does accessibility and inclusion do for us?
 			- A study in 2018 by the Disability Council of Australia and Suncorp found that inclusive teams and workplaces where
 				- 10 times more likely to be highly effective
 				- 9 x innovative
@@ -193,12 +193,11 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- Taking into account permanent, temporary and situation impairments
 			- Considering impairments that impact hearing, vision, mobility and cognition
 			- Who are we helping by making things more accessible and who are we excluding by not?
-			- Let's have a look at a few different accessibility features first
 		</Notes>
 	</Slide>
 
 {/* TODO: Maybe move these later into the talk */}
-	<Slide>
+	{/* <Slide>
 		Captions
 		<Notes slot="notes">
 			- Captions, transcripts, subtitles, whatever they are
@@ -233,14 +232,14 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- Or maybe you use night mode on your device, changing the colours to be softer on your eyes in the evenings
 			- If you don't have sufficient colour contrast, people in these situations can all have difficulty in reading the content on the page
 		</Notes>
-	</Slide>
-
+	</Slide> */}
+{/* 
 	<Slide>
 		Who benefits from Accessibility?
 		<Notes slot="notes">
 			- 
 		</Notes>
-	</Slide>
+	</Slide> */}
 
 	<Slide>
 		Everyone.
@@ -250,8 +249,6 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- I mean think about the last time you avoided taking the stairs and used a lift or a ramp instead?
 		</Notes>
 	</Slide>
-
-	{/* TODO: change order */}
 
 	<Slide 
 		type="cloud"
@@ -266,9 +263,12 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			'Sunlight/Glare',
 			'Glasses',
 			'Colour Blind',
-			'Glaucoma or Cataracts',
+			'ADHD',
+			'Autism',
+			'Epilepsy',
 			'Old browser/Device',
 			'Reading Mode/Small Screen',
+			'Slow Internet',
 			'Holding Child/Pet',
 			'Multi-tasking',
 			'Virtual Assistant',
@@ -278,10 +278,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			'Big Fingers',
 			'Night Mode',
 			'Limited Fine Motor Control',
-			'Easily Distracted',
-			'ADHD',
-			'Autism',
-			'Epilepsy'
+			'Easily Distracted'
 		]}
 	>
 		<Notes slot="notes">
@@ -316,9 +313,12 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			'Sunlight/Glare',
 			'Glasses',
 			'Colour Blind',
-			'Glaucoma or Cataracts',
+			'ADHD',
+			'Autism',
+			'Epilepsy',
 			'Old browser/Device',
 			'Reading Mode/Small Screen',
+			'Slow Internet',
 			'Holding Child/Pet',
 			'Multi-tasking',
 			'Virtual Assistant',
@@ -328,10 +328,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			'Big Fingers',
 			'Night Mode',
 			'Limited Fine Motor Control',
-			'Easily Distracted',
-			'ADHD',
-			'Autism',
-			'Epilepsy'
+			'Easily Distracted'
 		]}
 	>
 		<Notes slot="notes">
@@ -625,39 +622,24 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		## The Hard Data
 	</Slide>
 
-{/* TODO: AUD and make it blank to start, reword notes */}
 	<Slide>
-		1 million views/day <span class="fragment">→ €2.3 million/year</span>
+		
 		<Notes slot="notes">
-			- A study done by Microsoft and Forrester have estimated that an average European company with a website that gets 1 million site visits per day
-			- Based on the percentage of users with disabilities who abandon online purchases due to accessibility issues
-			- If they made their website accessible they could increase their revenue but an additional €2.3 million per year 
+			- A study done by Microsoft and Forrester looked at users with impairments who abandon online purchases due to accessibility issues
 		</Notes>
 	</Slide>
 
-{/* TODO: change to figure */}
-	<Slide
-		type="chart" 
-		caption="Global Population with a Permanent Impairment" 
-		theme={frontmatter.theme}
-		data={{
-			type: 'pie',
-			data: {
-				labels: [
-					'Permanent Impairments',
-					'Rest of population'
-				],
-				datasets: [{
-					label: 'Global Population with a Permanent Impairment',
-					data: [15, 85],
-					backgroundColor: [
-						'#228b22',
-						'#263773',
-					],
-				}]
-			}
-		}}
-	>
+	<Slide>
+		1 million views/day <span class="fragment">→ €2.3 million/year</span>
+		<Notes slot="notes">
+			- The study estimated that an average European company with a website that gets 1 million site visits per day
+			- If they made their website accessible they could increase their revenue but an additional €2.3 million per year 
+			- That's over $3.8 million AUD
+		</Notes>
+	</Slide>
+
+	<Slide>
+		15% of the world
 		<Notes slot="notes">
 			- And it's not just Europe
 			- Earlier we looked at the 15% of the global population with an impairment
@@ -680,11 +662,10 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</Notes>
 	</Slide>
 
-{/* TODO: webaim is? */}
 	<Slide>
 		1,000,000 sites
 		<Notes slot="notes">
-			- Each year WebAIM does a study on the top million homepages
+			- Each year, a not-for-profit organisation called WebAIM (Web Accessibility in Mind), they do a study on the top million homepages
 			- In 2023, from those 1 million websites...
 		</Notes>
 	</Slide>
@@ -723,12 +704,12 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</Notes>
 	</Slide>
 
-{/* TODO: 3? What's new? */}
 	<Slide>
 		WCAG 2.2
 		<Notes slot="notes">
 			- The most current version of the guidlines is WCAG 2.2 which was published in October
 			- Each version updates to take into account new technologies, for example 2.1 introduced guidelines around animations and motion, while 2.2 introduced guidelines around drag and drop and authentication
+			- Similarly version 3 is being worked on at the moment and will incorporate additional guidelines around mobile devices and more improvements for cognitive impairments
 		</Notes>
 	</Slide>
 
@@ -740,6 +721,17 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- AA goes a step further and ensures that people with impairments can use it, although it may not be convenient. If you're working towards an accessibility standard, this is likely what you're working towards
 			- Finally AAA is the highest level, is typically met by organisations who's primary user are people with impairments
 			- Whatever role you are in, it's worth knowing a bit about these guidelines, at the very least that they exist, what level you have to meet and how to test against them
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={WCAGExplainers}
+		caption="smashingmagazine.com/2023/10/roundup-wcag-explainers"
+	>
+
+		<Notes slot="notes">
+			- As I mentioned, WCAG 2.2 came out a few months back, there are a bunch of great explainers that go through the guidelines and what the changes are
 		</Notes>
 	</Slide>
 
@@ -773,15 +765,17 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</Notes>
 	</Slide>
 
-{/* TODO: Make list or cloud */}
 	<Slide>
-		Colour Contrast, Missing Alt Text, Empty Links/Buttons, Missing Form Labels, Missing Document Language
+		- Colour Contrast
+		- Missing Alt Text
+		- Empty Links/Buttons
+		- Missing Form Labels
+		- Missing Document Language
 		<Notes slot="notes">
 			- These issues were from insufficient colour contrast, missing alternative text on images, buttons and links that were empty or didn't include a label, missing labels on form inputs and missing document language
 		</Notes>
 	</Slide>
 
-{/* TODO: missing doc stats */}
 	<Slide type="code" lines="1">
 		```html
 		<!DOCTYPE html>
@@ -792,6 +786,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		<Notes slot="notes">
 			- Doctype is a really easy fix
 			- It's literally the first line of a HTML file
+			- Nearly 1 in 5 websites tested were missing this
 		</Notes>
 	</Slide>
 
@@ -952,6 +947,9 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		<Notes slot="notes">
 			- It helps to understand what people experience when using a screen reader
 			- There are free or paid options, plus built in to Windows, MacOS, Android and iOS
+			- Try opening up the screen reader
+			- Navigate around the webpage, see what you can find, what you can do, what it tells you about what you can see on the page
+			- If you're feeling up to it, try closing your eyes and see if you can work things out without actually seeing the screen as well
 		</Notes>
 	</Slide>
 
@@ -962,9 +960,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
 	
 		<Notes slot="notes">
-			- Try opening up the screen reader
-			- Navigate around the webpage, see what you can find, what you can do, what it tells you about what you can see on the page
-			- If you're feeling up to it, try closing your eyes and see if you can work things out without actually seeing the screen as well
+			
 			- But while this is a useful step to do, it's not the same as people who use screen readers every day
 		</Notes>
 	</Slide>
@@ -992,6 +988,15 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		<Notes slot="notes">
 			- So get in the practice of using a screen readers
 			- And investigate getting someone in to do it where you can
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		Training
+		<Notes slot="notes">
+			- 
 		</Notes>
 	</Slide>
 
@@ -1064,34 +1069,18 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 
 	<Slide data-style="section"> 
 		## Resources
-	</Slide>
-
-	<Slide 
-		type="figure"
-		image={Whocanuse}
-		caption="whocanuse.com"
-	/>
-
-	<Slide 
-		type="figure" 
-		image={WhocanuseRedgreen} 
-		caption="whocanuse.com" 
-	/>
-
-	<Slide
-		type="figure"
-		image={WCAGExplainers}
-		caption="smashingmagazine.com/2023/10/roundup-wcag-explainers"
-	>
-
-		<Notes slot="notes">
-			- As I mentioned, WCAG 2.2 came out a few months back, there are a bunch of great explainers that go through the guidelines and what the changes are
-		</Notes>
-	</Slide>
+	</Slide>	
 
 	<Slide
 		type="figure"
 		caption="kapers.dev/a11y_resources"
 		image={Resources}
 	/>
+</Slide>
+
+<Slide>
+	Conclusion
+	<Notes slot="notes">
+		- 
+	</Notes>
 </Slide>
