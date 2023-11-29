@@ -7,6 +7,22 @@
 				opacity: 1;
 			}
 		}
+
+		&.disappear {
+			visibility: visible;
+			opacity: 1;
+			display: inline-block;
+			transition-property: max-width;
+			transition-duration: 0.5s;
+			transition-timing-function: ease-in-out;
+			transition-delay: 0;
+			max-width: 100vw;
+
+			&.current-fragment {
+				opacity: 0;
+				max-width: 0;
+			}
+		}
 	}
 }
 

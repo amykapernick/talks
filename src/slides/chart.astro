@@ -18,7 +18,6 @@ const {caption, theme, data, ...args } = Astro.props
 	}
 
 	div {
-		max-height: 100%;
 		width: auto;
 		height: 100%;
 	}
@@ -29,7 +28,7 @@ const {caption, theme, data, ...args } = Astro.props
 		object-position: center;
 		transform: translateX(-50%);
 		margin-left: 50%;
-		max-height: 100%;
+		max-height: calc(100vh - $footer_height - $header_height - 1em);
 	}
 
 	figcaption {
@@ -40,7 +39,7 @@ const {caption, theme, data, ...args } = Astro.props
 
 <section {...args}>
 	<figure>
-		<div id="chart" data-config={JSON.stringify([caption, data, theme])}><canvas></canvas></div>
+		<div class="chart" data-config={JSON.stringify([caption, data, theme])}><canvas></canvas></div>
 		{caption && <figcaption>{caption}</figcaption>}
 	</figure>
 	<slot />
@@ -49,37 +48,39 @@ const {caption, theme, data, ...args } = Astro.props
 <script>
 	import Chart from 'chart.js/auto'
 
-	const chart = document?.querySelector('#chart canvas')
-	const [caption = '', overrideConfig, theme] = JSON.parse(document?.querySelector('#chart').dataset.config || '[]')
-	const config = {
-		options: {
-			plugins: {
-				responsive: true,
-				legend: {
-					display: false,
-					position: 'right',
-					labels: {
-						color: ['navy'].includes(theme) ? '#fff' : '#000',
-						font: {
-							size: 40,
-							family: 'Arial',
-							lineHeight: 1.5,
-							weight: 700
-						}
-					} 
-				},
-				title: {
-					display: false,
-					text: caption
+	document.querySelectorAll('figure .chart').forEach(chart => {
+		if(!chart || !chart?.dataset || !chart?.querySelector('canvas')) return
+
+		const [caption = '', overrideConfig, theme] = JSON.parse(chart.dataset.config || '[]')
+		const config = {
+			options: {
+				plugins: {
+					responsive: true,
+					legend: {
+						display: false,
+						position: 'right',
+						labels: {
+							color: ['navy'].includes(theme) ? '#fff' : '#000',
+							font: {
+								size: 40,
+								family: 'Arial',
+								lineHeight: 1.5,
+								weight: 700
+							}
+						} 
+					},
+					title: {
+						display: false,
+						text: caption
+					}
 				}
-			}
-		},
-	}
+			},
+		}
 
-	console.log({caption, overrideConfig, config})
-
-	new Chart(chart, {
-		...config,
-		...overrideConfig
+		new Chart(chart?.querySelector('canvas'), {
+			...config,
+			...overrideConfig
+		})
 	})
+
 </script>

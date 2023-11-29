@@ -3,7 +3,7 @@ title: Accessibility by Everyone
 layout: ../../parts/layout.astro
 config: 
   navigationMode: linear
-  backgroundTransition: none
+  transition: none
 footer: ['@amyskapers.dev', '@amys_kapers']
 theme: navy
 ---
@@ -14,6 +14,18 @@ import Impairments from '@img/a11y/impairments.png'
 import ImpairmentTypes from '@img/a11y/types_of_impairments.png'
 import ImpairmentCategories from '@img/a11y/categories_of_impairments.png'
 import InstagramMusic from './img/instagram_background_music.mp3'
+import Whocanuse from '@img/a11y/whocanuse.png'
+import WhocanuseRedgreen from '@img/a11y/whocanuse_redgreen.png'
+import AccessibleBrandColours from '@img/a11y/accessiblebrandcolours.png'
+import Resources from '@img/a11y/resources.png'
+import ScreenReader from './img/screen_reader.mp4'
+import ScreenReaderDemo from '@img/a11y/screenreader_demo.png'
+import IntopiaTraining from '@img/a11y/intopia_training.png'
+import PracticalA11y from '@img/a11y/practical_a11y.png'
+import WCAGExplainers from '@img/a11y/wcag_explainers.png'
+import FenderWorkshop from '@img/a11y/fender_workshop.png'
+import FenderTesting from '@img/a11y/fender_testing_blog.png'
+import Overlays from '@img/a11y/overlayfactsheet.png'
 
 <Slide data-style="title">
 	# {frontmatter.title}
@@ -58,6 +70,7 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 		</Notes>
 	</Slide>
 
+{/* TODO: MAke transition better and add blank screen */}
 	<Slide>
 		Inclusion makes us <Switch words={['more-effective', 'more innovative', 'better', 'happier']} />
 
@@ -118,9 +131,10 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 		</Notes>
 	</Slide>
 
+{/* TODO: caption overlap */}
 	<Slide
 		type="chart" 
-		caption="Global Impairments" 
+		caption="Global Population with a Permanent Impairment" 
 		theme={frontmatter.theme}
 		data={{
 			type: 'pie',
@@ -130,7 +144,7 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 					'Rest of population'
 				],
 				datasets: [{
-					label: 'Global Impairments',
+					label: 'Global Population with a Permanent Impairment',
 					data: [15, 85],
 					backgroundColor: [
 						'#228b22',
@@ -236,6 +250,8 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 			- I mean think about the last time you avoided taking the stairs and used a lift or a ramp instead?
 		</Notes>
 	</Slide>
+
+	{/* TODO: change order */}
 
 	<Slide 
 		type="cloud"
@@ -455,7 +471,7 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 	</Slide>
 
 	<Slide>
-		<span slot="header">Project Managers, Product Owners, Marketing, Content Writers</span>
+		<span slot="header">Project Managers, Product Owners, Marketing, Content Writers, Developers</span>
 
 		Provide Text Alternatives
 		<Notes slot="notes">
@@ -498,29 +514,108 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 	</Slide>
 
 	<Slide>
-		<span slot="header"></span>
+		<span slot="header">Designers, Developers</span>
 
-		
+		Error Messaging
 		<Notes slot="notes">
-			- 
+			- Ensuring there is clear and understandable errors is important so that people understand what is happening and what's gone working
+			- This means also making it obvious so people with vision impairments can easily find the error and is recognised and announced by screen readers or assistive technologies
 		</Notes>
 	</Slide>
 
 	<Slide>
-		<span slot="header"></span>
+		<span slot="header">Designers, Developers</span>
 
-		
+		Animations and Motion
 		<Notes slot="notes">
-			- 
+			- Animations, motion and autoplaying videos can be an issue for a number of reasons, it can distract and switch focus from the content, it can trigger motion sickness in severe cases and it can trigger seizures in people with epilepsy
+			- This doesn't mean you can't use animations, but it's important to make sure they're not in your face and distracting
+			- There are also ways developers can check for people's preferences and disable animations if they've opted out which we'll look at in a bit
 		</Notes>
 	</Slide>
 
 	<Slide>
-		<span slot="header"></span>
+		<span slot="header">Developers</span>
 
-		
+		Semantic HTML
 		<Notes slot="notes">
-			- 
+			- One of the best things developers can do is to use correct and semantic HTML elements when building out the structure of the content
+			- This includes additional functionality, context and information out of the box, is compatible everywhere and easy for assistive technologies to consume and understand
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers</span>
+
+		Keyboard Navigation
+		<Notes slot="notes">
+		- Not everyone uses a mouse to navigate around, a lot of people find it easier to use a keyboard or other input device
+		- For people with vision impairments, they can't see where the cursor is on a page, but a keyboard allows them to navigate around the functional elements
+		- For people with a mobility impairment, they may not have the fine motor control needed to use a mouse or trackpad
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, QA, Testing</span>
+	
+		Testing Procedures
+		<Notes slot="notes">
+			- Because of the subjective nature of accessibility, there are a lot of things that can't be done automatically and we need to run manual tests to check these things
+			- There are still a lot of things that can be tested automatically though, things like colour contrast, semantic HTML and in some cases keyboard navigation can be tested automatically
+			- It's good to have a combination of automated and manual tests, to cover as much as possible and ensure things aren't being missed
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		Automated Tests
+		<Notes slot="notes">
+			- For the automated tests that are written, it's good to have them integrated as part of a pipeline or process so they run automatically as part of the rest of the testing suite
+			- Some testing tools even allow tracking the progress being made, how many issues over time are resolved, and showcasing the improvements being made
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing</span>
+	
+		User Testing
+		<Notes slot="notes">
+			- Although it's useful for the people building the product to ensure it's fully tested, there are some things that are best done by people with lived experience
+			- Where possible, have people with impairments test what you're building, whether that's by hiring an external company or consultant or ensuring you have people on the team
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Security</span>
+	
+		Human Centred Security
+		<Notes slot="notes">
+			- When developing security policies, make sure you're remembering the people who are involved
+			- When procedures are convoluted or unclear, it makes it easier for people to be succeptable to social engineering
+			- People with cognitive impairments in particular are at a higher risk as they may miss signs
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security</span>
+	
+		Autofill & Password Managers
+		<Notes slot="notes">
+			- Autofill functionality and password managers are especially useful for people with impairments
+			- And when these features are disabled, it makes it more likely that someone will accidentally enter confidential information to an insecure field
+			- Or people may result to third party solutions to help them, which introduces additional risks of their data being compromised
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security</span>
+	
+		MFA & Captchas
+		<Notes slot="notes">
+			- Make sure that the captcha solution you're using is accessible to people using assistive technologies, a lot of them aren't or it blocks people using them
+			- When using multi-factor authentication, also consider people's capabilities, some people may struggle to access and enter the code before it times out
+			- When receiving an SMS code, sometimes screen readers won't recognise/announce the difference between an upper and lowercase letter, so consider whether it needs to be case sensitive
 		</Notes>
 	</Slide>
 </Slide>
@@ -530,9 +625,20 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 		## The Hard Data
 	</Slide>
 
+{/* TODO: AUD and make it blank to start, reword notes */}
+	<Slide>
+		1 million views/day <span class="fragment">→ €2.3 million/year</span>
+		<Notes slot="notes">
+			- A study done by Microsoft and Forrester have estimated that an average European company with a website that gets 1 million site visits per day
+			- Based on the percentage of users with disabilities who abandon online purchases due to accessibility issues
+			- If they made their website accessible they could increase their revenue but an additional €2.3 million per year 
+		</Notes>
+	</Slide>
+
+{/* TODO: change to figure */}
 	<Slide
 		type="chart" 
-		caption="Global Impairments" 
+		caption="Global Population with a Permanent Impairment" 
 		theme={frontmatter.theme}
 		data={{
 			type: 'pie',
@@ -542,7 +648,7 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 					'Rest of population'
 				],
 				datasets: [{
-					label: 'Global Impairments',
+					label: 'Global Population with a Permanent Impairment',
 					data: [15, 85],
 					backgroundColor: [
 						'#228b22',
@@ -553,7 +659,15 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 		}}
 	>
 		<Notes slot="notes">
+			- And it's not just Europe
 			- Earlier we looked at the 15% of the global population with an impairment
+		</Notes>
+	</Slide>
+
+	<Slide>
+		1.2 billion people
+		<Notes slot="notes">
+			- This comes to over 1.2 billion people in the world
 			- These people can make a big difference to your bottom line if they're able to use your product
 		</Notes>
 	</Slide>
@@ -565,6 +679,33 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 			- Have an estimated disposable income of $13 trillion dollars each year
 		</Notes>
 	</Slide>
+
+{/* TODO: webaim is? */}
+	<Slide>
+		1,000,000 sites
+		<Notes slot="notes">
+			- Each year WebAIM does a study on the top million homepages
+			- In 2023, from those 1 million websites...
+		</Notes>
+	</Slide>
+
+	<Slide>
+		49,991,225 accessibility issues
+		<Notes slot="notes">
+			- ...they found 49 million, 991 thousand, 225 accessibility issues
+			- That's an average of almost 50 errors per site, just on the homepage
+			- https://webaim.org/projects/million/
+		</Notes>
+	</Slide>
+
+	<Slide>
+		96.3% failed
+		<Notes slot="notes">
+			- Of those 1 million websites, 96.3% failed to meet accessibility guidelines
+			- That means that more than 96% of these websites were built without considering the billions of people who need accessibility features to use them
+			- This audit was also done using automated testing and therefore not able to test all of the criteria, so chances are this number of inaccessible websites is higher
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide type="section">
@@ -573,6 +714,349 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 	<Slide data-style="section"> 
 		## Little Steps
 	</Slide>
+
+	<Slide>
+		W<span class="fragment disappear" data-fragment-index="1">eb</span> C<span class="fragment disappear" data-fragment-index="1">ontent</span> A<span class="fragment disappear" data-fragment-index="1">ccessibility</span> G<span class="fragment disappear" data-fragment-index="1">uidelines</span>
+		<Notes slot="notes">
+			- To help ensure websites and apps are accessible, the World Wide Web Consortium (W3C) has developed a set of Guidelines, the Web Content Accessibility Guidelines
+			- These guidelines are developed by industry professionals, some staff and some community members, all of which are developed publicly and openly
+		</Notes>
+	</Slide>
+
+{/* TODO: 3? What's new? */}
+	<Slide>
+		WCAG 2.2
+		<Notes slot="notes">
+			- The most current version of the guidlines is WCAG 2.2 which was published in October
+			- Each version updates to take into account new technologies, for example 2.1 introduced guidelines around animations and motion, while 2.2 introduced guidelines around drag and drop and authentication
+		</Notes>
+	</Slide>
+
+	<Slide>
+		A - AA - AAA
+		<Notes slot="notes">
+			- These guidelines cover 3 levels of conformance, A, AA and AAA
+			- A is basic accessibility, if you're not meeting this level people with impairments will have serious issues or be incapable of using it at all
+			- AA goes a step further and ensures that people with impairments can use it, although it may not be convenient. If you're working towards an accessibility standard, this is likely what you're working towards
+			- Finally AAA is the highest level, is typically met by organisations who's primary user are people with impairments
+			- Whatever role you are in, it's worth knowing a bit about these guidelines, at the very least that they exist, what level you have to meet and how to test against them
+		</Notes>
+	</Slide>
+
+	<Slide>
+		A little can go a long way
+		<Notes slot="notes">
+			- A little change can make a huge difference
+			- If you're using a component library, there's a chance that one small fix can resolve hundreds or thousands of issues
+		</Notes>
+	</Slide>
+
+	<Slide>
+		49,991,225 accessibility issues
+		<Notes slot="notes">
+			- Let's take a look again at the data from the WebAIM million audit
+			- 49 million, 991 thousand, 225 accessibility issues
+		</Notes>
+	</Slide>
+
+	<Slide>
+		96.1% easy fixes
+		<Notes slot="notes">
+			- Of those, 96.1% are easily fixable
+		</Notes>
+	</Slide>
+
+	<Slide>
+		48,041,567 easy fixes
+		<Notes slot="notes">
+			- That's over 48 million issues that can be fixed with a small change
+		</Notes>
+	</Slide>
+
+{/* TODO: Make list or cloud */}
+	<Slide>
+		Colour Contrast, Missing Alt Text, Empty Links/Buttons, Missing Form Labels, Missing Document Language
+		<Notes slot="notes">
+			- These issues were from insufficient colour contrast, missing alternative text on images, buttons and links that were empty or didn't include a label, missing labels on form inputs and missing document language
+		</Notes>
+	</Slide>
+
+{/* TODO: missing doc stats */}
+	<Slide type="code" lines="1">
+		```html
+		<!DOCTYPE html>
+		<html>
+			<!-- Page Content -->
+		</html>
+		```
+		<Notes slot="notes">
+			- Doctype is a really easy fix
+			- It's literally the first line of a HTML file
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Designers</span>
+
+		Colour Contrast
+		<Notes slot="notes">
+			- More than 60% of the issues were insufficient colour contrast
+			- WCAG guidelines have a minimum ratio of 4.5:1 to meet AA standard, and 7:1 to meet AAA standard
+			- https://webaim.org/projects/million/
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure"
+		image={Whocanuse}
+		caption="whocanuse.com"
+	>
+		<span slot="header">Developers, Designers</span>
+
+		<Notes slot="notes">
+			- To help determine the colour contrast, there's a great tool Who Can Use, which not only calculates the difference between 2 colours but simulates several different vision impairments and compares those too
+		</Notes>
+	</Slide>
+
+	<Slide type="figure" image={WhocanuseRedgreen} caption="whocanuse.com">
+		<span slot="header">Developers, Designers</span>
+	
+		<Notes slot="notes">
+			- For example, red and green may technically pass AA standard with a ratio of 4.5:1
+			- But if people have a type of colour blindness that affects reds or greens, it may fail
+		</Notes>
+	</Slide>
+
+	<Slide type="figure" image={AccessibleBrandColours} caption="abc.useallfive.com">
+		<span slot="header">Designers, Developers</span>
+	
+		<Notes slot="notes">
+			- There are also plenty of tools out there that can compare brand colours against one another
+			- This is useful to know which colours can be used together and still pass the colour contrast guidelines
+		</Notes>
+	</Slide>
+	
+	<Slide>
+		<span slot="header">Marketing, Content Writing, Developers</span>
+	
+		Alt Text
+		<Notes slot="notes">
+			- Having a text alternative for your images
+			- People who can't see the image miss it
+			- And screen readers or assistive technologies can't describe it to them
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="image.jpg" />
+		```
+		<Notes slot="notes">
+			- If you don't have one, the screen reader will read out the file name
+			- Which for something like this isn't as bad, although doesn't give much information 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<img src="/img/3c87e3e6bd8aa927c30257a/07cf2d3891f54ca470d1d9f0.jpg" />
+		```
+		<Notes slot="notes">
+			- And most of the time our images have automatically generated names or paths, which is not remotely helpful and a poor user experience
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="image.jpg" alt="{content}" />
+		```
+		<Notes slot="notes">
+			- Instead we can an alt attribute to the image, giving the user information about the image
+			- This doesn't necessarily mean describing the entire image, but describe the important parts of the image, the intent behind it's inclusion
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="image.jpg" alt="" />
+		```
+		<Notes slot="notes">
+			- If an image isn't conveying any information, and is purely presentational
+			- We use an empty alt attribute, this lets assistive technologies know that it's not important and they'll ignore it altogether
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Marketing, Content Writing, Developers</span>
+	
+		Captions
+		<Notes slot="notes">
+			- As well as text descriptions for images, make sure that your other media has a text alternative as well
+			- Videos and audio recordings can be given captions and transcripts
+			- If you're relying on graphs and charts, make sure there's a text description for them as well, so people who can't see them can still understand the information
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers, Developers</span>
+	
+		Form Labels
+		<Notes slot="notes">
+			- Make sure that your form inputs have labels associated with each input
+			- Even if the design doesn't display them, you can hide the labels visually, and keep them linked so that screen readers know what each input is
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<label for="i_1"> 
+			Enter Information
+		</label>
+		
+		<input id="i_1" name="info" placeholder="Info"/>
+		```
+
+		<Notes slot="notes">
+			- You can link labels with inputs using the `for` and `id` attributes
+			- The `id` attribute is separate from the `name`, and can be randomly generated
+			- The placeholder attribute, while it does display in the field, is not announced by or even recognised by screen readers
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		Automated Testing
+		<Notes slot="notes">
+			- If you've got an existing pipeline for automating tests, look at integrating some accessibility testing in there
+			- Start running validations and check to make sure you're not introducing new issues
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		caption="blog.amyskapers.dev/front-end-testing-with-github-actions"
+		image={FenderTesting}
+	>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		<Notes slot="notes">
+			- Or if you don't have one, here's a blog post to help you get started with a pipeline in GitHub Actions
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		Screen Readers
+		<Notes slot="notes">
+			- It helps to understand what people experience when using a screen reader
+			- There are free or paid options, plus built in to Windows, MacOS, Android and iOS
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		video={ScreenReader}
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			- Try opening up the screen reader
+			- Navigate around the webpage, see what you can find, what you can do, what it tells you about what you can see on the page
+			- If you're feeling up to it, try closing your eyes and see if you can work things out without actually seeing the screen as well
+			- But while this is a useful step to do, it's not the same as people who use screen readers every day
+		</Notes>
+	</Slide>
+	
+	<Slide
+		type="figure"
+		youtube="https://www.youtube.com/embed/q_ATY9gimOM?si=zhyBMZR1V0YCiPm-&amp;start=75&controls=0"
+		caption="youtu.be/q_ATY9gimOM"
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			- Here we have someone who uses a screen reader every day, who relies on it to use their computer
+			- Have a listen to how fast the voice is
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={ScreenReaderDemo}
+		caption="youtu.be/q_ATY9gimOM"
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			- So get in the practice of using a screen readers
+			- And investigate getting someone in to do it where you can
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={IntopiaTraining}
+		caption="intopia.digital/services/accessibility-training"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- Intopia is a digital agency that specialises in accessibility, they have a heap of different courses available, both privately in companies and publicly
+			- These courses target different roles and teams too, including designing, developing, content writing, testing, project management, app development and more
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={PracticalA11y}
+		caption="practical-accessibility.today"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- Sara Soueidan has been working on this online course for a while now and it was released earlier this year
+			- It's targeted at developers and designers
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={FenderWorkshop}
+		caption="amyskapers.dev/front-end-fundamentals-workshop"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- I also have a workshop that I run in companies that covers accessibility and accessibility testing in-depth for developers and designers
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security, Project Managers, Product Owners</span>
+	
+		Accessibility Overlays
+		<Notes slot="notes">
+			- I want to make a quick note about accessibility overlays and widgets
+			- These are often used as a "quick fix" to try and make a website accesible
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={Overlays}
+		caption="overlayfactsheet.com"
+	>
+		<span slot="header">Developers, Security, Project Managers, Product Owners</span>
+
+		<Notes slot="notes">
+			- Not only do they not fix things and make a website accessible, in many cases they make it significantly worse and override any existing settings the users might already have
+			- They also open a site up to security concerns and potential data breaches
+			- There's a great factsheet about it at overlayfactsheet.com, which also includes quotes of support from accessibility experts all over
+		</Notes>
+	</Slide>
+
 </Slide>
 
 <Slide type="section">
@@ -581,4 +1065,33 @@ import InstagramMusic from './img/instagram_background_music.mp3'
 	<Slide data-style="section"> 
 		## Resources
 	</Slide>
+
+	<Slide 
+		type="figure"
+		image={Whocanuse}
+		caption="whocanuse.com"
+	/>
+
+	<Slide 
+		type="figure" 
+		image={WhocanuseRedgreen} 
+		caption="whocanuse.com" 
+	/>
+
+	<Slide
+		type="figure"
+		image={WCAGExplainers}
+		caption="smashingmagazine.com/2023/10/roundup-wcag-explainers"
+	>
+
+		<Notes slot="notes">
+			- As I mentioned, WCAG 2.2 came out a few months back, there are a bunch of great explainers that go through the guidelines and what the changes are
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		caption="kapers.dev/a11y_resources"
+		image={Resources}
+	/>
 </Slide>

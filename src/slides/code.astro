@@ -1,7 +1,13 @@
 ---
 import Background from "@parts/background";
 
-const { ...args } = Astro.props
+const { lines, ...args } = Astro.props
+
+let slot = await Astro.slots.render('default')
+
+// if(lines) {
+// 	slot.replace(/<code/, `<code data-line-numbers="${lines}"`)
+// }
 ---
 
 <style>
@@ -14,6 +20,4 @@ const { ...args } = Astro.props
 </style>
 
 <Background theme="dark" />
-<section {...args}>
-	<slot />
-</section>
+<section {...args} set:html={slot} />

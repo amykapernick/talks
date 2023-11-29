@@ -232,7 +232,7 @@ export default {
 	focusBodyOnPageVisibilityChange: true,
 
 	// Transition style
-	transition: 'fade', // none/fade/slide/convex/concave/zoom
+	transition: 'none', // none/fade/slide/convex/concave/zoom
 
 	// Transition speed
 	transitionSpeed: 'fast', // default/fast/slow

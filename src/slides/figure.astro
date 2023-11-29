@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image, caption, ...args } = Astro.props
+const { image, video, youtube, caption, ...args } = Astro.props
 
 ---
 
 <style>
 	figure {
 		height: 100%;
+		padding-top: 2vh;
 		margin: 0;
 		display: grid;
 		width: 100%;
@@ -23,11 +24,17 @@ const { image, caption, ...args } = Astro.props
 		overflow: hidden;
 	}
 
-	img {
+	img, video {
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+	}
+
+	iframe {
+		height: calc(100vh - $footer_height - $header_height - 1em);
+		width: calc((16/9) * (100vh - $footer_height - $header_height - 1em));
+		aspect-ratio: 16/9;
 	}
 
 	figcaption {
@@ -39,7 +46,15 @@ const { image, caption, ...args } = Astro.props
 <section {...args}>
 	<figure>
 		<div>
-			<Image src={image} loading={'eager'} alt="" />
+			{image && <Image src={image} loading={'eager'} alt="" />}
+			{video &&
+				<video data-autoplay>
+					<source src={video} type="video/mp4" />	
+				</video>
+			}
+			{youtube &&
+				<iframe width="1600" height="900" src={youtube} title={caption} frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen data-preload data-autoplay></iframe>
+			}
 		</div>
 		{caption && <figcaption>{caption}</figcaption>}
 	</figure>
