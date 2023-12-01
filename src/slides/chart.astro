@@ -48,7 +48,7 @@ const {caption, theme, data, ...args } = Astro.props
 <script>
 	import Chart from 'chart.js/auto'
 
-	document.querySelectorAll('figure .chart').forEach(chart => {
+	document.querySelectorAll('figure .chart').forEach((chart: any) => {
 		if(!chart || !chart?.dataset || !chart?.querySelector('canvas')) return
 
 		const [caption = '', overrideConfig, theme] = JSON.parse(chart.dataset.config || '[]')
