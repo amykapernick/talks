@@ -47,7 +47,8 @@ blockquote {
 }
 
 mark {
-	background: $blue;
+	background: var(--highlight_colour);
+	color: var(--highlight_text_colour);
 }
 
 small {

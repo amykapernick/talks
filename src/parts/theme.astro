@@ -5,7 +5,8 @@ const { theme, class: className = '', ...props } = Astro.props
 <style>
 	.body {
 		--background_colour: $background;
-		--coltext_colouror: $neutral;
+		--text_colour: $neutral;
+		--highlight_colour: $blue;
 
 		background: var(--background_colour);
 		color: var(--text_colour); 
@@ -13,21 +14,29 @@ const { theme, class: className = '', ...props } = Astro.props
 		&[data-theme="navy"] {
 			--background_colour: $light_navy;
 			--text_colour: $white;
+			--highlight_colour: $pink;
+			--highlight_text_colour: var(--background_colour);
 		}
 
 		&[data-theme="navy_light"] {
 			--background_colour: $white;
 			--text_colour: $light_navy;
+			--highlight_colour: var(--text_colour);
+			--highlight_text_colour: var(--background_colour);
 		}
 
 		&[data-theme="dark"] {
 			--background_colour: $neutral;
 			--text_colour: $white;
+			--highlight_colour: var(--text_colour);
+			--highlight_text_colour: var(--background_colour);
 		}
 
 		&[data-theme="blue"] {
 			--background_colour: $light_blue;
 			--text_colour: $white;
+			--highlight_colour: var(--text_colour);
+			--highlight_text_colour: var(--background_colour);
 		}
 	}
 </style>
