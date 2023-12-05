@@ -12,3 +12,9 @@ Further information and talk details can be found at [speaking.amyskapers.dev](h
 - [ ] Add Remark/Rehype plugin to easily add classes to markdown for fragments, etc
 - [ ] Add ability to step through/highlight code snippets
 - [ ] Custom styling for speaker notes
+
+
+### Accessibility is by Everyone
+- [ ] Add example and explanation of focus state (and hover state)
+- [ ] IT - Need to procure accessible devices and software
+- [ ] NVDA - built by people from UQ (Jamie Teh)
