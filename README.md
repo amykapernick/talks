@@ -18,3 +18,4 @@ Further information and talk details can be found at [speaking.amyskapers.dev](h
 - [ ] Add example and explanation of focus state (and hover state)
 - [ ] IT - Need to procure accessible devices and software
 - [ ] NVDA - built by people from UQ (Jamie Teh)
+- [ ] Add controls or backup for broken video
