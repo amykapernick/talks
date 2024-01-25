@@ -153,12 +153,25 @@ pre.code-wrapper {
   */
  
 /* Line highlight */
-.line-highlight,
-.highlight-line {
-	background: rgba($yellow, 0.10);
-	border-top: 1px solid rgba($yellow, 0.55);
-	border-bottom: 1px solid rgba($yellow, 0.55);
+table.hljs-ln {
+	& tr {
+		border-style: solid;
+		border-color: transparent;
+		border-width: 4px 0;
+	}
+
+	& tr:has(+ .line-highlight, + .highlight-line) {
+		border-bottom-color: rgba($yellow, 0.8);
+	}
+
+	& .line-highlight,
+	& .highlight-line {
+		background: rgba($yellow, 0.10);
+		border-color: rgba($yellow, 0.8);
+	}
 }
+
+
  
 /* Line numbers */
 .line-numbers .line-numbers-rows {
