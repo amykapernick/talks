@@ -14,6 +14,7 @@ const { title, config, footer, theme } = Astro.props.frontmatter
 	import Reveal from 'reveal.js'
 	import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 	import Notes from 'reveal.js/plugin/notes/notes.esm.js'
+	import Code from 'reveal.js/plugin/highlight/highlight.esm.js'
 	import revealDefaults from '../../config/revealjs.config.cjs'
 
 	const data = document?.querySelector('body')?.getAttribute('data-config')
@@ -24,6 +25,7 @@ const { title, config, footer, theme } = Astro.props.frontmatter
 		plugins: [
 			Markdown,
 			Notes,
+			Code
 		],
 		...overrideConfig
 	})

@@ -5,9 +5,9 @@ const { lines, ...args } = Astro.props
 
 let slot = await Astro.slots.render('default')
 
-// if(lines) {
-// 	slot.replace(/<code/, `<code data-line-numbers="${lines}"`)
-// }
+if(lines) {
+	slot = slot.replace(/<code/, `<code data-line-numbers="${lines.join('|')}"`)
+}
 ---
 
 <style>
@@ -16,8 +16,20 @@ let slot = await Astro.slots.render('default')
 	section {
 		@include code;
 		color: $white; 
+
+		&:global(.present[data-fragment] pre code.hljs) {
+			position: static;
+
+			&:global(:first-child:has(~ code.visible)),
+			&:global(:not(:first-child):not(.current-fragment)) {
+				display: none;
+			}
+		}
 	}
 </style>
 
 <Background theme="dark" />
+<!-- <section {...args}>
+	<slot />
+</section> -->
 <section {...args} set:html={slot} />

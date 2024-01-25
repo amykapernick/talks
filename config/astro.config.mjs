@@ -21,7 +21,7 @@ export default defineConfig({
 		}
 	},
 	markdown: {
-		syntaxHighlight: 'prism',
+		syntaxHighlight: false,
 		gfm: true,
 	},
 	integrations: [

@@ -24,6 +24,15 @@
 			}
 		}
 	}
+
+	& .hljs {
+		table.hljs-ln {
+			.hljs-ln-numbers {
+				display: none;
+				width: 0;
+			}
+		}
+	}
 }
 
 /* body {
