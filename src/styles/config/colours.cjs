@@ -23,7 +23,7 @@ const colours = {
 	white: '#ededed',
 	light_purple_bright: '#84398F',
 	light_purple: '#5B45AF',
-	light_navy: '#263773',
+	light_navy: '#1B2751',
 	light_blue: '#1976D4',
 	light_green: '#437E45',
 	light_red: '#AD1728',

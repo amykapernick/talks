@@ -4,7 +4,7 @@ module.exports = {
 		'stylelint-use-nesting',
 	],
 	extends: [
-		'stylelint-config-astro',
+		'stylelint-config-html',
 		'stylelint-config-property-sort-order-smacss',
 		'stylelint-config-standard',
 	],
@@ -20,7 +20,7 @@ module.exports = {
 	rules: {
 		'at-rule-empty-line-before': 'always',
 		'at-rule-no-unknown': [
-			true, 
+			true,
 			{
 				ignoreAtRules: ['define-mixin', 'mixin', 'import']
 			}
@@ -87,7 +87,7 @@ module.exports = {
 		'string-no-newline': true,
 		'unit-no-unknown': true,
 		'value-keyword-case': [
-			'lower', 
+			'lower',
 			{
 				ignoreKeywords: 'currentColor'
 			}

@@ -1,0 +1,13 @@
+---
+const { styles, ...args } = Astro.props
+---
+
+<style>
+	section {
+		background: $pink;
+	}
+</style>
+
+<section {...args} data-style={styles}>
+	<slot />
+</section>

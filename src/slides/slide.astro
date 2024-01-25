@@ -10,8 +10,9 @@ import Background from '@slides/background'
 import Browsers from '@slides/browsers'
 import Chart from '@slides/chart'
 import Cloud from '@slides/cloud'
+import Test from '@slides/test'
 
-type SlideType = 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' | 'background' | 'browsers' | 'chart' | 'cloud'
+type SlideType = 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' | 'background' | 'browsers' | 'chart' | 'cloud' | 'test'
 
 interface Props {
 	type: SlideType;
@@ -31,7 +32,8 @@ const SlideTypes: Record<SlideType, any> = {
 	browsers: Browsers,
 	standard: Standard,
 	chart: Chart,
-	cloud: Cloud
+	cloud: Cloud,
+	test: Test,
 }
 
 const SlideComponent = SlideTypes[type] || Standard
