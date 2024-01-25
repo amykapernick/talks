@@ -8,7 +8,8 @@
  Theme
  */
 code[class*="language-"],
-pre[class*="language-"] {
+pre[class*="language-"],
+.hljs {
 	color: #f8f8f2;
 	background: none;
 	font-family: $font_code;
@@ -30,13 +31,15 @@ pre[class*="language-"] {
 }
  
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*="language-"],
+pre.code-wrapper {
 	padding: 1em;
 	overflow: auto;
 }
  
 :not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+pre[class*="language-"],
+pre.code-wrapper {
 	background: $neutral;
 }
  
@@ -50,7 +53,9 @@ pre[class*="language-"] {
 .token.comment,
 .token.prolog,
 .token.doctype,
-.token.cdata {
+.token.cdata,
+.hljs-comment,
+.hljs-quote {
 	color: #d4d0ab;
 }
  
@@ -62,12 +67,27 @@ pre[class*="language-"] {
 .token.tag,
 .token.constant,
 .token.symbol,
-.token.deleted {
+.token.deleted,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
 	color: #ffa07a;
 }
  
 .token.boolean,
-.token.number {
+.token.number,
+.hljs-number,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
 	color: #00e0e0;
 }
  
@@ -76,7 +96,11 @@ pre[class*="language-"] {
 .token.string,
 .token.char,
 .token.builtin,
-.token.inserted {
+.token.inserted,
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
 	color: #abe338;
 }
  
@@ -85,17 +109,22 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string,
-.token.variable {
+.token.variable,
+.hljs-title,
+.hljs-section {
 	color: #00e0e0;
 }
  
 .token.atrule,
 .token.attr-value,
-.token.function {
+.token.function,
+.hljs-attribute, {
 	color: #ffd700;
 }
  
-.token.keyword {
+.token.keyword,
+.hljs-keyword,
+.hljs-selector-tag {
 	color: #00e0e0;
 }
  
@@ -105,10 +134,12 @@ pre[class*="language-"] {
 }
  
 .token.important,
-.token.bold {
+.token.bold,
+.hljs-strong {
 	font-weight: bold;
 }
-.token.italic {
+.token.italic,
+.hljs-emphasis {
 	font-style: italic;
 }
  
@@ -122,10 +153,11 @@ pre[class*="language-"] {
   */
  
 /* Line highlight */
-.line-highlight {
-	background: rgba(255, 217, 0, 0.10);
-	border-top: 1px solid rgba(255, 217, 0, 0.55);
-	border-bottom: 1px solid rgba(255, 217, 0, 0.55);
+.line-highlight,
+.highlight-line {
+	background: rgba($yellow, 0.10);
+	border-top: 1px solid rgba($yellow, 0.55);
+	border-bottom: 1px solid rgba($yellow, 0.55);
 }
  
 /* Line numbers */
@@ -164,7 +196,9 @@ pre[class*="language-"] {
 	.token.function,
 	.token.keyword,
 	.token.operator,
-	.token.selector {
+	.token.selector,
+	.hljs-keyword,
+    .hljs-selector-tag {
 		font-weight: bold;
 	}
  
@@ -175,7 +209,21 @@ pre[class*="language-"] {
 	.token.keyword,
 	.token.operator,
 	.token.property,
-	.token.string {
+	.token.string,
+	.hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
 		color: highlight;
 	}
  
