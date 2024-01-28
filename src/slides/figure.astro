@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image, video, youtube, caption, ...args } = Astro.props
+const { image, video, youtube, caption, zoom, reverseCaption, ...args } = Astro.props
 
 ---
 
-<style>
+<style define:vars={{zoom: zoom?.zoom, x: `${zoom?.x}%`, y: `${zoom?.y}%`}}>
 	figure {
 		height: 100%;
 		padding-top: 2vh;
@@ -17,11 +17,30 @@ const { image, video, youtube, caption, ...args } = Astro.props
 		justify-self: stretch;
 		align-self: stretch;
 		overflow: hidden;
+
+		&[data-reversecaption] {
+			& figcaption {
+				order: -1;
+			}
+		}
 	}
 
 	div {
 		max-height: 100%;
 		overflow: hidden;
+
+		&:global(.fragment) {
+			& img, & video {
+				transition: transform 1s ease-in-out;
+				transform: scale(1) translate(0, 0);
+			}
+
+			&:global(.current-fragment) {
+				& img, & video {
+					transform: scale(var(--zoom)) translate(var(--x), var(--y));
+				}
+			}
+		}
 	}
 
 	img, video {
@@ -44,8 +63,8 @@ const { image, video, youtube, caption, ...args } = Astro.props
 </style>
 
 <section {...args}>
-	<figure>
-		<div>
+	<figure data-reversecaption={reverseCaption}>
+		<div class={zoom && 'fragment custom'}>
 			{image && <Image src={image} loading={'eager'} alt="" />}
 			{video &&
 				<video data-autoplay>
