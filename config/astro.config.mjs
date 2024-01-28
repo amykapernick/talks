@@ -4,6 +4,9 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
 	site: 'https://talks.amyskapers.dev',
+	devToolbar: {
+		enabled: false,
+	},
 	server: {
 		port: 1234
 	},
