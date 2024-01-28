@@ -161,7 +161,11 @@ table.hljs-ln {
 	}
 
 	& tr:has(+ .line-highlight, + .highlight-line) {
-		border-bottom-color: rgba($yellow, 0.8);
+		border-bottom-color: transparent;
+
+		&:not(.highlight-line, .line-highlight) {
+			border-bottom-color: rgba($yellow, 0.8);
+		}
 	}
 
 	& .line-highlight,
@@ -171,8 +175,6 @@ table.hljs-ln {
 	}
 }
 
-
- 
 /* Line numbers */
 .line-numbers .line-numbers-rows {
 	border-right: 1px solid #F8F8F2;

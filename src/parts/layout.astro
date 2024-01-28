@@ -8,6 +8,7 @@ import Theme from '@parts/theme';
 
 const { title, config, footer, theme } = Astro.props.frontmatter
 
+const header = await Astro.slots.render('header')
 ---
 
 <script>
@@ -59,9 +60,7 @@ const { title, config, footer, theme } = Astro.props.frontmatter
 	</head>
 
 	<Theme data-config={JSON.stringify(config)} theme={theme}>
-			<Header>
-				<slot name="header" />
-			</Header>
+			<Header>{header && <span><slot name="header" /></span>}</Header>
 	
 			<main class="reveal">
 				<div class="slides">

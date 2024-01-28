@@ -17,7 +17,7 @@ type SlideType = 'standard' | 'code' | 'split' | 'quote' | 'figure' | 'section' 
 interface Props {
 	type: SlideType;
 	align?: 'left' | 'right';
-	size?: 'small' | 'medium';
+	size?: 'xs' | 'small' | 'medium';
 }
 
 const { type = 'standard', size, align, ...props } = Astro.props

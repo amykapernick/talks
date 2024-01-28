@@ -7,7 +7,10 @@ config:
 import Slide from '@slides/slide'
 import Notes from '@parts/notes'
 import Background from '@parts/background'
-import AmyRem from '@img/amy_rem.jpg'
+import TestingTalk from './img/testing-talk.png'
+import Blog from './img/blog.png'
+import GitHubActions from './img/github_actions.png'
+import ActionsSecret from './img/actions_secret.png'
 
 <Background />
 
@@ -15,15 +18,305 @@ import AmyRem from '@img/amy_rem.jpg'
 	# {frontmatter.title}
 </Slide>
 
+<Slide>
+	Why test?
+	<Notes slot="notes">
+		- First off, I'm not going to delve into why we need to be testing or why we need to test the front end of our applications
+		- If you're here or watching this at home, I'm going to assume that you know we need to test
+		- If you don't know why, or aren't convinced yet, I've got another talk for you
+	</Notes>
+</Slide>
 
-<Slide type="code" size="small" lines={['2-3', '4', '1']}>
+<Slide 
+	type="figure" 
+	image={TestingTalk} 
+	caption="kapers.dev/fender-testing"
+>
+	<Notes slot="notes">
+		- In 2020 I gave a talk about the whys and hows of front end Testing
+		- I did give it in London, but this will take you to the Sydney version which is a bit more updated
+		- Now that we're all on the same page on why we need to test, lets have a look at how we can go about running these tests
+	</Notes>
+</Slide>
+
+<Slide>
+	Why GitHub Actions?
+	<Notes slot="notes">
+		- So why GitHub actions you ask? This is a great question that I want to address in 2 parts
+	</Notes>
+</Slide>
+
+<Slide>
+	Manual tests are 🤷‍♀️
+	<Notes slot="notes">
+		- While definitely better than nothing, manual tests aren't great because it's hard to ensure that they're being run
+		- How many of your enjoy doing a repetitive task that could easily be automated?
+	</Notes>
+</Slide>
+
+<Slide>
+	Automation adds consistency
+	<Notes slot="notes">
+		- When tests are automated, as part of any kind of process, it means it's going to happen
+		- It adds a check to make sure that we're 
+	</Notes>
+</Slide>
+
+<Slide>
+	Why GitHub Actions?
+	<Notes slot="notes">
+		- But why did I choose GitHub actions to use for running tests and as my CI/CD tool?
+		- The documentation and assistance available to me was good and meant it wasn't hard to get started
+		- It's also compatible with a lot of existing things I was going to want to do
+		- And has great extensibility so works for smaller personal projects and bigger enterprise projects
+	</Notes>
+</Slide>
+
+<Slide
+	type="figure"
+	image={GitHubActions}
+	caption="github.com/features/actions"
+>
+	<Notes slot="notes">
+		- It's a very powerful tool that I could also do a whole talk on
+		- So if you want to look into it a bit more, check outn the GitHub docs or there are a few people from GitHub here this week so see if you can track on of them down
+	</Notes>
+</Slide>
+
+<Slide>
+	<span slot="header">Workflow Files</span>
+
+	`.github/workflows/test.yml`
+	<small>(yay `yaml`/`yml` 🙄)</small>
+
+	<Notes slot="notes">
+		- GitHub Actions runs what are called *workflows*, which are written inside *workflow files* inside a particular folder of your project
+		- As with a lot of devops tools, these files are written in yaml
+		- Each workflow (or action) 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['1','3-6', '8', '9', '10', '11', '12-17']}>
 	```yaml
-	# Show steps
+	name: Build and Test
+
+	on:
+	  pull_request:
+	    types: [opened, reopened, synchronize]
+	    branches: [prod]
+
+	jobs:
+	  build:
+	    runs-on: ubuntu-22.04
+	    steps:
+	      - name: Checkout Repo Code
+			uses: actions/checkout@v3
+
+		  - name: Setup Node
+	        uses: actions/setup-node@v3
+	        with:
+	          node-version: 16
+	```
+	<Notes slot="notes">
+		1. Name of the Workflow
+		2. How the workflow is triggered, in this case every time a pull request to the prod branch gets opened, reopened or the code in the PR gets updated
+			- https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+		3. The jobs/tasks that the workflow completes, by default these will all run at the same time
+			- https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+		4. Each job gets a different name, eg. `build`, but the name must be unique
+		5. Set the platform that the job will run on, you can choose a number of different options, but running on Linux is the cheapest option
+			- https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job
+		6. Each job has a number of steps to complete (these will complete one after another), most of the time your first step will be to checkout the repo code, otherwise you won't have anything to work with
+	</Notes>
+</Slide>
+
+<Slide type="code" lines={['1', '2', '3', '4', '7']} size="xs">
+	```yaml
 	- name: Setup Node
 	  uses: actions/setup-node@v3
 	  with:
 	    node-version: 16
+
+	- name: Install Node Modules
+	  run: npm install
 	```
+	<Notes slot="notes">
+		1. Name of the action (this is for us to identify it when it runs)
+		2. The GitHub Action package that we're using in this step, most of the time this is how we'll be defining what a step does
+		3. Some actions will also require values/config to be passed in, so these are set under the `with` property
+			 - Eg. for the setup node package, it can take a value of which node version you want to use
+			 - https://github.com/actions/setup-node#supported-version-syntax
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['3', '5', '7-10', '12']}>
+	```bash
+	#!/bin/bash
+
+	COMMAND="netlify deploy --build --site ${SITE_ID} --auth ${TOKEN} --json"
+
+	OUTPUT=$($COMMAND)
+
+	NETLIFY_URL=$(jq -r '.deploy_url' <<<"${OUTPUT}")
+	NETLIFY_LOGS=$(jq -r '.logs' <<<"${OUTPUT}")
+	DEPLOY_ID=$(jq -r '.deploy_id' <<<"${OUTPUT}")
+	SITE_NAME=$(jq -r '.site_name' <<<"${OUTPUT}")
+
+	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['2', '3-5', '6', '8-16']}>
+	```yaml
+	- name: Deploy to Netlify
+	  id: build_site
+	  env:
+	    TOKEN: ${{ secrets.TOKEN }}
+		SITE_ID: ${{ secrets.SITE_ID }}
+	  run: ./_actions/netlify_deploy.sh
+
+	- uses: actions/github-script@v6
+	  with:
+		script: |
+		  github.rest.issues.createComment({
+			issue_number: context.issue.number,
+			owner: context.repo.owner,
+			repo: context.repo.repo,
+			body: 'URL: ${{steps.build_site.outputs.NETLIFY_URL}}'
+		  })
+	```
+	<Notes slot="notes">
+		1. If we add an ID to our step, it can be referred to elsewhere in our workflow, this ID must be unique
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsid
+		2. For this step we also need to use some environment variables, which we're pulling in from GitHub Secrets
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv
+		3. This step will run a command in the terminal, which runs a custom script we'll create to build and deploy the site
+		4. Once the site is build, we're going to use the GitHub Script package to add a comment to our PR, so that we know everything has built and so we can easily find the preview URL if we want to check something
+			- https://github.com/actions/github-script
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['1-6', '8-17', '12', '13', '15-17']}>
+	```yaml
+	- name: Deploy to Netlify
+	  id: build_site
+	  env:
+	    TOKEN: ${{ secrets.TOKEN }}
+		SITE_ID: ${{ secrets.SITE_ID }}
+	  run: ./_actions/netlify_deploy.sh
+
+	- name: Build And Deploy
+      id: azure_builddeploy
+      uses: Azure/static-web-apps-deploy@v1
+      with:
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }} # 
+        action: "upload"
+        app_location: "/"
+        api_location: ""
+        output_location: "dist"
+	```
+	<Notes slot="notes">
+		4. Used for Github integrations (i.e. PR comments)
+		5. Repository/Build Configurations - These values can be configured to match your app requirements.
+			- https://aka.ms/swaworkflowconfig
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['4-5', '2-3,9-10', '9-12', '11', '13-14']}>
+	```yaml
+	jobs:
+	  build:
+		runs-on: ubuntu-22.04
+		outputs:
+		  deploy_url: ${{steps.build_site.outputs.NETLIFY_URL}}
+		steps:
+		  # Previous build steps here
+
+	  test:
+		runs-on: ubuntu-22.04
+		needs: build
+		steps:
+		  - name: Checkout Repo Code
+			uses: actions/checkout@v3
+	```
+	<Notes slot="notes">
+		1. Because the testing job is different, we need to out the Netlify URL so we can access it in another job
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs
+		2. Creating a new job for the tests to run in
+		3. Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
+		4. Jobs run in their own separate environments, so we need to checkout the repo code again so we can run tests that are defined in the repo
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={ActionsSecret} 
+	caption="Settings → Secrets and variables → Actions"
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+{/* Add prod flag */}
+<Slide type="code" size="xs">
+	```bash
+	#!/bin/bash
+
+	while getopts p: flag
+	do
+		case "${flag}" in
+			p) prod=${OPTARG};;
+		esac
+	done
+
+	COMMAND="netlify deploy --build --site ${NETLIFY_SITE_ID} --auth ${NETLIFY_AUTH_TOKEN} --json"
+
+	if [ "$prod" = "true" ]; then
+		COMMAND="$COMMAND --prod"
+	fi
+
+	OUTPUT=$($COMMAND)
+
+	NETLIFY_URL=$(jq -r '.deploy_url' <<<"${OUTPUT}")
+	NETLIFY_LOGS=$(jq -r '.logs' <<<"${OUTPUT}")
+	DEPLOY_ID=$(jq -r '.deploy_id' <<<"${OUTPUT}")
+	SITE_NAME=$(jq -r '.site_name' <<<"${OUTPUT}")
+
+	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={Blog} 
+	caption="blog.amyskapers.dev/front-end-testing-with-github-actions"
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={TestingTalk} 
+	caption="kapers.dev/fender-testing"
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide>
+	kapers.dev/feedback
 	<Notes slot="notes">
 		- 
 	</Notes>

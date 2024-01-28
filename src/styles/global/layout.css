@@ -58,6 +58,12 @@ body {
 				}
 			}
 
+			&[data-size="xs"] {
+				& * {
+					font-size: 3vh;
+				}
+			}
+
 			&[data-size="medium"] {
 				& * {
 					font-size: 6vh;

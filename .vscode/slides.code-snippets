@@ -40,5 +40,20 @@
       "</Slide>"
     ],
     "description": "Slide with Header"
+  },
+  "Slide with Figure": {
+    "prefix": "slide-figure",
+    "body": [
+      "<Slide ",
+      "	type=\"figure\" ",
+      "	image={$1} ",
+      "	caption=\"$2\"",
+      ">",
+      "	<Notes slot=\"notes\">",
+      "		- $3",
+      "	</Notes>",
+      "</Slide>"
+    ],
+    "description": "Slide with Figure"
   }
 }
