@@ -11,6 +11,11 @@ import TestingTalk from './img/testing-talk.png'
 import Blog from './img/blog.png'
 import GitHubActions from './img/github_actions.png'
 import ActionsSecret from './img/actions_secret.png'
+import ActionsDashboard from './img/actions_dashboard.png'
+import SuccessfulComment from './img/successful_comment.png'
+import SuccessfulCommentMultiple from './img/successful_comment_multiple.png'
+import PRSuccessfulAction from './img/pr_successful_action.png'
+import WorkflowPermissions from './img/workflow_permissions.png'
 
 <Background />
 
@@ -130,7 +135,7 @@ import ActionsSecret from './img/actions_secret.png'
 	</Notes>
 </Slide>
 
-<Slide type="code" lines={['1', '2', '3', '4', '7']} size="xs">
+<Slide type="code" lines={['1,6', '2', '7', '3-4']} size="xs">
 	```yaml
 	- name: Setup Node
 	  uses: actions/setup-node@v3
@@ -146,6 +151,16 @@ import ActionsSecret from './img/actions_secret.png'
 		3. Some actions will also require values/config to be passed in, so these are set under the `with` property
 			 - Eg. for the setup node package, it can take a value of which node version you want to use
 			 - https://github.com/actions/setup-node#supported-version-syntax
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={ActionsDashboard} 
+	caption="Repo → Actions"
+>
+	<Notes slot="notes">
+		- 
 	</Notes>
 </Slide>
 
@@ -165,18 +180,62 @@ import ActionsSecret from './img/actions_secret.png'
 	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
 	```
 	<Notes slot="notes">
-		- 
+		1. Here we'll set the command to run, this is using the Netlify CLI using the deploy command. We'll pass in the environment variables for the site and auth token, and have set the output to come through as JSON
+			- https://cli.netlify.com/commands/deploy
+		2. Next we'll run the command, and save the output in another variable so we can access it
+		3. To parse the output from Netlify, the jq package allows us to fetch the different properties and save them as individual variables.
+			- https://stedolan.github.io/jq/
+		4. Lastly we'll save the Netlify preview URL as an output parameter for the workflow step, so we can access it in future steps, eg. to add it as a comment on our PR
+			- https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter
 	</Notes>
 </Slide>
 
-<Slide type="code" size="xs" lines={['2', '3-5', '6', '8-16']}>
+<Slide type="code" size="xs" lines={['2', '3-5', '6']}>
 	```yaml
 	- name: Deploy to Netlify
 	  id: build_site
 	  env:
 	    TOKEN: ${{ secrets.TOKEN }}
 		SITE_ID: ${{ secrets.SITE_ID }}
-	  run: ./_actions/netlify_deploy.sh
+	  run: ./.github/actions/netlify_deploy.sh
+	```
+	<Notes slot="notes">
+		1. If we add an ID to our step, it can be referred to elsewhere in our workflow, this ID must be unique
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsid
+		2. For this step we also need to use some environment variables, which we're pulling in from GitHub Secrets
+			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv
+		3. This step will run a command in the terminal, which runs a custom script we'll create to build and deploy the site
+	</Notes>
+</Slide>
+
+
+<Slide 
+	type="figure" 
+	image={ActionsSecret} 
+	caption="Settings → Secrets and variables → Actions"
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={PRSuccessfulAction} 
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['8', '10-16']}>
+	```yaml
+	- name: Deploy to Netlify
+	  id: build_site
+	  env:
+	    TOKEN: ${{ secrets.TOKEN }}
+		SITE_ID: ${{ secrets.SITE_ID }}
+	  run: ./.github/actions/netlify_deploy.sh
 
 	- uses: actions/github-script@v6
 	  with:
@@ -189,13 +248,27 @@ import ActionsSecret from './img/actions_secret.png'
 		  })
 	```
 	<Notes slot="notes">
-		1. If we add an ID to our step, it can be referred to elsewhere in our workflow, this ID must be unique
-			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsid
-		2. For this step we also need to use some environment variables, which we're pulling in from GitHub Secrets
-			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv
-		3. This step will run a command in the terminal, which runs a custom script we'll create to build and deploy the site
-		4. Once the site is build, we're going to use the GitHub Script package to add a comment to our PR, so that we know everything has built and so we can easily find the preview URL if we want to check something
+		1. Once the site is build, we're going to use the GitHub Script package to add a comment to our PR, so that we know everything has built and so we can easily find the preview URL if we want to check something
 			- https://github.com/actions/github-script
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={WorkflowPermissions} 
+	caption="Settings → Actions → Workflow Permissions"
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={SuccessfulComment}
+>
+	<Notes slot="notes">
+		- 
 	</Notes>
 </Slide>
 
@@ -226,6 +299,15 @@ import ActionsSecret from './img/actions_secret.png'
 	</Notes>
 </Slide>
 
+<Slide 
+	type="figure" 
+	image={SuccessfulCommentMultiple}
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
 <Slide type="code" size="xs" lines={['4-5', '2-3,9-10', '9-12', '11', '13-14']}>
 	```yaml
 	jobs:
@@ -250,16 +332,6 @@ import ActionsSecret from './img/actions_secret.png'
 		3. Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first
 			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
 		4. Jobs run in their own separate environments, so we need to checkout the repo code again so we can run tests that are defined in the repo
-	</Notes>
-</Slide>
-
-<Slide 
-	type="figure" 
-	image={ActionsSecret} 
-	caption="Settings → Secrets and variables → Actions"
->
-	<Notes slot="notes">
-		- 
 	</Notes>
 </Slide>
 
