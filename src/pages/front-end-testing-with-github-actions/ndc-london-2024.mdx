@@ -18,6 +18,15 @@ import PRSuccessfulAction from './img/pr_successful_action.png'
 import WorkflowPermissions from './img/workflow_permissions.png'
 import CSSChanges from './img/css_changes.png'
 import HTMLFile from './img/html_file.png'
+import Netlify from './img/netlify.png'
+import GitHubActionsRun from './img/github_actions_run.mp4'
+import DeployPreview from './img/deploy_preview.png'
+import ActionsArtefact from './img/actions_artifact.png'
+import LighthouseReport from './img/lighthouse_report.png'
+import PlaywrightReport from './img/playwright_report.png'
+import SuccessfulTests from './img/successful_tests.png'
+import MultipleWorkflows from './img/multiple_workflows.png'
+import Repo from './img/repo.png'
 
 <Background />
 
@@ -55,8 +64,9 @@ import HTMLFile from './img/html_file.png'
 </Slide>
 
 <Slide
-	type="background"
+	type="figure"
 	image={HTMLFile}
+	background="dark"
 >
 	<Notes slot="notes">
 		- For example, from this code snippet, can you tell me if the interface is accessible to someone with a vision impairment?
@@ -65,8 +75,9 @@ import HTMLFile from './img/html_file.png'
 </Slide>
 
 <Slide
-	type="background"
+	type="figure"
 	image={CSSChanges}
+	background="dark"
 >
 	
 	<Notes slot="notes">
@@ -307,14 +318,46 @@ import HTMLFile from './img/html_file.png'
 	type="figure" 
 	image={ActionsDashboard} 
 	caption="Repo → Actions"
-	reverse
+	reverseCaption={true}
 >
 	<Notes slot="notes">
-		- When we have workflow files 
+		- When we have workflow files we can find them in the GitHub dashboard under the *Actions* tab
 	</Notes>
 </Slide>
 
-<Slide type="code" size="xs" lines={['3', '5', '7-10', '12']}>
+<Slide 
+	type="figure" 
+	video={GitHubActionsRun} 
+	background="dark"
+>
+	<Notes slot="notes">
+		- Now if we open a PR to merge code into our production branch, it will trigger the actions workflow to run
+		- It doesn't normally run this fast, but I've sped it up so we don't have to sit here and watch the screen while it installs node modules, but you get the point
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={Netlify} 
+	caption="netlify.com"
+>
+	<Notes slot="notes">
+		- Now the next step is to build and deploy our site to a staging environment, probably the same place we're running it in production
+		- In this case, I'm hosting my website on Netlify and they have a deploy preview feature, so I can have a fully functioning live version of my website, with a URL I can access and not affect the production version until I'm ready
+		- This step will be different depending on where you're hosting it, but the concepts will be the same and there's plenty of existing action packages you can use
+		- In my case, although there were a few existing Netlify actions packages, I couldn't find anything that did everything I wanted to do, so I did what all good developers do and made my own
+	</Notes>
+</Slide>
+
+<Slide>
+	`.github/actions/netlify_deploy.sh`
+	<Notes slot="notes">
+		- Thankfully Netlify has a CLI tool that I could use to make it way easier
+		- So I created a bash script and added it to my project, to keep everything in one place I added it to the existing `.github` folder, and added an `actions` folder in case I want to add any other custom actions scripts in future
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['3', '5', '7', '9']}>
 	```bash
 	#!/bin/bash
 
@@ -323,9 +366,6 @@ import HTMLFile from './img/html_file.png'
 	OUTPUT=$($COMMAND)
 
 	NETLIFY_URL=$(jq -r '.deploy_url' <<<"${OUTPUT}")
-	NETLIFY_LOGS=$(jq -r '.logs' <<<"${OUTPUT}")
-	DEPLOY_ID=$(jq -r '.deploy_id' <<<"${OUTPUT}")
-	SITE_NAME=$(jq -r '.site_name' <<<"${OUTPUT}")
 
 	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
 	```
@@ -363,22 +403,35 @@ import HTMLFile from './img/html_file.png'
 	type="figure" 
 	image={ActionsSecret} 
 	caption="Settings → Secrets and variables → Actions"
+	zoom={{
+		x: -17,
+		y: -25,
+		zoom: 1.4
+	}}
+	reverseCaption={true}
 >
 	<Notes slot="notes">
-		- 
+		- Lastly (and the bit I often forget) is to add the secret variables we're using to GitHub so that we can authenticate with Netlify
+
 	</Notes>
 </Slide>
 
 <Slide 
 	type="figure" 
 	image={PRSuccessfulAction} 
+	zoom={{
+		x: 7,
+		y: -19,
+		zoom: 2.2
+	}}
 >
 	<Notes slot="notes">
-		- 
+		- Once that's done, we can submit a PR to production and watch the action run
+		- And while this works, and I can then check in Netlify to find out the URL of the preview site, we want to make this a bit easier
 	</Notes>
 </Slide>
 
-<Slide type="code" size="xs" lines={['8', '10-16']}>
+<Slide type="code" size="xs" lines={['1-6', '8', '10-16', '2', '15']}>
 	```yaml
 	- name: Deploy to Netlify
 	  id: build_site
@@ -400,6 +453,8 @@ import HTMLFile from './img/html_file.png'
 	<Notes slot="notes">
 		1. Once the site is build, we're going to use the GitHub Script package to add a comment to our PR, so that we know everything has built and so we can easily find the preview URL if we want to check something
 			- https://github.com/actions/github-script
+		- Most of the information for this script, like the repo we're on, who owns it and the issue number (which in this case is our PR number) is available in the context for the GitHub Action
+		- But we also want to add the URL of the preview site to the comment, so using the ID of the previous build step, we can refer to it and fetch an output from the step, in this case we set an output for the NETLIFY_URL
 	</Notes>
 </Slide>
 
@@ -407,22 +462,43 @@ import HTMLFile from './img/html_file.png'
 	type="figure" 
 	image={WorkflowPermissions} 
 	caption="Settings → Actions → Workflow Permissions"
+	zoom={{
+		x: -5,
+		y: -25,
+		zoom: 2.2
+	}}
+	reverseCaption={true}
 >
 	<Notes slot="notes">
-		- 
+		- Again not forgetting to make sure permissions are setup, we need to give the GitHub action permission to make changes to our reportError, in this case to add a comment to a PR
 	</Notes>
 </Slide>
 
 <Slide 
 	type="figure" 
 	image={SuccessfulComment}
+	zoom={{
+		x: 8.5,
+		y: -17,
+		zoom: 2
+	}}
+>
+	<Notes slot="notes">
+		- Once this is setup, we can run the workflow again and this time we get a comment added to the PR to let us know the build worked and the URL of the preview website!
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={DeployPreview} 
+	caption="kapers.dev/deploy-preview"
 >
 	<Notes slot="notes">
 		- 
 	</Notes>
 </Slide>
 
-<Slide type="code" size="xs" lines={['1-6', '8-17', '12', '13', '15-17']}>
+<Slide type="code" size="xs" lines={['1-6', '8-17', '8-10', '12,13', '14-17']}>
 	```yaml
 	- name: Deploy to Netlify
 	  id: build_site
@@ -443,6 +519,8 @@ import HTMLFile from './img/html_file.png'
         output_location: "dist"
 	```
 	<Notes slot="notes">
+		- We talked about how this build step is specific to Netlify, because that's where the site is hosted, but you can deploy wherever you like
+		- For example we can add an extra step, to build and deploy on Azure, in this case as an Azure Static Web App
 		4. Used for Github integrations (i.e. PR comments)
 		5. Repository/Build Configurations - These values can be configured to match your app requirements.
 			- https://aka.ms/swaworkflowconfig
@@ -452,13 +530,18 @@ import HTMLFile from './img/html_file.png'
 <Slide 
 	type="figure" 
 	image={SuccessfulCommentMultiple}
+	zoom={{
+		x: 8.5,
+		y: 15,
+		zoom: 2
+	}}
 >
 	<Notes slot="notes">
-		- 
+		- Now when we run the workflow, it'll build and deploy twice, and we can see the preview URLs in the comments on the PR
 	</Notes>
 </Slide>
 
-<Slide type="code" size="xs" lines={['4-5', '2-3,9-10', '9-12', '11', '13-14']}>
+<Slide type="code" size="xs" lines={['1-2,9', '2-3,9-10', '4-5', '2,11', '12-14']}>
 	```yaml
 	jobs:
 	  build:
@@ -476,19 +559,238 @@ import HTMLFile from './img/html_file.png'
 			uses: actions/checkout@v3
 	```
 	<Notes slot="notes">
+		- Now we've got the website building, and have a live version we can access, next we need to setup the tests
+		- In this case, I want to set my tests up as a separate job in my workflow
+		- Like the build job, we define what environment we want it to run on, in this case Linux
+
 		1. Because the testing job is different, we need to out the Netlify URL so we can access it in another job
 			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs
-		2. Creating a new job for the tests to run in
-		3. Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first
+		3. Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first. By default, jobs in a workflow will process at the same time, but we need the live website first, so by setting it as a dependancy the test job won't run until the build job has successfully completed (so if the build fails, the test won't run)
 			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
 		4. Jobs run in their own separate environments, so we need to checkout the repo code again so we can run tests that are defined in the repo
 	</Notes>
 </Slide>
 
-{/* Add prod flag */}
-<Slide type="code" size="xs">
+<Slide type="code" size="small" lines={['1-2', '3,6', '3,4-5']}>
+	```yaml
+	- name: Audit URLs using Lighthouse
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          ${{ needs.build.outputs.deploy_url }}
+        uploadArtifacts: true
+	```
+	<Notes slot="notes">
+		- First up I'm going to run some lighthouse tests, and from this I'll get a report back
+		- But before we can do that, there's a slight problem we have to fix first
+		- We have set the build job to pass through the deploy URL, but GitHub Actions does some checking to make sure we're not inadvertantly doing things with secret stuff and accidentally exposing them
+		- Which while this is a useful feature, it's incredibly sensitive about what it thinks *might* be a secret, and doesn't announce when it's keeping something hidden for our own good
+	</Notes>
+</Slide>
+
+<Slide type="code" lines={['2']} size="small">
+	```text
+	Evaluate and set job outputs
+	Warning: Skip output 'deploy_url' since it may contain secret.
+	Cleaning up orphan processes
+	```
+	<Notes slot="notes">
+		- I have spent far too many hours trying to work out why my action wasn't working, or why a variable didn't exist, only to find this tiny little note in the logs
+		- And given the number of issues, discussions and stack overflow posts, I'm not the only one
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['3', '4']}>
 	```bash
-	#!/bin/bash
+	# .github/actions/netlify_deploy.sh
+
+	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
+	echo "ENCODED_URL=$(echo $NETLIFY_URL | base64 -w0 | base64 -w0)" >> $GITHUB_OUTPUT
+	```
+	<Notes slot="notes">
+		- To get around this, we can encode the URL before we pass it through, we now have an encoded and plain version that we can access
+		- The plain version is still fine to use for the build job, but for the test job we'll need to decode the encoded verson
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['4-5', '6-8', '10']}>
+	```yaml
+	- name: Checkout Repo Code
+      uses: actions/checkout@v3
+
+	- name: Decode URL
+	  id: decode_url
+	  run: |
+	    echo "DEPLOY_URL=$(echo "${{ needs.build.outputs.deploy_url }}" 
+		| base64 --decode | base64 --decode)" >> $GITHUB_OUTPUT
+
+	- run: echo ${{ steps.decode_url.outputs.DEPLOY_URL }}
+	```
+	<Notes slot="notes">
+		- Now once we get to the test job, we can add a step to decode the URL and use it elsewhere in the job
+		- Just to make sure, we can temporarily add a step to check the output is fine
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['1-5', '7-12', '2,9-11']}>
+	```yaml
+	- name: Decode URL
+	  id: decode_url
+	  run: |
+	    echo "DEPLOY_URL=$(echo "${{ needs.build.outputs.deploy_url }}" 
+		| base64 --decode | base64 --decode)" >> $GITHUB_OUTPUT
+
+	- name: Audit URLs using Lighthouse
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          ${{ steps.decode_url.outputs.DEPLOY_URL }}
+        uploadArtifacts: true
+	```
+	<Notes slot="notes">
+		- Now we can go back to the lighthouse action and pass the newly decoded URL from the decode step
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={ActionsArtefact}
+	zoom={{
+		x: -12,
+		y: -9,
+		zoom: 1.25
+	}}
+>
+	<Notes slot="notes">
+		- A lot of testing tools, particularly for front end tests, will generate reports to view the results a bit better
+		- We can take these generated reports and upload them as part of the test, so they can be accessed later
+		- In the case of this lighthouse test, it does that for us
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['6']}>
+	```yaml
+	- name: Audit URLs using Lighthouse
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          ${{ steps.decode_url.outputs.DEPLOY_URL }}
+        uploadArtifacts: true
+	```
+	<Notes slot="notes">
+		- The option we set here will upload the report for us to download and view later
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={LighthouseReport} 
+>
+	<Notes slot="notes">
+		- And will look something like this
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['1', '3-6', '8-9', '10-13']}>
+	```yaml
+	- run: npm install && npx playwright install --with-deps
+
+	- name: Run Playwright tests
+	  env:
+		BASE_URL: ${{ steps.decode_url.outputs.DEPLOY_URL }}
+	  run: npx playwright test
+
+	- uses: actions/upload-artifact@v3
+	  if: always()
+	  with:
+		name: playwright-report
+		path: playwright-report/
+		retention-days: 30
+	```
+	<Notes slot="notes">
+		- Next we're going to run some playwright tests, to do some UI testing
+		- First we need to install the packages for it and playwright
+		- Then we can go through and run the tests, and in this case we're also passing through the deploy URL so it knows what website to test
+		- Finally, we can take advantage of the artifacts to upload the repor that playwright will generate for us
+		- In this case we'll upload the report in the `playwright-report` folder and we'll ask GitHub to keep that for 30 days (you don't need to keep it forever, so it's good to let it clean itself up)
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={PlaywrightReport} 
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={SuccessfulTests} 
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['1', '3-5', '7-11']}>
+	```yaml
+	name: Build and Publish
+
+	on:
+	  push:
+		branches: [prod]
+
+	jobs:
+	  build:
+		runs-on: ubuntu-22.04
+		steps:
+	      # Build steps here   
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['1', '3-6', '8', '10-11', '12-14', '15']}>
+	```yaml
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - name: Deploy to Netlify
+        id: build_site
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          SITE_ID: ${{ secrets.SITE_ID }}
+        run: ./.github/actions/netlify_deploy.sh --p true
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small">
+	```bash
+	COMMAND="netlify deploy --build --site ${SITE_ID} --auth ${TOKEN} --json"
+
+	OUTPUT=$($COMMAND)
+
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs" lines={['3', '4-8', '10-12', '14']}>
+	```bash
+	COMMAND="netlify deploy --build --site ${SITE_ID} --auth ${TOKEN} --json"
 
 	while getopts p: flag
 	do
@@ -497,21 +799,53 @@ import HTMLFile from './img/html_file.png'
 		esac
 	done
 
-	COMMAND="netlify deploy --build --site ${NETLIFY_SITE_ID} --auth ${NETLIFY_AUTH_TOKEN} --json"
-
 	if [ "$prod" = "true" ]; then
 		COMMAND="$COMMAND --prod"
 	fi
 
 	OUTPUT=$($COMMAND)
 
-	NETLIFY_URL=$(jq -r '.deploy_url' <<<"${OUTPUT}")
-	NETLIFY_LOGS=$(jq -r '.logs' <<<"${OUTPUT}")
-	DEPLOY_ID=$(jq -r '.deploy_id' <<<"${OUTPUT}")
-	SITE_NAME=$(jq -r '.site_name' <<<"${OUTPUT}")
-
-	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
 	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={MultipleWorkflows} 
+	caption="Repo → Actions"
+	zoom={{
+		x: 30,
+		y: 22,
+		zoom: 2.5
+	}}
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide>
+	<span class="fragment">
+		- Build and Preview (anywhere) <span class="fragment">✅</span>
+	</span>
+	<span class="fragment">
+		- Test live website <span class="fragment">✅</span>
+	</span>
+	<span class="fragment">
+		- Build and Publish <span class="fragment">✅</span>
+	</span>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={Repo} 
+	caption="github.com/amykapernick/front-end-testing"
+>
 	<Notes slot="notes">
 		- 
 	</Notes>
@@ -532,6 +866,13 @@ import HTMLFile from './img/html_file.png'
 	image={TestingTalk} 
 	caption="kapers.dev/fender-testing"
 >
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide>
+	Thank you 👏
 	<Notes slot="notes">
 		- 
 	</Notes>
