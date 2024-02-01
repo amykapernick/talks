@@ -27,6 +27,7 @@ import PlaywrightReport from './img/playwright_report.png'
 import SuccessfulTests from './img/successful_tests.png'
 import MultipleWorkflows from './img/multiple_workflows.png'
 import Repo from './img/repo.png'
+import TodoIssue from './img/todo_issue.png'
 
 <Background />
 
@@ -203,10 +204,10 @@ import Repo from './img/repo.png'
 	```yaml
 	on:
 	  pull_request:
-	    types: [assigned, unassigned, labelled, unlabelled, opened, edited, closed, 
-		reopened, synchronize, ready_for_review, locked, unlocked, review_requested,
-		review_request_removed, auto_merge_enabled, auto_merge_disabled,
-		ready_for_auto_merge]
+	    types: [assigned, unassigned, labelled, unlabelled, opened, edited,
+		closed, reopened, synchronize, ready_for_review, locked, unlocked,
+		review_requested, review_request_removed, auto_merge_enabled, 
+		auto_merge_disabled, ready_for_auto_merge]
 	    branches: [prod, development, feature/**]
 		paths: ['**.js', '**.css']
 	```
@@ -541,6 +542,13 @@ import Repo from './img/repo.png'
 	</Notes>
 </Slide>
 
+<Slide>
+	## Testing
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
 <Slide type="code" size="xs" lines={['1-2,9', '2-3,9-10', '4-5', '2,11', '12-14']}>
 	```yaml
 	jobs:
@@ -568,6 +576,13 @@ import Repo from './img/repo.png'
 		3. Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first. By default, jobs in a workflow will process at the same time, but we need the live website first, so by setting it as a dependancy the test job won't run until the build job has successfully completed (so if the build fails, the test won't run)
 			- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
 		4. Jobs run in their own separate environments, so we need to checkout the repo code again so we can run tests that are defined in the repo
+	</Notes>
+</Slide>
+
+<Slide>
+	### Lighthouse
+	<Notes slot="notes">
+		- 
 	</Notes>
 </Slide>
 
@@ -600,12 +615,13 @@ import Repo from './img/repo.png'
 	</Notes>
 </Slide>
 
-<Slide type="code" size="small" lines={['3', '4']}>
+<Slide type="code" size="small" lines={['3', '4-5']}>
 	```bash
 	# .github/actions/netlify_deploy.sh
 
 	echo "NETLIFY_URL=${NETLIFY_URL}" >> $GITHUB_OUTPUT
-	echo "ENCODED_URL=$(echo $NETLIFY_URL | base64 -w0 | base64 -w0)" >> $GITHUB_OUTPUT
+	echo "ENCODED_URL=$(echo $NETLIFY_URL | base64 -w0 | base64 -w0)"
+	  >> $GITHUB_OUTPUT
 	```
 	<Notes slot="notes">
 		- To get around this, we can encode the URL before we pass it through, we now have an encoded and plain version that we can access
@@ -691,6 +707,13 @@ import Repo from './img/repo.png'
 	</Notes>
 </Slide>
 
+<Slide>
+	### Playwright
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
 <Slide type="code" size="small" lines={['1', '3-6', '8-9', '10-13']}>
 	```yaml
 	- run: npm install && npx playwright install --with-deps
@@ -753,15 +776,13 @@ import Repo from './img/repo.png'
 	</Notes>
 </Slide>
 
-<Slide type="code" size="small" lines={['1', '3-6', '8', '10-11', '12-14', '15']}>
+<Slide type="code" size="small" lines={['1', '2-5', '6', '8-9', '10-12', '13']}>
 	```yaml
       - uses: actions/checkout@v3
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
-
       - run: npm install
 
       - name: Deploy to Netlify
@@ -821,6 +842,61 @@ import Repo from './img/repo.png'
 		zoom: 2.5
 	}}
 >
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['7-8', '1-2', '3-5']}>
+	```yaml
+	- name: Add Issues from Comments
+      uses: "alstr/todo-to-issue-action@v4"
+      with:
+        AUTO_ASSIGN: true
+        CLOSE_ISSUES: true
+
+    - name: Deploy to Netlify
+      # Rest of build job
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" lines={['1']}>
+	```bash
+		# TODO: Fix prod command
+		if [ "$prod" = "true" ]; then
+			COMMAND="$COMMAND --prod"
+		fi
+	```
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={TodoIssue} 
+	zoom={{
+		x: 20,
+		y: 0,
+		zoom: 2.5
+	}}
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide type="code" size="small" lines={['4', '5']}>
+	```yaml
+	- name: Add Issues from Comments
+      uses: "alstr/todo-to-issue-action@v4"
+      with:
+        AUTO_ASSIGN: true
+        CLOSE_ISSUES: true
+	```
 	<Notes slot="notes">
 		- 
 	</Notes>
