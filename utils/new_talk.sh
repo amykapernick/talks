@@ -13,7 +13,7 @@ if [ ! -d "src/pages/$talkSlug" ]; then
 	mkdir src/pages/$talkSlug
 
 else
-	template=$(find src/pages/$talkSlug -type f -printf '%T+ %p\n' | sort -r | head -n1 | cut -f2- -d" ")
+	template=$(find src/pages/$talkSlug -type f -regex '.*\.mdx' -printf '%T+ %p\n' | sort -r | head -n1 | cut -f2- -d" ")
 	echo "Talk already exists"
 fi
 
