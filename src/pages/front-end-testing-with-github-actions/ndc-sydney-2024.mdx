@@ -28,12 +28,24 @@ import SuccessfulTests from './img/successful_tests.png'
 import MultipleWorkflows from './img/multiple_workflows.png'
 import Repo from './img/repo.png'
 import TodoIssue from './img/todo_issue.png'
+import ActionsMarketplace from './img/actions_marketplace.png'
 
 <Background />
 
 <Slide>
 	# {frontmatter.title}
+	<Notes slot="notes">
+		- Test clicker
+	</Notes>
 </Slide>
+
+<Slide>
+	# {frontmatter.title}
+	<Notes slot="notes">
+		- Clicker has been tested
+	</Notes>
+</Slide>
+
 
 <Slide>
 	Why test?
@@ -847,6 +859,52 @@ import TodoIssue from './img/todo_issue.png'
 	</Notes>
 </Slide>
 
+<Slide>
+	<span class="fragment">
+		- Build and Preview (anywhere) <span class="fragment">✅</span>
+	</span>
+	<span class="fragment">
+		- Test live website <span class="fragment">✅</span>
+	</span>
+	<span class="fragment">
+		- Build and Publish <span class="fragment">✅</span>
+	</span>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+
+<Slide>
+	Not *just* for testing
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={ActionsMarketplace} 
+>
+	<Notes slot="notes">
+		- There are literally thousands of prebuilt actions packages ready for us to use (as well as being able to run our own scripts)
+		- This means we can setup other automations to run as part of our workflow
+	</Notes>
+</Slide>
+
+<Slide type="code" lines={['1']}>
+	```js
+		// TODO: Will fix this later
+		const myFunction = () => {
+			...
+		}
+	```
+	<Notes slot="notes">
+		- Who here leaves comments in their code for things to do later
+		- And possibly forget that this needed doing
+	</Notes>
+</Slide>
+
 <Slide type="code" size="small" lines={['7-8', '1-2', '3-5']}>
 	```yaml
 	- name: Add Issues from Comments
@@ -902,18 +960,31 @@ import TodoIssue from './img/todo_issue.png'
 	</Notes>
 </Slide>
 
-<Slide>
+<Slide size="small">
 	<span class="fragment">
-		- Build and Preview (anywhere) <span class="fragment">✅</span>
+		- Create tasks/issues for comments/bugs
 	</span>
 	<span class="fragment">
-		- Test live website <span class="fragment">✅</span>
+		- Lint/validate code
 	</span>
 	<span class="fragment">
-		- Build and Publish <span class="fragment">✅</span>
+		- Check for broken links
+	</span>
+	<span class="fragment">
+		- Wait for an approval
+	</span>
+	<span class="fragment">
+		- Generate assets
+	</span>
+	<span class="fragment">
+		- Repo Admin
 	</span>
 	<Notes slot="notes">
-		- 
+		- Manual approval step to require approval from a certain person, or wait a specified amount of time before continuing
+		- I have an action which searches for twitter embeds, generates a static image of the embed and replaces it with a linked image to improve performance and make it bulletproof
+		- You might want to dynamically generate a social media preview image for each page or for each blog post
+		- Actions don't just have to be about the code either, you can automate setting properties on a PRSuccessfulAction, approving collaborators, close stale issues or any number of other things
+		- I'm currently working on an action that summarises changes to environment variablesand summarises which ones have changed, been added or removed and when, so if you're working on a not often used project you can work out what you're missing since you last touched it
 	</Notes>
 </Slide>
 
@@ -954,8 +1025,11 @@ import TodoIssue from './img/todo_issue.png'
 	</Notes>
 </Slide>
 
+{/* TODO: remove slide */}
 <Slide>
 	kapers.dev/feedback
+
+	kapers.dev/slides
 	<Notes slot="notes">
 		- 
 	</Notes>
