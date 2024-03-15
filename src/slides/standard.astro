@@ -32,6 +32,17 @@ const { styles, ...args } = Astro.props
 			}
 		}
 
+		&[data-style="aoc"] {
+			font-size: 1.5em;
+			line-height: 1.5;
+			font-weight: 700;
+
+			& :global(mark) {
+				background: none;
+				color: $blue;
+			}
+		}
+
 		&[data-style="title"] {
 			font-family: $font_headings;
 			font-size: 1.9em;

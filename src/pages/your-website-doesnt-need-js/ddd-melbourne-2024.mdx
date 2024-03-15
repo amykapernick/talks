@@ -10,11 +10,17 @@ import Notes from '@parts/notes'
 import Background from '@parts/background'
 import AmyRem from '@img/amy_rem.jpg'
 import NoJS from './img/no-js.svg'
+import SponsorSlide from './img/ddd_melbourne_sponsor_slide.jpg'
 
 <Background />
 
 <Slide type="figure" image={NoJS} caption={frontmatter.title} />
 
+<Slide type="background" image={SponsorSlide} />
+
+<Slide styles="aoc">
+	We acknowledge the traditional custodians of this land, the <mark>Wurundjeri</mark> people of the <mark>Kulin</mark> nation.
+</Slide>
 
 <Slide>
 	JS is useful<br/> <small class="fragment">but often overused</small>
