@@ -4,7 +4,7 @@
 read -p "What's the talk name? " talk_name
 read -p "What's the event name? " event_name
 
-talkSlug=$(echo $talk_name | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+talkSlug=$(echo $talk_name | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr '\' '')
 eventSlug=$(echo $event_name | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 exists=false
 template="src/pages/template.mdx"
