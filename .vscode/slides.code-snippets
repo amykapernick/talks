@@ -55,5 +55,19 @@
       "</Slide>"
     ],
     "description": "Slide with Figure"
-  }
+  },
+  "Slide with Code": {
+    "prefix": "slide-code",
+    "body": [
+      "<Slide type=\"code\" size=\"small\">",
+      "```$1",
+      "$2",
+      "```",
+      "	<Notes slot=\"notes\">",
+      "		- $3",
+      "	</Notes>",
+      "</Slide>"
+    ],
+    "description": "Slide with Code Snippet"
+  },
 }
