@@ -28,6 +28,8 @@ import SwitchDemo1 from './img/switch_1.mp4'
 import Switch3 from './img/switch_3.png'
 import Switch4 from './img/switch_4.png'
 import SwitchDemo2 from './img/switch_2.mp4'
+import Carousel1 from './img/carousel_1.png'
+import CarouselDemo from './img/carousel.mp4'
 
 <Background />
 
@@ -955,6 +957,95 @@ import SwitchDemo2 from './img/switch_2.mp4'
 		```
 		<Notes slot="notes">
 		- Go to demo
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xs" lines={['3-5', '6-7', '10-13', '15-17']}>
+		```css
+		.carousel {
+			display: grid;
+			grid-template-columns: 4em 1fr 4em;
+			grid-template-rows: 300px;
+			grid-template-areas: 'previous image next';
+			overflow: hidden;
+			max-width: 100%;
+		}
+
+		.image {
+			grid-area: image;
+			opacity: 0;
+		}
+
+		label {
+			display: none;
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Carousel1} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1-3', '5-9']}>
+		```css
+			input[type="radio"]:checked  + label + .image {
+				opacity: 1;
+			}
+
+			.carousel:not(:has(input[type="radio"]:checked)) {
+				& input[type="radio"]:first-of-type + label + .image {
+					opacity: 1;
+				}
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xs" lines={['1', '1-8', '10', '10-17']}>
+		```css
+			input[type="radio"]:checked + label + .image + input[type="radio"] + label {
+				display: block;
+				grid-area: next;
+				
+				&::before {
+					content: '➡️';
+				}
+			}
+
+			input[type="radio"]:not(:checked):has(+ label + .image + input:checked) + label {
+				display: block;
+				grid-area: previous;
+
+				&::before {
+					content: '⬅️';
+				}
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={CarouselDemo} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
 		</Notes>
 	</Slide>
 </Slide>
