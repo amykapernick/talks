@@ -9,10 +9,12 @@ eventSlug=$(echo $event_name | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 exists=false
 template="src/pages/template.mdx"
 
+# TODO: Fix this because it's broken
 if [ ! -d "src/pages/$talkSlug" ]; then
 	mkdir src/pages/$talkSlug
 
 else
+	# TODO: Check for the length of the talk and ideally get the most recent one that's the same length, if not the one that's closest in length
 	template=$(find src/pages/$talkSlug -type f -regex '.*\.mdx' -printf '%T+ %p\n' | sort -r | head -n1 | cut -f2- -d" ")
 	echo "Talk already exists"
 fi

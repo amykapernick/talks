@@ -1,6 +1,7 @@
 ---
 title: Your Website does not need JavaScript
 layout: ../../parts/layout.astro
+length: 45
 config: 
   navigationMode: linear
 footer: ['@amyskapers.dev', '@amys_kapers']
@@ -21,6 +22,8 @@ import SponsorSlide from './img/ddd_melbourne_sponsor_slide.jpg'
 <Slide styles="aoc">
 	We acknowledge the traditional custodians of this land, the <mark>Wurundjeri</mark> people of the <mark>Kulin</mark> nation.
 </Slide>
+
+<Slide type="figure" image={NoJS} caption={frontmatter.title} />
 
 <Slide>
 	JS is useful<br/> <small class="fragment">but often overused</small>
