@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Background from "@parts/background";
 
-const { image, video, youtube, caption, zoom, reverseCaption, background, ...args } = Astro.props
+const { image, video, youtube, caption, zoom, reverseCaption, background, border, ...args } = Astro.props
 
 ---
 
@@ -42,6 +42,12 @@ const { image, video, youtube, caption, zoom, reverseCaption, background, ...arg
 				}
 			}
 		}
+
+		&[data-border] {
+			border: 5px solid $grey;
+			border-top-width: 30px;
+			border-radius: 10px;
+		}
 	}
 
 	img, video {
@@ -66,8 +72,8 @@ const { image, video, youtube, caption, zoom, reverseCaption, background, ...arg
 {background && <Background theme={background} />}
 
 <section {...args}>
-	<figure data-reversecaption={reverseCaption}>
-		<div class={zoom && 'fragment custom'}>
+	<figure data-reversecaption={reverseCaption} >
+		<div class={zoom && 'fragment custom'} data-border={border}>
 			{image && <Image src={image} loading={'eager'} alt="" />}
 			{video &&
 				<video data-autoplay>

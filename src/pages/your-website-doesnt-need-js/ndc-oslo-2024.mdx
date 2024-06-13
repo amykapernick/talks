@@ -3,20 +3,44 @@ title: Your Website does not need JavaScript
 layout: ../../parts/layout.astro
 length: 60
 config: 
+  # Change this to default if doing live demo
   navigationMode: linear
 footer: ['@amyskapers.dev', '@amys_kapers']
 ---
 import Slide from '@slides/slide'
 import Notes from '@parts/notes'
 import Background from '@parts/background'
-import AmyRem from '@img/amy_rem.jpg'
 import NoJS from './img/no-js.svg'
+import Targets1 from './img/targets_1.jpg'
+import TargetsDemo from './img/targets.mp4'
+import AccordianDemo from './img/accordians.mp4'
+import FormsDemo from './img/forms.mp4'
+import Range1 from './img/range_1.png'
+import Range2 from './img/range_2.png'
+import RangeDemo from './img/range.mp4'
+import Testimonials1 from './img/testimonials_1.png'
+import TestimonialsDemo1 from './img/testimonials_1.mp4'
+import Testimonials2 from './img/testimonials_2.png'
+import TestimonialsDemo2 from './img/testimonials_2.mp4'
+import Switch1 from './img/switch_1.png'
+import Switch2 from './img/switch_2.png'
+import SwitchDemo1 from './img/switch_1.mp4'
+import Switch3 from './img/switch_3.png'
+import Switch4 from './img/switch_4.png'
+import SwitchDemo2 from './img/switch_2.mp4'
 
 <Background />
 
-<Slide type="figure" image={NoJS} caption={frontmatter.title} />
+<Slide type="figure" image={NoJS} caption={frontmatter.title}>
+	<Notes slot="notes">
+		- I'm Amy
+		- I'm a front end developer based in Perth
+		- And I work a lot with HTML, CSS and JavaScript
+		- And while I do build a lot of things with JS, full disclosure is that these slides are built using JS
+		- But that doesn't mean that JS is always the answer
+	</Notes>
+</Slide>
 
-<Slide type="background" image={AmyRem} />
 
 <Slide>
 	JS is useful<br/> <small class="fragment">but often overused</small>
@@ -63,35 +87,73 @@ import NoJS from './img/no-js.svg'
 	```
 </Slide>
  
-<Slide type="code" size="small">
-	```css 
-	.my_element:target {
-		background: pink;
-	}
-	```
-	<Notes slot="notes">
-		- Go to demo to show page sections
-	</Notes>
-</Slide>
+<Slide type="section" id="targets">
+	<Slide type="code" size="medium">
+		```css 
+		.my_element:target {
+			background: pink;
+		}
+		```
+		<Notes slot="notes">
+			- Go to demo to show page sections
+		</Notes>
+	</Slide>
 
-<Slide type="code" size="small">
-```html
-<body>
-	<header><nav>
-		<a href="#home">Home</a>
-		...
-		<a href="#contact">Contact</a>
-	</nav></header>
-	<main>
-		<section id="home"></section>
-		...
-		<section id="contact"></section>
-	</main>
-</body>
-```
-	<Notes slot="notes">
-		- 
-	</Notes>
+	<Slide 
+		type="figure" 
+		border
+		image={Targets1} 
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<body>
+			<header><nav>
+				<a href="#home">Home</a>
+				...
+				<a href="#contact">Contact</a>
+			</nav></header>
+			<main>
+				<section id="home"></section>
+				...
+				<section id="contact"></section>
+			</main>
+		</body>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		section {
+			display: none;
+
+			&:target {
+				display: block;
+			}
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={TargetsDemo} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
@@ -116,16 +178,46 @@ import NoJS from './img/no-js.svg'
 	### Accordians
 </Slide>
 
-<Slide type="code" size="small">
-	```html
-	<details>
-		<summary>This bit is clickable to expand/collapse</summary>
-		<p>This content is hidden but can then be expanded or re-collapsed.</p>
-	</details>
-	```
-	<Notes slot="notes">
-		- Switch to live demo
-	</Notes>
+<Slide type="section" id="accordians">
+	<Slide type="code" size="small">
+		```html
+		<details>
+			<summary>This bit is clickable to expand/collapse</summary>
+			<p>This content is hidden but can then be expanded or re-collapsed.</p>
+		</details>
+		```
+		<Notes slot="notes">
+			- Switch to live demo
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<details>
+			<summary>Why is HTML better than JS?</summary>
+			<p>HTML functionality...</p>
+			...
+		</details>
+		<details>
+			<summary>Why is CSS better than JS?</summary>
+			<p>CSS is built for styling...</p>
+		</details>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={AccordianDemo} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
@@ -164,15 +256,28 @@ import NoJS from './img/no-js.svg'
 	Data Format
 </Slide>
 
-<Slide type="code" size="medium">
-	```html
-	<input type="date" name="due_date">
+<Slide type="section" id="forms">
+	<Slide type="code" size="medium">
+		```html
+		<input type="date" name="due_date">
 
-	<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-	```
-	<Notes slot="notes">
-		- Go to form and show validations and formats
-	</Notes>
+		<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+		```
+		<Notes slot="notes">
+			- Go to form and show validations and formats
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={FormsDemo} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
@@ -199,6 +304,7 @@ import NoJS from './img/no-js.svg'
 	<Notes slot="notes">
 		- Limited validation capabilities
 		- JS adds more powerful capabilities
+		- Can adjust error messaging and add your own messages using JS
 	</Notes>
 </Slide>
 
@@ -249,17 +355,139 @@ import NoJS from './img/no-js.svg'
 </Slide>
 
 <Slide type="code" size="small">
-	```html
-	<input type="range" min="0" max="10" list="options" />
-	<datalist id="options">
-		<option value="0">Not good</option>
-		<option value="5">🤷‍♀️</option>
-		<option value="10">Stupendous</option>
-	</datalist>
+	```css
+	div:has(p:nth-child(1)) {
+		--children: 1;
+	}
+	...
+	div:has(p:nth-child(4)) {
+		--children: 4;
+	}
+
+	div:has(p:nth-child(5)) {
+		--children: 5;
+	}
 	```
-	<Notes slot="notes">
-	 - Go to demo
-	</Notes>
+</Slide>
+
+<Slide type="section">
+	<Slide type="code" size="small">
+		```html
+		<input type="range" min="0" max="10" list="options" />
+		<datalist id="options">
+			<option value="0">Not good</option>
+			<option value="5">🤷‍♀️</option>
+			<option value="10">Stupendous</option>
+		</datalist>
+		```
+		<Notes slot="notes">
+		- Go to demo
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Range1} 
+		caption=""
+		zoom={{x: -8, y: -15, zoom: 3}}
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<input 
+				type="range" 
+				min="0" 
+				max="10" 
+				list="js_skills" 
+			/>
+			<datalist id="js_skills">
+				<option value="0">Never used it before</option>
+				<option value="2">Used it once or twice</option>
+				<option value="4">Can follow a tutorial</option>
+				<option value="6">Fine as long as it works</option>
+				<option value="8">Use it regularly</option>
+				<option value="10">I use JS for everything</option>
+			</datalist>
+			
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1', '1-3', '5-7', '9', '11-13']}>
+		```css
+		&:has(input[type="range"] + datalist option:nth-child(1)) {
+			--opts: 1;
+		}
+
+		&:has(input[type="range"] + datalist option:nth-child(2)) {
+			--opts: 2;
+		}
+
+		...
+
+		&:has(input[type="range"] + datalist option:nth-child(10)) {
+			--opts: 10;
+		}
+			
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1,17', '2', '4-6,16','9','12-14']}>
+		```css
+		input[type="range"] {
+			width: calc(100% - (100% / var(--opts)));
+
+			& + datalist {
+				display: grid;
+				grid-template-columns: 50px repeat(var(--opts),1fr 2em);
+
+				& option {
+					grid-column-end: span 3;
+					grid-column-start: var(--column);
+
+					&:nth-child(2n) {
+						grid-row-start: 2;
+					}
+				}
+			}
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Range2} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={RangeDemo} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
 </Slide>
 
 <Slide 
@@ -282,7 +510,7 @@ import NoJS from './img/no-js.svg'
 
 <Slide 
 	type="browsers"
-	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
+	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '2023'}}
 >
 	<Notes slot="notes">
 		`:has`
@@ -293,35 +521,177 @@ import NoJS from './img/no-js.svg'
 	## Testimonials
 </Slide>
 
-<Slide type="code" size="small">
-	```html
-	<input type="radio" id="t_1" name="testimonials" />
-	<label for="t_1">Quote 1</label>
-	<blockquote>
-		<!-- Quote here -->
-	</blockquote>
-	
-	```
-</Slide>
+<Slide type="section">
+	<Slide type="code" size="small">
+		```html
+		<input type="radio" id="t_1" name="testimonials" />
+		<label for="t_1">Quote 1</label>
+		<blockquote>
+			<!-- Quote here -->
+		</blockquote>
+		
+		```
+	</Slide>
 
-<Slide type="code" size="small">
-	```css
-	div:has(p:nth-child(4)) {
-		--children: 4;
-	}
+	<Slide type="code" size="small" lines={['3', '7-11', '4']}>
+		```css
+		.testimonials {
+			display: grid;
+			grid-template-rows: 1fr auto;
+			grid-template-columns: 1fr repeat(var(--num_test), auto) 1fr;
+			justify-content: center;
 
-	div:has(p:nth-child(5)) {
-		--children: 5;
-	}
-	```
-	<Notes slot="notes">
-	 - Go to demo
-	</Notes>
+			&:has(blockquote:nth-of-type(1)) {
+				--num_test: 1;
+			}
+
+			...
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+			blockquote {
+				grid-column: 1 / -1;
+				grid-row: 1 / 2;
+			}
+
+			label {
+				order: 2;
+				grid-row: 2;
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Testimonials1} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		blockquote {
+			pointer-events: none;
+			opacity: 0;
+		}		
+		
+		input[type="radio"]:checked {
+			& + label + blockquote {
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={TestimonialsDemo1} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		label {
+			position: relative;
+			cursor: pointer;
+
+			&:before, &:after {
+				height: 20px;
+				width: 20px;
+				border-radius: 50%;
+				border: 2px solid var(--green);
+			}
+		} 
+			
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		label {
+			&:after {
+				background: radial-gradient(
+					circle,  
+					var(--green) calc(100% - 6px), 
+					transparent calc(100% - 6px)
+				);
+				position: absolute;
+			}
+		} 
+			
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Testimonials2} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+			label:first-of-type {
+				grid-column: 2;
+			}
+			
+			.testimonials:not(:has(input[type="radio"]:checked)) {
+				& blockquote:first-of-type {
+					opacity: 1;
+					pointer-events: auto;
+				}
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={TestimonialsDemo2} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
 	type="browsers"
-	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
+	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '2023'}}
 >
 	<Notes slot="notes">
 		`:has`
@@ -361,50 +731,200 @@ import NoJS from './img/no-js.svg'
 	## Toggle Switch
 </Slide>
 
-<Slide type="code" size="small">
-	```html
-	<div class="toggle">
-		<input id="off" type="radio" name="switch" value="off" checked />
-		<label for="off">Off</label>
-		<input id="on" type="radio" name="switch" value="on" />
-		<label for="on">On</label>
-		<span class="switch"></span>
-	</div>
-	```
-	<Notes slot="notes">
-	 - Go to demo
-	</Notes>
-</Slide>
+<Slide type="section">
+	<Slide type="code" size="small">
+		```html
+		<div class="toggle">
+			<input id="off" type="radio" name="switch" value="off" checked />
+			<label for="off">Off</label>
+			<input id="on" type="radio" name="switch" value="on" />
+			<label for="on">On</label>
+			<span class="switch"></span>
+		</div>
+		```
+		<Notes slot="notes">
+		- Go to demo
+		</Notes>
+	</Slide>
 
-<Slide type="code" size="small">
-	```css
-	body {
-		@media(prefers-color-scheme: dark) {
+	<Slide 
+		type="figure" 
+		image={Switch1} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xs" lines={['1-5', '7-9']}>
+		```css
+		.toggle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		input[type="radio"][value="on"] + label {
+			order: 2;
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Switch2} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['2-6', '7-9']}>
+		```css
+			.switch::before {
+				position: absolute;
+				top: -3px;
+				left: -3px;
+				width: 1.7em;
+				height: 1.7em;
+				border: 3px solid currentcolor;
+				border-radius: 50%;
+				background: var(--background);
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1', '2', '4-7']}>
+		```css
+			input[type="radio"][value="on"]:checked ~ .switch {
+				background: currentcolor;
+
+				&::before {
+					right: -3px;
+					left: auto;
+				}
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={SwitchDemo1} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1-5', '7-10', '12-15']}>
+		```css
+			input[type="radio"] + label::before {
+				position: absolute;
+				inset: 0;
+				z-index: 4;
+			}
+
+			input[type="radio"][value="on"] + label::before {
+				right: 0;
+				left: calc(-1 * (1ch + 2.7em));
+			}
+
+			input[type="radio"][value="off"] + label::before {
+				right: calc(-1 * (1ch + 2.7em));
+				left: 0;
+			}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Switch3} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+		input[type="radio"]:checked + label::before {
+			content: '';
+		}
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={Switch4} 
+		zoom={{
+			x: -26,
+			y: -34,
+			zoom: 3
+		}}
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['1', '2-4', '7', '8-10']}>
+		```css
+		body:has(.theme_toggle input[type="radio"][value="light"]:checked) {
+			--background: #f7f0eb;
+			--neutral: #0d0d0d;
+			...
+		}
+
+		body:has(.theme_toggle input[type="radio"][value="dark"]:checked) {
 			--background: #0d0d0d;
 			--neutral: #f7f0eb;
+			...
 		}
-	}
-	```
-	<Notes slot="notes">
-	 - Go to demo
-	</Notes>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={SwitchDemo2} 
+		caption=""
+		border
+	>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
 	type="browsers"
-	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
+	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '2023'}}
 >
 	<Notes slot="notes">
 		`:has`
-	</Notes>
-</Slide>
-
-<Slide 
-	type="browsers"
-	browsers={{chrome: '2019', edge: '2020', safari: '2019', firefox: '2019'}}
->
-	<Notes slot="notes">
-		`prefers-color-scheme`
 	</Notes>
 </Slide>
 
@@ -423,18 +943,20 @@ import NoJS from './img/no-js.svg'
 	## Image Carousel
 </Slide>
 
-<Slide type="code" size="small">
-	```html
-	<input type="radio" name="images" value="i_1" id="img_1" checked />
-	<label for="img_1">Image 1</label>
-	<div class="image">
-		<img src="img_1.jpg" alt="" />
-	</div>
-	
-	```
-	<Notes slot="notes">
-	 - Go to demo
-	</Notes>
+<Slide type="section">
+	<Slide type="code" size="small">
+		```html
+		<input type="radio" name="images" value="i_1" id="img_1" checked />
+		<label for="img_1">Image 1</label>
+		<div class="image">
+			<img src="img_1.jpg" alt="" />
+		</div>
+		
+		```
+		<Notes slot="notes">
+		- Go to demo
+		</Notes>
+	</Slide>
 </Slide>
 
 <Slide 
@@ -448,7 +970,7 @@ import NoJS from './img/no-js.svg'
 
 <Slide 
 	type="browsers"
-	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '🙅‍♀️'}}
+	browsers={{chrome: '2022', edge: '2022', safari: '2022', firefox: '2023'}}
 >
 	<Notes slot="notes">
 		`:has`
@@ -505,6 +1027,6 @@ import NoJS from './img/no-js.svg'
 
 <Slide>
 	Thank You👏
-	
+
 	kapers.dev/feedback
 </Slide>

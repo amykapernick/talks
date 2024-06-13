@@ -60,14 +60,38 @@
     "prefix": "slide-code",
     "body": [
       "<Slide type=\"code\" size=\"small\">",
-      "```$1",
-      "$2",
-      "```",
+      "	```$1",
+      "		$2",
+      "	```",
       "	<Notes slot=\"notes\">",
       "		- $3",
       "	</Notes>",
       "</Slide>"
     ],
     "description": "Slide with Code Snippet"
+  },
+  "Slide with Video": {
+    "prefix": "slide-video",
+    "body": [
+      "<Slide ",
+      "	type=\"figure\" ",
+      "	video={$1} ",
+      "	caption=\"$2\"",
+      ">",
+      "	<Notes slot=\"notes\">",
+      "		- $3",
+      "	</Notes>",
+      "</Slide>"
+    ],
+    "description": "Slide with Video"
+  },
+  "Slide Section": {
+    "prefix": "slide-section",
+    "body": [
+      "<Slide type=\"section\">",
+      "	$1",
+      "</Slide>"
+    ],
+    "description": "Slide Section"
   },
 }
