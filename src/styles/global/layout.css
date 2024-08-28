@@ -53,26 +53,26 @@ body {
 			}
 
 			&[data-size="small"] {
-				& * {
-					font-size: 4vh;
+				& > * {
+					font-size: 0.5em;
 				}
 			}
 
 			&[data-size="xs"] {
-				& * {
-					font-size: 3vh;
+				& > * {
+					font-size: 0.375em;
 				}
 			}
 
 			&[data-size="xxxs"] {
-				& * {
-					font-size: 1vh;
+				& > * {
+					font-size: 0.125em;
 				}
 			}
 
 			&[data-size="medium"] {
-				& * {
-					font-size: 6vh;
+				& > * {
+					font-size: 0.75em;
 				}
 			}
 

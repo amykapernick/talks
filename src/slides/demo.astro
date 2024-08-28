@@ -1,0 +1,61 @@
+---
+import Section from "@slides/section"
+
+const { styles, ...args } = Astro.props
+---
+
+<style>
+	.overview {
+		--font_size: 0.8em;
+		--basis: 40%;
+		--max: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 2vw;
+		gap: 2vh;
+		max-height: 100%;
+		height: 100%;
+		width: 100%;
+		max-width: 100%;
+		flex-wrap: wrap;
+
+		& :global(section:is(.future, :not(.future)):has(:is(header, .notes, aside))) {
+			aspect-ratio: 16/9;
+			overflow: hidden;
+			font-size: var(--font_size);
+			display: grid !important;
+			flex: 1 0 var(--basis);
+			max-width: var(--max);
+			outline: 5px solid $grey;
+
+			& > :global(pre) {
+				padding: 1em 2em;
+			}
+		}
+
+		&:has(> section:nth-of-type(2)) {
+			--font_size: 0.5em;
+			--basis: 40%;
+		}
+
+		&:has(> section:nth-of-type(3)) {
+			--basis: 40%;
+			--max: 50%;
+		}
+
+		&:has(> section:nth-of-type(5)) {
+			--basis: 25%;
+		}
+	}
+</style>
+
+<Section {...args} data-style={styles}>
+	<slot />
+	<section data-style={styles}>
+		<div class="overview">
+			<slot />
+		</div>
+	</section>
+</Section>
