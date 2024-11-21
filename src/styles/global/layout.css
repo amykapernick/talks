@@ -64,6 +64,12 @@ body {
 				}
 			}
 
+			&[data-size="xxs"] {
+				& > * {
+					font-size: 0.25em;
+				}
+			}
+
 			&[data-size="xxxs"] {
 				& > * {
 					font-size: 0.125em;
