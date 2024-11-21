@@ -12,28 +12,32 @@ const { dir = 'horizontal', split = ['dark', 'light'], ...args } = Astro.props
 	@import '@mixins';
 
 	section {
+		--split_background: transparent;
+
 		@include code;
-		@include full_background;
+		
+
+		&::before {
+			background: var(--split_background);
+			@include full_background;
+			content: '';
+		}
 
 		&[data-direction="horizontal"] {
 			&[data-split="dark,light"] {
-				&::before {
-					background: linear-gradient(
+				--split_background: linear-gradient(
 						to bottom,
 						$neutral 50%,
 						transparent 50%
 					);
-				}
 			}
 
 			&[data-split="light,dark"] {
-				&::before {
-					background: linear-gradient(
+				--split_background: linear-gradient(
 						to top,
 						$neutral 50%,
 						transparent 50%
 					);
-				}
 			}
 		}
 
@@ -48,23 +52,27 @@ const { dir = 'horizontal', split = ['dark', 'light'], ...args } = Astro.props
 			}
 
 			&[data-split="dark,light"] {
-				&::before {
-					background: linear-gradient(
+				--split_background: linear-gradient(
 						to right,
 						$neutral 50%,
 						transparent 50%
 					);
-				}
 			}
 
 			&[data-split="light,dark"] {
-				&::before {
-					background: linear-gradient(
+				--split_background: linear-gradient(
 						to left,
 						$neutral 50%,
 						transparent 50%
 					);
-				}
+			}
+
+			&[data-split="dark"] {
+				--split_background: $neutral;
+			}
+
+			&[data-split="light"] {
+				--split_background: $white;
 			}
 		}
 	}
