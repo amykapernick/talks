@@ -18,6 +18,7 @@ import SelectDemo from './img/select.mp4'
 import Select from './img/select.png'
 import Subgrid from './img/subgrid.png'
 import VerticalAlign from './img/vertical-align.png'
+import Sponsors from './img/dddadl2024-sponsors.jpg'
 
 <Background />
 
@@ -32,6 +33,29 @@ import VerticalAlign from './img/vertical-align.png'
 	# {frontmatter.title}
 	<Notes slot="notes">
 		- Clicker has been tested
+	</Notes>
+</Slide>
+
+<Slide 
+	type="background" 
+	image={Sponsors} 
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide styles="aoc">
+	We acknowledge the traditional custodians of this land, the <mark>Kaurna</mark> people.
+	<Notes slot="notes">
+		- Gaa-nuh
+	</Notes>
+</Slide>
+
+<Slide>
+	# {frontmatter.title}
+	<Notes slot="notes">
+		- Intro
 	</Notes>
 </Slide>
 
@@ -212,7 +236,6 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		}
 	}
-		
 	```
 	<Notes slot="notes">
 		- If you're wanting to compound 2 selectors together, eg in this case
@@ -284,130 +307,170 @@ import VerticalAlign from './img/vertical-align.png'
 	</Notes>
 </Slide>
 
-<Slide type="demo">
-	<Slide type="code" size="xs">
-		```html
-		<div class="block">
-			<p>This list has <span class="count"></span> item<span class="plural">s</span></p>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-			</ul>
-		</div>
-		<div class="block">
-			<p>This list has <span class="count"></span> item<span class="plural">s</span></p>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-				<li>Item 5</li>
-			</ul>
-		</div>
-			
-		```
-		<Notes slot="notes">
-			- For example we can use it to count how many items are in an element
-			- Here we have 2 different lists, and we want to display a count for how many items are in each list
-		</Notes>
-	</Slide>
-	<Slide type="code" size="xs" lines={['2', '4-6', '8-10', '12', '12-18']}>
-		```css
-		.block {
-			--items: '1';
+<Slide type="code" size="xs">
+	```html
+	<div class="block">
+		<p>This list has <span class="count"></span> item<span class="plural">s</span></p>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+	</div>
+	<div class="block">
+		<p>This list has <span class="count"></span> item<span class="plural">s</span></p>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+			<li>Item 5</li>
+		</ul>
+	</div>
+		
+	```
+	<Notes slot="notes">
+		- For example we can use it to count how many items are in an element
+		- Here we have 2 different lists, and we want to display a count for how many items are in each list
+	</Notes>
+</Slide>
+<Slide type="code" size="xs" lines={['2', '4-6', '8', '8-10', '12', '12-16']}>
+	```css
+	.block {
+		--items: '1';
 
-			.count::before {
-				content: var(--items);
-			}
-			
+		.count::before {
+			content: var(--items);
+		}
+
+		&:has(ul li:nth-child(2)) {
+			--items: '2';
+		}
+
+		&:not(:has(ul li:nth-child(2))) {
 			.plural {
 				display: none;
 			}
+		}
+	}
+	```
+	<Notes slot="notes">
+		- Setting the initial value of items to 1 (or could be to 0), and setting the pseudo element content to be the the value of the items variable
+		- Using the `:has` selector we can check if the block has a list which has a list item that is the second child, in which case we know the list has at least 2 items so can set items to 2
+		- We can even combine the `:has` selector with the `:not` selector and check whether the block doesn't have a list item that is a second child (meaning there's not multiple list items and hiding the plural s)
+	</Notes>
+</Slide>
 
-			&:has(ul li:nth-child(2)) {
-				--items: '2';
+<Slide type="code" size="small" lines={['1-3', '5-7', '9-11', '13']}>
+	```css
+		&:has(ul li:nth-child(3)) {
+			--items: '3';
+		}
 
-				.plural {
-					display: inline;
-				}
+		&:has(ul li:nth-child(4)) {
+			--items: '4';
+		}
+
+		&:has(ul li:nth-child(5)) {
+			--items: '5';
+		}
+
+		/* And so on */		
+	```
+	<Notes slot="notes">
+		- This can continue counting, which will override previous values
+	</Notes>
+</Slide>
+
+<Slide type="split" size="xs" split={['dark']} dir="vertical">
+	```html
+	<div class="field">
+		<p class="error">Error: you must agree to the Terms and Conditions</p>
+		<input type="checkbox" id="agree" name="agree" />
+		<label for="agree">I agree to the terms and conditions</label>
+	</div>
+		
+	```
+	```css
+	.field {
+		&:has(input[name="agree"]:checked) {
+			.error {
+				visibility: hidden;
 			}
 		}
-		```
-		<Notes slot="notes">
-			- Setting the initial value of items to 1 (or could be to 0), and setting the pseudo element content to be the the value of the items variable
-			- By default the plural element (which adds an 's') is hidden
-			- Using the `:has` selector we can check if the block has a list which has a list item that is the second child, in which case we know the list has at least 2 items so can set items to 2
-		</Notes>
-	</Slide>
 
-	<Slide type="code" size="small" lines={['2-4', '6-8', '10-12', '14']}>
-		```css
-		.block {
-			&:has(ul li:nth-child(3)) {
-				--items: '3';
-			}
-
-			&:has(ul li:nth-child(4)) {
-				--items: '4';
-			}
-
-			&:has(ul li:nth-child(5)) {
-				--items: '5';
-			}
-
-			/* And so on */
+		&:has(input[name="agree"]:not(:checked)) {
+			outline: 5px solid var(--red);
+			background: var(--red_light);
 		}
-			
-		```
-		<Notes slot="notes">
-			- This can continue counting, which will override previous values
-		</Notes>
-	</Slide>
+	}
+	```
+	<Notes slot="notes">
+		- We can also use the has selector to display errors or notes for form fields based on their state
+		- In this case, if the field input is checked, display the error message
+		- We can also style the parent container, around the whole field, based on the state 
+	</Notes>
+</Slide>
 
-	<Slide type="split" size="xs" split={['dark']} dir="vertical">
-		```html
-		<div class="field">
-			<p class="error">Error: you must agree to the Terms and Conditions</p>
-			<input type="checkbox" id="agree" name="agree" />
-			<label for="agree">I agree to the terms and conditions</label>
-		</div>
-			
-		```
-		```css
-		.field {
-			&:has(input[name="agree"]:checked) {
-				.error {
-					visibility: hidden;
-				}
-			}
+<Slide 
+	type="figure" 
+	video={HasDemo} 
+	caption=""
+	loop={true}
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
 
-			&:has(input[name="agree"]:not(:checked)) {
-				outline: 5px solid var(--red);
-				background: var(--red_light);
-			}
-		}
-		```
-		<Notes slot="notes">
-			- We can also use the has selector to display errors or notes for form fields based on their state
-			- In this case, if the field input is checked, display the error message
-			- We can also style the parent container, around the whole field, based on the state 
-		</Notes>
-	</Slide>
-	<Slide 
-		type="figure" 
-		video={HasDemo} 
-		caption=""
-		loop={true}
+<Slide 
+		type="browsers"
+		browsers={{firefox: '2022', safari: '2022', edge: '2022', chrome: '2023', }}
 	>
+		<span slot="header">`:has()`</span>
+	</Slide>
+
+<Slide
+		type="browsers"
+		browsers={{firefox: '2020', safari: '2015', edge: '2021', chrome: '2021', }}
+	>
+		<span slot="header">`:not()`</span>
 		<Notes slot="notes">
 			- 
 		</Notes>
 	</Slide>
-</Slide>
 
-<Slide type="demo">
-	<Slide type="code" size="small">
+	<Slide>
+		## Light & Dark Themes
+		<Notes slot="notes">
+			- We're seeing a big trend in different colour schemes for websites
+			- And it's now easier to define mutliple colour schemes in CSS
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['2-3', '7,11']}>
+		```css
+			.box {
+				background: light-dark(lemonchiffon, darkslateblue);
+				color: light-dark(darkslateblue, lemonchiffon);
+			}
+
+			.dark_box {
+				color-scheme: dark;
+			}
+
+			.light_box {
+				color-scheme: light
+			}
+		```
+		<Notes slot="notes">
+			- Using the `light-dark` function, we can define 2 colours to use, one for light themes and one for dark themes
+			- Using the `color-scheme` property we can then also define which scheme to use and let the browser pick the right colour for the styles
+		</Notes>
+	</Slide>
+
+
+	<Slide type="code" size="xs">
 		```html
 		<div class="theme dark">
 			<p>This section has a dark colour scheme</p>
@@ -424,25 +487,10 @@ import VerticalAlign from './img/vertical-align.png'
 			
 		```
 		<Notes slot="notes">
-			- 
+			- Here we have 4 boxes on the page, one with a dark theme, one with a light theme, one that will change based off the user's system settings and one that will change based off a theme toggle on the page
 		</Notes>
 	</Slide>
-	<Slide type="split" size="xs" split={['dark']} dir="vertical">
-		```css
-			.container {
-				&:has(.toggle input[value="dark"]:checked) {
-					.theme.toggle {
-						color-scheme: dark;
-					}
-				}
-
-				&:has(.toggle input[value="light"]:checked) {
-					.theme.toggle {
-						color-scheme: light;
-					}
-				}
-			}
-		```
+	<Slide type="code" size="small" lines={['2-3', '4', '6-8', '10-12']}>
 		```css
 			.theme {
 				background: light-dark(lemonchiffon, var(--navy));
@@ -459,24 +507,62 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		```
 		<Notes slot="notes">
-			- 
+			- Using the `light-dark` colour function, I can define the different colours for the different themes, all valid CSS colours can be used here
+			- And by default I can set the `color-scheme` to be both light and dark, this will then pick the resultant theme based off the user's system settings
+			- I can override this default setting so that the dark box has the `color-scheme` of dark and the light box has the `color-scheme` of light
+		</Notes>
+	</Slide>
+	<Slide type="code" size="small" lines={['2', '3', '2-6', '8', '8-12']}>
+		```css
+			.container {
+				&:has(.toggle input[value="dark"]:checked) {
+					.theme.toggle {
+						color-scheme: dark;
+					}
+				}
+
+				&:has(.toggle input[value="light"]:checked) {
+					.theme.toggle {
+						color-scheme: light;
+					}
+				}
+			}
+		```
+		<Notes slot="notes">
+			- Using the `:has` selector, I can also check the selected value of the theme toggle, and check if the toggle input with a value of dark is checked
+			- If it is, then I can get the box that has the colour scheme based off the theme toggle and change it's `color-scheme` to dark
+			- Similarly we can check for the theme toggle to have a light value checked and change the `color-scheme` for it
 		</Notes>
 	</Slide>
 	<Slide 
 		type="figure" 
 		video={LightDarkDemo} 
 		caption=""
+		loop={true}
 	>
+		<Notes slot="notes">
+			- The result from this then gives us 4 boxes, one that is fixed as dark, one fixed as light, one that changes based off the system settings (here I'm changing the setting in Windows) and one that changes based off the theme toggle at the top of the page
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="browsers"
+		browsers={{firefox: '2023', safari: '2024', edge: '2024', chrome: '2024', }}
+	>
+		<span slot="header">`:light-dark()`</span>
 		<Notes slot="notes">
 			- 
 		</Notes>
 	</Slide>
 
-	<Slide 
+	<Slide
 		type="browsers"
-		browsers={{firefox: '2022', safari: '2022', edge: '2022', chrome: '2023', }}
+		browsers={{firefox: '2022', safari: '2019', edge: '2020', chrome: '2020', }}
 	>
-		<span slot="header">`:has()`</span>
+		<span slot="header">`color-scheme`</span>
+		<Notes slot="notes">
+			- 
+		</Notes>
 	</Slide>
 
 	{/* <Slide
@@ -491,16 +577,6 @@ import VerticalAlign from './img/vertical-align.png'
 
 	{/* <Slide
 		type="browsers"
-		browsers={{firefox: '2020', safari: '2015', edge: '2021', chrome: '2021', }}
-	>
-		<span slot="header">`:not()`</span>
-		<Notes slot="notes">
-			- 
-		</Notes>
-	</Slide> */}
-
-	{/* <Slide
-		type="browsers"
 		browsers={{firefox: '2020', safari: '2020', edge: '2021', chrome: '2021', }}
 	>
 		<span slot="header">`:is()`</span>
@@ -508,9 +584,30 @@ import VerticalAlign from './img/vertical-align.png'
 			- 
 		</Notes>
 	</Slide> */}
-</Slide>
 
-<Slide type="demo">
+	<Slide>
+		## Vertical Alignment
+		<Notes slot="notes">
+			- Who here uses flexbox
+			- Who here uses flexbox any time they want to vertically align something
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```css
+			.box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}	
+		```
+		<Notes slot="notes">
+			- We all know this snippet
+			- A lot of us probably have some kind of utility or shortcut for this snippet
+			- But what if I told you you didn't need flexbox for this anymore? What if I told you that you could vertically centre with one line of CSS?
+		</Notes>
+	</Slide>
+
 	<Slide type="code" size="small">
 		```html
 		<div class="box old">
@@ -522,10 +619,10 @@ import VerticalAlign from './img/vertical-align.png'
 			
 		```
 		<Notes slot="notes">
-			- 
+			- Here we have 2 boxes, both with vertically centred content
 		</Notes>
 	</Slide>
-	<Slide type="code" size="small">
+	<Slide type="code" size="small" lines={['1-4', '6-8']}>
 		```css
 			.old {
 				display: flex;
@@ -537,7 +634,7 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		```
 		<Notes slot="notes">
-			- 
+			- While previously we would have to use flexbox, we can now use `align-content` on a block element and it will vertically centre the content
 		</Notes>
 	</Slide>
 	<Slide 
@@ -546,13 +643,29 @@ import VerticalAlign from './img/vertical-align.png'
 		caption=""
 	>
 		<Notes slot="notes">
-			- 
+			- 2 vertically centred boxes, but now with even less code being needed (which is super exciting, we haven't had this since the days of table layouts)
 		</Notes>
 	</Slide>
-</Slide>
 
-<Slide type="demo">
-	<Slide type="code" size="xxs">
+	<Slide
+		type="browsers"
+		browsers={{firefox: '2024', safari: '2024', edge: '2024', chrome: '2024', }}
+	>
+		<span slot="header">`align-content`</span>
+		<Notes slot="notes">
+			- Althoguh the property has been around for a while, it's only recently been implemented for block elements rather than just for grid and flexbox
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## CSS Subgrid
+		<Notes slot="notes">
+			- Back in 2019 I spoke at the very first DDD Adelaide about CSS Grid and literally the day before my talk subgrid was launched in firefox
+			- It's gotten a bit better browser support since then, and can do some pretty cool things with CSS grid
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xxs" lines={['1,24', '2,15,17,23', '3,18', '4,19', '5,20', '6-10,21', '11-14,22']}>
 		```html
 			<div class="container">
 				<div class="card">
@@ -562,8 +675,6 @@ import VerticalAlign from './img/vertical-align.png'
 					<ul class="tags">
 						<li>dev</li>
 						<li>tools</li>
-						<li>eleventy</li>
-						<li>github</li>
 						<li>netlify</li>
 					</ul>
 					<ul class="share">
@@ -571,46 +682,53 @@ import VerticalAlign from './img/vertical-align.png'
 						<li><svg>...</svg></li>
 					</ul>
 				</div>
+
 				<div class="card">
 					<img src="/img/image.jpg" alt="" />  
 					<h2><a href="/accessibility-for-everyone" target="_blank">Accessibility for Everyone (and by Everyone)</a></h2> 
 					<time>23 Feb 2024</time>
-					<ul class="tags">
-						<li>dev</li>
-						<li>accessibility</li>
-					</ul>
-					<ul class="share">
-						<li><svg>...</svg></li>
-						<li><svg>...</svg></li>
-					</ul>
+					<ul class="tags">...</ul>
+					<ul class="share">...</ul>
 				</div>
 			</div>
 		```
 		<Notes slot="notes">
-			- 
+			- Here we have a blog feed which has cards for each article
+			- The cards each have an image, a title, a date, a list of tags and sharing links
+			- Now with feeds like this, it's normally a bit of a pain to get everything to line up nicely. The titles all have different lengths and some will have more tags than others so there are limits on how well things can be lined up across the grid
 		</Notes>
 	</Slide>
-	<Slide type="split" size="xs" split={['dark']} dir="vertical">
+	<Slide type="code" size="small" lines={['2', '3']}>
 		```css
 		.container {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-			grid-auto-rows: 200px auto 1fr auto;
-		}
-
-		.card {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: subgrid;
-			grid-row: span 4;
-			gap: 10px;
-			grid-template-areas: 
-				'image image'
-				'date .'
-				'title title'
-				'tags socials';
 		}
 		```
+		<Notes slot="notes">
+			- Using CSS Grid on the feed container, we can define the overall layout of the grid and add in some auto-sizing columns
+		</Notes>
+	</Slide>
+	<Slide type="code" size="small" lines={['3', '5-9']}>
+		```css
+			.card {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 10px;
+				grid-template-areas: 
+					'image image'
+					'date .'
+					'title title'
+					'tags socials';
+			}
+		```
+		<Notes slot="notes">
+			- Next we want to use grid to define the layout of the card, creating 2 columns
+			- Using named areas we can lay the items out on the card, so the image spans both columns, the date sits above the title and the tags and socials sit next to one another at the bottom
+			- We don't have to create the rows just yet, but even without them the browser will infer the rows needed based off the template areas
+		</Notes>
+	</Slide>
+	<Slide type="code" size="xs">
 		```css
 			.card {
 				img {
@@ -635,7 +753,26 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		```
 		<Notes slot="notes">
-			- 
+			- Next we can assign each of the named areas to the elemenets within the card
+		</Notes>
+	</Slide>
+	<Slide type="code" size="small" lines={['2-3', '8', '7']}>
+		```css
+			.container {
+				grid-auto-rows: 200px auto 1fr auto;
+				// Image, Date, Title, Tags+Socials
+			}
+
+			.card {
+				grid-template-rows: subgrid;
+				grid-row: span 4;
+			}
+		```
+		<Notes slot="notes">
+			- Lastly comes the subgrid magic
+			- On the overall container we want to define a repeating set of rows for each card, the row sizes will be based off the card content in this case 200px for the image, auto sizing for the date, 1fr for the title so that will grow as needed and auto sizing for the tags and socials
+			- We then set the card to span across 4 rows
+			- And if we set the rows on the card to be subgrid, they will inherit the row sizing from the container
 		</Notes>
 	</Slide>
 	<Slide 
@@ -644,10 +781,19 @@ import VerticalAlign from './img/vertical-align.png'
 		caption=""
 	>
 		<Notes slot="notes">
+			- This will then ensure that the sizes of the rows are big enough for whatever content is on the card, and match up across the grid layout
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="browsers"
+		browsers={{firefox: '2019', safari: '2022', edge: '2023', chrome: '2023', }}
+	>
+		<span slot="header">Subgrid</span>
+		<Notes slot="notes">
 			- 
 		</Notes>
 	</Slide>
-</Slide>
 
 <Slide 
 	type="figure" 
@@ -655,14 +801,22 @@ import VerticalAlign from './img/vertical-align.png'
 	caption=""
 >
 	<Notes slot="notes">
-		- Who here read the abstract for this talk? The whole thing
+		- Who here read the abstract for this talk? The whole thing?
+		- So when I started writing this talk I figured it was a shame that we couldn't style select fields with CSS, but I have something to show you all
 	</Notes>
 </Slide>
 
-<Slide type="section">
-	<Slide type="code" size="xxs">
+<Slide>
+	## Stylable Selects
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+	<Slide type="code" size="xxs" lines={['1,3,24', '8-9,22-23', '10-21', '4-5,7', '6']}>
 		```html
 		<label for="field_status">Lego Set Status</label>
+
 		<selectlist id="field_status" name="status">
 			<button type="selectlist">
 				<span class="sr-only">Select Tags</span>
@@ -687,10 +841,14 @@ import VerticalAlign from './img/vertical-align.png'
 		</selectlist>			
 		```
 		<Notes slot="notes">
-			- 
+			- We start with a label and the `selectlist` element which is an interactive container for the select list
+			- Inside that we have a `listbox` which contains the options for the select
+			- These options are much the same as we normally use for selects and datalists, but we can also add images and other elements inside them
+			- We can use a button for the clickable element of the select field
+			- And inside that button add a `selectedoption` element to be a container for the selected option of the select field
 		</Notes>
 	</Slide>
-	<Slide type="split" size="xxs" split={['dark']} dir="vertical">
+	<Slide type="split" size="xs" split={['dark']} dir="vertical">
 		```css
 			selectlist {
 				button {
@@ -719,7 +877,7 @@ import VerticalAlign from './img/vertical-align.png'
 			option {
 				&:hover,
 				&:focus {
-					background: var(--purple_bright);
+					background: purple;
 					color: var(--white);
 				}
 
@@ -729,34 +887,142 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		```
 		<Notes slot="notes">
-			- 
+			- All of these leemnets are then stylable via CSS, we can even use CSS grid on the `option` and `selectedoption` elements
+			- The option elements will also take some hover and focus styles, rather than just the default browser styles and can be hidden if we wanted
 		</Notes>
 	</Slide>
-	<Slide 
-		type="figure" 
-		video={SelectDemo} 
-		caption=""
-	>
-		<Notes slot="notes">
-			- 
-		</Notes>
-	</Slide>
-	<Slide 
-		type="figure" 
-		image={SelectContext} 
-		caption=""
-	>
-		<Notes slot="notes">
-			- 
-		</Notes>
-	</Slide>
+
 	<Slide 
 		type="figure" 
 		image={SelectTiles} 
 		caption=""
 	>
 		<Notes slot="notes">
-			- 
+			- This then gives us a visual select field, using image tiles and associated text labels
 		</Notes>
 	</Slide>
+
+	<Slide type="code" size="xs">
+		```html
+		<selectlist id="context" name="context">
+			<button type="selectlist">
+				<selectedoption></selectedoption>
+				<span class="sr-only"></span>
+			</button>
+			<listbox>
+				<option value="" hidden><span>Select Action</span></option>
+				<option value="commit">
+					<svg>...</svg>
+					<span>Commit</span>
+				</option>
+				<option value="merge">
+					<svg>...</svg>
+					<span>Merge</span>
+				</option>
+				<!-- More options here -->
+			</listbox>
+		</selectlist>
+		```
+		<Notes slot="notes">
+			- Or perhaps we want to display a context type menu, with a little more control over the styling of the items and the ability to add an icon to it
+			- The concept is the same, we can add svg icons to the options and style the elements as we want with a bit of CSS
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		image={SelectContext} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- The result then gives us much more control over the styling of select fields
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure" 
+		video={SelectDemo} 
+		caption=""
+	>
+		<Notes slot="notes">
+			- So in 2024, we can finally get excited about styling select fields
+		</Notes>
+	</Slide>
+
+
+	<Slide
+		type="browsers"
+		browsers={{firefox: '❌', safari: '❌', edge: '🚩2022', chrome: '🚩2022', }}
+	>
+		<span slot="header">`selectlist`</span>
+		<Notes slot="notes">
+			- Yea so full disclosure this is a VERY VERY new thing right now, the selectlist element currently is only in Chromium based browsers and is behind a feature flag
+			- So not ready to use in production, but is something we can now see being worked on and can start tinkering around with
+			- And at the rate CSS is changing, hopefully it won't be too long before we can start using this as well
+		</Notes>
+	</Slide>
+
+<Slide>
+	CSS **is** changing
+	<Notes slot="notes">
+		- So despite what random anonymous people on the internet say, CSS is changing and it's really exciting to see not only what we have now but what we have coming
+	</Notes>
+</Slide>
+
+	<Slide 
+		type="cloud"
+		fragment={true}
+		words={[
+			'Native Nesting',
+			':has',
+			':is',
+			':not',
+			':where',
+			'color-scheme',
+			'light-dark()',
+			`align-content`,
+			'subgrid',
+			':user-invalid',
+			':user-valid',
+			'color-mix()',
+			'text-spacing-trim',
+			'field-sizing',
+			'position-anchor',
+			'inset-area',
+			'Scroll snap',
+			'animation-timeline',
+			'text-wrap: balance',
+			'aspect-ratio',
+			'word-break: autophrase',
+			'@layer',
+			'@scope',
+			'@property',
+			'@media (width >= 400px)',
+			'@container',
+		]}
+	>
+		<Notes slot="notes">
+			- I only had 45min for this but there's so much more that is happening with CSS
+		</Notes>
+	</Slide>
+
+<Slide>
+	Try something new!
+	<Notes slot="notes">
+		- So try something new, find something new with CSS and give it a go
+	</Notes>
+</Slide>
+
+<Slide>
+	Thank You 👏
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide>
+	Questions?<br/><small>kapers.dev/feedback</small>
+	<Notes slot="notes">
+		- 
+	</Notes>
 </Slide>
