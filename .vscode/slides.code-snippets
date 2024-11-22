@@ -94,4 +94,19 @@
     ],
     "description": "Slide Section"
   },
+  "Browser Slide": {
+    "prefix": "slide-browser",
+    "body": [
+      "<Slide",
+      "	type=\"browsers\"",
+      "	browsers={{firefox: '$1', safari: '$2', edge: '$3', chrome: '$4', }}",
+      ">",
+      "	<span slot=\"header\">$5</span>",
+      "	<Notes slot=\"notes\">",
+      "		- $6",
+      "	</Notes>",
+      "</Slide>"
+    ],
+    "description": "Slide with Browser support stats"
+  },
 }

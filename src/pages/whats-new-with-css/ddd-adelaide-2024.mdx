@@ -7,7 +7,7 @@ config:
 import Slide from '@slides/slide'
 import Notes from '@parts/notes'
 import Background from '@parts/background'
-import Abstract from './img/abstract-adl-2024.png'
+import Abstract from './img/abstract-dddadl-2024.png'
 import Has from './img/has.png'
 import HasDemo from './img/has.mp4'
 import LightDark from './img/light-dark.png'
@@ -36,21 +36,49 @@ import VerticalAlign from './img/vertical-align.png'
 </Slide>
 
 <Slide>
-	CSS has changed!
+	The world around us is changing
 	<Notes slot="notes">
 		- 
 	</Notes>
 </Slide>
 
 <Slide>
-	## Native Nesting
+	The web we build is changing
 	<Notes slot="notes">
 		- 
 	</Notes>
 </Slide>
 
+<Slide type="quote">
+	<blockquote>
+		<p>CSS hasn't changed at all in the last 20 years</p>
+		<cite>Anonymous comment on YouTube</cite>
+	</blockquote>
+	<Notes slot="notes">
+		- But according to an Anonymous commenter on a YouTube recording of one of my talks, CSS hasn't changed at all in the last 20 years
+		- It's worth noting that this talk was on CSS Grid, and the first 5min of the talk was a history lesson on how CSS has changed since we used to use tables for layouts
+	</Notes>
+</Slide>
+
+<Slide>
+	CSS has changed!
+	<Notes slot="notes">
+		- So I'm here today to talk about how CSS *has* changed, not just in the last 20 years but even more so in the last 5 years since I gave that talk
+		- And in case anyone is feeling overwhelmed at how to possibly *try* and keep up with all these changes, it's ok to just not sometimes
+		- In fact while doing the research for this talk, I came across 3 different new things that I hadn't even heard of or didn't know where even close, and I work in this space almost every day
+	</Notes>
+</Slide>
+
+<Slide>
+	## Native Nesting
+	<Notes slot="notes">
+		- Who here uses a CSS pre or post processor for writing styles
+		- I would use one on pretty much every project and 95% of the reason for using it was for nesting
+	</Notes>
+</Slide>
+
 <Slide type="split" size="xs" dir="vertical" split={['dark']}>
-	```css
+	```scss
 		.parent {
 			background: chartreuse;
 
@@ -59,7 +87,7 @@ import VerticalAlign from './img/vertical-align.png'
 			}
 		}		
 	```
-	```css
+	```scss
 		/* Renders out the same as */
 		.parent {
 			background: chartreuse;
@@ -70,6 +98,81 @@ import VerticalAlign from './img/vertical-align.png'
 		}
 		
 	```
+	<Notes slot="notes">
+		- When we use tools like Sass and Less, we can write nested styles and have it process to CSS
+		- This makes it much easier so we don't have to keep repeating any parent selectors
+	</Notes>
+</Slide>
+
+<Slide type="split" size="xs" dir="vertical" split={['dark']}>
+	```scss
+		/* Lots of styles */
+		.opinions-box {
+			text-align: center;
+		}
+
+		.opinions-box a {
+			text-decoration: none;
+		}
+
+		.opinions-box__text-input {
+			font-size: 1.2em;
+		}
+
+		.opinions-box__text-input--is-inactive {
+			opacity: 0.5;
+		}
+		
+	```
+
+	```scss
+		/* Utilise existing selectors */
+		.opinions-box {
+			text-align: center;
+
+			& a {
+				text-decoration: none;
+			}
+
+			&__text-input {
+				font-size: 1.2em;
+
+				&--is-inactive {
+					opacity: 0.5;
+				}
+			}
+		}
+		
+	```
+	<Notes slot="notes">
+		- If you're methodologies like BEM for naming, it makes it WAY easier as you're often taking part of the previous selector when writing styles
+		- It becomes much faster to write the styles and often easier to read
+	</Notes>
+</Slide>
+
+<Slide type="code" size="xs">
+	```css
+		.container {
+			& .feed {
+				& .card {
+					& .header {
+						& .title {
+							& a {
+								& .icon {
+									& svg {
+										color: chartreuse;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	```
+	<Notes slot="notes">
+		- Nesting can also help us to see if we're going a little too far deep with our styles, if we're being more specific than we need to be and likely causing issues down the track
+	</Notes>
 </Slide>
 
 <Slide type="code" size="small" lines={['4']}>
@@ -84,9 +187,11 @@ import VerticalAlign from './img/vertical-align.png'
 		
 	```
 	<Notes slot="notes">
-		- Don't need & anymore
+		- And thanks to native nesting in the browser, we no longer need an extra tool to allow nesting our CSS
+		- Recent changes have also made the use of the & more flexible, and it's not needed in most use cases anymore
 	</Notes>
 </Slide>
+
 
 <Slide type="code" size="xs" lines={['8,10']}>
 	```css
@@ -110,7 +215,7 @@ import VerticalAlign from './img/vertical-align.png'
 		
 	```
 	<Notes slot="notes">
-		- Still need to use & to compound
+		- If you're wanting to compound 2 selectors together, eg in this case
 	</Notes>
 </Slide>
 
@@ -139,31 +244,43 @@ import VerticalAlign from './img/vertical-align.png'
 	```
 	<Notes slot="notes">
 		- Or if appending the selector, rather than pre-pending it
+		- By using the & after the new selector rather than before, it'll change where it gets placed in the final styles
+		- This makes it easier to keep all relevant styles together
+	</Notes>
+</Slide>
+
+<Slide 
+	type="browsers"
+	browsers={{chrome: '2023', edge: '2023', safari: '2023', firefox: '2023'}}
+>
+	<span slot="header">Native Nesting</span>
+	<Notes slot="notes">
+		- Native nesting
 	</Notes>
 </Slide>
 
 <Slide>
 	## Pseudo Selectors
 	<Notes slot="notes">
-		- 
+		- There are a few new pseudo selectors now available, which is giving us so really cool capabilities with our styles
 	</Notes>
 </Slide>
 
-<Slide type="code" size="small">
+<Slide type="code" size="med" lines={['1', '3', '5', '7']}>
 	```css
-	&:has() {}
+	*:has() {}
 
-	&:where() {}
+	*:where() {}
 
-	&:not() {}
+	*:not() {}
 
-	&:is() {}
-		
+	*:is() {}
 	```
 	<Notes slot="notes">
-		- is - grouping made easier
-		- where grabbing from a list but wihtout increasing specificity
-
+		- `:is` - grouping made easier
+		- `:where` grabbing from a list but without increasing specificity
+		- `:not` as the name suggests gets a selector that doesn't match a criteria
+		- `:has` - close to a parent selector, allows us to look down the DOM tree without actually stepping into it
 	</Notes>
 </Slide>
 
@@ -191,18 +308,17 @@ import VerticalAlign from './img/vertical-align.png'
 			
 		```
 		<Notes slot="notes">
-			- 
+			- For example we can use it to count how many items are in an element
+			- Here we have 2 different lists, and we want to display a count for how many items are in each list
 		</Notes>
 	</Slide>
-	<Slide type="split" size="xs"  split={['dark']} dir="vertical">
+	<Slide type="code" size="xs" lines={['2', '4-6', '8-10', '12', '12-18']}>
 		```css
 		.block {
 			--items: '1';
 
-			.count {
-				&::before {
-					content: var(--items);
-				}
+			.count::before {
+				content: var(--items);
 			}
 			
 			.plural {
@@ -217,8 +333,15 @@ import VerticalAlign from './img/vertical-align.png'
 				}
 			}
 		}
-
 		```
+		<Notes slot="notes">
+			- Setting the initial value of items to 1 (or could be to 0), and setting the pseudo element content to be the the value of the items variable
+			- By default the plural element (which adds an 's') is hidden
+			- Using the `:has` selector we can check if the block has a list which has a list item that is the second child, in which case we know the list has at least 2 items so can set items to 2
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['2-4', '6-8', '10-12', '14']}>
 		```css
 		.block {
 			&:has(ul li:nth-child(3)) {
@@ -238,9 +361,10 @@ import VerticalAlign from './img/vertical-align.png'
 			
 		```
 		<Notes slot="notes">
-			- 
+			- This can continue counting, which will override previous values
 		</Notes>
 	</Slide>
+
 	<Slide type="split" size="xs" split={['dark']} dir="vertical">
 		```html
 		<div class="field">
@@ -265,13 +389,16 @@ import VerticalAlign from './img/vertical-align.png'
 		}
 		```
 		<Notes slot="notes">
-			- 
+			- We can also use the has selector to display errors or notes for form fields based on their state
+			- In this case, if the field input is checked, display the error message
+			- We can also style the parent container, around the whole field, based on the state 
 		</Notes>
 	</Slide>
 	<Slide 
 		type="figure" 
 		video={HasDemo} 
 		caption=""
+		loop={true}
 	>
 		<Notes slot="notes">
 			- 
@@ -344,6 +471,43 @@ import VerticalAlign from './img/vertical-align.png'
 			- 
 		</Notes>
 	</Slide>
+
+	<Slide 
+		type="browsers"
+		browsers={{firefox: '2022', safari: '2022', edge: '2022', chrome: '2023', }}
+	>
+		<span slot="header">`:has()`</span>
+	</Slide>
+
+	{/* <Slide
+		type="browsers"
+		browsers={{firefox: '2020', safari: '2020', edge: '2021', chrome: '2021', }}
+	>
+		<span slot="header">`:where()`</span>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide> */}
+
+	{/* <Slide
+		type="browsers"
+		browsers={{firefox: '2020', safari: '2015', edge: '2021', chrome: '2021', }}
+	>
+		<span slot="header">`:not()`</span>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide> */}
+
+	{/* <Slide
+		type="browsers"
+		browsers={{firefox: '2020', safari: '2020', edge: '2021', chrome: '2021', }}
+	>
+		<span slot="header">`:is()`</span>
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide> */}
 </Slide>
 
 <Slide type="demo">

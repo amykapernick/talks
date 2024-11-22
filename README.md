@@ -10,5 +10,7 @@ Further information and talk details can be found at [speaking.amyskapers.dev](h
 - [x] Add script to create a new talk
 - [ ] Add fragments for new slides/notes components
 - [ ] Add Remark/Rehype plugin to easily add classes to markdown for fragments, etc
-- [ ] Add ability to step through/highlight code snippets
+- [x] Add ability to step through/highlight code snippets
+- [ ] Add step through for split code slides
 - [ ] Custom styling for speaker notes
+- [ ] 

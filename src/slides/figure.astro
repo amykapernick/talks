@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Background from "@parts/background";
 
-const { image, video, youtube, caption, zoom, reverseCaption, background, border, ...args } = Astro.props
+const { image, video, youtube, caption, zoom, reverseCaption, background, border, loop, ...args } = Astro.props
 
 ---
 
@@ -76,7 +76,7 @@ const { image, video, youtube, caption, zoom, reverseCaption, background, border
 		<div class={zoom && 'fragment custom'} data-border={border}>
 			{image && <Image src={image} loading={'eager'} alt="" />}
 			{video &&
-				<video data-autoplay>
+				<video data-autoplay loop={loop}>
 					<source src={video} type="video/mp4" />	
 				</video>
 			}
