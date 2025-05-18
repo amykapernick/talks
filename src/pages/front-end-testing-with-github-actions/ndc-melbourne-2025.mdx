@@ -62,8 +62,7 @@ import ActionsMarketplace from './img/actions_marketplace.png'
 	caption="kapers.dev/fender-testing"
 >
 	<Notes slot="notes">
-		- In 2020 I gave a talk about the whys and hows of front end Testing
-		- I did give it in London, but this will take you to the Sydney version which is a bit more updated
+		- A few years ago I gave a talk about the whys and hows of front end Testing
 	</Notes>
 </Slide>
 
@@ -302,8 +301,8 @@ import ActionsMarketplace from './img/actions_marketplace.png'
 		1. Name of the step (this is for us to identify it when it runs)
 		2. A unique ID for the step, this is optional and can be used to refer to it elsewhere in the job
 		3. We can define what actually happens in 2 different ways. Most of the time we use an existing actions package, using the `uses` property to define the package and version we're using. Alternatively we can run a script in the terminal, using the `run` property and defining the script/command to run
-		4. Rather than running a step on 
-		5. 
+		4. Rather than running a step every time an action is triggered, we can set a conditional step that only runs when the condition is met
+		5. We can pass in env variables for the script to use, most of the time likely referencing github secret values
 		6. Some actions will also require values/config to be passed in, so these are set under the `with` property
 			 - Eg. for the setup node package, it can take a value of which node version you want to use and GitHub Scripts allows you to define a script to run, in this case to add a comment to our PR/issue that has triggered the action
 	</Notes>
@@ -504,7 +503,6 @@ import ActionsMarketplace from './img/actions_marketplace.png'
 <Slide 
 	type="figure" 
 	image={DeployPreview} 
-	caption="kapers.dev/deploy-preview"
 >
 	<Notes slot="notes">
 		- 
@@ -651,12 +649,9 @@ import ActionsMarketplace from './img/actions_marketplace.png'
 	  run: |
 		echo "DEPLOY_URL=$(echo "${{ needs.build.outputs.deploy_url }}" 
 		| base64 --decode | base64 --decode)" >> $GITHUB_OUTPUT
-
-	- run: echo ${{ steps.decode_url.outputs.DEPLOY_URL }}
 	```
 	<Notes slot="notes">
 		- Now once we get to the test job, we can add a step to decode the URL and use it elsewhere in the job
-		- Just to make sure, we can temporarily add a step to check the output is fine
 	</Notes>
 </Slide>
 
