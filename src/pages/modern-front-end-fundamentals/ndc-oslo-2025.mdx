@@ -40,8 +40,6 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 <Slide>
 	☕ Grab some coffee and settle in
 
-	kapers.dev/pre-workshop
-
 	kapers.dev/html-game
 </Slide>
 
@@ -333,7 +331,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 
 		<Notes slot="notes">
 			- When building things accessibly we often turn to using ARIA attributes
-
+			- Will touch on ARIA a bit more in the accessibility section
 			- ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible
 		</Notes>
 	</Slide>
@@ -379,6 +377,339 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</blockquote>
 	</Slide>
 
+	<Slide>
+		## Forms
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<input type="text" name="quokka_name" placeholder="What is the Quokka's name?" />
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['4,11']}>
+		```html
+			<!-- <input type="text" name="quokka_name" placeholder="What is the Quokka's name?" /> -->
+
+			<label 
+				for="name"
+			>
+				What is the Quokka's name
+			</label>
+			<input 
+				type="text" 
+				name="quokka_name" 
+				id="name" 
+			/>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xs" lines={['6,10','11-16']}>
+		```html
+			<label for="aussie_animals">
+				Which Australian animal do you think is the best?
+			</label>
+			<input 
+				type="text" 
+				list="animals" 
+				id="aussie_animals" 
+				name="best_animal" 
+			/>
+			<datalist id="animals">    
+				<option value="Quokka" />    
+				<option value="Koala" />    
+				<option value="Platypus" />    
+				<option value="Echidna" />    
+				<option value="Kangaroo" />    
+				<option value="Camel" />
+			</datalist>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<label for="quokka_coolness">How cool are Quokkas?</label>
+			<input 
+				type="range" 
+				name="coolness"
+				id="quokka_coolness" 
+				max="10" 
+				step="1" 
+			/>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<label for="quokka_coolness">How cool are Quokkas?</label>
+			<input 
+				type="range" 
+				name="coolness"
+				id="quokka_coolness" 
+				max="10" 
+				step="1" 
+				list="quokka_coolness_list"
+			/>
+			<datalist id="quokka_coolness_list">
+				<option value="0">Not at all cool</option>
+				<option value="5">Moderately cool</option>
+				<option value="10">Coolest animal ever</option>
+			</datalist>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## Media
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['3']}>
+		```html
+			<img 
+				src="/img/rottnest.jpg" 
+				alt="Rottnest Island in Western Australia, with white sandy beach and the clear blue water dotted with small rocky reef sections along the edge" 
+			/>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small" lines={['3']}>
+		```html
+			<img 
+				src="/img/stock_image.jpg" 
+				alt="" 
+			/>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<figure>
+				<img src="/img/rottnest.jpg" alt="" />
+				<figcaption>Rottnest Island, WA</figcaption>
+			</figure>
+		```
+		<Notes slot="notes">
+			- Not just for images
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<picture>
+				<source
+					srcset="/img/rottnest-900_x_500.jpg"
+					media="(min-width: 900px)"    
+				/>     
+				<source        
+					srcset="/img/rottnest-400_x_300.jpg"        
+					media="(min-width: 600px)"    
+				/>     
+				<source        
+					srcset="/img/rottnest-200_x_150.jpg"        
+					media="(min-width: 400px)"    
+				/>    
+				<img src="/img/rottnest.jpg" alt="" />
+			</picture>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<picture>
+				<source        
+					srcset="/img/rottnest.avif"        
+					type="image/avif"    
+				/>    
+				<source        
+					srcset="/img/rottnest.webp"        
+					type="image/webp"    
+				/> 
+				<img src="/img/rottnest.jpg" />
+			</picture>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xxs">
+		```html
+			<img 
+				src="https://assets.codepen.io/707165/Layout+Map.png" 
+				width="540" 
+				height="540"
+				usemap="#image_map"
+			/>
+			<map name="image_map">
+				<area 
+					alt="Header Section" 
+					title="header" 
+					href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header" 
+					target="_blank" 
+					coords="0,0,540,100" 
+					shape="rect" 
+				/>
+				<area 
+					alt="Content Section"
+					title="main" 
+					href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" 
+					target="_blank" 
+					coords="79,100,540,488.5" 
+					shape="rect" 
+				/>
+			</map>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<video
+				controls    
+				muted    
+				loop
+			>    
+				<source        
+					src="/img/video.mp4"        
+					type="video/mp4"    
+				/>    
+				<p>Sorry, your browser doesn't support this video.</p>
+			</video>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="xs">
+		```html
+			<video
+				controls    
+				muted    
+				loop
+			>    
+				<source        
+					src="/img/video.mp4"        
+					type="video/mp4"    
+				/>    
+				<track        
+					default        
+					kind="captions"        
+					srclang="en-AU"        
+					src="/img/subtitles.vtt"    
+				/>
+				<p>Sorry, your browser doesn't support this video.</p>
+			</video>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<dl>
+				<dt>Size</dt>    
+				<dd>40 to 54 cm</dd>    
+
+				<dt>Weight</dt>    
+				<dd>2.5 to 5kg</dd>    
+
+				<dt>Lifespan</dt>    
+				<dd>About 10 years in the wild and up to 15 years in captivity.</dd>
+			</dl>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<details>    
+				<summary>Can I have one?</summary>    
+				<p>Quokkas are only native to one island in Australia, and don't do well outside of their natural habitat. They're not great as pets, it would be similar to keeping a squirrel as a pet.</p>
+			</details>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<details name="faq">
+				<summary>Are Quokkas real?</summary>
+				<p>Is Australia real? Are we even real? What is real? Are we all just a figment of someone's imagination? Or part of the matrix?</p>
+				<p>Yes, Quokkas are real. They seem too good to be true, and a bit too weird (like most animals in Australia, I'm still convinced that platypus' are a myth), but they do genuinely exist.</p>
+			</details>
+
+			<details name="faq">    
+				<summary>Can I have one?</summary>    
+				<p>Quokkas are only native to one island in Australia, and don't do well outside of their natural habitat. They're not great as pets, it would be similar to keeping a squirrel as a pet.</p>
+			</details>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<address>    
+				1 Henderson Ave<br/>    
+				Rottnest Island, WA<br/>    
+				Australia 6161
+			</address>
+
+			<address>    
+				<a href="tel:+61893729730">(08) 9372 9730</a>
+			</address>
+		```
+		<Notes slot="notes">
+			- 
+		</Notes>
+	</Slide>
+
+	<Slide type="figure" image={GitHubRepo} caption="kapers.dev/workshop">
+		<Notes slot="notes">
+			- This is the repo we're working from
+			
+			- Includes the app and examples/instructions for each section of the workshop
+		</Notes>
+	</Slide>
+
 </Slide>
 
 <Slide styles="title">
@@ -404,18 +735,6 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			
 			And although they get a bad reputation, floats still have a place in modern layouts, so we're going to go through where you can use them as well
 
-		</Notes>
-	</Slide>
-
-	<Slide>
-		kapers.dev/workshop-css
-	</Slide>
-
-	<Slide type="figure" image={GitHubRepo} caption="kapers.dev/workshop">
-		<Notes slot="notes">
-			- This is the repo we're working from
-			
-			- Includes the app and examples/instructions for each section of the workshop
 		</Notes>
 	</Slide>
 
@@ -806,6 +1125,24 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- Of those 1 million websites, 96.3% failed to meet accessibility guidelines
 			- That means that more than 96% of these websites were built without considering the billions of people who need accessibility features to use them
 			- This audit was also done using automated testing and therefore not able to test all of the criteria, so chances are this number of inaccessible websites is higher
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## EAA <small>European Accessibility Act</small>
+		<Notes slot="notes">
+			- Another reason to consider a11y is the European Accessibility Act
+			- Comes into effect end of June 2025
+			- Applies to ICT products and services, including websites, apps, software, hardware and more
+			- As Norway isn't a member of the EU, it doesn't technically apply, however if your company has any clients who are based in EU countries, you'll still need to comply
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## Disclaimer: Not a Lawyer
+		<Notes slot="notes">
+			- While I do touch on some topics, there are a lot of legal aspects and implications that I am not remotely qualified to advise on
+			- If the EAA (or another similar legislation) applies to you, or if you want to clarify what applies to you, the first step from your company should be to speak to a lawyer to make sure you're getting accurate info to work with
 		</Notes>
 	</Slide>
 
