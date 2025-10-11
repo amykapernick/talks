@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/ts-plugin": "^1.10.4",
     "@types/reveal": "^4.2.0",
-    "astro": "^5.7.5",
+    "astro": "^5.14.4",
     "chart.js": "^4.4.9",
     "postcss-advanced-variables": "^5.0.0",
     "postcss-hexrgba": "^2.1.0",
