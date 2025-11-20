@@ -14,3 +14,4 @@ Further information and talk details can be found at [speaking.amyskapers.dev](h
 - [ ] Add step through for split code slides
 - [ ] Custom styling for speaker notes
 - [ ] Fix Demo styling to be better zoomed out and not show weird code steps
+- [ ] Extension/Plugin for notes that tracks time marks (eg. this slide would be on at about 20min 30sec through the talk) and signals if you're ahead or behind time (or right on time)
