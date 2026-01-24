@@ -656,25 +656,43 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		1,000,000 sites
 		<Notes slot="notes">
 			- Each year, a not-for-profit organisation called WebAIM (Web Accessibility in Mind), they do a study on the top million homepages
-			- In 2023, from those 1 million websites...
+			- In 2025, from those 1 million websites...
 		</Notes>
 	</Slide>
 
 	<Slide>
-		49,991,225 accessibility issues
+		50,960,288 accessibility issues
 		<Notes slot="notes">
-			- ...they found 49 million, 991 thousand, 225 accessibility issues
-			- That's an average of almost 50 errors per site, just on the homepage
+			- ...they found 50 million, 960 thousand, 288 accessibility issues
+			- That's an average of almost 51 errors per site, just on the homepage
 			- https://webaim.org/projects/million/
 		</Notes>
 	</Slide>
 
 	<Slide>
-		96.3% failed
+		94.8% failed
 		<Notes slot="notes">
-			- Of those 1 million websites, 96.3% failed to meet accessibility guidelines
-			- That means that more than 96% of these websites were built without considering the billions of people who need accessibility features to use them
+			- Of those 1 million websites, 94.8% failed to meet accessibility guidelines
+			- That means that almost 95%, that's 950,000 of these websites were built without considering the billions of people who need accessibility features to use them
 			- This audit was also done using automated testing and therefore not able to test all of the criteria, so chances are this number of inaccessible websites is higher
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## EAA <small>European Accessibility Act</small>
+		<Notes slot="notes">
+			- Another reason to consider a11y is the European Accessibility Act
+			- Comes into effect end of June 2025
+			- Applies to ICT products and services, including websites, apps, software, hardware and more
+			- As Norway isn't a member of the EU, it doesn't technically apply, however if your company has any clients who are based in EU countries, you'll still need to comply
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## <small>Disclaimer:</small><br/> Not a Lawyer
+		<Notes slot="notes">
+			- While I do touch on some topics, there are a lot of legal aspects and implications that I am not remotely qualified to advise on
+			- If the EAA (or another similar legislation) applies to you, or if you want to clarify what applies to you, the first step from your company should be to speak to a lawyer to make sure you're getting accurate info to work with
 		</Notes>
 	</Slide>
 </Slide>
@@ -702,7 +720,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 	<Slide>
 		WCAG 2.2
 		<Notes slot="notes">
-			- The most current version of the guidlines is WCAG 2.2 which was published in October
+			- The most current version of the guidlines is WCAG 2.2 which was published in October 2023
 			- Each version updates to take into account new technologies, for example 2.1 introduced guidelines around animations and motion, while 2.2 introduced guidelines around drag and drop and authentication
 			- Similarly version 3 is being worked on at the moment and will incorporate additional guidelines around mobile devices and more improvements for cognitive impairments
 		</Notes>
@@ -719,6 +737,14 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		</Notes>
 	</Slide>
 
+	<Slide>
+		A - AA - AAA
+		<Notes slot="notes">
+			- If you're complying with the EAA, their web requirements are based off WCAG 2.1 AA standard, with a few extra bits added (again, consult a lawyer and get an accessibility audit done if this applies to you)
+			- There's also work being done to update the guidelines to WCAG version 2.2 so it doesn't hurt to get started on meeting the newer version if you're implementing changes
+		</Notes>
+	</Slide>
+
 	<Slide
 		type="figure"
 		image={WCAGExplainers}
@@ -726,7 +752,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 	>
 
 		<Notes slot="notes">
-			- As I mentioned, WCAG 2.2 came out a few months back, there are a bunch of great explainers that go through the guidelines and what the changes are
+			- As I mentioned, WCAG 2.2 came out a while back, there are a bunch of great explainers that go through the guidelines and what the changes are
 		</Notes>
 	</Slide>
 
@@ -739,22 +765,22 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 	</Slide>
 
 	<Slide>
-		49,991,225 accessibility issues
+		50,960,288 accessibility issues
 		<Notes slot="notes">
 			- Let's take a look again at the data from the WebAIM million audit
-			- 49 million, 991 thousand, 225 accessibility issues
+			- 50 million, 960 thousand, 288 accessibility issues
 		</Notes>
 	</Slide>
 
 	<Slide>
-		96.1% easy fixes
+		96% easy fixes
 		<Notes slot="notes">
-			- Of those, 96.1% are easily fixable
+			- Of those, 96% are easily fixable
 		</Notes>
 	</Slide>
 
 	<Slide>
-		48,041,567 easy fixes
+		48,921,876 easy fixes
 		<Notes slot="notes">
 			- That's over 48 million issues that can be fixed with a small change
 		</Notes>
@@ -790,7 +816,8 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 
 		Colour Contrast
 		<Notes slot="notes">
-			- More than 60% of the issues were insufficient colour contrast
+			- Colour contrast compares the difference between the background and text colours to ensure that there's enough difference between the two that they can be easily read
+			- Almost 80% of the sites tested had areas with insufficient colour contrast
 			- WCAG guidelines have a minimum ratio of 4.5:1 to meet AA standard, and 7:1 to meet AAA standard
 			- https://webaim.org/projects/million/
 		</Notes>
@@ -835,6 +862,7 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- People who can't see the image miss it
 			- And screen readers or assistive technologies can't describe it to them
 			- And if a picture is worth a thousand words that's a lot of content they're missing
+			- 55.5% of the sites tested were missing the alt text on images
 		</Notes>
 	</Slide>
 
@@ -902,9 +930,62 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 		```
 		
 		<Notes slot="notes">
-			- You can use attributes like `aria-describedby` which allow you to link a description with a visual element like an image
+			- You can use attributes like `aria-labelledby` and `aria-describedby` which allow you to link a description with a visual element like an image
 			- This description doesn't need to be visually hidden either, it may be a paragraph of content that already exists explaining it
 		</Notes>
+	</Slide>
+
+	<Slide>
+		## ARIA <small>Accessible Rich Internet Applications</small>
+
+		<Notes slot="notes">
+			- When building things accessibly we often turn to using ARIA attributes
+			- Will touch on ARIA a bit more in the accessibility section
+			- ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<div role="header"> </div>
+
+		<div role="button" aria-label="Click me"> </div>
+
+		<div aria-hidden> </div>
+		```
+
+		<Notes slot="notes">
+			- `aria-label` and `role`
+
+			- `aria-hidden` and `aria-invalid`
+
+			- Includes a bunch of states and properties we can use to provide information for screen readers and assistive technologies
+
+			- And while it is good to have this ability, a lot of this has been baked into HTML
+		</Notes>
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			**First rule of ARIA use**: If you can use a native HTML element with the semantics and behavour **already built in**, instead of repurposing an element and adding an ARIA role, state or property **then do so**.
+
+			<cite>W3C ARIA Guidelines</cite>
+		</blockquote>
+		<Notes slot="notes">
+			- On the note of ARIA, the first official rule of ARIA (from their website) is if you don't have to use it, don't
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html	
+		<div class="nav_menu" role="navigation">
+			<!-- Navigation links go here -->
+		</div>
+
+		<nav>
+			<!-- Navigation links go here -->
+		</nav>
+		```
 	</Slide>
 
 	<Slide>
@@ -930,6 +1011,18 @@ import Overlays from '@img/a11y/overlayfactsheet.png'
 			- You can link labels with inputs using the `for` and `id` attributes
 			- The `id` attribute is separate from the `name`, and can be randomly generated
 			- The placeholder attribute, while it does display in the field, is not announced by or even recognised by screen readers
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<label for="header_search" class="hidden">Search</label>
+		
+		<input id="header_search" name="search" placeholder="Search" type="search" />
+		```
+		<Notes slot="notes">
+			- Of the tested websites, over 48% were missing labels on form inputs
+			- Which given these are homepages being tested, are probably a lot of search inputs which just need to have a hidden label being added
 		</Notes>
 	</Slide>
 

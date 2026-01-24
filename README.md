@@ -7,7 +7,9 @@ Further information and talk details can be found at [speaking.amyskapers.dev](h
 ## Improvements
 
 - [x] Add script to copy an existing talk
+  - [ ] Fix script
 - [x] Add script to create a new talk
+  - [ ] Add talk title to file with script
 - [ ] Add fragments for new slides/notes components
 - [ ] Add Remark/Rehype plugin to easily add classes to markdown for fragments, etc
 - [x] Add ability to step through/highlight code snippets
