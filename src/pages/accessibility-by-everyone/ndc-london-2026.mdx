@@ -1,0 +1,1235 @@
+---
+title: Accessibility by Everyone
+layout: ../../parts/layout.astro
+config: 
+  navigationMode: linear
+  transition: none
+footer: ['@amyskapers.dev', '@amys_kapers']
+theme: navy
+---
+import Slide from '@slides/slide'
+import Notes from '@parts/notes'
+import Switch from '@parts/fragment_switch'
+import Impairments from '@img/a11y/impairments.png'
+import ImpairmentTypes from '@img/a11y/types_of_impairments.png'
+import ImpairmentCategories from '@img/a11y/categories_of_impairments.png'
+import InstagramMusic from './img/instagram_background_music.mp3'
+import Whocanuse from '@img/a11y/whocanuse.png'
+import WhocanuseRedgreen from '@img/a11y/whocanuse_redgreen.png'
+import AccessibleBrandColours from '@img/a11y/accessiblebrandcolours.png'
+import Resources from '@img/a11y/resources.png'
+import ScreenReader from './img/screen_reader.mp4'
+import ScreenReaderDemo from '@img/a11y/screenreader_demo.png'
+import IntopiaTraining from '@img/a11y/intopia_training.png'
+import PracticalA11y from '@img/a11y/practical_a11y.png'
+import WCAGExplainers from '@img/a11y/wcag_explainers.png'
+import FenderWorkshop from '@img/a11y/fender_workshop.png'
+import FenderTesting from '@img/a11y/fender_testing_blog.png'
+import Overlays from '@img/a11y/overlayfactsheet.png'
+import Feedback from './ndc-london-2026.png'
+
+<Slide data-style="title">
+	# {frontmatter.title}
+	<small>(and for everyone)</small>
+	<Notes slot="notes">
+		- Test Clicker
+	</Notes>
+</Slide>
+
+<Slide data-style="title">
+	# {frontmatter.title}
+	<small>(and for everyone)</small>
+	<Notes slot="notes">
+		- Clicker has been tested
+		- World relies more on technology for everyday lives
+		- We as creators face an important responsibility to ensure that we're not excluding those around us who want to use waht we're creating
+	</Notes>
+</Slide>
+
+<Slide type="quote">
+	<blockquote>
+		<p>The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect</p>
+		<cite>Tim Berners-Lee, <small>Inventor of the internet</small></cite>
+	</blockquote>
+	<Notes slot="notes">
+		- What does it mean to make things accessible, what does it mean for us
+		- When we create technologies, whether software, hardware or something else
+		- Anyone can use and interact with it, using whatever means they prefer
+		- Given wahtever capabilities they have
+		- Mean the internet, the technologies, the solutions we're creating are made for everyone and with everyone in mind
+		- But how is that relevant to us?
+		- https://www.w3.org/mission/accessibility/
+	</Notes>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Why is Accessibility Important?</span>
+
+	<Slide data-style="section">
+		## Why is Accessibility Important?
+
+		<Notes slot="notes">
+			- ⏱️ 2min
+			{/* 3min section */}
+		</Notes>
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			<p>For better or worse, the people who design the touchpoints of society determine who can participate and who is left out, often unwittingly</p>
+			<cite>Kat Holmes <small>Mismatch: How Inclusion Shapes Design</small></cite>
+		</blockquote>
+		<Notes slot="notes">
+			- All of us here today are in a very important position, one to make a difference to people around us
+			- We have the power to make things better for people around us
+			- To decide who can participate and who is left out
+			- We can all make a difference in people's lives
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span class="fragment">Inclusion makes us <Switch words={['more-effective', 'more innovative', 'better', 'happier']} /></span>
+
+		<Notes slot="notes">
+			- But let's just for a second ignore that we shouldn't be excluding people
+			- What else does accessibility and inclusion do for us?
+			- A study in 2018 by the Disability Council of Australia and Suncorp found that inclusive teams and workplaces where
+				- 10 times more likely to be highly effective
+				- 9 x innovative
+				- 4 x provide excellent customer service
+				- 4 x to stay at a company
+				- 19 x more satisfied with their jobs
+			- https://www.dca.org.au/research/benchmarks-national-diversity
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Accessibility is a human right
+		<Notes slot="notes">
+			- We're seeing drastic changes to legislation and regulations around the accessibility and Inclusion
+			- Ccuntries all over are ensuring their laws are up to date as technology becomes more intermingled with our day-to-day
+			- Not a case of if, but when we're going to be legally required to make sure what we build is accessible
+			- And the secret is...
+		</Notes>
+	</Slide>
+
+	<Slide>
+		It's easier to do it right now
+		<Notes slot="notes">
+			- It's easier it make changes and improvements now, as we build things
+			- To include it from the very beginning, rather than trying to stick a band aid on it later
+			- How many of you know if what you're currently building is accessible? Do you know if this is something you're currently doing? Or working towards? Or talking about?
+		</Notes>
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			<p>Every inaccessible webpage tells [people with an impairment] *"you aren't welcome in this world"*.</p>
+			<p>If you don't know whether your website or app is accessible, it's not. Start learning.</p>
+			<cite>Larene Le Gassick, <small>Accessibility Engineer</small></cite>
+		</blockquote>
+		<Notes slot="notes">
+			- If you don't know whether you're doing it right, you're probably not
+			- It's not too late to make a change though, to start making improvements and make sure everyone using your product feels welcome.
+			- https://twitter.com/LareneLg/status/1270578058714443776?s=20
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Who Benefits from Accessibility?</span>
+
+	<Slide data-style="section"> 
+		## Who Benefits from Accessibility?
+
+		<Notes slot="notes">
+			- ⏱️ 5min
+			{/* 6min section */}
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={Impairments} style="light">
+		<Notes slot="notes">
+			- When we think of accessibility, we think of people with permanent impairments
+			- It could be someone who was blind or deaf, someone who was in a wheelchair or missing use of a limb
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="chart" 
+		caption="Global Population with a Permanent Impairment" 
+		theme={frontmatter.theme}
+		data={{
+			type: 'pie',
+			data: {
+				labels: [
+					'Permanent Impairments',
+					'Rest of population'
+				],
+				datasets: [{
+					label: 'Global Population with a Permanent Impairment',
+					data: [15, 85],
+					backgroundColor: [
+						'#228b22',
+						'#263773',
+					],
+				}]
+			}
+		}}
+	>
+		<Notes slot="notes">
+			- The world bank estimates that these people, people with permanent impairments are at least 15% of the global population
+			- That's over 1.2 billion people
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={Impairments} style="light">
+		<Notes slot="notes">
+			- Again these are what we refer to as permanent impairments
+			- Which are just a small subset of people with impairments
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={ImpairmentTypes} style="light">
+		<Notes slot="notes">
+			- Permanent impairments are not likely to be resolved, are long term, like a missing or non functioning limb
+			- There are also temporary impairments, which can't be resolved quickly but will resolve in the short to long term, for example a broken arm
+			- And finally we have situational impairments which are the result of the environment alone and can be resolved by leaving it, for example holding a child or pet
+			- Although not all impairments are permanent, and may not have as great an impact on a person's life, they can all be made easier by accessibility improvements we make
+		</Notes>
+	</Slide>
+
+	<Slide type="background" image={ImpairmentCategories} style="light">
+		<Notes slot="notes">
+			- Impairments are then in one of 4 different areas
+			- Hearing, have imapired, limited or no hearing in one or both ears
+			- Vision, have impaired, limited or no vision (could include things like colour blindness or glaucoma)
+			- Mobility, have impaired, limited or no movement or control of movement which could include conditions like arthritis or parkinsons that affect fine motor control
+			- Cognitive, which includes anything that impacts how information is processed and includes a wide range of conditions such as dyslexia, ADHD, Autism, limited language proficiency, migraines, epilepsy and more
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Who benefits from Accessibility?
+		<Notes slot="notes">
+			- So again we ask, who benefits from accessibility?
+			- Taking into account permanent, temporary and situation impairments
+			- Considering impairments that impact hearing, vision, mobility and cognition
+			- Who are we helping by making things more accessible and who are we excluding by not?
+		</Notes>
+	</Slide>
+
+	<Slide>
+		Everyone.
+		<Notes slot="notes">
+			- When we make things accessible, everyone benefits
+			- Every single one of us has at some point or will at some point benefit from an accessibility improvements
+			- I mean think about the last time you avoided taking the stairs and used a lift or a ramp instead?
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="cloud"
+		fragment={true}
+		words={[
+			'Broken arm/hand',
+			'Ear Infection',
+			'Migraine',
+			'ESL',
+			'Dyslexia',
+			'Loud environment',
+			'Sunlight/Glare',
+			'Glasses',
+			'Colour Blind',
+			'ADHD',
+			'Autism',
+			'Epilepsy',
+			'Old browser/Device',
+			'Reading Mode/Small Screen',
+			'Slow Internet',
+			'Holding Child/Pet',
+			'Multi-tasking',
+			'Virtual Assistant',
+			'AI',
+			'Carpel Tunnel',
+			'No Headphones',
+			'Big Fingers',
+			'Night Mode',
+			'Limited Fine Motor Control',
+			'Easily Distracted'
+		]}
+	>
+		<Notes slot="notes">
+			- Broken an arm/finger & limited/no motion
+			- Had an ear infection?
+			- Had a migraine
+			- Have lower proficiency in the language used
+			- Dyslexia
+			- Been in a loud situation such as a concert, public transport or screaming children
+			- Had glare on your screen
+			- Worn glasses, have colour blindness, cataracts
+			- Used an older browser, text only device, small screen or slow internet connection
+			- Had limited access of one arm/hand while holding a child, pet or multi-tasking
+			- Used a virtual assistant or AI assistant
+			- Had carpel tunnel or developer elbow
+			- Forgotten your headphones
+			- Tried to press a tiny button with big fingers
+			- Used features such as night mode or colour shifting screens
+			- Limited fine motor control, difficulty using a mouse
+			- Difficulty concentrating or easily distracted by animations, videos or other parts of a page
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="cloud"
+		words={[
+			'Broken arm/hand',
+			'Ear Infection',
+			'Migraine',
+			'ESL',
+			'Dyslexia',
+			'Loud environment',
+			'Sunlight/Glare',
+			'Glasses',
+			'Colour Blind',
+			'ADHD',
+			'Autism',
+			'Epilepsy',
+			'Old browser/Device',
+			'Reading Mode/Small Screen',
+			'Slow Internet',
+			'Holding Child/Pet',
+			'Multi-tasking',
+			'Virtual Assistant',
+			'AI',
+			'Carpel Tunnel',
+			'No Headphones',
+			'Big Fingers',
+			'Night Mode',
+			'Limited Fine Motor Control',
+			'Easily Distracted'
+		]}
+	>
+		<Notes slot="notes">
+			- These are all situations that beenfit from accessibility improvements
+			- Whether it be captions, clear design, non-complex language, thoughtful interface layout
+			- Or one of many more small touches that can make billions of people's lives better and easier
+			- And more importantly it can make them feel like they're being thought of and included in what we're building
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Why is Accessibility my Responsibility?</span>
+
+	<Slide data-style="section"> 
+		## Why is Accessibility my Responsibility?
+
+		<Notes slot="notes">
+			- ⏱️ 11min
+			{/* 15min section */}
+		</Notes>
+	</Slide>
+
+	<Slide
+		fragment={true}
+		type="cloud"
+		words={[
+			'Company Leadership',
+			'Managers & Team Leaders',
+			'Recruitment Teams',
+			'Human Resources',
+			'Project Managers',
+			'Product Owners',
+			'Marketing & Content Writers',
+			'Designers',
+			'Developers',
+			'QA & Testers',
+			'DevOps',
+			'Security'
+		]}
+	>
+		<Notes slot="notes">
+			- No matter where you sit in a company
+			- Or in the project or product lifecycle
+			- We all play a part in ensuring that what technology is being built is accessible
+			- _show roles_
+			- I know this may not be everyone in the room, but if you don't fit into one of these roles, come and find me afterwards and I'd love to chat about how you can help as well
+			- Let's take a look at some of the ways we can all help
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership</span>
+
+		Goals and Values
+		<Notes slot="notes">
+			- From the top down, company leadership and decision makers have the ability to make sure accessibility and inclusion are a part of the company's goals, policies and core values
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership, Managers, Recruiting, HR</span>
+
+		Hiring skills
+		<Notes slot="notes">
+			- Anyone involved in hiring decisions can make sure that accessibility skills are being prioritised or looked for when hiring new team members
+			- That includes hiring experts in accessibility or just people who have an interest are want to make a difference
+			- And have a look at what skills assessments you're giving them during the hiring process, if someone is being hired as an accessibility expert, someone who is just going to be working on the front end, as a specialist, do they really need to be able to answer questions about computer science and algorithms?
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership, Managers, HR</span>
+
+		Training and Upskilling
+		<Notes slot="notes">
+			- As well as hiring new people, we can make sure that existing team members have the skills too
+			- Organising and prioritising accessibility training so everyone understands their responsibilities
+			- Could be something as simple as encouraging them to come to this talk
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leadership</span>
+
+		Understanding Regulations
+		<Notes slot="notes">
+			- We've talked about regulations and legislation around accessibility
+			- It's important that company leadership understand what these are and how they impact the company
+			- As it changes, they need to be aware of what applies to them and what they need to do to ensure they're compliant, ideally staying ahead of the curve to make it easier for the teams implementing it
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leaders, Managers, Recruiting, HR</span>
+
+		Inclusive Workplace
+		<Notes slot="notes">
+			- We talked about the advantages of having an inclusive workplace, and it's important to make sure that policies and procedures reflect this from the very beginning when hiring new team members all the way through
+			- So much of building accessible products comes from having teams with a diverse range of views and experiences, and when the workplace is inclusive it makes it much easier to build and maintain that
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners</span>
+
+		Discussing Accessibility First
+		<Notes slot="notes">
+			- Too many projects don't have the discussion early on, and it's harder to make changes down the track
+			- When accessibility is talked about at the beginning of a project or included on a roadmap from the start it's easier to make it happen the whole way through the process
+			- It's also important to make sure that accessibility is included in the definition of done, so it's not forgotten about
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners</span>
+
+		Accessibility Testing
+		<Notes slot="notes">
+			- As well as including accessibility as part of the scope and definition of done
+			- It's important to make sure that a plan for testing exists in the scope
+			- And where possible, including accessibility user testing, by people with lived experience, for example screen reader testing by screen reader users
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners, Marketing, Content Writers</span>
+
+		Avail oneself of unostentatious vernacular 
+		<Notes slot="notes">
+			- This is a really important one
+			- Anyone know what it means?
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners, Marketing, Content Writers</span>
+
+		Use simple language 
+		<Notes slot="notes">
+			- Unless absolutely necessary, don't overcomplicate it
+			- Ensure content is written at a level that can easily be understood regardless of education level or language proficiency
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners, Marketing, Content Writers, Developers</span>
+
+		Provide Text Alternatives
+		<Notes slot="notes">
+			- Wherever information is being conveyed through images, videos, audio or other non-text formats
+			- Make sure there is a text alternative being provided in the form of a transcript, caption, description or similar
+			- And most importantly, make sure that text alternative can be accessed and consumed by assistive technology such as a screen reader
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers</span>
+
+		Sufficient Colour Contrast
+		<Notes slot="notes">
+			- Make sure that there's enough contrast between text and background colours so that it can be read by everyone
+			- This is especially important when text is over the top of a background image or video as it can be difficult to read
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers</span>
+
+		Font Size
+		<Notes slot="notes">
+			- Make sure the font is a decent enough size, no hiding teeny tiny writing
+			- Most of the time you'll want a base size of at least 16px
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers, Developers</span>
+
+		Hover and Focus States
+		<Notes slot="notes">
+			- Make sure that there's a clear hover and focus state for any clickable or interactve elements
+			- This is important to make sure both design and development is involved, designers to keep it in line with everything esle and on brand, and developers to make sure that it's implemented correctly
+			- This includes making sure that you're not just relying on a subtle colour change that might be missed, you can make it noticable and obvious whilst still keeping on brand
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers, Developers</span>
+
+		Error Messaging
+		<Notes slot="notes">
+			- Ensuring there is clear and understandable errors is important so that people understand what is happening and what's gone working
+			- This means also making it obvious so people with vision impairments can easily find the error and is recognised and announced by screen readers or assistive technologies
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers, Developers</span>
+
+		Animations and Motion
+		<Notes slot="notes">
+			- Animations, motion and autoplaying videos can be an issue for a number of reasons, it can distract and switch focus from the content, it can trigger motion sickness in severe cases and it can trigger seizures in people with epilepsy
+			- This doesn't mean you can't use animations, but it's important to make sure they're not in your face and distracting
+			- There are also ways developers can check for people's preferences and disable animations if they've opted out
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers</span>
+
+		Semantic HTML
+		<Notes slot="notes">
+			- One of the best things developers can do is to use correct and semantic HTML elements when building out the structure of the content
+			- This includes additional functionality, context and information out of the box, is compatible everywhere and easy for assistive technologies to consume and understand
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers</span>
+
+		Keyboard Navigation
+		<Notes slot="notes">
+		- Not everyone uses a mouse to navigate around, a lot of people find it easier to use a keyboard or other input device
+		- For people with vision impairments, they can't see where the cursor is on a page, but a keyboard allows them to navigate around the functional elements
+		- For people with a mobility impairment, they may not have the fine motor control needed to use a mouse or trackpad
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, QA, Testing</span>
+	
+		Testing Procedures
+		<Notes slot="notes">
+			- Accessibility has options for both manual and automated testing
+			- Manual testing includes checking things such as keyboard navigation and screen reader compatibility
+			- Automatic testing can capture things like colour contrast, HTML validation and text Alternatives
+			- It's good to have a combination of manual and automated tests to make sure you're catching everything
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		Automated Tests
+		<Notes slot="notes">
+			- For the automated tests that are written, it's good to have them integrated as part of a pipeline or process so they run automatically as part of the rest of the testing suite
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing</span>
+	
+		User Testing
+		<Notes slot="notes">
+			- Although it's useful for the people building the product to ensure it's fully tested, there are some things that are best done by people with lived experience
+			- Where possible, have people with impairments test what you're building, whether that's by hiring an external company or consultant or ensuring you have people on the team
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Security</span>
+	
+		Human Centred Security
+		<Notes slot="notes">
+			- When developing security policies, make sure you're remembering the people who are involved
+			- When procedures are convoluted or unclear, it makes it easier for people to be succeptable to social engineering
+			- People with cognitive impairments in particular are at a higher risk as they may miss signs
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security</span>
+	
+		Autofill & Password Managers
+		<Notes slot="notes">
+			- Autofill functionality and password managers are especially useful for people with impairments
+			- And when these features are disabled, it makes it more likely that someone will accidentally enter confidential information to an insecure field
+			- Or people may result to third party solutions to help them, which introduces additional risks of their data being compromised
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security</span>
+	
+		MFA
+		<Notes slot="notes">
+			- When using multi-factor authentication, consider people's capabilities, some people may struggle to access and enter the code before it times out
+			- When receiving an SMS code, sometimes screen readers won't recognise/announce the difference between an upper and lowercase letter, so consider whether it needs to be case sensitive
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<Slide data-style="section"> 
+		## The Hard Data
+
+		<Notes slot="notes">
+			- ⏱️ 25min
+			{/* 3min section */}
+		</Notes>
+	</Slide>
+
+	<Slide>
+		
+		<Notes slot="notes">
+			- A study done by Microsoft and Forrester looked at users with impairments who abandon online purchases due to accessibility issues
+		</Notes>
+	</Slide>
+
+	<Slide>
+		1 million views/day <span class="fragment">→ €2.3 million/year</span>
+		<Notes slot="notes">
+			- The study estimated that an average European company with a website that gets 1 million site visits per day
+			- If they made their website accessible they could increase their revenue but an additional €2.3 million per year 
+			- That's over $3.8 million AUD
+		</Notes>
+	</Slide>
+
+	<Slide>
+		15% of the world
+		<Notes slot="notes">
+			- And it's not just Europe
+			- Earlier we looked at the 15% of the global population with an impairment
+		</Notes>
+	</Slide>
+
+	<Slide>
+		1.2 billion people
+		<Notes slot="notes">
+			- This comes to over 1.2 billion people in the world
+			- These people can make a big difference to your bottom line if they're able to use your product
+			- Forbes has estimated
+			- These people, combined with their friends and family who won't support a company that doesn't support them
+		</Notes>
+	</Slide>
+
+	<Slide>
+		$13 trillion each year
+		<Notes slot="notes">
+			
+			- Have an estimated disposable income of $13 trillion dollars each year
+		</Notes>
+	</Slide>
+
+	<Slide>
+		1,000,000 sites
+		<Notes slot="notes">
+			- Each year, a not-for-profit organisation called WebAIM (Web Accessibility in Mind), they do a study on the top million homepages
+			- In 2025, from those 1 million websites...
+		</Notes>
+	</Slide>
+
+	<Slide>
+		50,960,288 accessibility issues
+		<Notes slot="notes">
+			- ...they found 50 million, 960 thousand, 288 accessibility issues
+			- That's an average of almost 51 errors per site, just on the homepage
+			- https://webaim.org/projects/million/
+		</Notes>
+	</Slide>
+
+	<Slide>
+		94.8% failed
+		<Notes slot="notes">
+			- Of those 1 million websites, 94.8% failed to meet accessibility guidelines
+			- That means that almost 95%, that's 950,000 of these websites were built without considering the billions of people who need accessibility features to use them
+			- This audit was also done using automated testing and therefore not able to test all of the criteria, so chances are this number of inaccessible websites is higher
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## EAA <small>European Accessibility Act</small>
+		<Notes slot="notes">
+			- Another reason to consider a11y is the European Accessibility Act
+			- Comes into effect end of June 2025
+			- Applies to ICT products and services, including websites, apps, software, hardware and more
+			- As Norway isn't a member of the EU, it doesn't technically apply, however if your company has any clients who are based in EU countries, you'll still need to comply
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## <small>Disclaimer:</small><br/> Not a Lawyer
+		<Notes slot="notes">
+			- While I do touch on some topics, there are a lot of legal aspects and implications that I am not remotely qualified to advise on
+			- If the EAA (or another similar legislation) applies to you, or if you want to clarify what applies to you, the first step from your company should be to speak to a lawyer to make sure you're getting accurate info to work with
+		</Notes>
+	</Slide>
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Little Steps</span>
+
+	<Slide data-style="section"> 
+		## Little Steps
+
+		<Notes slot="notes">
+			- ⏱️ 30min
+			{/* 13min section */}
+		</Notes>
+	</Slide>
+
+	<Slide>
+		W<span class="fragment disappear" data-fragment-index="1">eb</span> C<span class="fragment disappear" data-fragment-index="1">ontent</span> A<span class="fragment disappear" data-fragment-index="1">ccessibility</span> G<span class="fragment disappear" data-fragment-index="1">uidelines</span>
+		<Notes slot="notes">
+			- To help ensure websites and apps are accessible, the World Wide Web Consortium (W3C) has developed a set of Guidelines, the Web Content Accessibility Guidelines
+			- These guidelines are developed by industry professionals, some staff and some community members, all of which are developed publicly and openly
+		</Notes>
+	</Slide>
+
+	<Slide>
+		WCAG 2.2
+		<Notes slot="notes">
+			- The most current version of the guidlines is WCAG 2.2 which was published in October 2023
+			- Each version updates to take into account new technologies, for example 2.1 introduced guidelines around animations and motion, while 2.2 introduced guidelines around drag and drop and authentication
+			- Similarly version 3 is being worked on at the moment and will incorporate additional guidelines around mobile devices and more improvements for cognitive impairments
+		</Notes>
+	</Slide>
+
+	<Slide>
+		A - AA - AAA
+		<Notes slot="notes">
+			- These guidelines cover 3 levels of conformance, A, AA and AAA
+			- A is basic accessibility, if you're not meeting this level people with impairments will have serious issues or be incapable of using it at all
+			- AA goes a step further and ensures that people with impairments can use it, although it may not be convenient. If you're working towards an accessibility standard, this is likely what you're working towards
+			- Finally AAA is the highest level, is typically met by organisations who's primary user are people with impairments
+			- Whatever role you are in, it's worth knowing a bit about these guidelines, at the very least that they exist, what level you have to meet and how to test against them
+		</Notes>
+	</Slide>
+
+	<Slide>
+		A - AA - AAA
+		<Notes slot="notes">
+			- If you're complying with the EAA, their web requirements are based off WCAG 2.1 AA standard, with a few extra bits added (again, consult a lawyer and get an accessibility audit done if this applies to you)
+			- There's also work being done to update the guidelines to WCAG version 2.2 so it doesn't hurt to get started on meeting the newer version if you're implementing changes
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={WCAGExplainers}
+		caption="smashingmagazine.com/2023/10/roundup-wcag-explainers"
+	>
+
+		<Notes slot="notes">
+			- As I mentioned, WCAG 2.2 came out a while back, there are a bunch of great explainers that go through the guidelines and what the changes are
+		</Notes>
+	</Slide>
+
+	<Slide>
+		A little can go a long way
+		<Notes slot="notes">
+			- A little change can make a huge difference
+			- If you're using a component library, there's a chance that one small fix can resolve hundreds or thousands of issues
+		</Notes>
+	</Slide>
+
+	<Slide>
+		50,960,288 accessibility issues
+		<Notes slot="notes">
+			- Let's take a look again at the data from the WebAIM million audit
+			- 50 million, 960 thousand, 288 accessibility issues
+		</Notes>
+	</Slide>
+
+	<Slide>
+		96% easy fixes
+		<Notes slot="notes">
+			- Of those, 96% are easily fixable
+		</Notes>
+	</Slide>
+
+	<Slide>
+		48,921,876 easy fixes
+		<Notes slot="notes">
+			- That's over 48 million issues that can be fixed with a small change
+		</Notes>
+	</Slide>
+
+	<Slide>
+		- Colour Contrast
+		- Missing Alt Text
+		- Empty Links/Buttons
+		- Missing Form Labels
+		- Missing Document Language
+		<Notes slot="notes">
+			- These issues were from insufficient colour contrast, missing alternative text on images, buttons and links that were empty or didn't include a label, missing labels on form inputs and missing document language
+		</Notes>
+	</Slide>
+
+	<Slide type="code" lines="1">
+		```html
+		<!DOCTYPE html>
+		<html>
+			<!-- Page Content -->
+		</html>
+		```
+		<Notes slot="notes">
+			- Doctype is a really easy fix
+			- It's literally the first line of a HTML file
+			- Nearly 1 in 5 websites tested were missing this
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Designers</span>
+
+		Colour Contrast
+		<Notes slot="notes">
+			- Colour contrast compares the difference between the background and text colours to ensure that there's enough difference between the two that they can be easily read
+			- Almost 80% of the sites tested had areas with insufficient colour contrast
+			- WCAG guidelines have a minimum ratio of 4.5:1 to meet AA standard, and 7:1 to meet AAA standard
+			- https://webaim.org/projects/million/
+		</Notes>
+	</Slide>
+
+	<Slide 
+		type="figure"
+		image={Whocanuse}
+		caption="whocanuse.com"
+	>
+		<span slot="header">Developers, Designers</span>
+
+		<Notes slot="notes">
+			- To help determine the colour contrast, there's a great tool Who Can Use, which not only calculates the difference between 2 colours but simulates several different vision impairments and compares those too
+		</Notes>
+	</Slide>
+
+	<Slide type="figure" image={WhocanuseRedgreen} caption="whocanuse.com">
+		<span slot="header">Developers, Designers</span>
+	
+		<Notes slot="notes">
+			- For example, red and green may technically pass AA standard with a ratio of 4.5:1
+			- But if people have a type of colour blindness that affects reds or greens, it may fail
+		</Notes>
+	</Slide>
+
+	<Slide type="figure" image={AccessibleBrandColours} caption="abc.useallfive.com">
+		<span slot="header">Designers, Developers</span>
+	
+		<Notes slot="notes">
+			- There are also plenty of tools out there that can compare brand colours against one another
+			- This is useful to know which colours can be used together and still pass the colour contrast guidelines
+		</Notes>
+	</Slide>
+	
+	<Slide>
+		<span slot="header">Marketing, Content Writing, Developers</span>
+	
+		Alt Text
+		<Notes slot="notes">
+			- Having a text alternative for your images
+			- People who can't see the image miss it
+			- And screen readers or assistive technologies can't describe it to them
+			- And if a picture is worth a thousand words that's a lot of content they're missing
+			- 55.5% of the sites tested were missing the alt text on images
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="my_dog.jpg" />
+		```
+		<Notes slot="notes">
+			- If you don't have one, the screen reader will read out the file name
+			- Which for something like this isn't as bad, although doesn't give much information 
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<img src="/img/3c87e3e6bd8aa927c30257a/07cf2d3891f54ca470d1d9f0.jpg" />
+		```
+		<Notes slot="notes">
+			- And most of the time our images have automatically generated names or paths, which is not remotely helpful and a poor user experience
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="image.jpg" alt="{content}" />
+		```
+		<Notes slot="notes">
+			- Instead we can an alt attribute to the image, giving the user information about the image
+			- This doesn't necessarily mean describing the entire image, but describe the important parts of the image, the intent behind it's inclusion
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<img src="image.jpg" alt="" />
+		```
+		<Notes slot="notes">
+			- If an image isn't conveying any information, and is purely presentational
+			- We use an empty alt attribute, this lets assistive technologies know that it's not important and they'll ignore it altogether
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Marketing, Content Writing, Developers</span>
+	
+		Captions & Descriptions
+		<Notes slot="notes">
+			- As well as text descriptions for images, make sure that your other media has a text alternative as well
+			- Videos and audio recordings can be given captions and transcripts
+			- Again these are beneficial for people other than just those with hearing impairments, I much prefer watching videos with captions, they help me follow what's happening better
+			- And if I don't have headphones, I can still watch a video with captions when I'm on public transport or if I'm at a conference and there's a boring talk on
+			- If you're relying on graphs and charts, make sure there's a text description for them as well, so people who can't see them can still understand the information
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+			<canvas aria-labelledby="label" >
+				<!-- Chart Here -->
+			</canvas>
+			<p class="hidden" id="label">
+				Bar chart that shows that revenue for quarter 4 has doubled from $1 million to $2 million compared with the previous quarter due to accessibility improvements that helped widen customer base.
+			</p>
+
+		```
+		
+		<Notes slot="notes">
+			- You can use attributes like `aria-labelledby` and `aria-describedby` which allow you to link a description with a visual element like an image
+			- This description doesn't need to be visually hidden either, it may be a paragraph of content that already exists explaining it
+		</Notes>
+	</Slide>
+
+	<Slide>
+		## ARIA <small>Accessible Rich Internet Applications</small>
+
+		<Notes slot="notes">
+			- When building things accessibly we often turn to using ARIA attributes
+			- Will touch on ARIA a bit more in the accessibility section
+			- ARIA is a set of roles and attributes that the W3C (World Wide Web Consortium) defined  as part of the Web Accessibity Initiative (WAI) to help make web experiences more accessible
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<div role="header"> </div>
+
+		<div role="button" aria-label="Click me"> </div>
+
+		<div aria-hidden> </div>
+		```
+
+		<Notes slot="notes">
+			- `aria-label` and `role`
+
+			- `aria-hidden` and `aria-invalid`
+
+			- Includes a bunch of states and properties we can use to provide information for screen readers and assistive technologies
+
+			- And while it is good to have this ability, a lot of this has been baked into HTML
+		</Notes>
+	</Slide>
+
+	<Slide type="quote">
+		<blockquote>
+			**First rule of ARIA use**: If you can use a native HTML element with the semantics and behavour **already built in**, instead of repurposing an element and adding an ARIA role, state or property **then do so**.
+
+			<cite>W3C ARIA Guidelines</cite>
+		</blockquote>
+		<Notes slot="notes">
+			- On the note of ARIA, the first official rule of ARIA (from their website) is if you don't have to use it, don't
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html	
+		<div class="nav_menu" role="navigation">
+			<!-- Navigation links go here -->
+		</div>
+
+		<nav>
+			<!-- Navigation links go here -->
+		</nav>
+		```
+	</Slide>
+
+	<Slide>
+		<span slot="header">Designers, Developers</span>
+	
+		Form Labels
+		<Notes slot="notes">
+			- Make sure that your form inputs have labels associated with each input
+			- Even if the design doesn't display them, you can hide the labels visually, and keep them linked so that screen readers know what each input is
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="medium">
+		```html
+		<label for="i_1"> 
+			Enter Information
+		</label>
+		
+		<input id="i_1" name="info" placeholder="Info"/>
+		```
+
+		<Notes slot="notes">
+			- You can link labels with inputs using the `for` and `id` attributes
+			- The `id` attribute is separate from the `name`, and can be randomly generated
+			- The placeholder attribute, while it does display in the field, is not announced by or even recognised by screen readers
+		</Notes>
+	</Slide>
+
+	<Slide type="code" size="small">
+		```html
+		<label for="header_search" class="hidden">Search</label>
+		
+		<input id="header_search" name="search" placeholder="Search" type="search" />
+		```
+		<Notes slot="notes">
+			- Of the tested websites, over 48% were missing labels on form inputs
+			- Which given these are homepages being tested, are probably a lot of search inputs which just need to have a hidden label being added
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		Automated Testing
+		<Notes slot="notes">
+			- If you've got an existing pipeline for automating tests, look at integrating some accessibility testing in there
+			- Start running validations and check to make sure you're not introducing new issues
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		caption="blog.amyskapers.dev/front-end-testing-with-github-actions"
+		image={FenderTesting}
+	>
+		<span slot="header">QA, Testing, DevOps</span>
+	
+		<Notes slot="notes">
+			- Or if you don't have one, here's a blog post to help you get started with a pipeline in GitHub Actions
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		Screen Readers
+		<Notes slot="notes">
+			- It helps to understand what people experience when using a screen reader
+			- There are free or paid options, plus built in to Windows, MacOS, Android and iOS
+			- Try opening up the screen reader
+			- Navigate around the webpage, see what you can find, what you can do, what it tells you about what you can see on the page
+			- If you're feeling up to it, try closing your eyes and see if you can work things out without actually seeing the screen as well
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		video={ScreenReader}
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			
+			- But while this is a useful step to do, it's not the same as people who use screen readers every day
+		</Notes>
+	</Slide>
+	
+	<Slide
+		type="figure"
+		youtube="https://www.youtube.com/embed/q_ATY9gimOM?si=zhyBMZR1V0YCiPm-&amp;start=75&controls=0"
+		caption="youtu.be/q_ATY9gimOM"
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			- Here we have someone who uses a screen reader every day, who relies on it to use their computer
+			- Have a listen to how fast the voice is
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={ScreenReaderDemo}
+		caption="youtu.be/q_ATY9gimOM"
+	>
+		<span slot="header">Project Managers, Product Owners, Developers, QA, Testing</span>
+	
+		<Notes slot="notes">
+			- So get in the practice of using a screen readers
+			- And investigate getting someone in to do it where you can
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		Training
+		<Notes slot="notes">
+			- I'm going to assume that all of you know how important training and personal development is, you've given up your Saturdays to come and learn new things and see some amazing speakers and presentations
+			- There's plenty of options for training and upskilling around accessibility so find one that works for you or your team, in a format that works for them (some people prefer in person workshops, some self paced online, some books/blogs)
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={IntopiaTraining}
+		caption="intopia.digital/services/accessibility-training"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- Intopia is a digital agency that specialises in accessibility, they have a heap of different courses available
+			- These courses target different roles and teams too, including designing, developing, content writing, testing, project management, app development and more
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={PracticalA11y}
+		caption="practical-accessibility.today"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- Sara Soueidan has been working on this online course for a while now and it was released earlier this year
+			- It's targeted at developers and designers
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={FenderWorkshop}
+		caption="amyskapers.dev/front-end-fundamentals-workshop"
+	>
+		<span slot="header">Company Leaders, Managers, HR</span>
+
+		<Notes slot="notes">
+			- I also have a workshop that I run in companies that covers accessibility and accessibility testing in-depth for developers and designers
+		</Notes>
+	</Slide>
+
+	<Slide>
+		<span slot="header">Developers, Security, Project Managers, Product Owners</span>
+	
+		Accessibility Overlays
+		<Notes slot="notes">
+			- I want to make a quick note about accessibility overlays and widgets
+			- These are often used as a "quick fix" to try and make a website accesible
+		</Notes>
+	</Slide>
+
+	<Slide
+		type="figure"
+		image={Overlays}
+		caption="overlayfactsheet.com"
+	>
+		<span slot="header">Developers, Security, Project Managers, Product Owners</span>
+
+		<Notes slot="notes">
+			- Not only do they not fix things and make a website accessible, in many cases they make it significantly worse and override any existing settings the users might already have
+			- They also open a site up to security concerns and potential data breaches
+			- There's a great factsheet about it at overlayfactsheet.com, which also includes quotes of support from accessibility experts all over
+		</Notes>
+	</Slide>
+
+</Slide>
+
+<Slide type="section">
+	<span slot="header">Resources</span>
+
+	<Slide data-style="section"> 
+		## Resources
+
+		<Notes slot="notes">
+			- ⏱️ 40min
+		</Notes>
+	</Slide>	
+
+	<Slide
+		type="figure"
+		caption="kapers.dev/a11y_resources"
+		image={Resources}
+	/>
+</Slide>
+
+<Slide>
+	Accessibility **is** important
+	<Notes slot="notes">
+		- Accessibility is not a "nice to have", a "we'll do it later" or a "additional feature"
+		- Accessibility makes a huge different in the lives of billions of people
+		- And inaccessibility excludes them from the technology that makes the rest of our lives easier
+		- It excludes them from being a part of society and tells them they're not welcome
+	</Notes>
+</Slide>
+
+<Slide>
+	Accessibility is for **everyone**
+	<Notes slot="notes">
+		- And accessibility isn't just for the 1.2 billion people with permanent impairments, it helps all of us and makes all our lives better
+		- Accessibility helps us every day, even when we don't know it
+	</Notes>
+</Slide>
+
+<Slide>
+	Accessibility is **by everyone**
+	<Notes slot="notes">
+		- And most importantly, we can all play a part in making our website, our products, out technologies more accessible
+		- We can all make a change, take a small step, learn one little things that makes a big difference to someone who relies on accessibility to just exist in this technology dependant world
+	</Notes>
+</Slide>
+
+<Slide>
+	Thank You 👏
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>
+
+<Slide 
+	type="figure" 
+	image={Feedback} 
+>
+	<Notes slot="notes">
+		- 
+	</Notes>
+</Slide>

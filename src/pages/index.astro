@@ -15,7 +15,7 @@ type Talk = {
 let talks: Record<string, Talk> = {}
 
 pages.forEach(({frontmatter, url}: MDXInstance<Record<string, any>>) => {
-	if(!url) return;
+	if(!url) return
 
 	const name: string = frontmatter.title
 	const slug: string = url?.replace(/^\//, '')?.split('/')[0]

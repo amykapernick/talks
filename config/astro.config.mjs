@@ -18,7 +18,7 @@ export default defineConfig({
 			alias: [
 				{
 					find: '@mixins',
-					replacement: `./src/styles/mixins/index.css`
+					replacement: new URL('../src/styles/mixins/index.css', import.meta.url).pathname
 				}
 			]
 		}
